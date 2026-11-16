@@ -9,7 +9,7 @@ namespace Square.Models;
 public record SourceApplication
 {
     /// <summary>
-    /// __Read only__ The <see href="https://developer.squareup.com/reference/square_2024-04-17/enums/Product">product</see> type of the application.
+    /// __Read only__ The <see href="https://developer.squareup.com/reference/square_2024-05-15/enums/Product">product</see> type of the application.
     /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("product")]
@@ -17,7 +17,7 @@ public record SourceApplication
 
     /// <summary>
     /// __Read only__ The Square-assigned ID of the application. This field is used only if the
-    /// <see href="https://developer.squareup.com/reference/square_2024-04-17/enums/Product">product</see> type is <c>EXTERNAL_API</c>.
+    /// <see href="https://developer.squareup.com/reference/square_2024-05-15/enums/Product">product</see> type is <c>EXTERNAL_API</c>.
     /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("application_id")]

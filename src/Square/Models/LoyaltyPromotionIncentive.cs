@@ -4,7 +4,7 @@ using Square.Core.Models;
 namespace Square.Models;
 
 /// <summary>
-/// Represents how points for a <see href="https://developer.squareup.com/reference/square_2024-04-17/objects/LoyaltyPromotion">loyalty promotion</see> are calculated,
+/// Represents how points for a <see href="https://developer.squareup.com/reference/square_2024-05-15/objects/LoyaltyPromotion">loyalty promotion</see> are calculated,
 /// either by multiplying the points earned from the base program or by adding a specified number
 /// of points to the points earned from the base program.
 /// </summary>
@@ -17,14 +17,14 @@ public record LoyaltyPromotionIncentive
     public required string Type { get; init; }
 
     /// <summary>
-    /// Represents the metadata for a <c>POINTS_MULTIPLIER</c> type of <see href="https://developer.squareup.com/reference/square_2024-04-17/objects/LoyaltyPromotionIncentive">loyalty promotion incentive</see>.
+    /// Represents the metadata for a <c>POINTS_MULTIPLIER</c> type of <see href="https://developer.squareup.com/reference/square_2024-05-15/objects/LoyaltyPromotionIncentive">loyalty promotion incentive</see>.
     /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("points_multiplier_data")]
     public LoyaltyPromotionIncentivePointsMultiplierData? PointsMultiplierData { get; init; }
 
     /// <summary>
-    /// Represents the metadata for a <c>POINTS_ADDITION</c> type of <see href="https://developer.squareup.com/reference/square_2024-04-17/objects/LoyaltyPromotionIncentive">loyalty promotion incentive</see>.
+    /// Represents the metadata for a <c>POINTS_ADDITION</c> type of <see href="https://developer.squareup.com/reference/square_2024-05-15/objects/LoyaltyPromotionIncentive">loyalty promotion incentive</see>.
     /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("points_addition_data")]

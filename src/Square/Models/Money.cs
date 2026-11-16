@@ -27,7 +27,7 @@ public record Money
     /// The type of currency, in __ISO 4217 format__. For example, the currency
     /// code for US dollars is <c>USD</c>.
     /// <para>
-    /// See <see href="https://developer.squareup.com/reference/square_2024-04-17/enums/Currency">Currency</see> for possible values.
+    /// See <see href="https://developer.squareup.com/reference/square_2024-05-15/enums/Currency">Currency</see> for possible values.
     /// </para>
     /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]

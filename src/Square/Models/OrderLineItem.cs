@@ -64,7 +64,7 @@ public record OrderLineItem
     public string? Note { get; init; }
 
     /// <summary>
-    /// The <see href="https://developer.squareup.com/reference/square_2024-04-17/objects/CatalogItemVariation">CatalogItemVariation</see> ID applied to this line item.
+    /// The <see href="https://developer.squareup.com/reference/square_2024-05-15/objects/CatalogItemVariation">CatalogItemVariation</see> ID applied to this line item.
     /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("catalog_object_id")]
@@ -124,7 +124,7 @@ public record OrderLineItem
     public IReadOnlyDictionary<string, string>? Metadata { get; init; }
 
     /// <summary>
-    /// The <see href="https://developer.squareup.com/reference/square_2024-04-17/objects/CatalogModifier">CatalogModifier</see>s applied to this line item.
+    /// The <see href="https://developer.squareup.com/reference/square_2024-05-15/objects/CatalogModifier">CatalogModifier</see>s applied to this line item.
     /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("modifiers")]

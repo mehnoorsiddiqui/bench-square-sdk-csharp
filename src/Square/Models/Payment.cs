@@ -290,7 +290,7 @@ public record Payment
     public string? EmployeeId { get; init; }
 
     /// <summary>
-    /// An optional ID of the <see href="https://developer.squareup.com/reference/square_2024-04-17/objects/TeamMember">TeamMember</see> associated with taking the payment.
+    /// An optional ID of the <see href="https://developer.squareup.com/reference/square_2024-05-15/objects/TeamMember">TeamMember</see> associated with taking the payment.
     /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("team_member_id")]
@@ -413,6 +413,13 @@ public record Payment
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("version_token")]
     public string? VersionToken { get; init; }
+
+    /// <summary>
+    /// Whether or not this payment was taken offline.
+    /// </summary>
+    [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
+    [JsonPropertyName("is_offline_payment")]
+    public bool? IsOfflinePayment { get; init; }
 
     [JsonExtensionData]
     public AdditionalProperties AdditionalProperties { get; init; } = [];

@@ -70,7 +70,7 @@ public record BatchRetrieveInventoryChangesRequest
     public string? Cursor { get; init; }
 
     /// <summary>
-    /// The number of <see href="https://developer.squareup.com/reference/square_2024-04-17/objects/InventoryChange">records</see> to return.
+    /// The number of <see href="https://developer.squareup.com/reference/square_2024-05-15/objects/InventoryChange">records</see> to return.
     /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("limit")]

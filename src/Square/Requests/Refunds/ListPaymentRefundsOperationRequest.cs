@@ -47,7 +47,7 @@ public sealed record ListPaymentRefundsOperationRequest
 
     /// <summary>
     /// If provided, only refunds with the given status are returned.
-    /// For a list of refund status values, see <see href="https://developer.squareup.com/reference/square_2024-04-17/objects/PaymentRefund">PaymentRefund</see>.
+    /// For a list of refund status values, see <see href="https://developer.squareup.com/reference/square_2024-05-15/objects/PaymentRefund">PaymentRefund</see>.
     /// <para>
     /// Default: If omitted, refunds are returned regardless of their status.
     /// </para>

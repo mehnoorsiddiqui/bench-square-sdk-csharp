@@ -240,8 +240,8 @@ public sealed class Disputes
     /// Submits evidence to the cardholder's bank.
     /// <para>
     /// The evidence submitted by this endpoint includes evidence uploaded
-    /// using the <see href="https://developer.squareup.com/reference/square_2024-04-17/disputes-api/create-dispute-evidence-file">CreateDisputeEvidenceFile</see> and
-    /// <see href="https://developer.squareup.com/reference/square_2024-04-17/disputes-api/create-dispute-evidence-text">CreateDisputeEvidenceText</see> endpoints and
+    /// using the <see href="https://developer.squareup.com/reference/square_2024-05-15/disputes-api/create-dispute-evidence-file">CreateDisputeEvidenceFile</see> and
+    /// <see href="https://developer.squareup.com/reference/square_2024-05-15/disputes-api/create-dispute-evidence-text">CreateDisputeEvidenceText</see> endpoints and
     /// evidence automatically provided by Square, when available. Evidence cannot be removed from
     /// a dispute after submission.
     /// </para>

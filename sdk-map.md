@@ -9,7 +9,7 @@
 | SDK display name | Square |
 | Root namespace | `Square` |
 | Target framework | `netstandard2.0` (C# `LangVersion 14`, `Nullable enable`) |
-| API spec version | `1.0.1` |
+| API spec version | `1.1.0` |
 | Generator | APIMatic |
 
 Staleness check: the API spec version above changes when the SDK is regenerated from a new spec. If a lookup here fails to compile, trust the compiler and re-read the source file named in the row.

@@ -12,7 +12,7 @@ namespace Square.Models;
 public record ListGiftCardsRequest
 {
     /// <summary>
-    /// If a <see href="https://developer.squareup.com/reference/square_2024-04-17/enums/GiftCardType">type</see> is provided, the endpoint returns gift cards of the specified type.
+    /// If a <see href="https://developer.squareup.com/reference/square_2024-05-15/enums/GiftCardType">type</see> is provided, the endpoint returns gift cards of the specified type.
     /// Otherwise, the endpoint returns gift cards of all types.
     /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
@@ -20,7 +20,7 @@ public record ListGiftCardsRequest
     public string? Type { get; init; }
 
     /// <summary>
-    /// If a <see href="https://developer.squareup.com/reference/square_2024-04-17/enums/GiftCardStatus">state</see> is provided, the endpoint returns the gift cards in the specified state.
+    /// If a <see href="https://developer.squareup.com/reference/square_2024-05-15/enums/GiftCardStatus">state</see> is provided, the endpoint returns the gift cards in the specified state.
     /// Otherwise, the endpoint returns the gift cards of all states.
     /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]

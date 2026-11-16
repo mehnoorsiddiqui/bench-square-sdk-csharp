@@ -10,7 +10,7 @@ namespace Square.Models;
 public record SegmentFilter
 {
     /// <summary>
-    /// The ID of the <see href="https://developer.squareup.com/reference/square_2024-04-17/objects/CatalogItemVariation">CatalogItemVariation</see> object representing the service booked in this segment.
+    /// The ID of the <see href="https://developer.squareup.com/reference/square_2024-05-15/objects/CatalogItemVariation">CatalogItemVariation</see> object representing the service booked in this segment.
     /// </summary>
     [JsonPropertyName("service_variation_id")]
     [StringLength(36, MinimumLength = 1)]

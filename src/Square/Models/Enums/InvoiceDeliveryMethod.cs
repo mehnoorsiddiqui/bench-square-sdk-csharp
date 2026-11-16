@@ -5,7 +5,7 @@ using Square.Core.Enum;
 namespace Square.Models.Enums;
 
 /// <summary>
-/// Indicates how Square delivers the <see href="https://developer.squareup.com/reference/square_2024-04-17/objects/Invoice">invoice</see> to the customer.
+/// Indicates how Square delivers the <see href="https://developer.squareup.com/reference/square_2024-05-15/objects/Invoice">invoice</see> to the customer.
 /// </summary>
 [JsonConverter(typeof(StringEnumConverter<InvoiceDeliveryMethod>))]
 public sealed record InvoiceDeliveryMethod : OpenStringEnum<InvoiceDeliveryMethod>

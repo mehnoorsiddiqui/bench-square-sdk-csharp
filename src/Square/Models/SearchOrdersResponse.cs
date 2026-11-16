@@ -6,12 +6,12 @@ namespace Square.Models;
 
 /// <summary>
 /// Either the <c>order_entries</c> or <c>orders</c> field is set, depending on whether
-/// <c>return_entries</c> is set on the <see href="https://developer.squareup.com/reference/square_2024-04-17/orders-api/search-orders">SearchOrdersRequest</see>.
+/// <c>return_entries</c> is set on the <see href="https://developer.squareup.com/reference/square_2024-05-15/orders-api/search-orders">SearchOrdersRequest</see>.
 /// </summary>
 public record SearchOrdersResponse
 {
     /// <summary>
-    /// A list of <see href="https://developer.squareup.com/reference/square_2024-04-17/objects/OrderEntry">OrderEntries</see> that fit the query
+    /// A list of <see href="https://developer.squareup.com/reference/square_2024-05-15/objects/OrderEntry">OrderEntries</see> that fit the query
     /// conditions. The list is populated only if <c>return_entries</c> is set to <c>true</c> in the request.
     /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
@@ -20,7 +20,7 @@ public record SearchOrdersResponse
 
     /// <summary>
     /// A list of
-    /// <see href="https://developer.squareup.com/reference/square_2024-04-17/objects/Order">Order</see> objects that match the query conditions. The list is populated only if
+    /// <see href="https://developer.squareup.com/reference/square_2024-05-15/objects/Order">Order</see> objects that match the query conditions. The list is populated only if
     /// <c>return_entries</c> is set to <c>false</c> in the request.
     /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
@@ -37,7 +37,7 @@ public record SearchOrdersResponse
     public string? Cursor { get; init; }
 
     /// <summary>
-    /// <see href="https://developer.squareup.com/reference/square_2024-04-17/objects/Error">Errors</see> encountered during the search.
+    /// <see href="https://developer.squareup.com/reference/square_2024-05-15/objects/Error">Errors</see> encountered during the search.
     /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("errors")]

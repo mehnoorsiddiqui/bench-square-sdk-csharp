@@ -18,7 +18,7 @@ public record CatalogSubscriptionPlanVariation
     public required string Name { get; init; }
 
     /// <summary>
-    /// A list containing each <see href="https://developer.squareup.com/reference/square_2024-04-17/objects/SubscriptionPhase">SubscriptionPhase</see> for this plan variation.
+    /// A list containing each <see href="https://developer.squareup.com/reference/square_2024-05-15/objects/SubscriptionPhase">SubscriptionPhase</see> for this plan variation.
     /// </summary>
     [JsonPropertyName("phases")]
     public required IReadOnlyList<SubscriptionPhase> Phases { get; init; }

@@ -4,8 +4,8 @@ using Square.Core.Models;
 namespace Square.Models;
 
 /// <summary>
-/// A type-specific filter used in a <see href="https://developer.squareup.com/reference/square_2024-04-17/objects/CustomerCustomAttributeFilter">custom attribute filter</see> to search based on the value
-/// of a customer-related <see href="https://developer.squareup.com/reference/square_2024-04-17/objects/CustomAttribute">custom attribute</see>.
+/// A type-specific filter used in a <see href="https://developer.squareup.com/reference/square_2024-05-15/objects/CustomerCustomAttributeFilter">custom attribute filter</see> to search based on the value
+/// of a customer-related <see href="https://developer.squareup.com/reference/square_2024-05-15/objects/CustomAttribute">custom attribute</see>.
 /// </summary>
 public record CustomerCustomAttributeFilterValue
 {
@@ -74,7 +74,7 @@ public record CustomerCustomAttributeFilterValue
     public bool? Boolean { get; init; }
 
     /// <summary>
-    /// The customer address filter. This filter is used in a <see href="https://developer.squareup.com/reference/square_2024-04-17/objects/CustomerCustomAttributeFilterValue">CustomerCustomAttributeFilterValue</see> filter when
+    /// The customer address filter. This filter is used in a <see href="https://developer.squareup.com/reference/square_2024-05-15/objects/CustomerCustomAttributeFilterValue">CustomerCustomAttributeFilterValue</see> filter when
     /// searching by an <c>Address</c>-type custom attribute.
     /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]

@@ -34,7 +34,7 @@ public record OrderQuantityUnit
 
     /// <summary>
     /// The catalog object ID referencing the
-    /// <see href="https://developer.squareup.com/reference/square_2024-04-17/objects/CatalogMeasurementUnit">CatalogMeasurementUnit</see>.
+    /// <see href="https://developer.squareup.com/reference/square_2024-05-15/objects/CatalogMeasurementUnit">CatalogMeasurementUnit</see>.
     /// <para>
     /// This field is set when this is a catalog-backed measurement unit.
     /// </para>

@@ -4,7 +4,7 @@ using Square.Core.Models;
 namespace Square.Models;
 
 /// <summary>
-/// Represents an action performed on a <see href="https://developer.squareup.com/reference/square_2024-04-17/objects/GiftCard">gift card</see> that affects its state or balance.
+/// Represents an action performed on a <see href="https://developer.squareup.com/reference/square_2024-05-15/objects/GiftCard">gift card</see> that affects its state or balance.
 /// A gift card activity contains information about a specific activity type. For example, a <c>REDEEM</c> activity
 /// includes a <c>redeem_activity_details</c> field that contains information about the redemption.
 /// </summary>
@@ -24,7 +24,7 @@ public record GiftCardActivity
     public required string Type { get; init; }
 
     /// <summary>
-    /// The ID of the <see href="https://developer.squareup.com/reference/square_2024-04-17/objects/Location">business location</see> where the activity occurred.
+    /// The ID of the <see href="https://developer.squareup.com/reference/square_2024-05-15/objects/Location">business location</see> where the activity occurred.
     /// </summary>
     [JsonPropertyName("location_id")]
     public required string LocationId { get; init; }
@@ -65,70 +65,70 @@ public record GiftCardActivity
     public Money? GiftCardBalanceMoney { get; init; }
 
     /// <summary>
-    /// Represents details about a <c>LOAD</c> <see href="https://developer.squareup.com/reference/square_2024-04-17/objects/GiftCardActivityType">gift card activity type</see>.
+    /// Represents details about a <c>LOAD</c> <see href="https://developer.squareup.com/reference/square_2024-05-15/objects/GiftCardActivityType">gift card activity type</see>.
     /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("load_activity_details")]
     public GiftCardActivityLoad? LoadActivityDetails { get; init; }
 
     /// <summary>
-    /// Represents details about an <c>ACTIVATE</c> <see href="https://developer.squareup.com/reference/square_2024-04-17/objects/GiftCardActivityType">gift card activity type</see>.
+    /// Represents details about an <c>ACTIVATE</c> <see href="https://developer.squareup.com/reference/square_2024-05-15/objects/GiftCardActivityType">gift card activity type</see>.
     /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("activate_activity_details")]
     public GiftCardActivityActivate? ActivateActivityDetails { get; init; }
 
     /// <summary>
-    /// Represents details about a <c>REDEEM</c> <see href="https://developer.squareup.com/reference/square_2024-04-17/objects/GiftCardActivityType">gift card activity type</see>.
+    /// Represents details about a <c>REDEEM</c> <see href="https://developer.squareup.com/reference/square_2024-05-15/objects/GiftCardActivityType">gift card activity type</see>.
     /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("redeem_activity_details")]
     public GiftCardActivityRedeem? RedeemActivityDetails { get; init; }
 
     /// <summary>
-    /// Represents details about a <c>CLEAR_BALANCE</c> <see href="https://developer.squareup.com/reference/square_2024-04-17/objects/GiftCardActivityType">gift card activity type</see>.
+    /// Represents details about a <c>CLEAR_BALANCE</c> <see href="https://developer.squareup.com/reference/square_2024-05-15/objects/GiftCardActivityType">gift card activity type</see>.
     /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("clear_balance_activity_details")]
     public GiftCardActivityClearBalance? ClearBalanceActivityDetails { get; init; }
 
     /// <summary>
-    /// Represents details about a <c>DEACTIVATE</c> <see href="https://developer.squareup.com/reference/square_2024-04-17/objects/GiftCardActivityType">gift card activity type</see>.
+    /// Represents details about a <c>DEACTIVATE</c> <see href="https://developer.squareup.com/reference/square_2024-05-15/objects/GiftCardActivityType">gift card activity type</see>.
     /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("deactivate_activity_details")]
     public GiftCardActivityDeactivate? DeactivateActivityDetails { get; init; }
 
     /// <summary>
-    /// Represents details about an <c>ADJUST_INCREMENT</c> <see href="https://developer.squareup.com/reference/square_2024-04-17/objects/GiftCardActivityType">gift card activity type</see>.
+    /// Represents details about an <c>ADJUST_INCREMENT</c> <see href="https://developer.squareup.com/reference/square_2024-05-15/objects/GiftCardActivityType">gift card activity type</see>.
     /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("adjust_increment_activity_details")]
     public GiftCardActivityAdjustIncrement? AdjustIncrementActivityDetails { get; init; }
 
     /// <summary>
-    /// Represents details about an <c>ADJUST_DECREMENT</c> <see href="https://developer.squareup.com/reference/square_2024-04-17/objects/GiftCardActivityType">gift card activity type</see>.
+    /// Represents details about an <c>ADJUST_DECREMENT</c> <see href="https://developer.squareup.com/reference/square_2024-05-15/objects/GiftCardActivityType">gift card activity type</see>.
     /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("adjust_decrement_activity_details")]
     public GiftCardActivityAdjustDecrement? AdjustDecrementActivityDetails { get; init; }
 
     /// <summary>
-    /// Represents details about a <c>REFUND</c> <see href="https://developer.squareup.com/reference/square_2024-04-17/objects/GiftCardActivityType">gift card activity type</see>.
+    /// Represents details about a <c>REFUND</c> <see href="https://developer.squareup.com/reference/square_2024-05-15/objects/GiftCardActivityType">gift card activity type</see>.
     /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("refund_activity_details")]
     public GiftCardActivityRefund? RefundActivityDetails { get; init; }
 
     /// <summary>
-    /// Represents details about an <c>UNLINKED_ACTIVITY_REFUND</c> <see href="https://developer.squareup.com/reference/square_2024-04-17/objects/GiftCardActivityType">gift card activity type</see>.
+    /// Represents details about an <c>UNLINKED_ACTIVITY_REFUND</c> <see href="https://developer.squareup.com/reference/square_2024-05-15/objects/GiftCardActivityType">gift card activity type</see>.
     /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("unlinked_activity_refund_activity_details")]
     public GiftCardActivityUnlinkedActivityRefund? UnlinkedActivityRefundActivityDetails { get; init; }
 
     /// <summary>
-    /// Represents details about an <c>IMPORT</c> <see href="https://developer.squareup.com/reference/square_2024-04-17/objects/GiftCardActivityType">gift card activity type</see>.
+    /// Represents details about an <c>IMPORT</c> <see href="https://developer.squareup.com/reference/square_2024-05-15/objects/GiftCardActivityType">gift card activity type</see>.
     /// This activity type is used when Square imports a third-party gift card, in which case the
     /// <c>gan_source</c> of the gift card is set to <c>OTHER</c>.
     /// </summary>
@@ -137,35 +137,35 @@ public record GiftCardActivity
     public GiftCardActivityImport? ImportActivityDetails { get; init; }
 
     /// <summary>
-    /// Represents details about a <c>BLOCK</c> <see href="https://developer.squareup.com/reference/square_2024-04-17/objects/GiftCardActivityType">gift card activity type</see>.
+    /// Represents details about a <c>BLOCK</c> <see href="https://developer.squareup.com/reference/square_2024-05-15/objects/GiftCardActivityType">gift card activity type</see>.
     /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("block_activity_details")]
     public GiftCardActivityBlock? BlockActivityDetails { get; init; }
 
     /// <summary>
-    /// Represents details about an <c>UNBLOCK</c> <see href="https://developer.squareup.com/reference/square_2024-04-17/objects/GiftCardActivityType">gift card activity type</see>.
+    /// Represents details about an <c>UNBLOCK</c> <see href="https://developer.squareup.com/reference/square_2024-05-15/objects/GiftCardActivityType">gift card activity type</see>.
     /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("unblock_activity_details")]
     public GiftCardActivityUnblock? UnblockActivityDetails { get; init; }
 
     /// <summary>
-    /// Represents details about an <c>IMPORT_REVERSAL</c> <see href="https://developer.squareup.com/reference/square_2024-04-17/objects/GiftCardActivityType">gift card activity type</see>.
+    /// Represents details about an <c>IMPORT_REVERSAL</c> <see href="https://developer.squareup.com/reference/square_2024-05-15/objects/GiftCardActivityType">gift card activity type</see>.
     /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("import_reversal_activity_details")]
     public GiftCardActivityImportReversal? ImportReversalActivityDetails { get; init; }
 
     /// <summary>
-    /// Represents details about a <c>TRANSFER_BALANCE_TO</c> <see href="https://developer.squareup.com/reference/square_2024-04-17/objects/GiftCardActivityType">gift card activity type</see>.
+    /// Represents details about a <c>TRANSFER_BALANCE_TO</c> <see href="https://developer.squareup.com/reference/square_2024-05-15/objects/GiftCardActivityType">gift card activity type</see>.
     /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("transfer_balance_to_activity_details")]
     public GiftCardActivityTransferBalanceTo? TransferBalanceToActivityDetails { get; init; }
 
     /// <summary>
-    /// Represents details about a <c>TRANSFER_BALANCE_FROM</c> <see href="https://developer.squareup.com/reference/square_2024-04-17/objects/GiftCardActivityType">gift card activity type</see>.
+    /// Represents details about a <c>TRANSFER_BALANCE_FROM</c> <see href="https://developer.squareup.com/reference/square_2024-05-15/objects/GiftCardActivityType">gift card activity type</see>.
     /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("transfer_balance_from_activity_details")]

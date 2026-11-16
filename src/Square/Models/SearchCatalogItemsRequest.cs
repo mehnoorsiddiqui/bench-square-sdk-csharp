@@ -6,7 +6,7 @@ using Square.Core.Validation.Attributes;
 namespace Square.Models;
 
 /// <summary>
-/// Defines the request body for the <see href="https://developer.squareup.com/reference/square_2024-04-17/catalog-api/search-catalog-items">SearchCatalogItems</see> endpoint.
+/// Defines the request body for the <see href="https://developer.squareup.com/reference/square_2024-05-15/catalog-api/search-catalog-items">SearchCatalogItems</see> endpoint.
 /// </summary>
 public record SearchCatalogItemsRequest
 {
@@ -72,7 +72,7 @@ public record SearchCatalogItemsRequest
     /// <summary>
     /// The customer-attribute filter to return items or item variations matching the specified
     /// custom attribute expressions. A maximum number of 10 custom attribute expressions are supported in
-    /// a single call to the <see href="https://developer.squareup.com/reference/square_2024-04-17/catalog-api/search-catalog-items">SearchCatalogItems</see> endpoint.
+    /// a single call to the <see href="https://developer.squareup.com/reference/square_2024-05-15/catalog-api/search-catalog-items">SearchCatalogItems</see> endpoint.
     /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("custom_attribute_filters")]

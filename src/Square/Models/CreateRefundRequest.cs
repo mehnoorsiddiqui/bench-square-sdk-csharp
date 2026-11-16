@@ -6,9 +6,9 @@ namespace Square.Models;
 
 /// <summary>
 /// Defines the body parameters that can be included in
-/// a request to the <see href="https://developer.squareup.com/reference/square_2024-04-17/transactions-api/create-refund">CreateRefund</see> endpoint.
+/// a request to the <see href="https://developer.squareup.com/reference/square_2024-05-15/transactions-api/create-refund">CreateRefund</see> endpoint.
 /// <para>
-/// Deprecated - recommend using <see href="https://developer.squareup.com/reference/square_2024-04-17/refunds-api/refund-payment">RefundPayment</see>
+/// Deprecated - recommend using <see href="https://developer.squareup.com/reference/square_2024-05-15/refunds-api/refund-payment">RefundPayment</see>
 /// </para>
 /// </summary>
 public record CreateRefundRequest
@@ -32,7 +32,7 @@ public record CreateRefundRequest
     /// <summary>
     /// The ID of the tender to refund.
     /// <para>
-    /// A <see href="https://developer.squareup.com/reference/square_2024-04-17/objects/Transaction"><c>Transaction</c></see> has one or more <c>tenders</c> (i.e., methods
+    /// A <see href="https://developer.squareup.com/reference/square_2024-05-15/objects/Transaction"><c>Transaction</c></see> has one or more <c>tenders</c> (i.e., methods
     /// of payment) associated with it, and you refund each tender separately with
     /// the Connect API.
     /// </para>

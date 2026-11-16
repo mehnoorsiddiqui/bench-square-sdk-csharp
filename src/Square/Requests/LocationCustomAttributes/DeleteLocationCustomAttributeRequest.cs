@@ -6,7 +6,7 @@ namespace Square.Requests.LocationCustomAttributes;
 public sealed record DeleteLocationCustomAttributeRequest
 {
     /// <summary>
-    /// The ID of the target <see href="https://developer.squareup.com/reference/square_2024-04-17/objects/Location">location</see>.
+    /// The ID of the target <see href="https://developer.squareup.com/reference/square_2024-05-15/objects/Location">location</see>.
     /// </summary>
     public required string LocationId { get; init; }
 

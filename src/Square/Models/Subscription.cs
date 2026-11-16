@@ -30,14 +30,14 @@ public record Subscription
     public string? LocationId { get; init; }
 
     /// <summary>
-    /// The ID of the subscribed-to <see href="https://developer.squareup.com/reference/square_2024-04-17/objects/CatalogSubscriptionPlanVariation">subscription plan variation</see>.
+    /// The ID of the subscribed-to <see href="https://developer.squareup.com/reference/square_2024-05-15/objects/CatalogSubscriptionPlanVariation">subscription plan variation</see>.
     /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("plan_variation_id")]
     public string? PlanVariationId { get; init; }
 
     /// <summary>
-    /// The ID of the subscribing <see href="https://developer.squareup.com/reference/square_2024-04-17/objects/Customer">customer</see> profile.
+    /// The ID of the subscribing <see href="https://developer.squareup.com/reference/square_2024-05-15/objects/Customer">customer</see> profile.
     /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("customer_id")]
@@ -98,7 +98,7 @@ public record Subscription
     public string? TaxPercentage { get; init; }
 
     /// <summary>
-    /// The IDs of the <see href="https://developer.squareup.com/reference/square_2024-04-17/objects/Invoice">invoices</see> created for the
+    /// The IDs of the <see href="https://developer.squareup.com/reference/square_2024-05-15/objects/Invoice">invoices</see> created for the
     /// subscription, listed in order when the invoices were created
     /// (newest invoices appear first).
     /// </summary>
@@ -135,7 +135,7 @@ public record Subscription
     public string? CreatedAt { get; init; }
 
     /// <summary>
-    /// The ID of the <see href="https://developer.squareup.com/reference/square_2024-04-17/objects/Customer">subscriber's</see> <see href="https://developer.squareup.com/reference/square_2024-04-17/objects/Card">card</see>
+    /// The ID of the <see href="https://developer.squareup.com/reference/square_2024-05-15/objects/Customer">subscriber's</see> <see href="https://developer.squareup.com/reference/square_2024-05-15/objects/Card">card</see>
     /// used to charge for the subscription.
     /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
@@ -160,9 +160,9 @@ public record Subscription
 
     /// <summary>
     /// The list of scheduled actions on this subscription. It is set only in the response from
-    /// <see href="https://developer.squareup.com/reference/square_2024-04-17/subscriptions-api/retrieve-subscription">RetrieveSubscription</see> with the query parameter
+    /// <see href="https://developer.squareup.com/reference/square_2024-05-15/subscriptions-api/retrieve-subscription">RetrieveSubscription</see> with the query parameter
     /// of <c>include=actions</c> or from
-    /// <see href="https://developer.squareup.com/reference/square_2024-04-17/subscriptions-api/search-subscriptions">SearchSubscriptions</see> with the input parameter
+    /// <see href="https://developer.squareup.com/reference/square_2024-05-15/subscriptions-api/search-subscriptions">SearchSubscriptions</see> with the input parameter
     /// of <c>include:["actions"]</c>.
     /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]

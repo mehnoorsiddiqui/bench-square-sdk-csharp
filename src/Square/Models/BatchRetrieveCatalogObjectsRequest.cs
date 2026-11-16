@@ -37,7 +37,7 @@ public record BatchRetrieveCatalogObjectsRequest
     /// <summary>
     /// The specific version of the catalog objects to be included in the response.
     /// This allows you to retrieve historical versions of objects. The specified version value is matched against
-    /// the <see href="https://developer.squareup.com/reference/square_2024-04-17/objects/CatalogObject">CatalogObject</see>s' <c>version</c> attribute. If not included, results will
+    /// the <see href="https://developer.squareup.com/reference/square_2024-05-15/objects/CatalogObject">CatalogObject</see>s' <c>version</c> attribute. If not included, results will
     /// be from the current version of the catalog.
     /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]

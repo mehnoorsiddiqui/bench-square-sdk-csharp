@@ -36,7 +36,7 @@ public sealed class GiftCards
     /// <exception cref="ApiException{TError}"> of <see cref="RawError"/> when the server returns an error response.</exception>
     /// <remarks>
     /// Creates a digital gift card or registers a physical (plastic) gift card. After the gift card
-    /// is created, you must call <see href="https://developer.squareup.com/reference/square_2024-04-17/gift-card-activities-api/create-gift-card-activity">CreateGiftCardActivity</see>
+    /// is created, you must call <see href="https://developer.squareup.com/reference/square_2024-05-15/gift-card-activities-api/create-gift-card-activity">CreateGiftCardActivity</see>
     /// to activate the card with an initial balance before it can be used for payment.
     /// </remarks>
     public Task<CreateGiftCardResponse> CreateGiftCard(CreateGiftCardOperationRequest request,

@@ -4,7 +4,7 @@ using Square.Core.Models;
 namespace Square.Models;
 
 /// <summary>
-/// Defines a sorter used to sort results from <see href="https://developer.squareup.com/reference/square_2024-04-17/vendors-api/search-vendors">SearchVendors</see>.
+/// Defines a sorter used to sort results from <see href="https://developer.squareup.com/reference/square_2024-05-15/vendors-api/search-vendors">SearchVendors</see>.
 /// </summary>
 public record SearchVendorsRequestSort
 {

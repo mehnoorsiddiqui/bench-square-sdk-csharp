@@ -5,18 +5,18 @@ using Square.Core.Models;
 namespace Square.Models;
 
 /// <summary>
-/// Represents the rule of conversion between a stockable <see href="https://developer.squareup.com/reference/square_2024-04-17/objects/CatalogItemVariation">CatalogItemVariation</see>
+/// Represents the rule of conversion between a stockable <see href="https://developer.squareup.com/reference/square_2024-05-15/objects/CatalogItemVariation">CatalogItemVariation</see>
 /// and a non-stockable sell-by or receive-by <c>CatalogItemVariation</c> that
 /// share the same underlying stock.
 /// </summary>
 public record CatalogStockConversion
 {
     /// <summary>
-    /// References to the stockable <see href="https://developer.squareup.com/reference/square_2024-04-17/objects/CatalogItemVariation">CatalogItemVariation</see>
+    /// References to the stockable <see href="https://developer.squareup.com/reference/square_2024-05-15/objects/CatalogItemVariation">CatalogItemVariation</see>
     /// for this stock conversion. Selling, receiving or recounting the non-stockable <c>CatalogItemVariation</c>
     /// defined with a stock conversion results in adjustments of this stockable <c>CatalogItemVariation</c>.
     /// This immutable field must reference a stockable <c>CatalogItemVariation</c>
-    /// that shares the parent <see href="https://developer.squareup.com/reference/square_2024-04-17/objects/CatalogItem">CatalogItem</see> of the converted <c>CatalogItemVariation.</c>
+    /// that shares the parent <see href="https://developer.squareup.com/reference/square_2024-05-15/objects/CatalogItem">CatalogItem</see> of the converted <c>CatalogItemVariation.</c>
     /// </summary>
     [JsonPropertyName("stockable_item_variation_id")]
     [MinLength(1)]
@@ -33,7 +33,7 @@ public record CatalogStockConversion
     public required string StockableQuantity { get; init; }
 
     /// <summary>
-    /// The converted equivalent quantity of the non-stockable <see href="https://developer.squareup.com/reference/square_2024-04-17/objects/CatalogItemVariation">CatalogItemVariation</see>
+    /// The converted equivalent quantity of the non-stockable <see href="https://developer.squareup.com/reference/square_2024-05-15/objects/CatalogItemVariation">CatalogItemVariation</see>
     /// in its measurement unit. The <c>stockable_quantity</c> value and this <c>nonstockable_quantity</c> value together
     /// define the conversion ratio between stockable item variation and the non-stockable item variation.
     /// It accepts a decimal number in a string format that can take up to 10 digits before the decimal point

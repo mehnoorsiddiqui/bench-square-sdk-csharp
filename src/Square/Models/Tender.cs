@@ -118,7 +118,7 @@ public record Tender
     /// <summary>
     /// Represents the details of a tender with <c>type</c> <c>BANK_ACCOUNT</c>.
     /// <para>
-    /// See <see href="https://developer.squareup.com/reference/square_2024-04-17/objects/BankAccountPaymentDetails">BankAccountPaymentDetails</see>
+    /// See <see href="https://developer.squareup.com/reference/square_2024-05-15/objects/BankAccountPaymentDetails">BankAccountPaymentDetails</see>
     /// for more exposed details of a bank account payment.
     /// </para>
     /// </summary>
@@ -149,7 +149,7 @@ public record Tender
     public IReadOnlyList<AdditionalRecipient>? AdditionalRecipients { get; init; }
 
     /// <summary>
-    /// The ID of the <see href="https://developer.squareup.com/reference/square_2024-04-17/objects/Payment">Payment</see> that corresponds to this tender.
+    /// The ID of the <see href="https://developer.squareup.com/reference/square_2024-05-15/objects/Payment">Payment</see> that corresponds to this tender.
     /// This value is only present for payments created with the v2 Payments API.
     /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]

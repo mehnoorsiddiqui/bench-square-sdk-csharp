@@ -13,7 +13,7 @@ public record InventoryCount
 {
     /// <summary>
     /// The Square-generated ID of the
-    /// <see href="https://developer.squareup.com/reference/square_2024-04-17/objects/CatalogObject">CatalogObject</see> being tracked.
+    /// <see href="https://developer.squareup.com/reference/square_2024-05-15/objects/CatalogObject">CatalogObject</see> being tracked.
     /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("catalog_object_id")]
@@ -21,7 +21,7 @@ public record InventoryCount
     public string? CatalogObjectId { get; init; }
 
     /// <summary>
-    /// The <see href="https://developer.squareup.com/reference/square_2024-04-17/enums/CatalogObjectType">type</see> of the <see href="https://developer.squareup.com/reference/square_2024-04-17/objects/CatalogObject">CatalogObject</see> being tracked.
+    /// The <see href="https://developer.squareup.com/reference/square_2024-05-15/enums/CatalogObjectType">type</see> of the <see href="https://developer.squareup.com/reference/square_2024-05-15/objects/CatalogObject">CatalogObject</see> being tracked.
     /// <para>
     /// The Inventory API supports setting and reading the <c>"catalog_object_type": "ITEM_VARIATION"</c> field value.
     /// In addition, it can also read the <c>"catalog_object_type": "ITEM"</c> field value that is set by the Square Restaurants app.
@@ -33,7 +33,7 @@ public record InventoryCount
     public string? CatalogObjectType { get; init; }
 
     /// <summary>
-    /// The current <see href="https://developer.squareup.com/reference/square_2024-04-17/enums/InventoryState">inventory state</see> for the related
+    /// The current <see href="https://developer.squareup.com/reference/square_2024-05-15/enums/InventoryState">inventory state</see> for the related
     /// quantity of items.
     /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
@@ -41,7 +41,7 @@ public record InventoryCount
     public string? State { get; init; }
 
     /// <summary>
-    /// The Square-generated ID of the <see href="https://developer.squareup.com/reference/square_2024-04-17/objects/Location">Location</see> where the related
+    /// The Square-generated ID of the <see href="https://developer.squareup.com/reference/square_2024-05-15/objects/Location">Location</see> where the related
     /// quantity of items is being tracked.
     /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
@@ -69,10 +69,10 @@ public record InventoryCount
 
     /// <summary>
     /// Whether the inventory count is for composed variation (TRUE) or not (FALSE). If true, the inventory count will not be present in the response of
-    /// any of these endpoints: <see href="https://developer.squareup.com/reference/square_2024-04-17/inventory-api/batch-change-inventory">BatchChangeInventory</see>,
-    /// <see href="https://developer.squareup.com/reference/square_2024-04-17/inventory-api/batch-retrieve-inventory-changes">BatchRetrieveInventoryChanges</see>,
-    /// <see href="https://developer.squareup.com/reference/square_2024-04-17/inventory-api/batch-retrieve-inventory-counts">BatchRetrieveInventoryCounts</see>, and
-    /// <see href="https://developer.squareup.com/reference/square_2024-04-17/inventory-api/retrieve-inventory-changes">RetrieveInventoryChanges</see>.
+    /// any of these endpoints: <see href="https://developer.squareup.com/reference/square_2024-05-15/inventory-api/batch-change-inventory">BatchChangeInventory</see>,
+    /// <see href="https://developer.squareup.com/reference/square_2024-05-15/inventory-api/batch-retrieve-inventory-changes">BatchRetrieveInventoryChanges</see>,
+    /// <see href="https://developer.squareup.com/reference/square_2024-05-15/inventory-api/batch-retrieve-inventory-counts">BatchRetrieveInventoryCounts</see>, and
+    /// <see href="https://developer.squareup.com/reference/square_2024-05-15/inventory-api/retrieve-inventory-changes">RetrieveInventoryChanges</see>.
     /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("is_estimated")]

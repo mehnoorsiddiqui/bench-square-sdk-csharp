@@ -20,7 +20,7 @@ public record BulkDeleteOrderCustomAttributesRequestDeleteCustomAttribute
     public string? Key { get; init; }
 
     /// <summary>
-    /// The ID of the target <see href="https://developer.squareup.com/reference/square_2024-04-17/objects/Order">order</see>.
+    /// The ID of the target <see href="https://developer.squareup.com/reference/square_2024-05-15/objects/Order">order</see>.
     /// </summary>
     [JsonPropertyName("order_id")]
     [StringLength(255, MinimumLength = 1)]

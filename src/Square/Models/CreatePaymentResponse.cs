@@ -5,7 +5,7 @@ using Square.Core.Models;
 namespace Square.Models;
 
 /// <summary>
-/// Defines the response returned by <see href="https://developer.squareup.com/reference/square_2024-04-17/payments-api/create-payment">CreatePayment</see>.
+/// Defines the response returned by <see href="https://developer.squareup.com/reference/square_2024-05-15/payments-api/create-payment">CreatePayment</see>.
 /// <para>
 /// If there are errors processing the request, the <c>payment</c> field might not be
 /// present, or it might be present with a status of <c>FAILED</c>.

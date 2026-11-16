@@ -5,7 +5,7 @@ using Square.Core.Validation.Attributes;
 namespace Square.Models;
 
 /// <summary>
-/// Represents an accrual rule, which defines how buyers can earn points from the base <see href="https://developer.squareup.com/reference/square_2024-04-17/objects/LoyaltyProgram">loyalty program</see>.
+/// Represents an accrual rule, which defines how buyers can earn points from the base <see href="https://developer.squareup.com/reference/square_2024-05-15/objects/LoyaltyProgram">loyalty program</see>.
 /// </summary>
 public record LoyaltyProgramAccrualRule
 {

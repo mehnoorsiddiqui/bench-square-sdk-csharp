@@ -11,14 +11,14 @@ namespace Square.Models;
 public record LoyaltyEventCreateReward
 {
     /// <summary>
-    /// The ID of the <see href="https://developer.squareup.com/reference/square_2024-04-17/objects/LoyaltyProgram">loyalty program</see>.
+    /// The ID of the <see href="https://developer.squareup.com/reference/square_2024-05-15/objects/LoyaltyProgram">loyalty program</see>.
     /// </summary>
     [JsonPropertyName("loyalty_program_id")]
     [StringLength(36, MinimumLength = 1)]
     public required string LoyaltyProgramId { get; init; }
 
     /// <summary>
-    /// The Square-assigned ID of the created <see href="https://developer.squareup.com/reference/square_2024-04-17/objects/LoyaltyReward">loyalty reward</see>.
+    /// The Square-assigned ID of the created <see href="https://developer.squareup.com/reference/square_2024-05-15/objects/LoyaltyReward">loyalty reward</see>.
     /// This field is returned only if the event source is <c>LOYALTY_API</c>.
     /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]

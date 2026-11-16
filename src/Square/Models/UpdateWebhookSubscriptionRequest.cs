@@ -4,7 +4,7 @@ using Square.Core.Models;
 namespace Square.Models;
 
 /// <summary>
-/// Updates a <see href="https://developer.squareup.com/reference/square_2024-04-17/objects/WebhookSubscription">Subscription</see>.
+/// Updates a <see href="https://developer.squareup.com/reference/square_2024-05-15/objects/WebhookSubscription">Subscription</see>.
 /// </summary>
 public record UpdateWebhookSubscriptionRequest
 {

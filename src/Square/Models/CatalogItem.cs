@@ -6,7 +6,7 @@ using Square.Core.Models;
 namespace Square.Models;
 
 /// <summary>
-/// A <see href="https://developer.squareup.com/reference/square_2024-04-17/objects/CatalogObject">CatalogObject</see> instance of the <c>ITEM</c> type, also referred to as an item, in the catalog.
+/// A <see href="https://developer.squareup.com/reference/square_2024-05-15/objects/CatalogObject">CatalogObject</see> instance of the <c>ITEM</c> type, also referred to as an item, in the catalog.
 /// </summary>
 public record CatalogItem
 {
@@ -22,7 +22,7 @@ public record CatalogItem
     /// The item's description. This is a searchable attribute for use in applicable query filters, and its value length is of Unicode code points.
     /// <para>
     /// Deprecated at 2022-07-20, this field is planned to retire in 6 months. You should migrate to use <c>description_html</c> to set the description
-    /// of the <see href="https://developer.squareup.com/reference/square_2024-04-17/objects/CatalogItem">CatalogItem</see> instance.  The <c>description</c> and <c>description_html</c> field values are kept in sync. If you try to
+    /// of the <see href="https://developer.squareup.com/reference/square_2024-05-15/objects/CatalogItem">CatalogItem</see> instance.  The <c>description</c> and <c>description_html</c> field values are kept in sync. If you try to
     /// set the both fields, the <c>description_html</c> text value overwrites the <c>description</c> value. Updates in one field are also reflected in the other,
     /// except for when you use an early version before Square API 2022-07-20 and <c>description_html</c> is set to blank, setting the <c>description</c> value to null
     /// does not nullify <c>description_html</c>.
@@ -97,7 +97,7 @@ public record CatalogItem
     public IReadOnlyList<CatalogItemModifierListInfo>? ModifierListInfo { get; init; }
 
     /// <summary>
-    /// A list of <see href="https://developer.squareup.com/reference/square_2024-04-17/objects/CatalogItemVariation">CatalogItemVariation</see> objects for this item. An item must have
+    /// A list of <see href="https://developer.squareup.com/reference/square_2024-05-15/objects/CatalogItemVariation">CatalogItemVariation</see> objects for this item. An item must have
     /// at least one variation.
     /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
@@ -246,6 +246,13 @@ public record CatalogItem
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("reporting_category")]
     public CatalogObjectCategory? ReportingCategory { get; init; }
+
+    /// <summary>
+    /// Indicates whether the item is taxable (<c>true</c>) or non-taxable (<c>false</c>). Default is <c>true</c>.
+    /// </summary>
+    [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
+    [JsonPropertyName("is_taxable")]
+    public bool? IsTaxable { get; init; }
 
     [JsonExtensionData]
     public AdditionalProperties AdditionalProperties { get; init; } = [];

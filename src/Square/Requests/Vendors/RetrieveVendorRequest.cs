@@ -6,7 +6,7 @@ namespace Square.Requests.Vendors;
 public sealed record RetrieveVendorRequest
 {
     /// <summary>
-    /// ID of the <see href="https://developer.squareup.com/reference/square_2024-04-17/objects/Vendor">Vendor</see> to retrieve.
+    /// ID of the <see href="https://developer.squareup.com/reference/square_2024-05-15/objects/Vendor">Vendor</see> to retrieve.
     /// </summary>
     public required string VendorId { get; init; }
 }

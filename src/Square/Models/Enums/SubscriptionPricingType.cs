@@ -5,7 +5,7 @@ using Square.Core.Enum;
 namespace Square.Models.Enums;
 
 /// <summary>
-/// Determines the pricing of a <see href="https://developer.squareup.com/reference/square_2024-04-17/objects/Subscription">Subscription</see>
+/// Determines the pricing of a <see href="https://developer.squareup.com/reference/square_2024-05-15/objects/Subscription">Subscription</see>
 /// </summary>
 [JsonConverter(typeof(StringEnumConverter<SubscriptionPricingType>))]
 public sealed record SubscriptionPricingType : OpenStringEnum<SubscriptionPricingType>

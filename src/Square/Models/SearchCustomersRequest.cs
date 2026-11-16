@@ -35,7 +35,7 @@ public record SearchCustomersRequest
     public long? Limit { get; init; }
 
     /// <summary>
-    /// Represents filtering and sorting criteria for a <see href="https://developer.squareup.com/reference/square_2024-04-17/customers-api/search-customers">SearchCustomers</see> request.
+    /// Represents filtering and sorting criteria for a <see href="https://developer.squareup.com/reference/square_2024-05-15/customers-api/search-customers">SearchCustomers</see> request.
     /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("query")]

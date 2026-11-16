@@ -5,7 +5,7 @@ using Square.Core.Models;
 namespace Square.Models;
 
 /// <summary>
-/// Represents a <see href="https://developer.squareup.com/reference/square_2024-04-17/merchant-custom-attributes-api/bulk-upsert-merchant-custom-attributes">BulkUpsertMerchantCustomAttributes</see> request.
+/// Represents a <see href="https://developer.squareup.com/reference/square_2024-05-15/merchant-custom-attributes-api/bulk-upsert-merchant-custom-attributes">BulkUpsertMerchantCustomAttributes</see> request.
 /// </summary>
 public record BulkUpsertMerchantCustomAttributesRequest
 {

@@ -7,7 +7,7 @@ namespace Square.Models;
 /// <summary>
 /// A filter based on the order <c>customer_id</c> and any tender <c>customer_id</c>
 /// associated with the order. It does not filter based on the
-/// <see href="https://developer.squareup.com/reference/square_2024-04-17/objects/FulfillmentRecipient">FulfillmentRecipient</see> <c>customer_id</c>.
+/// <see href="https://developer.squareup.com/reference/square_2024-05-15/objects/FulfillmentRecipient">FulfillmentRecipient</see> <c>customer_id</c>.
 /// </summary>
 public record SearchOrdersCustomerFilter
 {

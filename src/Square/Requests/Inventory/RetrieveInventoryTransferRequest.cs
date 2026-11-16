@@ -6,7 +6,7 @@ namespace Square.Requests.Inventory;
 public sealed record RetrieveInventoryTransferRequest
 {
     /// <summary>
-    /// ID of the <see href="https://developer.squareup.com/reference/square_2024-04-17/objects/InventoryTransfer">InventoryTransfer</see> to retrieve.
+    /// ID of the <see href="https://developer.squareup.com/reference/square_2024-05-15/objects/InventoryTransfer">InventoryTransfer</see> to retrieve.
     /// </summary>
     public required string TransferId { get; init; }
 }

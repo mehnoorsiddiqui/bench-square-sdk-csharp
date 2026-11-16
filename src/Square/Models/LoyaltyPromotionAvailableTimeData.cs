@@ -6,7 +6,7 @@ namespace Square.Models;
 
 /// <summary>
 /// Represents scheduling information that determines when purchases can qualify to earn points
-/// from a <see href="https://developer.squareup.com/reference/square_2024-04-17/objects/LoyaltyPromotion">loyalty promotion</see>.
+/// from a <see href="https://developer.squareup.com/reference/square_2024-05-15/objects/LoyaltyPromotion">loyalty promotion</see>.
 /// </summary>
 public record LoyaltyPromotionAvailableTimeData
 {

@@ -5,13 +5,13 @@ using Square.Core.Models;
 namespace Square.Models;
 
 /// <summary>
-/// Represents a contact of a <see href="https://developer.squareup.com/reference/square_2024-04-17/objects/Vendor">Vendor</see>.
+/// Represents a contact of a <see href="https://developer.squareup.com/reference/square_2024-05-15/objects/Vendor">Vendor</see>.
 /// </summary>
 public record VendorContact
 {
     /// <summary>
-    /// A unique Square-generated ID for the <see href="https://developer.squareup.com/reference/square_2024-04-17/objects/VendorContact">VendorContact</see>.
-    /// This field is required when attempting to update a <see href="https://developer.squareup.com/reference/square_2024-04-17/objects/VendorContact">VendorContact</see>.
+    /// A unique Square-generated ID for the <see href="https://developer.squareup.com/reference/square_2024-05-15/objects/VendorContact">VendorContact</see>.
+    /// This field is required when attempting to update a <see href="https://developer.squareup.com/reference/square_2024-05-15/objects/VendorContact">VendorContact</see>.
     /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("id")]
@@ -19,8 +19,8 @@ public record VendorContact
     public string? Id { get; init; }
 
     /// <summary>
-    /// The name of the <see href="https://developer.squareup.com/reference/square_2024-04-17/objects/VendorContact">VendorContact</see>.
-    /// This field is required when attempting to create a <see href="https://developer.squareup.com/reference/square_2024-04-17/objects/Vendor">Vendor</see>.
+    /// The name of the <see href="https://developer.squareup.com/reference/square_2024-05-15/objects/VendorContact">VendorContact</see>.
+    /// This field is required when attempting to create a <see href="https://developer.squareup.com/reference/square_2024-05-15/objects/Vendor">Vendor</see>.
     /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("name")]
@@ -28,7 +28,7 @@ public record VendorContact
     public string? Name { get; init; }
 
     /// <summary>
-    /// The email address of the <see href="https://developer.squareup.com/reference/square_2024-04-17/objects/VendorContact">VendorContact</see>.
+    /// The email address of the <see href="https://developer.squareup.com/reference/square_2024-05-15/objects/VendorContact">VendorContact</see>.
     /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("email_address")]
@@ -36,7 +36,7 @@ public record VendorContact
     public string? EmailAddress { get; init; }
 
     /// <summary>
-    /// The phone number of the <see href="https://developer.squareup.com/reference/square_2024-04-17/objects/VendorContact">VendorContact</see>.
+    /// The phone number of the <see href="https://developer.squareup.com/reference/square_2024-05-15/objects/VendorContact">VendorContact</see>.
     /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("phone_number")]
@@ -44,14 +44,14 @@ public record VendorContact
     public string? PhoneNumber { get; init; }
 
     /// <summary>
-    /// The state of the <see href="https://developer.squareup.com/reference/square_2024-04-17/objects/VendorContact">VendorContact</see>.
+    /// The state of the <see href="https://developer.squareup.com/reference/square_2024-05-15/objects/VendorContact">VendorContact</see>.
     /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("removed")]
     public bool? Removed { get; init; }
 
     /// <summary>
-    /// The ordinal of the <see href="https://developer.squareup.com/reference/square_2024-04-17/objects/VendorContact">VendorContact</see>.
+    /// The ordinal of the <see href="https://developer.squareup.com/reference/square_2024-05-15/objects/VendorContact">VendorContact</see>.
     /// </summary>
     [JsonPropertyName("ordinal")]
     public required int Ordinal { get; init; }

@@ -9,7 +9,7 @@ public record RetrieveEmployeeResponse
     /// <summary>
     /// An employee object that is used by the external API.
     /// <para>
-    /// DEPRECATED at version 2020-08-26. Replaced by <see href="https://developer.squareup.com/reference/square_2024-04-17/objects/TeamMember">TeamMember</see>.
+    /// DEPRECATED at version 2020-08-26. Replaced by <see href="https://developer.squareup.com/reference/square_2024-05-15/objects/TeamMember">TeamMember</see>.
     /// </para>
     /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]

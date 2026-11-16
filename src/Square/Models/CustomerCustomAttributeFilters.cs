@@ -5,8 +5,8 @@ using Square.Core.Models;
 namespace Square.Models;
 
 /// <summary>
-/// The custom attribute filters in a set of <see href="https://developer.squareup.com/reference/square_2024-04-17/objects/CustomerFilter">customer filters</see> used in a search query. Use this filter
-/// to search based on <see href="https://developer.squareup.com/reference/square_2024-04-17/objects/CustomAttribute">custom attributes</see> that are assigned to customer profiles. For more information, see
+/// The custom attribute filters in a set of <see href="https://developer.squareup.com/reference/square_2024-05-15/objects/CustomerFilter">customer filters</see> used in a search query. Use this filter
+/// to search based on <see href="https://developer.squareup.com/reference/square_2024-05-15/objects/CustomAttribute">custom attributes</see> that are assigned to customer profiles. For more information, see
 /// <see href="https://developer.squareup.com/docs/customers-api/use-the-api/search-customers#search-by-custom-attribute">Search by custom attribute</see>.
 /// </summary>
 public record CustomerCustomAttributeFilters

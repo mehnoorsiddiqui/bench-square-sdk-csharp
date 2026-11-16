@@ -4,13 +4,13 @@ using Square.Core.Models;
 namespace Square.Models;
 
 /// <summary>
-/// Represents details about a <c>REFUND</c> <see href="https://developer.squareup.com/reference/square_2024-04-17/objects/GiftCardActivityType">gift card activity type</see>.
+/// Represents details about a <c>REFUND</c> <see href="https://developer.squareup.com/reference/square_2024-05-15/objects/GiftCardActivityType">gift card activity type</see>.
 /// </summary>
 public record GiftCardActivityRefund
 {
     /// <summary>
     /// The ID of the refunded <c>REDEEM</c> gift card activity. Square populates this field if the
-    /// <c>payment_id</c> in the corresponding <see href="https://developer.squareup.com/reference/square_2024-04-17/refunds-api/refund-payment">RefundPayment</see> request
+    /// <c>payment_id</c> in the corresponding <see href="https://developer.squareup.com/reference/square_2024-05-15/refunds-api/refund-payment">RefundPayment</see> request
     /// represents a redemption made by the same gift card. Note that you must use <c>RefundPayment</c>
     /// to refund a gift card payment to the same gift card if the payment was processed by Square.
     /// <para>

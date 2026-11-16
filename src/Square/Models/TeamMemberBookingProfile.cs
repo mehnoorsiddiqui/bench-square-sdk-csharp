@@ -10,7 +10,7 @@ namespace Square.Models;
 public record TeamMemberBookingProfile
 {
     /// <summary>
-    /// The ID of the <see href="https://developer.squareup.com/reference/square_2024-04-17/objects/TeamMember">TeamMember</see> object for the team member associated with the booking profile.
+    /// The ID of the <see href="https://developer.squareup.com/reference/square_2024-05-15/objects/TeamMember">TeamMember</see> object for the team member associated with the booking profile.
     /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("team_member_id")]

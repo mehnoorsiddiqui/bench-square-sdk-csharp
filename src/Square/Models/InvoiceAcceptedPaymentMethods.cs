@@ -4,7 +4,7 @@ using Square.Core.Models;
 namespace Square.Models;
 
 /// <summary>
-/// The payment methods that customers can use to pay an <see href="https://developer.squareup.com/reference/square_2024-04-17/objects/Invoice">invoice</see> on the Square-hosted invoice payment page.
+/// The payment methods that customers can use to pay an <see href="https://developer.squareup.com/reference/square_2024-05-15/objects/Invoice">invoice</see> on the Square-hosted invoice payment page.
 /// </summary>
 public record InvoiceAcceptedPaymentMethods
 {
@@ -46,7 +46,7 @@ public record InvoiceAcceptedPaymentMethods
     /// <summary>
     /// Indicates whether Cash App payments are accepted. The default value is <c>false</c>.
     /// <para>
-    /// This payment method is supported only for seller <see href="https://developer.squareup.com/reference/square_2024-04-17/objects/Location">locations</see> in the United States.
+    /// This payment method is supported only for seller <see href="https://developer.squareup.com/reference/square_2024-05-15/objects/Location">locations</see> in the United States.
     /// </para>
     /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]

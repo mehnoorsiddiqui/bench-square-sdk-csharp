@@ -8,7 +8,7 @@ namespace Square.Requests.Loyalty;
 public sealed record RedeemLoyaltyRewardOperationRequest
 {
     /// <summary>
-    /// The ID of the <see href="https://developer.squareup.com/reference/square_2024-04-17/objects/LoyaltyReward">loyalty reward</see> to redeem.
+    /// The ID of the <see href="https://developer.squareup.com/reference/square_2024-05-15/objects/LoyaltyReward">loyalty reward</see> to redeem.
     /// </summary>
     public required string RewardId { get; init; }
 

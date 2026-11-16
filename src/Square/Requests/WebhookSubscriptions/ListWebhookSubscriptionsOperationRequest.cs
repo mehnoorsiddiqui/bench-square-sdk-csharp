@@ -15,13 +15,13 @@ public sealed record ListWebhookSubscriptionsOperationRequest
     public string? Cursor { get; init; }
 
     /// <summary>
-    /// Includes disabled <see href="https://developer.squareup.com/reference/square_2024-04-17/objects/WebhookSubscription">Subscription</see>s.
-    /// By default, all enabled <see href="https://developer.squareup.com/reference/square_2024-04-17/objects/WebhookSubscription">Subscription</see>s are returned.
+    /// Includes disabled <see href="https://developer.squareup.com/reference/square_2024-05-15/objects/WebhookSubscription">Subscription</see>s.
+    /// By default, all enabled <see href="https://developer.squareup.com/reference/square_2024-05-15/objects/WebhookSubscription">Subscription</see>s are returned.
     /// </summary>
     public bool? IncludeDisabled { get; init; }
 
     /// <summary>
-    /// Sorts the returned list by when the <see href="https://developer.squareup.com/reference/square_2024-04-17/objects/WebhookSubscription">Subscription</see> was created with the specified order.
+    /// Sorts the returned list by when the <see href="https://developer.squareup.com/reference/square_2024-05-15/objects/WebhookSubscription">Subscription</see> was created with the specified order.
     /// This field defaults to ASC.
     /// </summary>
     public string? SortOrder { get; init; }

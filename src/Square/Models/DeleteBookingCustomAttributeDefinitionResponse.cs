@@ -5,7 +5,7 @@ using Square.Core.Models;
 namespace Square.Models;
 
 /// <summary>
-/// Represents a <see href="https://developer.squareup.com/reference/square_2024-04-17/booking-custom-attributes-api/delete-booking-custom-attribute-definition">DeleteBookingCustomAttributeDefinition</see> response
+/// Represents a <see href="https://developer.squareup.com/reference/square_2024-05-15/booking-custom-attributes-api/delete-booking-custom-attribute-definition">DeleteBookingCustomAttributeDefinition</see> response
 /// containing error messages when errors occurred during the request. The successful response does not contain any payload.
 /// </summary>
 public record DeleteBookingCustomAttributeDefinitionResponse

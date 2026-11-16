@@ -10,7 +10,7 @@ namespace Square.Models;
 public record LoyaltyProgramAccrualRuleItemVariationData
 {
     /// <summary>
-    /// The ID of the <c>ITEM_VARIATION</c> <see href="https://developer.squareup.com/reference/square_2024-04-17/objects/CatalogObject">catalog object</see> that buyers can purchase to earn
+    /// The ID of the <c>ITEM_VARIATION</c> <see href="https://developer.squareup.com/reference/square_2024-05-15/objects/CatalogObject">catalog object</see> that buyers can purchase to earn
     /// points.
     /// </summary>
     [JsonPropertyName("item_variation_id")]

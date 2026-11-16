@@ -6,7 +6,7 @@ namespace Square.Models;
 
 /// <summary>
 /// Defines the fields that are included in the response body of
-/// a request to the <see href="https://developer.squareup.com/reference/square_2024-04-17/transactions-api/create-refund">CreateRefund</see> endpoint.
+/// a request to the <see href="https://developer.squareup.com/reference/square_2024-05-15/transactions-api/create-refund">CreateRefund</see> endpoint.
 /// <para>
 /// One of <c>errors</c> or <c>refund</c> is present in a given response (never both).
 /// </para>

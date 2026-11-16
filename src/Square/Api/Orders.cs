@@ -35,7 +35,7 @@ public sealed class Orders
     /// <returns>A <see cref="Task{TResult}"/> of <see cref="BatchRetrieveOrdersResponse"/> instance.</returns>
     /// <exception cref="ApiException{TError}"> of <see cref="RawError"/> when the server returns an error response.</exception>
     /// <remarks>
-    /// Retrieves a set of <see href="https://developer.squareup.com/reference/square_2024-04-17/objects/Order">orders</see> by their IDs.
+    /// Retrieves a set of <see href="https://developer.squareup.com/reference/square_2024-05-15/objects/Order">orders</see> by their IDs.
     /// <para>
     /// If a given order ID does not exist, the ID is ignored instead of generating an error.
     /// </para>
@@ -120,14 +120,14 @@ public sealed class Orders
     /// <returns>A <see cref="Task{TResult}"/> of <see cref="CreateOrderResponse"/> instance.</returns>
     /// <exception cref="ApiException{TError}"> of <see cref="RawError"/> when the server returns an error response.</exception>
     /// <remarks>
-    /// Creates a new <see href="https://developer.squareup.com/reference/square_2024-04-17/objects/Order">order</see> that can include information about products for
+    /// Creates a new <see href="https://developer.squareup.com/reference/square_2024-05-15/objects/Order">order</see> that can include information about products for
     /// purchase and settings to apply to the purchase.
     /// <para>
     /// To pay for a created order, see
     /// <see href="https://developer.squareup.com/docs/orders-api/pay-for-orders">Pay for Orders</see>.
     /// </para>
     /// <para>
-    /// You can modify open orders using the <see href="https://developer.squareup.com/reference/square_2024-04-17/orders-api/update-order">UpdateOrder</see> endpoint.
+    /// You can modify open orders using the <see href="https://developer.squareup.com/reference/square_2024-05-15/orders-api/update-order">UpdateOrder</see> endpoint.
     /// </para>
     /// </remarks>
     public Task<CreateOrderResponse> CreateOrder(CreateOrderOperationRequest request,
@@ -155,7 +155,7 @@ public sealed class Orders
     /// <returns>A <see cref="Task{TResult}"/> of <see cref="PayOrderResponse"/> instance.</returns>
     /// <exception cref="ApiException{TError}"> of <see cref="RawError"/> when the server returns an error response.</exception>
     /// <remarks>
-    /// Pay for an <see href="https://developer.squareup.com/reference/square_2024-04-17/objects/Order">order</see> using one or more approved <see href="https://developer.squareup.com/reference/square_2024-04-17/objects/Payment">payments</see>
+    /// Pay for an <see href="https://developer.squareup.com/reference/square_2024-05-15/objects/Order">order</see> using one or more approved <see href="https://developer.squareup.com/reference/square_2024-05-15/objects/Payment">payments</see>
     /// or settle an order with a total of <c>0</c>.
     /// <para>
     /// The total of the <c>payment_ids</c> listed in the request must be equal to the order
@@ -166,7 +166,7 @@ public sealed class Orders
     /// To be used with <c>PayOrder</c>, a payment must:
     /// </para>
     /// <para>
-    /// - Reference the order by specifying the <c>order_id</c> when <see href="https://developer.squareup.com/reference/square_2024-04-17/payments-api/create-payment">creating the payment</see>.
+    /// - Reference the order by specifying the <c>order_id</c> when <see href="https://developer.squareup.com/reference/square_2024-05-15/payments-api/create-payment">creating the payment</see>.
     /// Any approved payments that reference the same <c>order_id</c> not specified in the
     /// <c>payment_ids</c> is canceled.
     /// - Be approved with <see href="https://developer.squareup.com/docs/payments-api/take-payments/card-payments/delayed-capture">delayed capture</see>.
@@ -198,7 +198,7 @@ public sealed class Orders
     /// <returns>A <see cref="Task{TResult}"/> of <see cref="RetrieveOrderResponse"/> instance.</returns>
     /// <exception cref="ApiException{TError}"> of <see cref="RawError"/> when the server returns an error response.</exception>
     /// <remarks>
-    /// Retrieves an <see href="https://developer.squareup.com/reference/square_2024-04-17/objects/Order">Order</see> by ID.
+    /// Retrieves an <see href="https://developer.squareup.com/reference/square_2024-05-15/objects/Order">Order</see> by ID.
     /// </remarks>
     public Task<RetrieveOrderResponse> RetrieveOrder(RetrieveOrderRequest request,
         RequestOptions? requestOptions = null,
@@ -230,14 +230,14 @@ public sealed class Orders
     /// ecosystem (such as Point of Sale, Invoices, and Connect APIs).
     /// <para>
     /// <c>SearchOrders</c> requests need to specify which locations to search and define a
-    /// <see href="https://developer.squareup.com/reference/square_2024-04-17/objects/SearchOrdersQuery">SearchOrdersQuery</see> object that controls
+    /// <see href="https://developer.squareup.com/reference/square_2024-05-15/objects/SearchOrdersQuery">SearchOrdersQuery</see> object that controls
     /// how to sort or filter the results. Your <c>SearchOrdersQuery</c> can:
     /// </para>
     /// <para>
     ///   Set filter criteria.
     ///   Set the sort order.
     ///   Determine whether to return results as complete <c>Order</c> objects or as
-    /// <see href="https://developer.squareup.com/reference/square_2024-04-17/objects/OrderEntry">OrderEntry</see> objects.
+    /// <see href="https://developer.squareup.com/reference/square_2024-05-15/objects/OrderEntry">OrderEntry</see> objects.
     /// </para>
     /// <para>
     /// Note that details for orders processed with Square Point of Sale while in
@@ -271,7 +271,7 @@ public sealed class Orders
     /// <returns>A <see cref="Task{TResult}"/> of <see cref="UpdateOrderResponse"/> instance.</returns>
     /// <exception cref="ApiException{TError}"> of <see cref="RawError"/> when the server returns an error response.</exception>
     /// <remarks>
-    /// Updates an open <see href="https://developer.squareup.com/reference/square_2024-04-17/objects/Order">order</see> by adding, replacing, or deleting
+    /// Updates an open <see href="https://developer.squareup.com/reference/square_2024-05-15/objects/Order">order</see> by adding, replacing, or deleting
     /// fields. Orders with a <c>COMPLETED</c> or <c>CANCELED</c> state cannot be updated.
     /// <para>
     /// An <c>UpdateOrder</c> request requires the following:

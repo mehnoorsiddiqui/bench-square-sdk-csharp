@@ -6,7 +6,7 @@ namespace Square.Models;
 
 /// <summary>
 /// Describes a request to list payments using
-/// <see href="https://developer.squareup.com/reference/square_2024-04-17/payments-api/list-payments">ListPayments</see>.
+/// <see href="https://developer.squareup.com/reference/square_2024-05-15/payments-api/list-payments">ListPayments</see>.
 /// <para>
 /// The maximum results per page is 100.
 /// </para>

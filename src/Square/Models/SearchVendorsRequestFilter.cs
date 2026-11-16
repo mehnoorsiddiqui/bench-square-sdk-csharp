@@ -10,14 +10,14 @@ namespace Square.Models;
 public record SearchVendorsRequestFilter
 {
     /// <summary>
-    /// The names of the <see href="https://developer.squareup.com/reference/square_2024-04-17/objects/Vendor">Vendor</see> objects to retrieve.
+    /// The names of the <see href="https://developer.squareup.com/reference/square_2024-05-15/objects/Vendor">Vendor</see> objects to retrieve.
     /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("name")]
     public IReadOnlyList<string>? Name { get; init; }
 
     /// <summary>
-    /// The statuses of the <see href="https://developer.squareup.com/reference/square_2024-04-17/objects/Vendor">Vendor</see> objects to retrieve.
+    /// The statuses of the <see href="https://developer.squareup.com/reference/square_2024-05-15/objects/Vendor">Vendor</see> objects to retrieve.
     /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("status")]

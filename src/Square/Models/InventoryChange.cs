@@ -6,13 +6,13 @@ namespace Square.Models;
 /// <summary>
 /// Represents a single physical count, inventory, adjustment, or transfer
 /// that is part of the history of inventory changes for a particular
-/// <see href="https://developer.squareup.com/reference/square_2024-04-17/objects/CatalogObject">CatalogObject</see> instance.
+/// <see href="https://developer.squareup.com/reference/square_2024-05-15/objects/CatalogObject">CatalogObject</see> instance.
 /// </summary>
 public record InventoryChange
 {
     /// <summary>
     /// Indicates how the inventory change is applied. See
-    /// <see href="https://developer.squareup.com/reference/square_2024-04-17/enums/InventoryChangeType">InventoryChangeType</see> for all possible values.
+    /// <see href="https://developer.squareup.com/reference/square_2024-05-15/enums/InventoryChangeType">InventoryChangeType</see> for all possible values.
     /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("type")]
@@ -53,7 +53,7 @@ public record InventoryChange
     public CatalogMeasurementUnit? MeasurementUnit { get; init; }
 
     /// <summary>
-    /// The ID of the <see href="https://developer.squareup.com/reference/square_2024-04-17/objects/CatalogMeasurementUnit">CatalogMeasurementUnit</see> object representing the catalog measurement unit associated with the inventory change.
+    /// The ID of the <see href="https://developer.squareup.com/reference/square_2024-05-15/objects/CatalogMeasurementUnit">CatalogMeasurementUnit</see> object representing the catalog measurement unit associated with the inventory change.
     /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("measurement_unit_id")]

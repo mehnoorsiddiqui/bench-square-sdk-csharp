@@ -17,7 +17,7 @@ public record CatalogSubscriptionPlan
     public required string Name { get; init; }
 
     /// <summary>
-    /// A list of SubscriptionPhase containing the <see href="https://developer.squareup.com/reference/square_2024-04-17/objects/SubscriptionPhase">SubscriptionPhase</see> for this plan.
+    /// A list of SubscriptionPhase containing the <see href="https://developer.squareup.com/reference/square_2024-05-15/objects/SubscriptionPhase">SubscriptionPhase</see> for this plan.
     /// This field it required. Not including this field will throw a REQUIRED_FIELD_MISSING error
     /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]

@@ -6,7 +6,7 @@ namespace Square.Models;
 
 /// <summary>
 /// Defines the fields that are included in the response body of
-/// a request to the <see href="https://developer.squareup.com/reference/square_2024-04-17/orders-api/clone-order">CloneOrder</see> endpoint.
+/// a request to the <see href="https://developer.squareup.com/reference/square_2024-05-15/orders-api/clone-order">CloneOrder</see> endpoint.
 /// </summary>
 public record CloneOrderResponse
 {

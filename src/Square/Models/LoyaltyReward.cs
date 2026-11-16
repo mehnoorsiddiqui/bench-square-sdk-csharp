@@ -6,7 +6,7 @@ using Square.Core.Validation.Attributes;
 namespace Square.Models;
 
 /// <summary>
-/// Represents a contract to redeem loyalty points for a <see href="https://developer.squareup.com/reference/square_2024-04-17/objects/LoyaltyProgramRewardTier">reward tier</see> discount. Loyalty rewards can be in an ISSUED, REDEEMED, or DELETED state.
+/// Represents a contract to redeem loyalty points for a <see href="https://developer.squareup.com/reference/square_2024-05-15/objects/LoyaltyProgramRewardTier">reward tier</see> discount. Loyalty rewards can be in an ISSUED, REDEEMED, or DELETED state.
 /// For more information, see <see href="https://developer.squareup.com/docs/loyalty-api/loyalty-rewards">Manage loyalty rewards</see>.
 /// </summary>
 public record LoyaltyReward
@@ -27,14 +27,14 @@ public record LoyaltyReward
     public string? Status { get; init; }
 
     /// <summary>
-    /// The Square-assigned ID of the <see href="https://developer.squareup.com/reference/square_2024-04-17/objects/LoyaltyAccount">loyalty account</see> to which the reward belongs.
+    /// The Square-assigned ID of the <see href="https://developer.squareup.com/reference/square_2024-05-15/objects/LoyaltyAccount">loyalty account</see> to which the reward belongs.
     /// </summary>
     [JsonPropertyName("loyalty_account_id")]
     [StringLength(36, MinimumLength = 1)]
     public required string LoyaltyAccountId { get; init; }
 
     /// <summary>
-    /// The Square-assigned ID of the <see href="https://developer.squareup.com/reference/square_2024-04-17/objects/LoyaltyProgramRewardTier">reward tier</see> used to create the reward.
+    /// The Square-assigned ID of the <see href="https://developer.squareup.com/reference/square_2024-05-15/objects/LoyaltyProgramRewardTier">reward tier</see> used to create the reward.
     /// </summary>
     [JsonPropertyName("reward_tier_id")]
     [StringLength(36, MinimumLength = 1)]
@@ -49,7 +49,7 @@ public record LoyaltyReward
     public int? Points { get; init; }
 
     /// <summary>
-    /// The Square-assigned ID of the <see href="https://developer.squareup.com/reference/square_2024-04-17/objects/Order">order</see> to which the reward is attached.
+    /// The Square-assigned ID of the <see href="https://developer.squareup.com/reference/square_2024-05-15/objects/Order">order</see> to which the reward is attached.
     /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("order_id")]

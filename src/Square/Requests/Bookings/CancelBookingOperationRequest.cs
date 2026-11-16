@@ -8,7 +8,7 @@ namespace Square.Requests.Bookings;
 public sealed record CancelBookingOperationRequest
 {
     /// <summary>
-    /// The ID of the <see href="https://developer.squareup.com/reference/square_2024-04-17/objects/Booking">Booking</see> object representing the to-be-cancelled booking.
+    /// The ID of the <see href="https://developer.squareup.com/reference/square_2024-05-15/objects/Booking">Booking</see> object representing the to-be-cancelled booking.
     /// </summary>
     public required string BookingId { get; init; }
 

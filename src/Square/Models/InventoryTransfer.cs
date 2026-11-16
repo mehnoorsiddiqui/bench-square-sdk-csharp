@@ -29,7 +29,7 @@ public record InventoryTransfer
     public string? ReferenceId { get; init; }
 
     /// <summary>
-    /// The <see href="https://developer.squareup.com/reference/square_2024-04-17/enums/InventoryState">inventory state</see> for the quantity of
+    /// The <see href="https://developer.squareup.com/reference/square_2024-05-15/enums/InventoryState">inventory state</see> for the quantity of
     /// items being transferred.
     /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
@@ -37,7 +37,7 @@ public record InventoryTransfer
     public string? State { get; init; }
 
     /// <summary>
-    /// The Square-generated ID of the <see href="https://developer.squareup.com/reference/square_2024-04-17/objects/Location">Location</see> where the related
+    /// The Square-generated ID of the <see href="https://developer.squareup.com/reference/square_2024-05-15/objects/Location">Location</see> where the related
     /// quantity of items was tracked before the transfer.
     /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
@@ -46,7 +46,7 @@ public record InventoryTransfer
     public string? FromLocationId { get; init; }
 
     /// <summary>
-    /// The Square-generated ID of the <see href="https://developer.squareup.com/reference/square_2024-04-17/objects/Location">Location</see> where the related
+    /// The Square-generated ID of the <see href="https://developer.squareup.com/reference/square_2024-05-15/objects/Location">Location</see> where the related
     /// quantity of items was tracked after the transfer.
     /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
@@ -56,7 +56,7 @@ public record InventoryTransfer
 
     /// <summary>
     /// The Square-generated ID of the
-    /// <see href="https://developer.squareup.com/reference/square_2024-04-17/objects/CatalogObject">CatalogObject</see> being tracked.
+    /// <see href="https://developer.squareup.com/reference/square_2024-05-15/objects/CatalogObject">CatalogObject</see> being tracked.
     /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("catalog_object_id")]
@@ -64,7 +64,7 @@ public record InventoryTransfer
     public string? CatalogObjectId { get; init; }
 
     /// <summary>
-    /// The <see href="https://developer.squareup.com/reference/square_2024-04-17/enums/CatalogObjectType">type</see> of the <see href="https://developer.squareup.com/reference/square_2024-04-17/objects/CatalogObject">CatalogObject</see> being tracked.
+    /// The <see href="https://developer.squareup.com/reference/square_2024-05-15/enums/CatalogObjectType">type</see> of the <see href="https://developer.squareup.com/reference/square_2024-05-15/objects/CatalogObject">CatalogObject</see> being tracked.
     /// <para>
     /// The Inventory API supports setting and reading the <c>"catalog_object_type": "ITEM_VARIATION"</c> field value.
     /// In addition, it can also read the <c>"catalog_object_type": "ITEM"</c> field value that is set by the Square Restaurants app.
@@ -112,7 +112,7 @@ public record InventoryTransfer
     public SourceApplication? Source { get; init; }
 
     /// <summary>
-    /// The Square-generated ID of the <see href="https://developer.squareup.com/reference/square_2024-04-17/objects/Employee">Employee</see> responsible for the
+    /// The Square-generated ID of the <see href="https://developer.squareup.com/reference/square_2024-05-15/objects/Employee">Employee</see> responsible for the
     /// inventory transfer.
     /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
@@ -121,7 +121,7 @@ public record InventoryTransfer
     public string? EmployeeId { get; init; }
 
     /// <summary>
-    /// The Square-generated ID of the <see href="https://developer.squareup.com/reference/square_2024-04-17/objects/TeamMember">Team Member</see> responsible for the
+    /// The Square-generated ID of the <see href="https://developer.squareup.com/reference/square_2024-05-15/objects/TeamMember">Team Member</see> responsible for the
     /// inventory transfer.
     /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]

@@ -43,7 +43,7 @@ public sealed class Merchants
     /// information for the merchant that granted your application access.
     /// </para>
     /// <para>
-    /// If you know the merchant ID, you can also use the <see href="https://developer.squareup.com/reference/square_2024-04-17/merchants-api/retrieve-merchant">RetrieveMerchant</see>
+    /// If you know the merchant ID, you can also use the <see href="https://developer.squareup.com/reference/square_2024-05-15/merchants-api/retrieve-merchant">RetrieveMerchant</see>
     /// endpoint to retrieve the merchant information.
     /// </para>
     /// </remarks>

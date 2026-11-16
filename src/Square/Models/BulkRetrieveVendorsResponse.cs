@@ -5,7 +5,7 @@ using Square.Core.Models;
 namespace Square.Models;
 
 /// <summary>
-/// Represents an output from a call to <see href="https://developer.squareup.com/reference/square_2024-04-17/vendors-api/bulk-retrieve-vendors">BulkRetrieveVendors</see>.
+/// Represents an output from a call to <see href="https://developer.squareup.com/reference/square_2024-05-15/vendors-api/bulk-retrieve-vendors">BulkRetrieveVendors</see>.
 /// </summary>
 public record BulkRetrieveVendorsResponse
 {
@@ -17,7 +17,7 @@ public record BulkRetrieveVendorsResponse
     public IReadOnlyList<Error>? Errors { get; init; }
 
     /// <summary>
-    /// The set of <see href="https://developer.squareup.com/reference/square_2024-04-17/objects/RetrieveVendorResponse">RetrieveVendorResponse</see> objects encapsulating successfully retrieved <see href="https://developer.squareup.com/reference/square_2024-04-17/objects/Vendor">Vendor</see>
+    /// The set of <see href="https://developer.squareup.com/reference/square_2024-05-15/objects/RetrieveVendorResponse">RetrieveVendorResponse</see> objects encapsulating successfully retrieved <see href="https://developer.squareup.com/reference/square_2024-05-15/objects/Vendor">Vendor</see>
     /// objects or error responses for failed attempts. The set is represented by
     /// a collection of <c>Vendor</c>-ID/<c>Vendor</c>-object or <c>Vendor</c>-ID/error-object pairs.
     /// </summary>

@@ -4,7 +4,7 @@ using Square.Core.Models;
 namespace Square.Models;
 
 /// <summary>
-/// Represents details about a <c>DEACTIVATE</c> <see href="https://developer.squareup.com/reference/square_2024-04-17/objects/GiftCardActivityType">gift card activity type</see>.
+/// Represents details about a <c>DEACTIVATE</c> <see href="https://developer.squareup.com/reference/square_2024-05-15/objects/GiftCardActivityType">gift card activity type</see>.
 /// </summary>
 public record GiftCardActivityDeactivate
 {

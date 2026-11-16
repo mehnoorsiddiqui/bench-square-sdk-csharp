@@ -20,7 +20,7 @@ public record CashAppDetails
     /// <summary>
     /// The country of the Cash App account holder, in ISO 3166-1-alpha-2 format.
     /// <para>
-    /// For possible values, see <see href="https://developer.squareup.com/reference/square_2024-04-17/enums/Country">Country</see>.
+    /// For possible values, see <see href="https://developer.squareup.com/reference/square_2024-05-15/enums/Country">Country</see>.
     /// </para>
     /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]

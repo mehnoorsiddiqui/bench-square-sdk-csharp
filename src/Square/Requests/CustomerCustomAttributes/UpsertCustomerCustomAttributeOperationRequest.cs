@@ -8,7 +8,7 @@ namespace Square.Requests.CustomerCustomAttributes;
 public sealed record UpsertCustomerCustomAttributeOperationRequest
 {
     /// <summary>
-    /// The ID of the target <see href="https://developer.squareup.com/reference/square_2024-04-17/objects/Customer">customer profile</see>.
+    /// The ID of the target <see href="https://developer.squareup.com/reference/square_2024-05-15/objects/Customer">customer profile</see>.
     /// </summary>
     public required string CustomerId { get; init; }
 

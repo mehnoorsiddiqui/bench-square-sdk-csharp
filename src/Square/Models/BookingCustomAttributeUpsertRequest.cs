@@ -5,14 +5,14 @@ using Square.Core.Models;
 namespace Square.Models;
 
 /// <summary>
-/// Represents an individual upsert request in a <see href="https://developer.squareup.com/reference/square_2024-04-17/booking-custom-attributes-api/bulk-upsert-booking-custom-attributes">BulkUpsertBookingCustomAttributes</see>
+/// Represents an individual upsert request in a <see href="https://developer.squareup.com/reference/square_2024-05-15/booking-custom-attributes-api/bulk-upsert-booking-custom-attributes">BulkUpsertBookingCustomAttributes</see>
 /// request. An individual request contains a booking ID, the custom attribute to create or update,
 /// and an optional idempotency key.
 /// </summary>
 public record BookingCustomAttributeUpsertRequest
 {
     /// <summary>
-    /// The ID of the target <see href="https://developer.squareup.com/reference/square_2024-04-17/objects/Booking">booking</see>.
+    /// The ID of the target <see href="https://developer.squareup.com/reference/square_2024-05-15/objects/Booking">booking</see>.
     /// </summary>
     [JsonPropertyName("booking_id")]
     [StringLength(36, MinimumLength = 1)]

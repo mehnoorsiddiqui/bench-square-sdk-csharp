@@ -50,7 +50,7 @@ public record LoyaltyProgram
     public LoyaltyProgramTerminology? Terminology { get; init; }
 
     /// <summary>
-    /// The <see href="https://developer.squareup.com/reference/square_2024-04-17/objects/Location">locations</see> at which the program is active.
+    /// The <see href="https://developer.squareup.com/reference/square_2024-05-15/objects/Location">locations</see> at which the program is active.
     /// </summary>
     [JsonPropertyName("location_ids")]
     public required IReadOnlyList<string> LocationIds { get; init; }
@@ -71,8 +71,8 @@ public record LoyaltyProgram
 
     /// <summary>
     /// Defines how buyers can earn loyalty points from the base loyalty program.
-    /// To check for associated <see href="https://developer.squareup.com/reference/square_2024-04-17/objects/LoyaltyPromotion">loyalty promotions</see> that enable
-    /// buyers to earn extra points, call <see href="https://developer.squareup.com/reference/square_2024-04-17/loyalty-api/list-loyalty-promotions">ListLoyaltyPromotions</see>.
+    /// To check for associated <see href="https://developer.squareup.com/reference/square_2024-05-15/objects/LoyaltyPromotion">loyalty promotions</see> that enable
+    /// buyers to earn extra points, call <see href="https://developer.squareup.com/reference/square_2024-05-15/loyalty-api/list-loyalty-promotions">ListLoyaltyPromotions</see>.
     /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("accrual_rules")]

@@ -4,7 +4,7 @@ using Square.Core.Models;
 namespace Square.Models;
 
 /// <summary>
-/// The customer address filter. This filter is used in a <see href="https://developer.squareup.com/reference/square_2024-04-17/objects/CustomerCustomAttributeFilterValue">CustomerCustomAttributeFilterValue</see> filter when
+/// The customer address filter. This filter is used in a <see href="https://developer.squareup.com/reference/square_2024-05-15/objects/CustomerCustomAttributeFilterValue">CustomerCustomAttributeFilterValue</see> filter when
 /// searching by an <c>Address</c>-type custom attribute.
 /// </summary>
 public record CustomerAddressFilter

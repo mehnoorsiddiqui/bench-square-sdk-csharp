@@ -35,7 +35,7 @@ public sealed class Transactions
     /// <returns>A <see cref="Task{TResult}"/> of <see cref="CaptureTransactionResponse"/> instance.</returns>
     /// <exception cref="ApiException{TError}"> of <see cref="RawError"/> when the server returns an error response.</exception>
     /// <remarks>
-    /// Captures a transaction that was created with the <see href="https://developer.squareup.com/reference/square_2024-04-17/transactions-api/charge">Charge</see>
+    /// Captures a transaction that was created with the <see href="https://developer.squareup.com/reference/square_2024-05-15/transactions-api/charge">Charge</see>
     /// endpoint with a <c>delay_capture</c> value of <c>true</c>.
     /// <para>
     ///
@@ -140,7 +140,7 @@ public sealed class Transactions
     /// <returns>A <see cref="Task{TResult}"/> of <see cref="VoidTransactionResponse"/> instance.</returns>
     /// <exception cref="ApiException{TError}"> of <see cref="RawError"/> when the server returns an error response.</exception>
     /// <remarks>
-    /// Cancels a transaction that was created with the <see href="https://developer.squareup.com/reference/square_2024-04-17/transactions-api/charge">Charge</see>
+    /// Cancels a transaction that was created with the <see href="https://developer.squareup.com/reference/square_2024-05-15/transactions-api/charge">Charge</see>
     /// endpoint with a <c>delay_capture</c> value of <c>true</c>.
     /// <para>
     ///

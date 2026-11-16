@@ -6,7 +6,7 @@ namespace Square.Requests.BookingCustomAttributes;
 public sealed record ListBookingCustomAttributesOperationRequest
 {
     /// <summary>
-    /// The ID of the target <see href="https://developer.squareup.com/reference/square_2024-04-17/objects/Booking">booking</see>.
+    /// The ID of the target <see href="https://developer.squareup.com/reference/square_2024-05-15/objects/Booking">booking</see>.
     /// </summary>
     public required string BookingId { get; init; }
 
@@ -25,7 +25,7 @@ public sealed record ListBookingCustomAttributesOperationRequest
     public string? Cursor { get; init; }
 
     /// <summary>
-    /// Indicates whether to return the <see href="https://developer.squareup.com/reference/square_2024-04-17/objects/CustomAttributeDefinition">custom attribute definition</see> in the <c>definition</c> field of each
+    /// Indicates whether to return the <see href="https://developer.squareup.com/reference/square_2024-05-15/objects/CustomAttributeDefinition">custom attribute definition</see> in the <c>definition</c> field of each
     /// custom attribute. Set this parameter to <c>true</c> to get the name and description of each custom
     /// attribute, information about the data type, or other definition details. The default value is <c>false</c>.
     /// </summary>

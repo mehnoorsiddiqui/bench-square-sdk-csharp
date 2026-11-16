@@ -5,12 +5,12 @@ using Square.Core.Models;
 namespace Square.Models;
 
 /// <summary>
-/// Represents an input to a call to <see href="https://developer.squareup.com/reference/square_2024-04-17/vendors-api/bulk-retrieve-vendors">BulkRetrieveVendors</see>.
+/// Represents an input to a call to <see href="https://developer.squareup.com/reference/square_2024-05-15/vendors-api/bulk-retrieve-vendors">BulkRetrieveVendors</see>.
 /// </summary>
 public record BulkRetrieveVendorsRequest
 {
     /// <summary>
-    /// IDs of the <see href="https://developer.squareup.com/reference/square_2024-04-17/objects/Vendor">Vendor</see> objects to retrieve.
+    /// IDs of the <see href="https://developer.squareup.com/reference/square_2024-05-15/objects/Vendor">Vendor</see> objects to retrieve.
     /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("vendor_ids")]

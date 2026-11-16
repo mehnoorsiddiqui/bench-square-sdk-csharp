@@ -66,7 +66,7 @@ public sealed class Invoices
     /// <returns>A <see cref="Task{TResult}"/> of <see cref="CreateInvoiceResponse"/> instance.</returns>
     /// <exception cref="ApiException{TError}"> of <see cref="RawError"/> when the server returns an error response.</exception>
     /// <remarks>
-    /// Creates a draft <see href="https://developer.squareup.com/reference/square_2024-04-17/objects/Invoice">invoice</see>
+    /// Creates a draft <see href="https://developer.squareup.com/reference/square_2024-05-15/objects/Invoice">invoice</see>
     /// for an order created using the Orders API.
     /// <para>
     /// A draft invoice remains in your account and no action is taken.

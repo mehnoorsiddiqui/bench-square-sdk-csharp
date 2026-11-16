@@ -31,7 +31,7 @@ public record OrderReturnTax
     public string? SourceTaxUid { get; init; }
 
     /// <summary>
-    /// The catalog object ID referencing <see href="https://developer.squareup.com/reference/square_2024-04-17/objects/CatalogTax">CatalogTax</see>.
+    /// The catalog object ID referencing <see href="https://developer.squareup.com/reference/square_2024-05-15/objects/CatalogTax">CatalogTax</see>.
     /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("catalog_object_id")]

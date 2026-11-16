@@ -6,7 +6,7 @@ namespace Square.Models;
 public record RetrieveInventoryCountRequest
 {
     /// <summary>
-    /// The <see href="https://developer.squareup.com/reference/square_2024-04-17/objects/Location">Location</see> IDs to look up as a comma-separated
+    /// The <see href="https://developer.squareup.com/reference/square_2024-05-15/objects/Location">Location</see> IDs to look up as a comma-separated
     /// list. An empty list queries all locations.
     /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]

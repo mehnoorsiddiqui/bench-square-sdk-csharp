@@ -6,7 +6,7 @@ namespace Square.Models;
 /// <summary>
 /// Represents the details of a tender with <c>type</c> <c>BANK_ACCOUNT</c>.
 /// <para>
-/// See <see href="https://developer.squareup.com/reference/square_2024-04-17/objects/BankAccountPaymentDetails">BankAccountPaymentDetails</see>
+/// See <see href="https://developer.squareup.com/reference/square_2024-05-15/objects/BankAccountPaymentDetails">BankAccountPaymentDetails</see>
 /// for more exposed details of a bank account payment.
 /// </para>
 /// </summary>
@@ -15,7 +15,7 @@ public record TenderBankAccountDetails
     /// <summary>
     /// The bank account payment's current state.
     /// <para>
-    /// See <see href="https://developer.squareup.com/reference/square_2024-04-17/enums/TenderBankAccountDetailsStatus">TenderBankAccountPaymentDetailsStatus</see> for possible values.
+    /// See <see href="https://developer.squareup.com/reference/square_2024-05-15/enums/TenderBankAccountDetailsStatus">TenderBankAccountPaymentDetailsStatus</see> for possible values.
     /// </para>
     /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]

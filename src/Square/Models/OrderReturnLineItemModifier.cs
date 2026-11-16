@@ -27,7 +27,7 @@ public record OrderReturnLineItemModifier
     public string? SourceModifierUid { get; init; }
 
     /// <summary>
-    /// The catalog object ID referencing <see href="https://developer.squareup.com/reference/square_2024-04-17/objects/CatalogModifier">CatalogModifier</see>.
+    /// The catalog object ID referencing <see href="https://developer.squareup.com/reference/square_2024-05-15/objects/CatalogModifier">CatalogModifier</see>.
     /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("catalog_object_id")]

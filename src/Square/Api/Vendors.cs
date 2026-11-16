@@ -35,7 +35,7 @@ public sealed class Vendors
     /// <returns>A <see cref="Task{TResult}"/> of <see cref="BulkCreateVendorsResponse"/> instance.</returns>
     /// <exception cref="ApiException{TError}"> of <see cref="RawError"/> when the server returns an error response.</exception>
     /// <remarks>
-    /// Creates one or more <see href="https://developer.squareup.com/reference/square_2024-04-17/objects/Vendor">Vendor</see> objects to represent suppliers to a seller.
+    /// Creates one or more <see href="https://developer.squareup.com/reference/square_2024-05-15/objects/Vendor">Vendor</see> objects to represent suppliers to a seller.
     /// </remarks>
     public Task<BulkCreateVendorsResponse> BulkCreateVendors(BulkCreateVendorsOperationRequest request,
         RequestOptions? requestOptions = null,
@@ -62,7 +62,7 @@ public sealed class Vendors
     /// <returns>A <see cref="Task{TResult}"/> of <see cref="BulkRetrieveVendorsResponse"/> instance.</returns>
     /// <exception cref="ApiException{TError}"> of <see cref="RawError"/> when the server returns an error response.</exception>
     /// <remarks>
-    /// Retrieves one or more vendors of specified <see href="https://developer.squareup.com/reference/square_2024-04-17/objects/Vendor">Vendor</see> IDs.
+    /// Retrieves one or more vendors of specified <see href="https://developer.squareup.com/reference/square_2024-05-15/objects/Vendor">Vendor</see> IDs.
     /// </remarks>
     public Task<BulkRetrieveVendorsResponse> BulkRetrieveVendors(BulkRetrieveVendorsOperationRequest request,
         RequestOptions? requestOptions = null,
@@ -89,7 +89,7 @@ public sealed class Vendors
     /// <returns>A <see cref="Task{TResult}"/> of <see cref="BulkUpdateVendorsResponse"/> instance.</returns>
     /// <exception cref="ApiException{TError}"> of <see cref="RawError"/> when the server returns an error response.</exception>
     /// <remarks>
-    /// Updates one or more of existing <see href="https://developer.squareup.com/reference/square_2024-04-17/objects/Vendor">Vendor</see> objects as suppliers to a seller.
+    /// Updates one or more of existing <see href="https://developer.squareup.com/reference/square_2024-05-15/objects/Vendor">Vendor</see> objects as suppliers to a seller.
     /// </remarks>
     public Task<BulkUpdateVendorsResponse> BulkUpdateVendors(BulkUpdateVendorsOperationRequest request,
         RequestOptions? requestOptions = null,
@@ -116,7 +116,7 @@ public sealed class Vendors
     /// <returns>A <see cref="Task{TResult}"/> of <see cref="CreateVendorResponse"/> instance.</returns>
     /// <exception cref="ApiException{TError}"> of <see cref="RawError"/> when the server returns an error response.</exception>
     /// <remarks>
-    /// Creates a single <see href="https://developer.squareup.com/reference/square_2024-04-17/objects/Vendor">Vendor</see> object to represent a supplier to a seller.
+    /// Creates a single <see href="https://developer.squareup.com/reference/square_2024-05-15/objects/Vendor">Vendor</see> object to represent a supplier to a seller.
     /// </remarks>
     public Task<CreateVendorResponse> CreateVendor(CreateVendorOperationRequest request,
         RequestOptions? requestOptions = null,
@@ -143,7 +143,7 @@ public sealed class Vendors
     /// <returns>A <see cref="Task{TResult}"/> of <see cref="RetrieveVendorResponse"/> instance.</returns>
     /// <exception cref="ApiException{TError}"> of <see cref="RawError"/> when the server returns an error response.</exception>
     /// <remarks>
-    /// Retrieves the vendor of a specified <see href="https://developer.squareup.com/reference/square_2024-04-17/objects/Vendor">Vendor</see> ID.
+    /// Retrieves the vendor of a specified <see href="https://developer.squareup.com/reference/square_2024-05-15/objects/Vendor">Vendor</see> ID.
     /// </remarks>
     public Task<RetrieveVendorResponse> RetrieveVendor(RetrieveVendorRequest request,
         RequestOptions? requestOptions = null,
@@ -170,7 +170,7 @@ public sealed class Vendors
     /// <returns>A <see cref="Task{TResult}"/> of <see cref="SearchVendorsResponse"/> instance.</returns>
     /// <exception cref="ApiException{TError}"> of <see cref="RawError"/> when the server returns an error response.</exception>
     /// <remarks>
-    /// Searches for vendors using a filter against supported <see href="https://developer.squareup.com/reference/square_2024-04-17/objects/Vendor">Vendor</see> properties and a supported sorter.
+    /// Searches for vendors using a filter against supported <see href="https://developer.squareup.com/reference/square_2024-05-15/objects/Vendor">Vendor</see> properties and a supported sorter.
     /// </remarks>
     public Task<SearchVendorsResponse> SearchVendors(SearchVendorsOperationRequest request,
         RequestOptions? requestOptions = null,
@@ -197,7 +197,7 @@ public sealed class Vendors
     /// <returns>A <see cref="Task{TResult}"/> of <see cref="UpdateVendorResponse"/> instance.</returns>
     /// <exception cref="ApiException{TError}"> of <see cref="RawError"/> when the server returns an error response.</exception>
     /// <remarks>
-    /// Updates an existing <see href="https://developer.squareup.com/reference/square_2024-04-17/objects/Vendor">Vendor</see> object as a supplier to a seller.
+    /// Updates an existing <see href="https://developer.squareup.com/reference/square_2024-05-15/objects/Vendor">Vendor</see> object as a supplier to a seller.
     /// </remarks>
     public Task<UpdateVendorResponse> UpdateVendor(UpdateVendorOperationRequest request,
         RequestOptions? requestOptions = null,

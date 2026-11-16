@@ -23,6 +23,14 @@ public record DestinationDetailsCardRefundDetails
     [MaxLength(50)]
     public string? EntryMethod { get; init; }
 
+    /// <summary>
+    /// The authorization code provided by the issuer when a refund is approved.
+    /// </summary>
+    [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
+    [JsonPropertyName("auth_result_code")]
+    [MaxLength(10)]
+    public string? AuthResultCode { get; init; }
+
     [JsonExtensionData]
     public AdditionalProperties AdditionalProperties { get; init; } = [];
 }
