@@ -24,9 +24,9 @@ public sealed class SquareClient
         var urlFactory = new UriFactory(queryParameterFactory, templateParamsFactory);
         var httpStatusPolicy = new HttpStatusPolicy([]);
         var headersFactory = new HeadersFactory([
-            new HeaderParam("User-Agent", "SquareClient/1.0.0 CSharp"),
+            new HeaderParam("User-Agent", "SquareClient/1.0.1 CSharp"),
             new HeaderParam("X-APIMatic-Lang", "CSharp"),
-            new HeaderParam("X-APIMatic-Package-Version", "1.0.0"),
+            new HeaderParam("X-APIMatic-Package-Version", "1.0.1"),
             new HeaderParam("X-APIMatic-Gen-Version", "4.0.0"),
             new HeaderParam("X-APIMatic-OS", RuntimeEnvironment.Os),
             new HeaderParam("X-APIMatic-Runtime", RuntimeEnvironment.Runtime),
