@@ -1,0 +1,22 @@
+using System.Collections.Generic;
+using System.Text.Json.Serialization;
+using Square.Core.Models;
+
+namespace Square.Models;
+
+/// <summary>
+/// Represents a <see href="https://developer.squareup.com/reference/square_2024-04-17/booking-custom-attributes-api/bulk-delete-booking-custom-attributes">BulkDeleteBookingCustomAttributes</see> request.
+/// </summary>
+public record BulkDeleteBookingCustomAttributesRequest
+{
+    /// <summary>
+    /// A map containing 1 to 25 individual Delete requests. For each request, provide an
+    /// arbitrary ID that is unique for this <c>BulkDeleteBookingCustomAttributes</c> request and the
+    /// information needed to delete a custom attribute.
+    /// </summary>
+    [JsonPropertyName("values")]
+    public required IReadOnlyDictionary<string, BookingCustomAttributeDeleteRequest> Values { get; init; }
+
+    [JsonExtensionData]
+    public AdditionalProperties AdditionalProperties { get; init; } = [];
+}

@@ -1,0 +1,22 @@
+using System.Collections.Generic;
+using System.Text.Json.Serialization;
+using Square.Core.Models;
+
+namespace Square.Models;
+
+/// <summary>
+/// Filter events by location.
+/// </summary>
+public record LoyaltyEventLocationFilter
+{
+    /// <summary>
+    /// The <see href="https://developer.squareup.com/reference/square_2024-04-17/objects/Location">location</see> IDs for loyalty events to query.
+    /// If multiple values are specified, the endpoint uses
+    /// a logical OR to combine them.
+    /// </summary>
+    [JsonPropertyName("location_ids")]
+    public required IReadOnlyList<string> LocationIds { get; init; }
+
+    [JsonExtensionData]
+    public AdditionalProperties AdditionalProperties { get; init; } = [];
+}

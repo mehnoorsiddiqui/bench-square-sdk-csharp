@@ -1,0 +1,38 @@
+using System.Text.Json.Serialization;
+using Square.Core.Models;
+
+namespace Square.Models;
+
+/// <summary>
+/// Represents an input into a call to <see href="https://developer.squareup.com/reference/square_2024-04-17/vendors-api/search-vendors">SearchVendors</see>.
+/// </summary>
+public record SearchVendorsRequest
+{
+    /// <summary>
+    /// Defines supported query expressions to search for vendors by.
+    /// </summary>
+    [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
+    [JsonPropertyName("filter")]
+    public SearchVendorsRequestFilter? Filter { get; init; }
+
+    /// <summary>
+    /// Defines a sorter used to sort results from <see href="https://developer.squareup.com/reference/square_2024-04-17/vendors-api/search-vendors">SearchVendors</see>.
+    /// </summary>
+    [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
+    [JsonPropertyName("sort")]
+    public SearchVendorsRequestSort? Sort { get; init; }
+
+    /// <summary>
+    /// A pagination cursor returned by a previous call to this endpoint.
+    /// Provide this to retrieve the next set of results for the original query.
+    /// <para>
+    /// See the <see href="https://developer.squareup.com/docs/working-with-apis/pagination">Pagination</see> guide for more information.
+    /// </para>
+    /// </summary>
+    [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
+    [JsonPropertyName("cursor")]
+    public string? Cursor { get; init; }
+
+    [JsonExtensionData]
+    public AdditionalProperties AdditionalProperties { get; init; } = [];
+}

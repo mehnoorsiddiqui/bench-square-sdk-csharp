@@ -1,0 +1,28 @@
+using System.Collections.Generic;
+using System.Text.Json.Serialization;
+using Square.Core.Models;
+
+namespace Square.Models;
+
+/// <summary>
+/// The response object returned by the <see href="https://developer.squareup.com/reference/square_2024-04-17/locations-api/create-location">CreateLocation</see> endpoint.
+/// </summary>
+public record CreateLocationResponse
+{
+    /// <summary>
+    /// Information about <see href="https://developer.squareup.com/docs/build-basics/handling-errors">errors</see> encountered during the request.
+    /// </summary>
+    [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
+    [JsonPropertyName("errors")]
+    public IReadOnlyList<Error>? Errors { get; init; }
+
+    /// <summary>
+    /// Represents one of a business' <see href="https://developer.squareup.com/docs/locations-api">locations</see>.
+    /// </summary>
+    [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
+    [JsonPropertyName("location")]
+    public Location? Location { get; init; }
+
+    [JsonExtensionData]
+    public AdditionalProperties AdditionalProperties { get; init; } = [];
+}

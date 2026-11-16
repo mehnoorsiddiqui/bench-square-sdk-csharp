@@ -1,0 +1,22 @@
+using System.ComponentModel.DataAnnotations;
+using System.Text.Json.Serialization;
+using Square.Core.Models;
+
+namespace Square.Models;
+
+/// <summary>
+/// Represents additional data for rules with the <c>ITEM_VARIATION</c> accrual type.
+/// </summary>
+public record LoyaltyProgramAccrualRuleItemVariationData
+{
+    /// <summary>
+    /// The ID of the <c>ITEM_VARIATION</c> <see href="https://developer.squareup.com/reference/square_2024-04-17/objects/CatalogObject">catalog object</see> that buyers can purchase to earn
+    /// points.
+    /// </summary>
+    [JsonPropertyName("item_variation_id")]
+    [MinLength(1)]
+    public required string ItemVariationId { get; init; }
+
+    [JsonExtensionData]
+    public AdditionalProperties AdditionalProperties { get; init; } = [];
+}

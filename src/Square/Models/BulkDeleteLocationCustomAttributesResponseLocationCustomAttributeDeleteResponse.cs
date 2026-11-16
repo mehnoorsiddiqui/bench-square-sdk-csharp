@@ -1,0 +1,29 @@
+using System.Collections.Generic;
+using System.Text.Json.Serialization;
+using Square.Core.Models;
+
+namespace Square.Models;
+
+/// <summary>
+/// Represents an individual delete response in a <see href="https://developer.squareup.com/reference/square_2024-04-17/location-custom-attributes-api/bulk-delete-location-custom-attributes">BulkDeleteLocationCustomAttributes</see>
+/// request.
+/// </summary>
+public record BulkDeleteLocationCustomAttributesResponseLocationCustomAttributeDeleteResponse
+{
+    /// <summary>
+    /// The ID of the location associated with the custom attribute.
+    /// </summary>
+    [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
+    [JsonPropertyName("location_id")]
+    public string? LocationId { get; init; }
+
+    /// <summary>
+    /// Errors that occurred while processing the individual LocationCustomAttributeDeleteRequest request
+    /// </summary>
+    [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
+    [JsonPropertyName("errors")]
+    public IReadOnlyList<Error>? Errors { get; init; }
+
+    [JsonExtensionData]
+    public AdditionalProperties AdditionalProperties { get; init; } = [];
+}

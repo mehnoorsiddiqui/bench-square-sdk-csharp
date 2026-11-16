@@ -1,0 +1,28 @@
+using System.Collections.Generic;
+using System.Text.Json.Serialization;
+using Square.Core.Models;
+
+namespace Square.Models;
+
+/// <summary>
+/// Defines the response returned by<see href="https://developer.squareup.com/reference/square_2024-04-17/payments-api/complete-payment">CompletePayment</see>.
+/// </summary>
+public record CompletePaymentResponse
+{
+    /// <summary>
+    /// Information about errors encountered during the request.
+    /// </summary>
+    [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
+    [JsonPropertyName("errors")]
+    public IReadOnlyList<Error>? Errors { get; init; }
+
+    /// <summary>
+    /// Represents a payment processed by the Square API.
+    /// </summary>
+    [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
+    [JsonPropertyName("payment")]
+    public Payment? Payment { get; init; }
+
+    [JsonExtensionData]
+    public AdditionalProperties AdditionalProperties { get; init; } = [];
+}

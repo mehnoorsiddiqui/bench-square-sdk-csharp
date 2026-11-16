@@ -1,0 +1,159 @@
+<!-- Generated file — do not edit; regenerated with the SDK. -->
+
+# LocationCustomAttributes — operations
+
+Accessor: `client.LocationCustomAttributes` · Source: `src/Square/Api/LocationCustomAttributes.cs` · 11 operations
+
+**Type sources**: the file declaring each type an operation names (`RawError` excluded — see sdk-map.md).
+
+### BulkDeleteLocationCustomAttributes
+
+- **Auth**: `options.BearerAuth`
+- **Signature**: `BulkDeleteLocationCustomAttributes(BulkDeleteLocationCustomAttributesOperationRequest request, RequestOptions? requestOptions = null, CancellationToken cancellationToken = default)`
+  - required: `Body`
+- **Returns**: `BulkDeleteLocationCustomAttributesResponse`
+- **Error**: `ApiException<RawError>` — **Case B**
+
+| Type | Source |
+| --- | --- |
+| `BulkDeleteLocationCustomAttributesOperationRequest` | `src/Square/Requests/LocationCustomAttributes/BulkDeleteLocationCustomAttributesOperationRequest.cs` |
+| `BulkDeleteLocationCustomAttributesRequest` | `src/Square/Models/BulkDeleteLocationCustomAttributesRequest.cs` |
+| `BulkDeleteLocationCustomAttributesResponse` | `src/Square/Models/BulkDeleteLocationCustomAttributesResponse.cs` |
+
+### BulkUpsertLocationCustomAttributes
+
+- **Auth**: `options.BearerAuth`
+- **Signature**: `BulkUpsertLocationCustomAttributes(BulkUpsertLocationCustomAttributesOperationRequest request, RequestOptions? requestOptions = null, CancellationToken cancellationToken = default)`
+  - required: `Body`
+- **Returns**: `BulkUpsertLocationCustomAttributesResponse`
+- **Error**: `ApiException<RawError>` — **Case B**
+
+| Type | Source |
+| --- | --- |
+| `BulkUpsertLocationCustomAttributesOperationRequest` | `src/Square/Requests/LocationCustomAttributes/BulkUpsertLocationCustomAttributesOperationRequest.cs` |
+| `BulkUpsertLocationCustomAttributesRequest` | `src/Square/Models/BulkUpsertLocationCustomAttributesRequest.cs` |
+| `BulkUpsertLocationCustomAttributesResponse` | `src/Square/Models/BulkUpsertLocationCustomAttributesResponse.cs` |
+
+### CreateLocationCustomAttributeDefinition
+
+- **Auth**: `options.BearerAuth`
+- **Signature**: `CreateLocationCustomAttributeDefinition(CreateLocationCustomAttributeDefinitionOperationRequest request, RequestOptions? requestOptions = null, CancellationToken cancellationToken = default)`
+  - required: `Body`
+- **Returns**: `CreateLocationCustomAttributeDefinitionResponse`
+- **Error**: `ApiException<RawError>` — **Case B**
+
+| Type | Source |
+| --- | --- |
+| `CreateLocationCustomAttributeDefinitionOperationRequest` | `src/Square/Requests/LocationCustomAttributes/CreateLocationCustomAttributeDefinitionOperationRequest.cs` |
+| `CreateLocationCustomAttributeDefinitionRequest` | `src/Square/Models/CreateLocationCustomAttributeDefinitionRequest.cs` |
+| `CreateLocationCustomAttributeDefinitionResponse` | `src/Square/Models/CreateLocationCustomAttributeDefinitionResponse.cs` |
+
+### DeleteLocationCustomAttribute
+
+- **Auth**: `options.BearerAuth`
+- **Signature**: `DeleteLocationCustomAttribute(DeleteLocationCustomAttributeRequest request, RequestOptions? requestOptions = null, CancellationToken cancellationToken = default)`
+  - required: `LocationId`, `Key`
+- **Returns**: `DeleteLocationCustomAttributeResponse`
+- **Error**: `ApiException<RawError>` — **Case B**
+
+| Type | Source |
+| --- | --- |
+| `DeleteLocationCustomAttributeRequest` | `src/Square/Requests/LocationCustomAttributes/DeleteLocationCustomAttributeRequest.cs` |
+| `DeleteLocationCustomAttributeResponse` | `src/Square/Models/DeleteLocationCustomAttributeResponse.cs` |
+
+### DeleteLocationCustomAttributeDefinition
+
+- **Auth**: `options.BearerAuth`
+- **Signature**: `DeleteLocationCustomAttributeDefinition(DeleteLocationCustomAttributeDefinitionRequest request, RequestOptions? requestOptions = null, CancellationToken cancellationToken = default)`
+  - required: `Key`
+- **Returns**: `DeleteLocationCustomAttributeDefinitionResponse`
+- **Error**: `ApiException<RawError>` — **Case B**
+
+| Type | Source |
+| --- | --- |
+| `DeleteLocationCustomAttributeDefinitionRequest` | `src/Square/Requests/LocationCustomAttributes/DeleteLocationCustomAttributeDefinitionRequest.cs` |
+| `DeleteLocationCustomAttributeDefinitionResponse` | `src/Square/Models/DeleteLocationCustomAttributeDefinitionResponse.cs` |
+
+### ListLocationCustomAttributeDefinitions
+
+- **Auth**: `options.BearerAuth`
+- **Signature**: `ListLocationCustomAttributeDefinitions(ListLocationCustomAttributeDefinitionsOperationRequest request, RequestOptions? requestOptions = null, CancellationToken cancellationToken = default)`
+- **Query params (wire ← C#)**: `visibility_filter` ← `VisibilityFilter`, `limit` ← `Limit`, `cursor` ← `Cursor`
+- **Returns**: `ListLocationCustomAttributeDefinitionsResponse`
+- **Error**: `ApiException<RawError>` — **Case B**
+
+| Type | Source |
+| --- | --- |
+| `ListLocationCustomAttributeDefinitionsOperationRequest` | `src/Square/Requests/LocationCustomAttributes/ListLocationCustomAttributeDefinitionsOperationRequest.cs` |
+| `ListLocationCustomAttributeDefinitionsResponse` | `src/Square/Models/ListLocationCustomAttributeDefinitionsResponse.cs` |
+
+### ListLocationCustomAttributes
+
+- **Auth**: `options.BearerAuth`
+- **Signature**: `ListLocationCustomAttributes(ListLocationCustomAttributesOperationRequest request, RequestOptions? requestOptions = null, CancellationToken cancellationToken = default)`
+  - required: `LocationId`
+- **Query params (wire ← C#)**: `visibility_filter` ← `VisibilityFilter`, `limit` ← `Limit`, `cursor` ← `Cursor`, `with_definitions` ← `WithDefinitions`
+- **Returns**: `ListLocationCustomAttributesResponse`
+- **Error**: `ApiException<RawError>` — **Case B**
+
+| Type | Source |
+| --- | --- |
+| `ListLocationCustomAttributesOperationRequest` | `src/Square/Requests/LocationCustomAttributes/ListLocationCustomAttributesOperationRequest.cs` |
+| `ListLocationCustomAttributesResponse` | `src/Square/Models/ListLocationCustomAttributesResponse.cs` |
+
+### RetrieveLocationCustomAttribute
+
+- **Auth**: `options.BearerAuth`
+- **Signature**: `RetrieveLocationCustomAttribute(RetrieveLocationCustomAttributeOperationRequest request, RequestOptions? requestOptions = null, CancellationToken cancellationToken = default)`
+  - required: `LocationId`, `Key`
+- **Query params (wire ← C#)**: `with_definition` ← `WithDefinition`, `version` ← `Version`
+- **Returns**: `RetrieveLocationCustomAttributeResponse`
+- **Error**: `ApiException<RawError>` — **Case B**
+
+| Type | Source |
+| --- | --- |
+| `RetrieveLocationCustomAttributeOperationRequest` | `src/Square/Requests/LocationCustomAttributes/RetrieveLocationCustomAttributeOperationRequest.cs` |
+| `RetrieveLocationCustomAttributeResponse` | `src/Square/Models/RetrieveLocationCustomAttributeResponse.cs` |
+
+### RetrieveLocationCustomAttributeDefinition
+
+- **Auth**: `options.BearerAuth`
+- **Signature**: `RetrieveLocationCustomAttributeDefinition(RetrieveLocationCustomAttributeDefinitionOperationRequest request, RequestOptions? requestOptions = null, CancellationToken cancellationToken = default)`
+  - required: `Key`
+- **Query params (wire ← C#)**: `version` ← `Version`
+- **Returns**: `RetrieveLocationCustomAttributeDefinitionResponse`
+- **Error**: `ApiException<RawError>` — **Case B**
+
+| Type | Source |
+| --- | --- |
+| `RetrieveLocationCustomAttributeDefinitionOperationRequest` | `src/Square/Requests/LocationCustomAttributes/RetrieveLocationCustomAttributeDefinitionOperationRequest.cs` |
+| `RetrieveLocationCustomAttributeDefinitionResponse` | `src/Square/Models/RetrieveLocationCustomAttributeDefinitionResponse.cs` |
+
+### UpdateLocationCustomAttributeDefinition
+
+- **Auth**: `options.BearerAuth`
+- **Signature**: `UpdateLocationCustomAttributeDefinition(UpdateLocationCustomAttributeDefinitionOperationRequest request, RequestOptions? requestOptions = null, CancellationToken cancellationToken = default)`
+  - required: `Key`, `Body`
+- **Returns**: `UpdateLocationCustomAttributeDefinitionResponse`
+- **Error**: `ApiException<RawError>` — **Case B**
+
+| Type | Source |
+| --- | --- |
+| `UpdateLocationCustomAttributeDefinitionOperationRequest` | `src/Square/Requests/LocationCustomAttributes/UpdateLocationCustomAttributeDefinitionOperationRequest.cs` |
+| `UpdateLocationCustomAttributeDefinitionRequest` | `src/Square/Models/UpdateLocationCustomAttributeDefinitionRequest.cs` |
+| `UpdateLocationCustomAttributeDefinitionResponse` | `src/Square/Models/UpdateLocationCustomAttributeDefinitionResponse.cs` |
+
+### UpsertLocationCustomAttribute
+
+- **Auth**: `options.BearerAuth`
+- **Signature**: `UpsertLocationCustomAttribute(UpsertLocationCustomAttributeOperationRequest request, RequestOptions? requestOptions = null, CancellationToken cancellationToken = default)`
+  - required: `LocationId`, `Key`, `Body`
+- **Returns**: `UpsertLocationCustomAttributeResponse`
+- **Error**: `ApiException<RawError>` — **Case B**
+
+| Type | Source |
+| --- | --- |
+| `UpsertLocationCustomAttributeOperationRequest` | `src/Square/Requests/LocationCustomAttributes/UpsertLocationCustomAttributeOperationRequest.cs` |
+| `UpsertLocationCustomAttributeRequest` | `src/Square/Models/UpsertLocationCustomAttributeRequest.cs` |
+| `UpsertLocationCustomAttributeResponse` | `src/Square/Models/UpsertLocationCustomAttributeResponse.cs` |
+

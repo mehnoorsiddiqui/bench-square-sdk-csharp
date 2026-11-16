@@ -1,0 +1,114 @@
+<!-- Generated file — do not edit; regenerated with the SDK. -->
+
+# Disputes — operations
+
+Accessor: `client.Disputes` · Source: `src/Square/Api/Disputes.cs` · 8 operations
+
+**Type sources**: the file declaring each type an operation names (`RawError` excluded — see sdk-map.md).
+
+### AcceptDispute
+
+- **Auth**: `options.BearerAuth`
+- **Signature**: `AcceptDispute(AcceptDisputeRequest request, RequestOptions? requestOptions = null, CancellationToken cancellationToken = default)`
+  - required: `DisputeId`
+- **Returns**: `AcceptDisputeResponse`
+- **Error**: `ApiException<RawError>` — **Case B**
+
+| Type | Source |
+| --- | --- |
+| `AcceptDisputeRequest` | `src/Square/Requests/Disputes/AcceptDisputeRequest.cs` |
+| `AcceptDisputeResponse` | `src/Square/Models/AcceptDisputeResponse.cs` |
+
+### CreateDisputeEvidenceText
+
+- **Auth**: `options.BearerAuth`
+- **Signature**: `CreateDisputeEvidenceText(CreateDisputeEvidenceTextOperationRequest request, RequestOptions? requestOptions = null, CancellationToken cancellationToken = default)`
+  - required: `DisputeId`, `Body`
+- **Returns**: `CreateDisputeEvidenceTextResponse`
+- **Error**: `ApiException<RawError>` — **Case B**
+
+| Type | Source |
+| --- | --- |
+| `CreateDisputeEvidenceTextOperationRequest` | `src/Square/Requests/Disputes/CreateDisputeEvidenceTextOperationRequest.cs` |
+| `CreateDisputeEvidenceTextRequest` | `src/Square/Models/CreateDisputeEvidenceTextRequest.cs` |
+| `CreateDisputeEvidenceTextResponse` | `src/Square/Models/CreateDisputeEvidenceTextResponse.cs` |
+
+### DeleteDisputeEvidence
+
+- **Auth**: `options.BearerAuth`
+- **Signature**: `DeleteDisputeEvidence(DeleteDisputeEvidenceRequest request, RequestOptions? requestOptions = null, CancellationToken cancellationToken = default)`
+  - required: `DisputeId`, `EvidenceId`
+- **Returns**: `DeleteDisputeEvidenceResponse`
+- **Error**: `ApiException<RawError>` — **Case B**
+
+| Type | Source |
+| --- | --- |
+| `DeleteDisputeEvidenceRequest` | `src/Square/Requests/Disputes/DeleteDisputeEvidenceRequest.cs` |
+| `DeleteDisputeEvidenceResponse` | `src/Square/Models/DeleteDisputeEvidenceResponse.cs` |
+
+### ListDisputeEvidence
+
+- **Auth**: `options.BearerAuth`
+- **Signature**: `ListDisputeEvidence(ListDisputeEvidenceOperationRequest request, RequestOptions? requestOptions = null, CancellationToken cancellationToken = default)`
+  - required: `DisputeId`
+- **Query params (wire ← C#)**: `cursor` ← `Cursor`
+- **Returns**: `ListDisputeEvidenceResponse`
+- **Error**: `ApiException<RawError>` — **Case B**
+
+| Type | Source |
+| --- | --- |
+| `ListDisputeEvidenceOperationRequest` | `src/Square/Requests/Disputes/ListDisputeEvidenceOperationRequest.cs` |
+| `ListDisputeEvidenceResponse` | `src/Square/Models/ListDisputeEvidenceResponse.cs` |
+
+### ListDisputes
+
+- **Auth**: `options.BearerAuth`
+- **Signature**: `ListDisputes(ListDisputesOperationRequest request, RequestOptions? requestOptions = null, CancellationToken cancellationToken = default)`
+- **Query params (wire ← C#)**: `cursor` ← `Cursor`, `states` ← `States`, `location_id` ← `LocationId`
+- **Returns**: `ListDisputesResponse`
+- **Error**: `ApiException<RawError>` — **Case B**
+
+| Type | Source |
+| --- | --- |
+| `ListDisputesOperationRequest` | `src/Square/Requests/Disputes/ListDisputesOperationRequest.cs` |
+| `ListDisputesResponse` | `src/Square/Models/ListDisputesResponse.cs` |
+
+### RetrieveDispute
+
+- **Auth**: `options.BearerAuth`
+- **Signature**: `RetrieveDispute(RetrieveDisputeRequest request, RequestOptions? requestOptions = null, CancellationToken cancellationToken = default)`
+  - required: `DisputeId`
+- **Returns**: `RetrieveDisputeResponse`
+- **Error**: `ApiException<RawError>` — **Case B**
+
+| Type | Source |
+| --- | --- |
+| `RetrieveDisputeRequest` | `src/Square/Requests/Disputes/RetrieveDisputeRequest.cs` |
+| `RetrieveDisputeResponse` | `src/Square/Models/RetrieveDisputeResponse.cs` |
+
+### RetrieveDisputeEvidence
+
+- **Auth**: `options.BearerAuth`
+- **Signature**: `RetrieveDisputeEvidence(RetrieveDisputeEvidenceRequest request, RequestOptions? requestOptions = null, CancellationToken cancellationToken = default)`
+  - required: `DisputeId`, `EvidenceId`
+- **Returns**: `RetrieveDisputeEvidenceResponse`
+- **Error**: `ApiException<RawError>` — **Case B**
+
+| Type | Source |
+| --- | --- |
+| `RetrieveDisputeEvidenceRequest` | `src/Square/Requests/Disputes/RetrieveDisputeEvidenceRequest.cs` |
+| `RetrieveDisputeEvidenceResponse` | `src/Square/Models/RetrieveDisputeEvidenceResponse.cs` |
+
+### SubmitEvidence
+
+- **Auth**: `options.BearerAuth`
+- **Signature**: `SubmitEvidence(SubmitEvidenceRequest request, RequestOptions? requestOptions = null, CancellationToken cancellationToken = default)`
+  - required: `DisputeId`
+- **Returns**: `SubmitEvidenceResponse`
+- **Error**: `ApiException<RawError>` — **Case B**
+
+| Type | Source |
+| --- | --- |
+| `SubmitEvidenceRequest` | `src/Square/Requests/Disputes/SubmitEvidenceRequest.cs` |
+| `SubmitEvidenceResponse` | `src/Square/Models/SubmitEvidenceResponse.cs` |
+

@@ -1,0 +1,30 @@
+using System.Text.Json.Serialization;
+using Square.Core.Models;
+
+namespace Square.Models;
+
+/// <summary>
+/// Represents details about a <c>TRANSFER_BALANCE_FROM</c> <see href="https://developer.squareup.com/reference/square_2024-04-17/objects/GiftCardActivityType">gift card activity type</see>.
+/// </summary>
+public record GiftCardActivityTransferBalanceFrom
+{
+    /// <summary>
+    /// The ID of the gift card to which the specified amount was transferred.
+    /// </summary>
+    [JsonPropertyName("transfer_to_gift_card_id")]
+    public required string TransferToGiftCardId { get; init; }
+
+    /// <summary>
+    /// Represents an amount of money. <c>Money</c> fields can be signed or unsigned.
+    /// Fields that do not explicitly define whether they are signed or unsigned are
+    /// considered unsigned and can only hold positive amounts. For signed fields, the
+    /// sign of the value indicates the purpose of the money transfer. See
+    /// <see href="https://developer.squareup.com/docs/build-basics/working-with-monetary-amounts">Working with Monetary Amounts</see>
+    /// for more information.
+    /// </summary>
+    [JsonPropertyName("amount_money")]
+    public required Money AmountMoney { get; init; }
+
+    [JsonExtensionData]
+    public AdditionalProperties AdditionalProperties { get; init; } = [];
+}
