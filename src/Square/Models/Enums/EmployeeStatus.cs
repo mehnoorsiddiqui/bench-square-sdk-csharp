@@ -7,7 +7,7 @@ namespace Square.Models.Enums;
 /// <summary>
 /// The status of the Employee being retrieved.
 /// <para>
-/// DEPRECATED at version 2020-08-26. Replaced by <see href="https://developer.squareup.com/reference/square_2024-05-15/objects/TeamMemberStatus">TeamMemberStatus</see>.
+/// DEPRECATED at version 2020-08-26. Replaced by <see href="https://developer.squareup.com/reference/square_2024-08-21/objects/TeamMemberStatus">TeamMemberStatus</see>.
 /// </para>
 /// </summary>
 [JsonConverter(typeof(StringEnumConverter<EmployeeStatus>))]

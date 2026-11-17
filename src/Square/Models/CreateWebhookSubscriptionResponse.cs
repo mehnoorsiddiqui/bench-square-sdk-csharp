@@ -6,9 +6,9 @@ namespace Square.Models;
 
 /// <summary>
 /// Defines the fields that are included in the response body of
-/// a request to the <see href="https://developer.squareup.com/reference/square_2024-05-15/webhook-subscriptions-api/create-webhook-subscription">CreateWebhookSubscription</see> endpoint.
+/// a request to the <see href="https://developer.squareup.com/reference/square_2024-08-21/webhook-subscriptions-api/create-webhook-subscription">CreateWebhookSubscription</see> endpoint.
 /// <para>
-/// Note: if there are errors processing the request, the <see href="https://developer.squareup.com/reference/square_2024-05-15/objects/WebhookSubscription">Subscription</see> will not be
+/// Note: if there are errors processing the request, the <see href="https://developer.squareup.com/reference/square_2024-08-21/objects/WebhookSubscription">Subscription</see> will not be
 /// present.
 /// </para>
 /// </summary>

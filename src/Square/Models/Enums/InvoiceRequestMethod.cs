@@ -20,7 +20,7 @@ public sealed record InvoiceRequestMethod : OpenStringEnum<InvoiceRequestMethod>
     /// <summary>
     /// Directs Square to send invoices, reminders, and receipts to the customer using email.
     /// Square sends the invoice after it is published (either immediately or at the <c>scheduled_at</c>
-    /// time, if specified in the <see href="https://developer.squareup.com/reference/square_2024-05-15/objects/Invoice">invoice</see>).
+    /// time, if specified in the <see href="https://developer.squareup.com/reference/square_2024-08-21/objects/Invoice">invoice</see>).
     /// </summary>
     public static readonly InvoiceRequestMethod Email = new("EMAIL");
 
@@ -51,7 +51,7 @@ public sealed record InvoiceRequestMethod : OpenStringEnum<InvoiceRequestMethod>
 
     /// <summary>
     /// Directs Square to send invoices and receipts to the customer using SMS (text message). Square sends the invoice
-    /// after it is published (either immediately or at the <c>scheduled_at</c> time, if specified in the <see href="https://developer.squareup.com/reference/square_2024-05-15/objects/Invoice">invoice</see>).
+    /// after it is published (either immediately or at the <c>scheduled_at</c> time, if specified in the <see href="https://developer.squareup.com/reference/square_2024-08-21/objects/Invoice">invoice</see>).
     /// <para>
     /// You cannot set <c>SMS</c> as a request method using the Invoices API.
     /// </para>

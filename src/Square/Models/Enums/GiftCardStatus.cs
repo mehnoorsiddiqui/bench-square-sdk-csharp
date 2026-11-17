@@ -31,8 +31,9 @@ public sealed record GiftCardStatus : OpenStringEnum<GiftCardStatus>
 
     /// <summary>
     /// The gift card is pending activation.
-    /// This is the initial state when a gift card is created. You must activate the gift card
-    /// before it can be used.
+    /// This is the initial state when a gift card is created. Typically, you'll call
+    /// <see href="https://developer.squareup.com/reference/square_2024-08-21/gift-card-activities-api/create-gift-card-activity">CreateGiftCardActivity</see> to create an
+    /// <c>ACTIVATE</c> activity that activates the gift card with an initial balance before first use.
     /// </summary>
     public static readonly GiftCardStatus Pending = new("PENDING");
 

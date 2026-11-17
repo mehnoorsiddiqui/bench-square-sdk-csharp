@@ -5,7 +5,7 @@ using Square.Core.Models;
 namespace Square.Models;
 
 /// <summary>
-/// Represents details about an <c>ACTIVATE</c> <see href="https://developer.squareup.com/reference/square_2024-05-15/objects/GiftCardActivityType">gift card activity type</see>.
+/// Represents details about an <c>ACTIVATE</c> <see href="https://developer.squareup.com/reference/square_2024-08-21/objects/GiftCardActivityType">gift card activity type</see>.
 /// </summary>
 public record GiftCardActivityActivate
 {
@@ -22,10 +22,10 @@ public record GiftCardActivityActivate
     public Money? AmountMoney { get; init; }
 
     /// <summary>
-    /// The ID of the <see href="https://developer.squareup.com/reference/square_2024-05-15/objects/Order">order</see> that contains the <c>GIFT_CARD</c> line item.
+    /// The ID of the <see href="https://developer.squareup.com/reference/square_2024-08-21/objects/Order">order</see> that contains the <c>GIFT_CARD</c> line item.
     /// <para>
     /// Applications that use the Square Orders API to process orders must specify the order ID
-    /// <see href="https://developer.squareup.com/reference/square_2024-05-15/gift-card-activities-api/create-gift-card-activity">CreateGiftCardActivity</see> request.
+    /// <see href="https://developer.squareup.com/reference/square_2024-08-21/gift-card-activities-api/create-gift-card-activity">CreateGiftCardActivity</see> request.
     /// </para>
     /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
@@ -36,7 +36,7 @@ public record GiftCardActivityActivate
     /// The UID of the <c>GIFT_CARD</c> line item in the order that represents the gift card purchase.
     /// <para>
     /// Applications that use the Square Orders API to process orders must specify the line item UID
-    /// in the <see href="https://developer.squareup.com/reference/square_2024-05-15/gift-card-activities-api/create-gift-card-activity">CreateGiftCardActivity</see> request.
+    /// in the <see href="https://developer.squareup.com/reference/square_2024-08-21/gift-card-activities-api/create-gift-card-activity">CreateGiftCardActivity</see> request.
     /// </para>
     /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
@@ -59,12 +59,15 @@ public record GiftCardActivityActivate
     /// or bank account ID.
     /// <para>
     /// Applications that use a custom order processing system must specify payment instrument IDs in
-    /// the <see href="https://developer.squareup.com/reference/square_2024-05-15/gift-card-activities-api/create-gift-card-activity">CreateGiftCardActivity</see> request.
+    /// the <see href="https://developer.squareup.com/reference/square_2024-08-21/gift-card-activities-api/create-gift-card-activity">CreateGiftCardActivity</see> request.
     /// Square uses this information to perform compliance checks.
     /// </para>
     /// <para>
     /// For applications that use the Square Orders API to process payments, Square has the necessary
     /// instrument IDs to perform compliance checks.
+    /// </para>
+    /// <para>
+    /// Each buyer payment instrument ID can contain a maximum of 255 characters.
     /// </para>
     /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]

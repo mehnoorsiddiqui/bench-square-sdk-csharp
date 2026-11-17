@@ -5,7 +5,7 @@ using Square.Core.Enum;
 namespace Square.Models.Enums;
 
 /// <summary>
-/// Indicates the automatic payment method for an <see href="https://developer.squareup.com/reference/square_2024-05-15/objects/InvoicePaymentRequest">invoice payment request</see>.
+/// Indicates the automatic payment method for an <see href="https://developer.squareup.com/reference/square_2024-08-21/objects/InvoicePaymentRequest">invoice payment request</see>.
 /// </summary>
 [JsonConverter(typeof(StringEnumConverter<InvoiceAutomaticPaymentSource>))]
 public sealed record InvoiceAutomaticPaymentSource : OpenStringEnum<InvoiceAutomaticPaymentSource>

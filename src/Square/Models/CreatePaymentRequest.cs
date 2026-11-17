@@ -6,7 +6,7 @@ namespace Square.Models;
 
 /// <summary>
 /// Describes a request to create a payment using
-/// <see href="https://developer.squareup.com/reference/square_2024-05-15/payments-api/create-payment">CreatePayment</see>.
+/// <see href="https://developer.squareup.com/reference/square_2024-08-21/payments-api/create-payment">CreatePayment</see>.
 /// </summary>
 public record CreatePaymentRequest
 {
@@ -131,7 +131,7 @@ public record CreatePaymentRequest
     public string? OrderId { get; init; }
 
     /// <summary>
-    /// The <see href="https://developer.squareup.com/reference/square_2024-05-15/objects/Customer">Customer</see> ID of the customer associated with the payment.
+    /// The <see href="https://developer.squareup.com/reference/square_2024-08-21/objects/Customer">Customer</see> ID of the customer associated with the payment.
     /// <para>
     /// This is required if the <c>source_id</c> refers to a card on file created using the Cards API.
     /// </para>
@@ -149,7 +149,7 @@ public record CreatePaymentRequest
     public string? LocationId { get; init; }
 
     /// <summary>
-    /// An optional <see href="https://developer.squareup.com/reference/square_2024-05-15/objects/TeamMember">TeamMember</see> ID to associate with
+    /// An optional <see href="https://developer.squareup.com/reference/square_2024-08-21/objects/TeamMember">TeamMember</see> ID to associate with
     /// this payment.
     /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
@@ -268,6 +268,13 @@ public record CreatePaymentRequest
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("customer_details")]
     public CustomerDetails? CustomerDetails { get; init; }
+
+    /// <summary>
+    /// Details specific to offline payments.
+    /// </summary>
+    [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
+    [JsonPropertyName("offline_payment_details")]
+    public OfflinePaymentDetails? OfflinePaymentDetails { get; init; }
 
     [JsonExtensionData]
     public AdditionalProperties AdditionalProperties { get; init; } = [];

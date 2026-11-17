@@ -5,7 +5,7 @@ using Square.Core.Models;
 namespace Square.Models;
 
 /// <summary>
-/// Represents an output from a call to <see href="https://developer.squareup.com/reference/square_2024-05-15/vendors-api/search-vendors">SearchVendors</see>.
+/// Represents an output from a call to <see href="https://developer.squareup.com/reference/square_2024-08-21/vendors-api/search-vendors">SearchVendors</see>.
 /// </summary>
 public record SearchVendorsResponse
 {
@@ -17,7 +17,7 @@ public record SearchVendorsResponse
     public IReadOnlyList<Error>? Errors { get; init; }
 
     /// <summary>
-    /// The <see href="https://developer.squareup.com/reference/square_2024-05-15/objects/Vendor">Vendor</see> objects matching the specified search filter.
+    /// The <see href="https://developer.squareup.com/reference/square_2024-08-21/objects/Vendor">Vendor</see> objects matching the specified search filter.
     /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("vendors")]

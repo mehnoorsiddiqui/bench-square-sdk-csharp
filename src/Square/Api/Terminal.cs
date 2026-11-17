@@ -171,7 +171,7 @@ public sealed class Terminal
     /// <returns>A <see cref="Task{TResult}"/> of <see cref="CreateTerminalRefundResponse"/> instance.</returns>
     /// <exception cref="ApiException{TError}"> of <see cref="RawError"/> when the server returns an error response.</exception>
     /// <remarks>
-    /// Creates a request to refund an Interac payment completed on a Square Terminal. Refunds for Interac payments on a Square Terminal are supported only for Interac debit cards in Canada. Other refunds for Terminal payments should use the Refunds API. For more information, see <see href="https://developer.squareup.com/reference/square_2024-05-15/refunds-api">Refunds API</see>.
+    /// Creates a request to refund an Interac payment completed on a Square Terminal. Refunds for Interac payments on a Square Terminal are supported only for Interac debit cards in Canada. Other refunds for Terminal payments should use the Refunds API. For more information, see <see href="https://developer.squareup.com/reference/square_2024-08-21/refunds-api">Refunds API</see>.
     /// </remarks>
     public Task<CreateTerminalRefundResponse> CreateTerminalRefund(CreateTerminalRefundOperationRequest request,
         RequestOptions? requestOptions = null,

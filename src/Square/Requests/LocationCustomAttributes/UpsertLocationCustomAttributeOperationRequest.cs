@@ -8,7 +8,7 @@ namespace Square.Requests.LocationCustomAttributes;
 public sealed record UpsertLocationCustomAttributeOperationRequest
 {
     /// <summary>
-    /// The ID of the target <see href="https://developer.squareup.com/reference/square_2024-05-15/objects/Location">location</see>.
+    /// The ID of the target <see href="https://developer.squareup.com/reference/square_2024-08-21/objects/Location">location</see>.
     /// </summary>
     public required string LocationId { get; init; }
 

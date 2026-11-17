@@ -6,7 +6,7 @@ namespace Square.Models;
 
 /// <summary>
 /// Defines the fields that are included in the response body of
-/// a request to the <see href="https://developer.squareup.com/reference/square_2024-05-15/webhook-subscriptions-api/list-webhook-subscriptions">ListWebhookSubscriptions</see> endpoint.
+/// a request to the <see href="https://developer.squareup.com/reference/square_2024-08-21/webhook-subscriptions-api/list-webhook-subscriptions">ListWebhookSubscriptions</see> endpoint.
 /// <para>
 /// Note: if there are errors processing the request, the subscriptions field will not be
 /// present.
@@ -22,7 +22,7 @@ public record ListWebhookSubscriptionsResponse
     public IReadOnlyList<Error>? Errors { get; init; }
 
     /// <summary>
-    /// The requested list of <see href="https://developer.squareup.com/reference/square_2024-05-15/objects/WebhookSubscription">Subscription</see>s.
+    /// The requested list of <see href="https://developer.squareup.com/reference/square_2024-08-21/objects/WebhookSubscription">Subscription</see>s.
     /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("subscriptions")]

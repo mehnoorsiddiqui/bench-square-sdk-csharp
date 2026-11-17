@@ -35,9 +35,11 @@ public sealed class GiftCards
     /// <returns>A <see cref="Task{TResult}"/> of <see cref="CreateGiftCardResponse"/> instance.</returns>
     /// <exception cref="ApiException{TError}"> of <see cref="RawError"/> when the server returns an error response.</exception>
     /// <remarks>
-    /// Creates a digital gift card or registers a physical (plastic) gift card. After the gift card
-    /// is created, you must call <see href="https://developer.squareup.com/reference/square_2024-05-15/gift-card-activities-api/create-gift-card-activity">CreateGiftCardActivity</see>
-    /// to activate the card with an initial balance before it can be used for payment.
+    /// Creates a digital gift card or registers a physical (plastic) gift card. The resulting gift card
+    /// has a <c>PENDING</c> state. To activate a gift card so that it can be redeemed for purchases, call
+    /// <see href="https://developer.squareup.com/reference/square_2024-08-21/gift-card-activities-api/create-gift-card-activity">CreateGiftCardActivity</see> and create an <c>ACTIVATE</c>
+    /// activity with the initial balance. Alternatively, you can use <see href="https://developer.squareup.com/reference/square_2024-08-21/refunds-api/refund-payment">RefundPayment</see>
+    /// to refund a payment to the new gift card.
     /// </remarks>
     public Task<CreateGiftCardResponse> CreateGiftCard(CreateGiftCardOperationRequest request,
         RequestOptions? requestOptions = null,

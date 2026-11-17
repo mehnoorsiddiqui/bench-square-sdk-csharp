@@ -5,12 +5,12 @@ using Square.Core.Models;
 namespace Square.Models;
 
 /// <summary>
-/// Updates a <see href="https://developer.squareup.com/reference/square_2024-05-15/objects/WebhookSubscription">Subscription</see> by replacing the existing signature key with a new one.
+/// Updates a <see href="https://developer.squareup.com/reference/square_2024-08-21/objects/WebhookSubscription">Subscription</see> by replacing the existing signature key with a new one.
 /// </summary>
 public record UpdateWebhookSubscriptionSignatureKeyRequest
 {
     /// <summary>
-    /// A unique string that identifies the <see href="https://developer.squareup.com/reference/square_2024-05-15/webhook-subscriptions-api/update-webhook-subscriptionSignatureKey">UpdateWebhookSubscriptionSignatureKey</see> request.
+    /// A unique string that identifies the <see href="https://developer.squareup.com/reference/square_2024-08-21/webhook-subscriptions-api/update-webhook-subscriptionSignatureKey">UpdateWebhookSubscriptionSignatureKey</see> request.
     /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("idempotency_key")]

@@ -5,7 +5,7 @@ using Square.Core.Enum;
 namespace Square.Models.Enums;
 
 /// <summary>
-/// Determines the billing cadence of a <see href="https://developer.squareup.com/reference/square_2024-05-15/objects/Subscription">Subscription</see>
+/// Determines the billing cadence of a <see href="https://developer.squareup.com/reference/square_2024-08-21/objects/Subscription">Subscription</see>
 /// </summary>
 [JsonConverter(typeof(StringEnumConverter<SubscriptionCadence>))]
 public sealed record SubscriptionCadence : OpenStringEnum<SubscriptionCadence>

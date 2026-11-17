@@ -5,7 +5,7 @@ using Square.Core.Models;
 namespace Square.Models;
 
 /// <summary>
-/// Describes a request to refund a payment using <see href="https://developer.squareup.com/reference/square_2024-05-15/refunds-api/refund-payment">RefundPayment</see>.
+/// Describes a request to refund a payment using <see href="https://developer.squareup.com/reference/square_2024-08-21/refunds-api/refund-payment">RefundPayment</see>.
 /// </summary>
 public record RefundPaymentRequest
 {
@@ -86,7 +86,7 @@ public record RefundPaymentRequest
     public string? LocationId { get; init; }
 
     /// <summary>
-    /// The <see href="https://developer.squareup.com/reference/square_2024-05-15/objects/Customer">Customer</see> ID of the customer associated with the refund.
+    /// The <see href="https://developer.squareup.com/reference/square_2024-08-21/objects/Customer">Customer</see> ID of the customer associated with the refund.
     /// This is required if the <c>destination_id</c> refers to a card on file created using the Cards
     /// API. Only allowed when <c>unlinked=true</c>.
     /// </summary>
@@ -113,7 +113,7 @@ public record RefundPaymentRequest
     public string? PaymentVersionToken { get; init; }
 
     /// <summary>
-    /// An optional <see href="https://developer.squareup.com/reference/square_2024-05-15/objects/TeamMember">TeamMember</see> ID to associate with this refund.
+    /// An optional <see href="https://developer.squareup.com/reference/square_2024-08-21/objects/TeamMember">TeamMember</see> ID to associate with this refund.
     /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("team_member_id")]

@@ -5,7 +5,7 @@ using Square.Core.Models;
 namespace Square.Models;
 
 /// <summary>
-/// Represents a <see href="https://developer.squareup.com/reference/square_2024-05-15/merchant-custom-attributes-api/bulk-delete-merchant-custom-attributes">BulkDeleteMerchantCustomAttributes</see> response,
+/// Represents a <see href="https://developer.squareup.com/reference/square_2024-08-21/merchant-custom-attributes-api/bulk-delete-merchant-custom-attributes">BulkDeleteMerchantCustomAttributes</see> response,
 /// which contains a map of responses that each corresponds to an individual delete request.
 /// </summary>
 public record BulkDeleteMerchantCustomAttributesResponse

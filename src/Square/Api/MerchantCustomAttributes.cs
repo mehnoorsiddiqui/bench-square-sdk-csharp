@@ -35,7 +35,7 @@ public sealed class MerchantCustomAttributes
     /// <returns>A <see cref="Task{TResult}"/> of <see cref="BulkDeleteMerchantCustomAttributesResponse"/> instance.</returns>
     /// <exception cref="ApiException{TError}"> of <see cref="RawError"/> when the server returns an error response.</exception>
     /// <remarks>
-    /// Deletes <see href="https://developer.squareup.com/reference/square_2024-05-15/objects/CustomAttribute">custom attributes</see> for a merchant as a bulk operation.
+    /// Deletes <see href="https://developer.squareup.com/reference/square_2024-08-21/objects/CustomAttribute">custom attributes</see> for a merchant as a bulk operation.
     /// To delete a custom attribute owned by another application, the <c>visibility</c> setting must be
     /// <c>VISIBILITY_READ_WRITE_VALUES</c>.
     /// </remarks>
@@ -64,10 +64,10 @@ public sealed class MerchantCustomAttributes
     /// <returns>A <see cref="Task{TResult}"/> of <see cref="BulkUpsertMerchantCustomAttributesResponse"/> instance.</returns>
     /// <exception cref="ApiException{TError}"> of <see cref="RawError"/> when the server returns an error response.</exception>
     /// <remarks>
-    /// Creates or updates <see href="https://developer.squareup.com/reference/square_2024-05-15/objects/CustomAttribute">custom attributes</see> for a merchant as a bulk operation.
+    /// Creates or updates <see href="https://developer.squareup.com/reference/square_2024-08-21/objects/CustomAttribute">custom attributes</see> for a merchant as a bulk operation.
     /// Use this endpoint to set the value of one or more custom attributes for a merchant.
     /// A custom attribute is based on a custom attribute definition in a Square seller account, which is
-    /// created using the <see href="https://developer.squareup.com/reference/square_2024-05-15/merchant-custom-attributes-api/create-merchant-custom-attribute-definition">CreateMerchantCustomAttributeDefinition</see> endpoint.
+    /// created using the <see href="https://developer.squareup.com/reference/square_2024-08-21/merchant-custom-attributes-api/create-merchant-custom-attribute-definition">CreateMerchantCustomAttributeDefinition</see> endpoint.
     /// This <c>BulkUpsertMerchantCustomAttributes</c> endpoint accepts a map of 1 to 25 individual upsert
     /// requests and returns a map of individual upsert responses. Each upsert request has a unique ID
     /// and provides a merchant ID and custom attribute. Each upsert response is returned with the ID
@@ -100,12 +100,12 @@ public sealed class MerchantCustomAttributes
     /// <returns>A <see cref="Task{TResult}"/> of <see cref="CreateMerchantCustomAttributeDefinitionResponse"/> instance.</returns>
     /// <exception cref="ApiException{TError}"> of <see cref="RawError"/> when the server returns an error response.</exception>
     /// <remarks>
-    /// Creates a merchant-related <see href="https://developer.squareup.com/reference/square_2024-05-15/objects/CustomAttributeDefinition">custom attribute definition</see> for a Square seller account.
+    /// Creates a merchant-related <see href="https://developer.squareup.com/reference/square_2024-08-21/objects/CustomAttributeDefinition">custom attribute definition</see> for a Square seller account.
     /// Use this endpoint to define a custom attribute that can be associated with a merchant connecting to your application.
     /// A custom attribute definition specifies the <c>key</c>, <c>visibility</c>, <c>schema</c>, and other properties
     /// for a custom attribute. After the definition is created, you can call
-    /// <see href="https://developer.squareup.com/reference/square_2024-05-15/merchant-custom-attributes-api/upsert-merchant-custom-attribute">UpsertMerchantCustomAttribute</see> or
-    /// <see href="https://developer.squareup.com/reference/square_2024-05-15/merchant-custom-attributes-api/bulk-upsert-merchant-custom-attributes">BulkUpsertMerchantCustomAttributes</see>
+    /// <see href="https://developer.squareup.com/reference/square_2024-08-21/merchant-custom-attributes-api/upsert-merchant-custom-attribute">UpsertMerchantCustomAttribute</see> or
+    /// <see href="https://developer.squareup.com/reference/square_2024-08-21/merchant-custom-attributes-api/bulk-upsert-merchant-custom-attributes">BulkUpsertMerchantCustomAttributes</see>
     /// to set the custom attribute for a merchant.
     /// </remarks>
     public Task<CreateMerchantCustomAttributeDefinitionResponse> CreateMerchantCustomAttributeDefinition(CreateMerchantCustomAttributeDefinitionOperationRequest request,
@@ -133,7 +133,7 @@ public sealed class MerchantCustomAttributes
     /// <returns>A <see cref="Task{TResult}"/> of <see cref="DeleteMerchantCustomAttributeResponse"/> instance.</returns>
     /// <exception cref="ApiException{TError}"> of <see cref="RawError"/> when the server returns an error response.</exception>
     /// <remarks>
-    /// Deletes a <see href="https://developer.squareup.com/reference/square_2024-05-15/objects/CustomAttribute">custom attribute</see> associated with a merchant.
+    /// Deletes a <see href="https://developer.squareup.com/reference/square_2024-08-21/objects/CustomAttribute">custom attribute</see> associated with a merchant.
     /// To delete a custom attribute owned by another application, the <c>visibility</c> setting must be
     /// <c>VISIBILITY_READ_WRITE_VALUES</c>.
     /// </remarks>
@@ -162,7 +162,7 @@ public sealed class MerchantCustomAttributes
     /// <returns>A <see cref="Task{TResult}"/> of <see cref="DeleteMerchantCustomAttributeDefinitionResponse"/> instance.</returns>
     /// <exception cref="ApiException{TError}"> of <see cref="RawError"/> when the server returns an error response.</exception>
     /// <remarks>
-    /// Deletes a merchant-related <see href="https://developer.squareup.com/reference/square_2024-05-15/objects/CustomAttributeDefinition">custom attribute definition</see> from a Square seller account.
+    /// Deletes a merchant-related <see href="https://developer.squareup.com/reference/square_2024-08-21/objects/CustomAttributeDefinition">custom attribute definition</see> from a Square seller account.
     /// Deleting a custom attribute definition also deletes the corresponding custom attribute from
     /// the merchant.
     /// Only the definition owner can delete a custom attribute definition.
@@ -192,7 +192,7 @@ public sealed class MerchantCustomAttributes
     /// <returns>A <see cref="Task{TResult}"/> of <see cref="ListMerchantCustomAttributeDefinitionsResponse"/> instance.</returns>
     /// <exception cref="ApiException{TError}"> of <see cref="RawError"/> when the server returns an error response.</exception>
     /// <remarks>
-    /// Lists the merchant-related <see href="https://developer.squareup.com/reference/square_2024-05-15/objects/CustomAttributeDefinition">custom attribute definitions</see> that belong to a Square seller account.
+    /// Lists the merchant-related <see href="https://developer.squareup.com/reference/square_2024-08-21/objects/CustomAttributeDefinition">custom attribute definitions</see> that belong to a Square seller account.
     /// When all response pages are retrieved, the results include all custom attribute definitions
     /// that are visible to the requesting application, including those that are created by other
     /// applications and set to <c>VISIBILITY_READ_ONLY</c> or <c>VISIBILITY_READ_WRITE_VALUES</c>.
@@ -226,7 +226,7 @@ public sealed class MerchantCustomAttributes
     /// <returns>A <see cref="Task{TResult}"/> of <see cref="ListMerchantCustomAttributesResponse"/> instance.</returns>
     /// <exception cref="ApiException{TError}"> of <see cref="RawError"/> when the server returns an error response.</exception>
     /// <remarks>
-    /// Lists the <see href="https://developer.squareup.com/reference/square_2024-05-15/objects/CustomAttribute">custom attributes</see> associated with a merchant.
+    /// Lists the <see href="https://developer.squareup.com/reference/square_2024-08-21/objects/CustomAttribute">custom attributes</see> associated with a merchant.
     /// You can use the <c>with_definitions</c> query parameter to also retrieve custom attribute definitions
     /// in the same call.
     /// When all response pages are retrieved, the results include all custom attributes that are
@@ -263,7 +263,7 @@ public sealed class MerchantCustomAttributes
     /// <returns>A <see cref="Task{TResult}"/> of <see cref="RetrieveMerchantCustomAttributeResponse"/> instance.</returns>
     /// <exception cref="ApiException{TError}"> of <see cref="RawError"/> when the server returns an error response.</exception>
     /// <remarks>
-    /// Retrieves a <see href="https://developer.squareup.com/reference/square_2024-05-15/objects/CustomAttribute">custom attribute</see> associated with a merchant.
+    /// Retrieves a <see href="https://developer.squareup.com/reference/square_2024-08-21/objects/CustomAttribute">custom attribute</see> associated with a merchant.
     /// You can use the <c>with_definition</c> query parameter to also retrieve the custom attribute definition
     /// in the same call.
     /// To retrieve a custom attribute owned by another application, the <c>visibility</c> setting must be
@@ -294,7 +294,7 @@ public sealed class MerchantCustomAttributes
     /// <returns>A <see cref="Task{TResult}"/> of <see cref="RetrieveMerchantCustomAttributeDefinitionResponse"/> instance.</returns>
     /// <exception cref="ApiException{TError}"> of <see cref="RawError"/> when the server returns an error response.</exception>
     /// <remarks>
-    /// Retrieves a merchant-related <see href="https://developer.squareup.com/reference/square_2024-05-15/objects/CustomAttributeDefinition">custom attribute definition</see> from a Square seller account.
+    /// Retrieves a merchant-related <see href="https://developer.squareup.com/reference/square_2024-08-21/objects/CustomAttributeDefinition">custom attribute definition</see> from a Square seller account.
     /// To retrieve a custom attribute definition created by another application, the <c>visibility</c>
     /// setting must be <c>VISIBILITY_READ_ONLY</c> or <c>VISIBILITY_READ_WRITE_VALUES</c>.
     /// </remarks>
@@ -323,7 +323,7 @@ public sealed class MerchantCustomAttributes
     /// <returns>A <see cref="Task{TResult}"/> of <see cref="UpdateMerchantCustomAttributeDefinitionResponse"/> instance.</returns>
     /// <exception cref="ApiException{TError}"> of <see cref="RawError"/> when the server returns an error response.</exception>
     /// <remarks>
-    /// Updates a merchant-related <see href="https://developer.squareup.com/reference/square_2024-05-15/objects/CustomAttributeDefinition">custom attribute definition</see> for a Square seller account.
+    /// Updates a merchant-related <see href="https://developer.squareup.com/reference/square_2024-08-21/objects/CustomAttributeDefinition">custom attribute definition</see> for a Square seller account.
     /// Use this endpoint to update the following fields: <c>name</c>, <c>description</c>, <c>visibility</c>, or the
     /// <c>schema</c> for a <c>Selection</c> data type.
     /// Only the definition owner can update a custom attribute definition.
@@ -353,10 +353,10 @@ public sealed class MerchantCustomAttributes
     /// <returns>A <see cref="Task{TResult}"/> of <see cref="UpsertMerchantCustomAttributeResponse"/> instance.</returns>
     /// <exception cref="ApiException{TError}"> of <see cref="RawError"/> when the server returns an error response.</exception>
     /// <remarks>
-    /// Creates or updates a <see href="https://developer.squareup.com/reference/square_2024-05-15/objects/CustomAttribute">custom attribute</see> for a merchant.
+    /// Creates or updates a <see href="https://developer.squareup.com/reference/square_2024-08-21/objects/CustomAttribute">custom attribute</see> for a merchant.
     /// Use this endpoint to set the value of a custom attribute for a specified merchant.
     /// A custom attribute is based on a custom attribute definition in a Square seller account, which
-    /// is created using the <see href="https://developer.squareup.com/reference/square_2024-05-15/merchant-custom-attributes-api/create-merchant-custom-attribute-definition">CreateMerchantCustomAttributeDefinition</see> endpoint.
+    /// is created using the <see href="https://developer.squareup.com/reference/square_2024-08-21/merchant-custom-attributes-api/create-merchant-custom-attribute-definition">CreateMerchantCustomAttributeDefinition</see> endpoint.
     /// To create or update a custom attribute owned by another application, the <c>visibility</c> setting
     /// must be <c>VISIBILITY_READ_WRITE_VALUES</c>.
     /// </remarks>

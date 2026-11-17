@@ -8,7 +8,7 @@ namespace Square.Requests.OrderCustomAttributes;
 public sealed record UpsertOrderCustomAttributeOperationRequest
 {
     /// <summary>
-    /// The ID of the target <see href="https://developer.squareup.com/reference/square_2024-05-15/objects/Order">order</see>.
+    /// The ID of the target <see href="https://developer.squareup.com/reference/square_2024-08-21/objects/Order">order</see>.
     /// </summary>
     public required string OrderId { get; init; }
 

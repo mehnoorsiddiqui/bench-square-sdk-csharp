@@ -4,7 +4,7 @@ using Square.Core.Models;
 namespace Square.Models;
 
 /// <summary>
-/// Represents a file attached to an <see href="https://developer.squareup.com/reference/square_2024-05-15/objects/Invoice">invoice</see>.
+/// Represents a file attached to an <see href="https://developer.squareup.com/reference/square_2024-08-21/objects/Invoice">invoice</see>.
 /// </summary>
 public record InvoiceAttachment
 {

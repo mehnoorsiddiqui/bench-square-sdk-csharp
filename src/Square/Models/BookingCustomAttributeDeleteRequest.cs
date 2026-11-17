@@ -5,13 +5,13 @@ using Square.Core.Models;
 namespace Square.Models;
 
 /// <summary>
-/// Represents an individual delete request in a <see href="https://developer.squareup.com/reference/square_2024-05-15/booking-custom-attributes-api/bulk-delete-booking-custom-attributes">BulkDeleteBookingCustomAttributes</see>
+/// Represents an individual delete request in a <see href="https://developer.squareup.com/reference/square_2024-08-21/booking-custom-attributes-api/bulk-delete-booking-custom-attributes">BulkDeleteBookingCustomAttributes</see>
 /// request. An individual request contains a booking ID, the custom attribute to delete, and an optional idempotency key.
 /// </summary>
 public record BookingCustomAttributeDeleteRequest
 {
     /// <summary>
-    /// The ID of the target <see href="https://developer.squareup.com/reference/square_2024-05-15/objects/Booking">booking</see>.
+    /// The ID of the target <see href="https://developer.squareup.com/reference/square_2024-08-21/objects/Booking">booking</see>.
     /// </summary>
     [JsonPropertyName("booking_id")]
     [StringLength(36, MinimumLength = 1)]

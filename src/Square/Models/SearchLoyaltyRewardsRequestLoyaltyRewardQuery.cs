@@ -10,7 +10,7 @@ namespace Square.Models;
 public record SearchLoyaltyRewardsRequestLoyaltyRewardQuery
 {
     /// <summary>
-    /// The ID of the <see href="https://developer.squareup.com/reference/square_2024-05-15/objects/LoyaltyAccount">loyalty account</see> to which the loyalty reward belongs.
+    /// The ID of the <see href="https://developer.squareup.com/reference/square_2024-08-21/objects/LoyaltyAccount">loyalty account</see> to which the loyalty reward belongs.
     /// </summary>
     [JsonPropertyName("loyalty_account_id")]
     [MinLength(1)]

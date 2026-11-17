@@ -17,8 +17,8 @@ public record QuantityRatio
 
     /// <summary>
     /// The whole or fractional quantity as the denominator.
-    /// In the case of fractional quantity this field is the denominator and quantity is the numerator.
-    /// When unspecified, the value is <c>1</c>. For example, when <c>quantity=3</c> and <c>quantity_donominator</c> is unspecified,
+    /// With fractional quantity this field is the denominator and quantity is the numerator.
+    /// The default value is <c>1</c>. For example, when <c>quantity=3</c> and <c>quantity_denominator</c> is unspecified,
     /// the quantity ratio is <c>3</c> or <c>3/1</c>.
     /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]

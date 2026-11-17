@@ -33,7 +33,7 @@ public sealed record RetrieveCatalogObjectOperationRequest
     /// <summary>
     /// Requests objects as of a specific version of the catalog. This allows you to retrieve historical
     /// versions of objects. The value to retrieve a specific version of an object can be found
-    /// in the version field of <see href="https://developer.squareup.com/reference/square_2024-05-15/objects/CatalogObject">CatalogObject</see>s. If not included, results will
+    /// in the version field of <see href="https://developer.squareup.com/reference/square_2024-08-21/objects/CatalogObject">CatalogObject</see>s. If not included, results will
     /// be from the current version of the catalog.
     /// </summary>
     public long? CatalogVersion { get; init; }

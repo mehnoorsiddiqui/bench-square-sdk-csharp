@@ -5,7 +5,7 @@ using Square.Core.Models;
 namespace Square.Models;
 
 /// <summary>
-/// Represents an <see href="https://developer.squareup.com/reference/square_2024-05-15/loyalty-api/adjust-loyalty-points">AdjustLoyaltyPoints</see> request.
+/// Represents an <see href="https://developer.squareup.com/reference/square_2024-08-21/loyalty-api/adjust-loyalty-points">AdjustLoyaltyPoints</see> request.
 /// </summary>
 public record AdjustLoyaltyPointsResponse
 {

@@ -5,7 +5,7 @@ using Square.Core.Models;
 namespace Square.Models;
 
 /// <summary>
-/// Represents an <see href="https://developer.squareup.com/reference/square_2024-05-15/booking-custom-attributes-api/upsert-booking-custom-attribute">UpsertBookingCustomAttribute</see> request.
+/// Represents an <see href="https://developer.squareup.com/reference/square_2024-08-21/booking-custom-attributes-api/upsert-booking-custom-attribute">UpsertBookingCustomAttribute</see> request.
 /// </summary>
 public record UpsertBookingCustomAttributeRequest
 {

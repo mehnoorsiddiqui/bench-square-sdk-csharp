@@ -5,7 +5,7 @@ using Square.Core.Models;
 namespace Square.Models;
 
 /// <summary>
-/// Represents an <see href="https://developer.squareup.com/reference/square_2024-05-15/loyalty-api/accumulate-loyalty-points">AccumulateLoyaltyPoints</see> request.
+/// Represents an <see href="https://developer.squareup.com/reference/square_2024-08-21/loyalty-api/accumulate-loyalty-points">AccumulateLoyaltyPoints</see> request.
 /// </summary>
 public record AccumulateLoyaltyPointsRequest
 {
@@ -24,7 +24,7 @@ public record AccumulateLoyaltyPointsRequest
     public required string IdempotencyKey { get; init; }
 
     /// <summary>
-    /// The <see href="https://developer.squareup.com/reference/square_2024-05-15/objects/Location">location</see> where the purchase was made.
+    /// The <see href="https://developer.squareup.com/reference/square_2024-08-21/objects/Location">location</see> where the purchase was made.
     /// </summary>
     [JsonPropertyName("location_id")]
     public required string LocationId { get; init; }

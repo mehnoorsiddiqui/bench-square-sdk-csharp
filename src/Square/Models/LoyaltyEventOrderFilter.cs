@@ -10,7 +10,7 @@ namespace Square.Models;
 public record LoyaltyEventOrderFilter
 {
     /// <summary>
-    /// The ID of the <see href="https://developer.squareup.com/reference/square_2024-05-15/objects/Order">order</see> associated with the event.
+    /// The ID of the <see href="https://developer.squareup.com/reference/square_2024-08-21/objects/Order">order</see> associated with the event.
     /// </summary>
     [JsonPropertyName("order_id")]
     [MinLength(1)]

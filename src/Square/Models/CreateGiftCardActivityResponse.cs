@@ -18,7 +18,7 @@ public record CreateGiftCardActivityResponse
     public IReadOnlyList<Error>? Errors { get; init; }
 
     /// <summary>
-    /// Represents an action performed on a <see href="https://developer.squareup.com/reference/square_2024-05-15/objects/GiftCard">gift card</see> that affects its state or balance.
+    /// Represents an action performed on a <see href="https://developer.squareup.com/reference/square_2024-08-21/objects/GiftCard">gift card</see> that affects its state or balance.
     /// A gift card activity contains information about a specific activity type. For example, a <c>REDEEM</c> activity
     /// includes a <c>redeem_activity_details</c> field that contains information about the redemption.
     /// </summary>

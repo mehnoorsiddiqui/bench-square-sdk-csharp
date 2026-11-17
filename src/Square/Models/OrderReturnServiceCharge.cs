@@ -37,7 +37,7 @@ public record OrderReturnServiceCharge
     public string? Name { get; init; }
 
     /// <summary>
-    /// The catalog object ID of the associated <see href="https://developer.squareup.com/reference/square_2024-05-15/objects/OrderServiceCharge">OrderServiceCharge</see>.
+    /// The catalog object ID of the associated <see href="https://developer.squareup.com/reference/square_2024-08-21/objects/OrderServiceCharge">OrderServiceCharge</see>.
     /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("catalog_object_id")]

@@ -78,7 +78,7 @@ Accessor: `client.Payments` · Source: `src/Square/Api/Payments.cs` · 7 operati
 
 - **Auth**: `options.BearerAuth`
 - **Signature**: `ListPayments(ListPaymentsOperationRequest request, RequestOptions? requestOptions = null, CancellationToken cancellationToken = default)`
-- **Query params (wire ← C#)**: `begin_time` ← `BeginTime`, `end_time` ← `EndTime`, `sort_order` ← `SortOrder`, `cursor` ← `Cursor`, `location_id` ← `LocationId`, `total` ← `Total`, `last_4` ← `Last4`, `card_brand` ← `CardBrand`, `limit` ← `Limit`
+- **Query params (wire ← C#)**: `begin_time` ← `BeginTime`, `end_time` ← `EndTime`, `sort_order` ← `SortOrder`, `cursor` ← `Cursor`, `location_id` ← `LocationId`, `total` ← `Total`, `last_4` ← `Last4`, `card_brand` ← `CardBrand`, `limit` ← `Limit`, `is_offline_payment` ← `IsOfflinePayment`, `offline_begin_time` ← `OfflineBeginTime`, `offline_end_time` ← `OfflineEndTime`
 - **Returns**: `ListPaymentsResponse`
 - **Error**: `ApiException<RawError>` — **Case B**
 

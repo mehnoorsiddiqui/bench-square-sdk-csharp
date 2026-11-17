@@ -8,7 +8,7 @@ namespace Square.Requests.WebhookSubscriptions;
 public sealed record TestWebhookSubscriptionOperationRequest
 {
     /// <summary>
-    /// [REQUIRED] The ID of the <see href="https://developer.squareup.com/reference/square_2024-05-15/objects/WebhookSubscription">Subscription</see> to test.
+    /// [REQUIRED] The ID of the <see href="https://developer.squareup.com/reference/square_2024-08-21/objects/WebhookSubscription">Subscription</see> to test.
     /// </summary>
     public required string SubscriptionId { get; init; }
 

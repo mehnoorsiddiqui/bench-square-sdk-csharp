@@ -48,7 +48,7 @@ public record SearchOrdersRequest
 
     /// <summary>
     /// A Boolean that controls the format of the search results. If <c>true</c>,
-    /// <c>SearchOrders</c> returns <see href="https://developer.squareup.com/reference/square_2024-05-15/objects/OrderEntry">OrderEntry</see> objects. If <c>false</c>, <c>SearchOrders</c>
+    /// <c>SearchOrders</c> returns <see href="https://developer.squareup.com/reference/square_2024-08-21/objects/OrderEntry">OrderEntry</see> objects. If <c>false</c>, <c>SearchOrders</c>
     /// returns complete order objects.
     /// <para>
     /// Default: <c>false</c>.

@@ -6,7 +6,7 @@ namespace Square.Models;
 
 /// <summary>
 /// Defines the fields that are included in the response body of
-/// a request to the <see href="https://developer.squareup.com/reference/square_2024-05-15/webhook-subscriptions-api/list-webhook-event-types">ListWebhookEventTypes</see> endpoint.
+/// a request to the <see href="https://developer.squareup.com/reference/square_2024-08-21/webhook-subscriptions-api/list-webhook-event-types">ListWebhookEventTypes</see> endpoint.
 /// <para>
 /// Note: if there are errors processing the request, the event types field will not be
 /// present.
@@ -29,7 +29,7 @@ public record ListWebhookEventTypesResponse
     public IReadOnlyList<string>? EventTypes { get; init; }
 
     /// <summary>
-    /// Contains the metadata of a webhook event type. For more information, see <see href="https://developer.squareup.com/reference/square_2024-05-15/objects/EventTypeMetadata">EventTypeMetadata</see>.
+    /// Contains the metadata of a webhook event type. For more information, see <see href="https://developer.squareup.com/reference/square_2024-08-21/objects/EventTypeMetadata">EventTypeMetadata</see>.
     /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("metadata")]

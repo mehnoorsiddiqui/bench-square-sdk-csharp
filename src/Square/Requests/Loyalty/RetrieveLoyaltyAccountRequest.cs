@@ -6,7 +6,7 @@ namespace Square.Requests.Loyalty;
 public sealed record RetrieveLoyaltyAccountRequest
 {
     /// <summary>
-    /// The ID of the <see href="https://developer.squareup.com/reference/square_2024-05-15/objects/LoyaltyAccount">loyalty account</see> to retrieve.
+    /// The ID of the <see href="https://developer.squareup.com/reference/square_2024-08-21/objects/LoyaltyAccount">loyalty account</see> to retrieve.
     /// </summary>
     public required string AccountId { get; init; }
 }

@@ -6,13 +6,13 @@ namespace Square.Requests.GiftCards;
 public sealed record ListGiftCardsOperationRequest
 {
     /// <summary>
-    /// If a <see href="https://developer.squareup.com/reference/square_2024-05-15/enums/GiftCardType">type</see> is provided, the endpoint returns gift cards of the specified type.
+    /// If a <see href="https://developer.squareup.com/reference/square_2024-08-21/enums/GiftCardType">type</see> is provided, the endpoint returns gift cards of the specified type.
     /// Otherwise, the endpoint returns gift cards of all types.
     /// </summary>
     public string? Type { get; init; }
 
     /// <summary>
-    /// If a <see href="https://developer.squareup.com/reference/square_2024-05-15/enums/GiftCardStatus">state</see> is provided, the endpoint returns the gift cards in the specified state.
+    /// If a <see href="https://developer.squareup.com/reference/square_2024-08-21/enums/GiftCardStatus">state</see> is provided, the endpoint returns the gift cards in the specified state.
     /// Otherwise, the endpoint returns the gift cards of all states.
     /// </summary>
     public string? State { get; init; }

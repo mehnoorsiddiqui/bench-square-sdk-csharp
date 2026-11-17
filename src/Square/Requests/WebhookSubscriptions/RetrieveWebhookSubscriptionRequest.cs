@@ -6,7 +6,7 @@ namespace Square.Requests.WebhookSubscriptions;
 public sealed record RetrieveWebhookSubscriptionRequest
 {
     /// <summary>
-    /// [REQUIRED] The ID of the <see href="https://developer.squareup.com/reference/square_2024-05-15/objects/WebhookSubscription">Subscription</see> to retrieve.
+    /// [REQUIRED] The ID of the <see href="https://developer.squareup.com/reference/square_2024-08-21/objects/WebhookSubscription">Subscription</see> to retrieve.
     /// </summary>
     public required string SubscriptionId { get; init; }
 }

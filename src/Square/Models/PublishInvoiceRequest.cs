@@ -10,7 +10,7 @@ namespace Square.Models;
 public record PublishInvoiceRequest
 {
     /// <summary>
-    /// The version of the <see href="https://developer.squareup.com/reference/square_2024-05-15/objects/Invoice">invoice</see> to publish.
+    /// The version of the <see href="https://developer.squareup.com/reference/square_2024-08-21/objects/Invoice">invoice</see> to publish.
     /// This must match the current version of the invoice; otherwise, the request is rejected.
     /// </summary>
     [JsonPropertyName("version")]

@@ -6,7 +6,7 @@ namespace Square.Models;
 
 /// <summary>
 /// Defines output parameters in a response from the
-/// <see href="https://developer.squareup.com/reference/square_2024-05-15/subscriptions-api/pause-subscription">PauseSubscription</see> endpoint.
+/// <see href="https://developer.squareup.com/reference/square_2024-08-21/subscriptions-api/pause-subscription">PauseSubscription</see> endpoint.
 /// </summary>
 public record PauseSubscriptionResponse
 {

@@ -5,14 +5,14 @@ using Square.Core.Models;
 namespace Square.Models;
 
 /// <summary>
-/// Represents an individual upsert request in a <see href="https://developer.squareup.com/reference/square_2024-05-15/location-custom-attributes-api/bulk-upsert-location-custom-attributes">BulkUpsertLocationCustomAttributes</see>
+/// Represents an individual upsert request in a <see href="https://developer.squareup.com/reference/square_2024-08-21/location-custom-attributes-api/bulk-upsert-location-custom-attributes">BulkUpsertLocationCustomAttributes</see>
 /// request. An individual request contains a location ID, the custom attribute to create or update,
 /// and an optional idempotency key.
 /// </summary>
 public record BulkUpsertLocationCustomAttributesRequestLocationCustomAttributeUpsertRequest
 {
     /// <summary>
-    /// The ID of the target <see href="https://developer.squareup.com/reference/square_2024-05-15/objects/Location">location</see>.
+    /// The ID of the target <see href="https://developer.squareup.com/reference/square_2024-08-21/objects/Location">location</see>.
     /// </summary>
     [JsonPropertyName("location_id")]
     [MinLength(1)]

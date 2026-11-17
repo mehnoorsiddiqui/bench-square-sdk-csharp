@@ -5,9 +5,9 @@ namespace Square.Models;
 
 /// <summary>
 /// Defines the query parameters that can be included in
-/// a request to the <see href="https://developer.squareup.com/reference/square_2024-05-15/transactions-api/list-refunds">ListRefunds</see> endpoint.
+/// a request to the <see href="https://developer.squareup.com/reference/square_2024-08-21/transactions-api/list-refunds">ListRefunds</see> endpoint.
 /// <para>
-/// Deprecated - recommend using <see href="https://developer.squareup.com/reference/square_2024-05-15/orders-api/search-orders">SearchOrders</see>
+/// Deprecated - recommend using <see href="https://developer.squareup.com/reference/square_2024-08-21/orders-api/search-orders">SearchOrders</see>
 /// </para>
 /// </summary>
 public record ListRefundsRequest

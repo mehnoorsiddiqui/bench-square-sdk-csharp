@@ -5,7 +5,7 @@ using Square.Core.Models;
 namespace Square.Models;
 
 /// <summary>
-/// Represents a <see href="https://developer.squareup.com/reference/square_2024-05-15/loyalty-api/list-loyalty-promotions">ListLoyaltyPromotions</see> response.
+/// Represents a <see href="https://developer.squareup.com/reference/square_2024-08-21/loyalty-api/list-loyalty-promotions">ListLoyaltyPromotions</see> response.
 /// One of <c>loyalty_promotions</c>, an empty object, or <c>errors</c> is present in the response.
 /// If additional results are available, the <c>cursor</c> field is also present along with <c>loyalty_promotions</c>.
 /// </summary>

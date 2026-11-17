@@ -34,7 +34,7 @@ public sealed class BankAccounts
     /// <returns>A <see cref="Task{TResult}"/> of <see cref="GetBankAccountResponse"/> instance.</returns>
     /// <exception cref="ApiException{TError}"> of <see cref="RawError"/> when the server returns an error response.</exception>
     /// <remarks>
-    /// Returns details of a <see href="https://developer.squareup.com/reference/square_2024-05-15/objects/BankAccount">BankAccount</see>
+    /// Returns details of a <see href="https://developer.squareup.com/reference/square_2024-08-21/objects/BankAccount">BankAccount</see>
     /// linked to a Square account.
     /// </remarks>
     public Task<GetBankAccountResponse> GetBankAccount(GetBankAccountRequest request,
@@ -62,7 +62,7 @@ public sealed class BankAccounts
     /// <returns>A <see cref="Task{TResult}"/> of <see cref="GetBankAccountByV1IdResponse"/> instance.</returns>
     /// <exception cref="ApiException{TError}"> of <see cref="RawError"/> when the server returns an error response.</exception>
     /// <remarks>
-    /// Returns details of a <see href="https://developer.squareup.com/reference/square_2024-05-15/objects/BankAccount">BankAccount</see> identified by V1 bank account ID.
+    /// Returns details of a <see href="https://developer.squareup.com/reference/square_2024-08-21/objects/BankAccount">BankAccount</see> identified by V1 bank account ID.
     /// </remarks>
     public Task<GetBankAccountByV1IdResponse> GetBankAccountByV1Id(GetBankAccountByV1IdRequest request,
         RequestOptions? requestOptions = null,
@@ -89,7 +89,7 @@ public sealed class BankAccounts
     /// <returns>A <see cref="Task{TResult}"/> of <see cref="ListBankAccountsResponse"/> instance.</returns>
     /// <exception cref="ApiException{TError}"> of <see cref="RawError"/> when the server returns an error response.</exception>
     /// <remarks>
-    /// Returns a list of <see href="https://developer.squareup.com/reference/square_2024-05-15/objects/BankAccount">BankAccount</see> objects linked to a Square account.
+    /// Returns a list of <see href="https://developer.squareup.com/reference/square_2024-08-21/objects/BankAccount">BankAccount</see> objects linked to a Square account.
     /// </remarks>
     public Task<ListBankAccountsResponse> ListBankAccounts(ListBankAccountsOperationRequest request,
         RequestOptions? requestOptions = null,

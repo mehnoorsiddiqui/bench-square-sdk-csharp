@@ -53,7 +53,7 @@ public record BatchRetrieveInventoryCountsRequest
     public IReadOnlyList<string>? States { get; init; }
 
     /// <summary>
-    /// The number of <see href="https://developer.squareup.com/reference/square_2024-05-15/objects/InventoryCount">records</see> to return.
+    /// The number of <see href="https://developer.squareup.com/reference/square_2024-08-21/objects/InventoryCount">records</see> to return.
     /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("limit")]

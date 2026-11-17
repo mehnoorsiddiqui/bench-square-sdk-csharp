@@ -68,7 +68,7 @@ public record GiftCard
     public string? CreatedAt { get; init; }
 
     /// <summary>
-    /// The IDs of the <see href="https://developer.squareup.com/reference/square_2024-05-15/objects/Customer">customer profiles</see> to whom this gift card is linked.
+    /// The IDs of the <see href="https://developer.squareup.com/reference/square_2024-08-21/objects/Customer">customer profiles</see> to whom this gift card is linked.
     /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("customer_ids")]

@@ -70,4 +70,31 @@ public sealed record ListPaymentsOperationRequest
     /// </para>
     /// </summary>
     public int? Limit { get; init; }
+
+    /// <summary>
+    /// Whether the payment was taken offline or not.
+    /// </summary>
+    public bool? IsOfflinePayment { get; init; }
+
+    /// <summary>
+    /// Indicates the start of the time range for which to retrieve offline payments, in RFC 3339
+    /// format for timestamps. The range is determined using the
+    /// <c>offline_payment_details.client_created_at</c> field for each Payment. If set, payments without a
+    /// value set in <c>offline_payment_details.client_created_at</c> will not be returned.
+    /// <para>
+    /// Default: The current time.
+    /// </para>
+    /// </summary>
+    public string? OfflineBeginTime { get; init; }
+
+    /// <summary>
+    /// Indicates the end of the time range for which to retrieve offline payments, in RFC 3339
+    /// format for timestamps. The range is determined using the
+    /// <c>offline_payment_details.client_created_at</c> field for each Payment. If set, payments without a
+    /// value set in <c>offline_payment_details.client_created_at</c> will not be returned.
+    /// <para>
+    /// Default: The current time.
+    /// </para>
+    /// </summary>
+    public string? OfflineEndTime { get; init; }
 }

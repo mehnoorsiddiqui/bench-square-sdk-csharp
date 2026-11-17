@@ -14,7 +14,7 @@ public record InventoryPhysicalCount
 {
     /// <summary>
     /// A unique Square-generated ID for the
-    /// <see href="https://developer.squareup.com/reference/square_2024-05-15/objects/InventoryPhysicalCount">InventoryPhysicalCount</see>.
+    /// <see href="https://developer.squareup.com/reference/square_2024-08-21/objects/InventoryPhysicalCount">InventoryPhysicalCount</see>.
     /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("id")]
@@ -23,7 +23,7 @@ public record InventoryPhysicalCount
 
     /// <summary>
     /// An optional ID provided by the application to tie the
-    /// <see href="https://developer.squareup.com/reference/square_2024-05-15/objects/InventoryPhysicalCount">InventoryPhysicalCount</see> to an external
+    /// <see href="https://developer.squareup.com/reference/square_2024-08-21/objects/InventoryPhysicalCount">InventoryPhysicalCount</see> to an external
     /// system.
     /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
@@ -33,7 +33,7 @@ public record InventoryPhysicalCount
 
     /// <summary>
     /// The Square-generated ID of the
-    /// <see href="https://developer.squareup.com/reference/square_2024-05-15/objects/CatalogObject">CatalogObject</see> being tracked.
+    /// <see href="https://developer.squareup.com/reference/square_2024-08-21/objects/CatalogObject">CatalogObject</see> being tracked.
     /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("catalog_object_id")]
@@ -41,7 +41,7 @@ public record InventoryPhysicalCount
     public string? CatalogObjectId { get; init; }
 
     /// <summary>
-    /// The <see href="https://developer.squareup.com/reference/square_2024-05-15/enums/CatalogObjectType">type</see> of the <see href="https://developer.squareup.com/reference/square_2024-05-15/objects/CatalogObject">CatalogObject</see> being tracked.
+    /// The <see href="https://developer.squareup.com/reference/square_2024-08-21/enums/CatalogObjectType">type</see> of the <see href="https://developer.squareup.com/reference/square_2024-08-21/objects/CatalogObject">CatalogObject</see> being tracked.
     /// <para>
     /// The Inventory API supports setting and reading the <c>"catalog_object_type": "ITEM_VARIATION"</c> field value.
     /// In addition, it can also read the <c>"catalog_object_type": "ITEM"</c> field value that is set by the Square Restaurants app.
@@ -53,7 +53,7 @@ public record InventoryPhysicalCount
     public string? CatalogObjectType { get; init; }
 
     /// <summary>
-    /// The current <see href="https://developer.squareup.com/reference/square_2024-05-15/enums/InventoryState">inventory state</see> for the related
+    /// The current <see href="https://developer.squareup.com/reference/square_2024-08-21/enums/InventoryState">inventory state</see> for the related
     /// quantity of items.
     /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
@@ -61,7 +61,7 @@ public record InventoryPhysicalCount
     public string? State { get; init; }
 
     /// <summary>
-    /// The Square-generated ID of the <see href="https://developer.squareup.com/reference/square_2024-05-15/objects/Location">Location</see> where the related
+    /// The Square-generated ID of the <see href="https://developer.squareup.com/reference/square_2024-08-21/objects/Location">Location</see> where the related
     /// quantity of items is being tracked.
     /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
@@ -86,7 +86,7 @@ public record InventoryPhysicalCount
     public SourceApplication? Source { get; init; }
 
     /// <summary>
-    /// The Square-generated ID of the <see href="https://developer.squareup.com/reference/square_2024-05-15/objects/Employee">Employee</see> responsible for the
+    /// The Square-generated ID of the <see href="https://developer.squareup.com/reference/square_2024-08-21/objects/Employee">Employee</see> responsible for the
     /// physical count.
     /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
@@ -95,7 +95,7 @@ public record InventoryPhysicalCount
     public string? EmployeeId { get; init; }
 
     /// <summary>
-    /// The Square-generated ID of the <see href="https://developer.squareup.com/reference/square_2024-05-15/objects/TeamMember">Team Member</see> responsible for the
+    /// The Square-generated ID of the <see href="https://developer.squareup.com/reference/square_2024-08-21/objects/TeamMember">Team Member</see> responsible for the
     /// physical count.
     /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]

@@ -13,7 +13,7 @@ public record Event
     public string? MerchantId { get; init; }
 
     /// <summary>
-    /// The ID of the location associated with the event.
+    /// The ID of the target location associated with the event.
     /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("location_id")]

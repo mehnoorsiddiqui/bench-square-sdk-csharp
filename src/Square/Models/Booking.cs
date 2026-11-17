@@ -57,7 +57,7 @@ public record Booking
     public string? StartAt { get; init; }
 
     /// <summary>
-    /// The ID of the <see href="https://developer.squareup.com/reference/square_2024-05-15/objects/Location">Location</see> object representing the location where the booked service is provided. Once set when the booking is created, its value cannot be changed.
+    /// The ID of the <see href="https://developer.squareup.com/reference/square_2024-08-21/objects/Location">Location</see> object representing the location where the booked service is provided. Once set when the booking is created, its value cannot be changed.
     /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("location_id")]
@@ -65,7 +65,7 @@ public record Booking
     public string? LocationId { get; init; }
 
     /// <summary>
-    /// The ID of the <see href="https://developer.squareup.com/reference/square_2024-05-15/objects/Customer">Customer</see> object representing the customer receiving the booked service.
+    /// The ID of the <see href="https://developer.squareup.com/reference/square_2024-08-21/objects/Customer">Customer</see> object representing the customer receiving the booked service.
     /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("customer_id")]
@@ -73,7 +73,7 @@ public record Booking
     public string? CustomerId { get; init; }
 
     /// <summary>
-    /// The free-text field for the customer to supply notes about the booking. For example, the note can be preferences that cannot be expressed by supported attributes of a relevant <see href="https://developer.squareup.com/reference/square_2024-05-15/objects/CatalogObject">CatalogObject</see> instance.
+    /// The free-text field for the customer to supply notes about the booking. For example, the note can be preferences that cannot be expressed by supported attributes of a relevant <see href="https://developer.squareup.com/reference/square_2024-08-21/objects/CatalogObject">CatalogObject</see> instance.
     /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("customer_note")]
@@ -81,7 +81,7 @@ public record Booking
     public string? CustomerNote { get; init; }
 
     /// <summary>
-    /// The free-text field for the seller to supply notes about the booking. For example, the note can be preferences that cannot be expressed by supported attributes of a specific <see href="https://developer.squareup.com/reference/square_2024-05-15/objects/CatalogObject">CatalogObject</see> instance.
+    /// The free-text field for the seller to supply notes about the booking. For example, the note can be preferences that cannot be expressed by supported attributes of a specific <see href="https://developer.squareup.com/reference/square_2024-08-21/objects/CatalogObject">CatalogObject</see> instance.
     /// This field should not be visible to customers.
     /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]

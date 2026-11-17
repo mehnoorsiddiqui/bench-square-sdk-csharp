@@ -8,7 +8,7 @@ namespace Square.Requests.Loyalty;
 public sealed record CalculateLoyaltyPointsOperationRequest
 {
     /// <summary>
-    /// The ID of the <see href="https://developer.squareup.com/reference/square_2024-05-15/objects/LoyaltyProgram">loyalty program</see>, which defines the rules for accruing points.
+    /// The ID of the <see href="https://developer.squareup.com/reference/square_2024-08-21/objects/LoyaltyProgram">loyalty program</see>, which defines the rules for accruing points.
     /// </summary>
     public required string ProgramId { get; init; }
 

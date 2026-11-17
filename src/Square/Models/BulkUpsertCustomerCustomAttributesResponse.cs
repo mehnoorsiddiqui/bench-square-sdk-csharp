@@ -5,7 +5,7 @@ using Square.Core.Models;
 namespace Square.Models;
 
 /// <summary>
-/// Represents a <see href="https://developer.squareup.com/reference/square_2024-05-15/customer-custom-attributes-api/bulk-upsert-customer-custom-attributes">BulkUpsertCustomerCustomAttributes</see> response,
+/// Represents a <see href="https://developer.squareup.com/reference/square_2024-08-21/customer-custom-attributes-api/bulk-upsert-customer-custom-attributes">BulkUpsertCustomerCustomAttributes</see> response,
 /// which contains a map of responses that each corresponds to an individual upsert request.
 /// </summary>
 public record BulkUpsertCustomerCustomAttributesResponse

@@ -12,7 +12,7 @@ public record SearchOrdersSort
     /// <summary>
     /// The field to sort by.
     /// <para>
-    /// __Important:__ When using a <see href="https://developer.squareup.com/reference/square_2024-05-15/objects/SearchOrdersFilter">DateTimeFilter</see>,
+    /// __Important:__ When using a <see href="https://developer.squareup.com/reference/square_2024-08-21/objects/SearchOrdersFilter">DateTimeFilter</see>,
     /// <c>sort_field</c> must match the timestamp field that the <c>DateTimeFilter</c> uses to
     /// filter. For example, if you set your <c>sort_field</c> to <c>CLOSED_AT</c> and you use a
     /// <c>DateTimeFilter</c>, your <c>DateTimeFilter</c> must filter for orders by their <c>CLOSED_AT</c> date.

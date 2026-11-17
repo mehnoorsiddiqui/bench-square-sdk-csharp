@@ -35,11 +35,11 @@ public sealed class Loyalty
     /// <returns>A <see cref="Task{TResult}"/> of <see cref="AccumulateLoyaltyPointsResponse"/> instance.</returns>
     /// <exception cref="ApiException{TError}"> of <see cref="RawError"/> when the server returns an error response.</exception>
     /// <remarks>
-    /// Adds points earned from a purchase to a <see href="https://developer.squareup.com/reference/square_2024-05-15/objects/LoyaltyAccount">loyalty account</see>.
+    /// Adds points earned from a purchase to a <see href="https://developer.squareup.com/reference/square_2024-08-21/objects/LoyaltyAccount">loyalty account</see>.
     /// <para>
     /// - If you are using the Orders API to manage orders, provide the <c>order_id</c>. Square reads the order
     /// to compute the points earned from both the base loyalty program and an associated
-    /// <see href="https://developer.squareup.com/reference/square_2024-05-15/objects/LoyaltyPromotion">loyalty promotion</see>. For purchases that qualify for multiple accrual
+    /// <see href="https://developer.squareup.com/reference/square_2024-08-21/objects/LoyaltyPromotion">loyalty promotion</see>. For purchases that qualify for multiple accrual
     /// rules, Square computes points based on the accrual rule that grants the most points.
     /// For purchases that qualify for multiple promotions, Square computes points based on the most
     /// recently created promotion. A purchase must first qualify for program points to be eligible for promotion points.
@@ -47,7 +47,7 @@ public sealed class Loyalty
     /// <para>
     /// - If you are not using the Orders API to manage orders, provide <c>points</c> with the number of points to add.
     /// You must first perform a client-side computation of the points earned from the loyalty program and
-    /// loyalty promotion. For spend-based and visit-based programs, you can call <see href="https://developer.squareup.com/reference/square_2024-05-15/loyalty-api/calculate-loyalty-points">CalculateLoyaltyPoints</see>
+    /// loyalty promotion. For spend-based and visit-based programs, you can call <see href="https://developer.squareup.com/reference/square_2024-08-21/loyalty-api/calculate-loyalty-points">CalculateLoyaltyPoints</see>
     /// to compute the points earned from the base loyalty program. For information about computing points earned from a loyalty promotion, see
     /// <see href="https://developer.squareup.com/docs/loyalty-api/loyalty-promotions#calculate-promotion-points">Calculating promotion points</see>.
     /// </para>
@@ -80,7 +80,7 @@ public sealed class Loyalty
     /// Adds points to or subtracts points from a buyer's account.
     /// <para>
     /// Use this endpoint only when you need to manually adjust points. Otherwise, in your application flow, you call
-    /// <see href="https://developer.squareup.com/reference/square_2024-05-15/loyalty-api/accumulate-loyalty-points">AccumulateLoyaltyPoints</see>
+    /// <see href="https://developer.squareup.com/reference/square_2024-08-21/loyalty-api/accumulate-loyalty-points">AccumulateLoyaltyPoints</see>
     /// to add points when a buyer pays for the purchase.
     /// </para>
     /// </remarks>
@@ -114,7 +114,7 @@ public sealed class Loyalty
     /// <para>
     /// - If you are using the Orders API to manage orders, provide the <c>order_id</c> and (optional) <c>loyalty_account_id</c>.
     /// Square reads the order to compute the points earned from the base loyalty program and an associated
-    /// <see href="https://developer.squareup.com/reference/square_2024-05-15/objects/LoyaltyPromotion">loyalty promotion</see>.
+    /// <see href="https://developer.squareup.com/reference/square_2024-08-21/objects/LoyaltyPromotion">loyalty promotion</see>.
     /// </para>
     /// <para>
     /// - If you are not using the Orders API to manage orders, provide <c>transaction_amount_money</c> with the
@@ -122,7 +122,7 @@ public sealed class Loyalty
     /// but not points earned from a loyalty promotion. For spend-based and visit-based programs, the <c>tax_mode</c>
     /// setting of the accrual rule indicates how taxes should be treated for loyalty points accrual.
     /// If the purchase qualifies for program points, call
-    /// <see href="https://developer.squareup.com/reference/square_2024-05-15/loyalty-api/list-loyalty-promotions">ListLoyaltyPromotions</see> and perform a client-side computation
+    /// <see href="https://developer.squareup.com/reference/square_2024-08-21/loyalty-api/list-loyalty-promotions">ListLoyaltyPromotions</see> and perform a client-side computation
     /// to calculate whether the purchase also qualifies for promotion points. For more information, see
     /// <see href="https://developer.squareup.com/docs/loyalty-api/loyalty-promotions#calculate-promotion-points">Calculating promotion points</see>.
     /// </para>
@@ -215,7 +215,7 @@ public sealed class Loyalty
     /// <returns>A <see cref="Task{TResult}"/> of <see cref="CreateLoyaltyPromotionResponse"/> instance.</returns>
     /// <exception cref="ApiException{TError}"> of <see cref="RawError"/> when the server returns an error response.</exception>
     /// <remarks>
-    /// Creates a loyalty promotion for a <see href="https://developer.squareup.com/reference/square_2024-05-15/objects/LoyaltyProgram">loyalty program</see>. A loyalty promotion
+    /// Creates a loyalty promotion for a <see href="https://developer.squareup.com/reference/square_2024-08-21/objects/LoyaltyProgram">loyalty program</see>. A loyalty promotion
     /// enables buyers to earn points in addition to those earned from the base loyalty program.
     /// <para>
     /// This endpoint sets the loyalty promotion to the <c>ACTIVE</c> or <c>SCHEDULED</c> status, depending on the
@@ -288,7 +288,7 @@ public sealed class Loyalty
     /// <para>
     /// - Returns the loyalty points back to the loyalty account.
     /// - If an order ID was specified when the reward was created
-    /// (see <see href="https://developer.squareup.com/reference/square_2024-05-15/loyalty-api/create-loyalty-reward">CreateLoyaltyReward</see>),
+    /// (see <see href="https://developer.squareup.com/reference/square_2024-08-21/loyalty-api/create-loyalty-reward">CreateLoyaltyReward</see>),
     /// it updates the order by removing the reward and related
     /// discounts.
     /// </para>
@@ -324,7 +324,7 @@ public sealed class Loyalty
     /// Loyalty programs define how buyers can earn points and redeem points for rewards. Square sellers can have only one loyalty program, which is created and managed from the Seller Dashboard. For more information, see <see href="https://developer.squareup.com/docs/loyalty/overview">Loyalty Program Overview</see>.
     /// <para>
     ///
-    /// Replaced with <see href="https://developer.squareup.com/reference/square_2024-05-15/loyalty-api/retrieve-loyalty-program">RetrieveLoyaltyProgram</see> when used with the keyword <c>main</c>.
+    /// Replaced with <see href="https://developer.squareup.com/reference/square_2024-08-21/loyalty-api/retrieve-loyalty-program">RetrieveLoyaltyProgram</see> when used with the keyword <c>main</c>.
     /// </para>
     /// </remarks>
     public Task<ListLoyaltyProgramsResponse> ListLoyaltyPrograms(RequestOptions? requestOptions = null,
@@ -351,7 +351,7 @@ public sealed class Loyalty
     /// <returns>A <see cref="Task{TResult}"/> of <see cref="ListLoyaltyPromotionsResponse"/> instance.</returns>
     /// <exception cref="ApiException{TError}"> of <see cref="RawError"/> when the server returns an error response.</exception>
     /// <remarks>
-    /// Lists the loyalty promotions associated with a <see href="https://developer.squareup.com/reference/square_2024-05-15/objects/LoyaltyProgram">loyalty program</see>.
+    /// Lists the loyalty promotions associated with a <see href="https://developer.squareup.com/reference/square_2024-08-21/objects/LoyaltyProgram">loyalty program</see>.
     /// Results are sorted by the <c>created_at</c> date in descending order (newest to oldest).
     /// </remarks>
     public Task<ListLoyaltyPromotionsResponse> ListLoyaltyPromotions(ListLoyaltyPromotionsOperationRequest request,
@@ -610,7 +610,7 @@ public sealed class Loyalty
     /// If you include a <c>query</c> object, <c>loyalty_account_id</c> is required and <c>status</c> is  optional.
     /// <para>
     /// If you know a reward ID, use the
-    /// <see href="https://developer.squareup.com/reference/square_2024-05-15/loyalty-api/retrieve-loyalty-reward">RetrieveLoyaltyReward</see> endpoint.
+    /// <see href="https://developer.squareup.com/reference/square_2024-08-21/loyalty-api/retrieve-loyalty-reward">RetrieveLoyaltyReward</see> endpoint.
     /// </para>
     /// <para>
     /// Search results are sorted by <c>updated_at</c> in descending order.

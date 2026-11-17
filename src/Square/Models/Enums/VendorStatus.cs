@@ -5,8 +5,8 @@ using Square.Core.Enum;
 namespace Square.Models.Enums;
 
 /// <summary>
-/// The status of the <see href="https://developer.squareup.com/reference/square_2024-05-15/objects/Vendor">Vendor</see>,
-/// whether a <see href="https://developer.squareup.com/reference/square_2024-05-15/objects/Vendor">Vendor</see> is active or inactive.
+/// The status of the <see href="https://developer.squareup.com/reference/square_2024-08-21/objects/Vendor">Vendor</see>,
+/// whether a <see href="https://developer.squareup.com/reference/square_2024-08-21/objects/Vendor">Vendor</see> is active or inactive.
 /// </summary>
 [JsonConverter(typeof(StringEnumConverter<VendorStatus>))]
 public sealed record VendorStatus : OpenStringEnum<VendorStatus>

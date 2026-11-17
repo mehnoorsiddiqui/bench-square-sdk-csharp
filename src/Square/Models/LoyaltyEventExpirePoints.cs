@@ -11,7 +11,7 @@ namespace Square.Models;
 public record LoyaltyEventExpirePoints
 {
     /// <summary>
-    /// The Square-assigned ID of the <see href="https://developer.squareup.com/reference/square_2024-05-15/objects/LoyaltyProgram">loyalty program</see>.
+    /// The Square-assigned ID of the <see href="https://developer.squareup.com/reference/square_2024-08-21/objects/LoyaltyProgram">loyalty program</see>.
     /// </summary>
     [JsonPropertyName("loyalty_program_id")]
     [StringLength(36, MinimumLength = 1)]

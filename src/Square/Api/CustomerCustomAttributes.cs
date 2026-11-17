@@ -35,11 +35,11 @@ public sealed class CustomerCustomAttributes
     /// <returns>A <see cref="Task{TResult}"/> of <see cref="BulkUpsertCustomerCustomAttributesResponse"/> instance.</returns>
     /// <exception cref="ApiException{TError}"> of <see cref="RawError"/> when the server returns an error response.</exception>
     /// <remarks>
-    /// Creates or updates <see href="https://developer.squareup.com/reference/square_2024-05-15/objects/CustomAttribute">custom attributes</see> for customer profiles as a bulk operation.
+    /// Creates or updates <see href="https://developer.squareup.com/reference/square_2024-08-21/objects/CustomAttribute">custom attributes</see> for customer profiles as a bulk operation.
     /// <para>
     /// Use this endpoint to set the value of one or more custom attributes for one or more customer profiles.
     /// A custom attribute is based on a custom attribute definition in a Square seller account, which is
-    /// created using the <see href="https://developer.squareup.com/reference/square_2024-05-15/customer-custom-attributes-api/create-customer-custom-attribute-definition">CreateCustomerCustomAttributeDefinition</see> endpoint.
+    /// created using the <see href="https://developer.squareup.com/reference/square_2024-08-21/customer-custom-attributes-api/create-customer-custom-attribute-definition">CreateCustomerCustomAttributeDefinition</see> endpoint.
     /// </para>
     /// <para>
     /// This <c>BulkUpsertCustomerCustomAttributes</c> endpoint accepts a map of 1 to 25 individual upsert
@@ -78,13 +78,13 @@ public sealed class CustomerCustomAttributes
     /// <returns>A <see cref="Task{TResult}"/> of <see cref="CreateCustomerCustomAttributeDefinitionResponse"/> instance.</returns>
     /// <exception cref="ApiException{TError}"> of <see cref="RawError"/> when the server returns an error response.</exception>
     /// <remarks>
-    /// Creates a customer-related <see href="https://developer.squareup.com/reference/square_2024-05-15/objects/CustomAttributeDefinition">custom attribute definition</see> for a Square seller account.
+    /// Creates a customer-related <see href="https://developer.squareup.com/reference/square_2024-08-21/objects/CustomAttributeDefinition">custom attribute definition</see> for a Square seller account.
     /// Use this endpoint to define a custom attribute that can be associated with customer profiles.
     /// <para>
     /// A custom attribute definition specifies the <c>key</c>, <c>visibility</c>, <c>schema</c>, and other properties
     /// for a custom attribute. After the definition is created, you can call
-    /// <see href="https://developer.squareup.com/reference/square_2024-05-15/customer-custom-attributes-api/upsert-customer-custom-attribute">UpsertCustomerCustomAttribute</see> or
-    /// <see href="https://developer.squareup.com/reference/square_2024-05-15/customer-custom-attributes-api/bulk-upsert-customer-custom-attributes">BulkUpsertCustomerCustomAttributes</see>
+    /// <see href="https://developer.squareup.com/reference/square_2024-08-21/customer-custom-attributes-api/upsert-customer-custom-attribute">UpsertCustomerCustomAttribute</see> or
+    /// <see href="https://developer.squareup.com/reference/square_2024-08-21/customer-custom-attributes-api/bulk-upsert-customer-custom-attributes">BulkUpsertCustomerCustomAttributes</see>
     /// to set the custom attribute for customer profiles in the seller's Customer Directory.
     /// </para>
     /// <para>
@@ -117,7 +117,7 @@ public sealed class CustomerCustomAttributes
     /// <returns>A <see cref="Task{TResult}"/> of <see cref="DeleteCustomerCustomAttributeResponse"/> instance.</returns>
     /// <exception cref="ApiException{TError}"> of <see cref="RawError"/> when the server returns an error response.</exception>
     /// <remarks>
-    /// Deletes a <see href="https://developer.squareup.com/reference/square_2024-05-15/objects/CustomAttribute">custom attribute</see> associated with a customer profile.
+    /// Deletes a <see href="https://developer.squareup.com/reference/square_2024-08-21/objects/CustomAttribute">custom attribute</see> associated with a customer profile.
     /// <para>
     /// To delete a custom attribute owned by another application, the <c>visibility</c> setting must be
     /// <c>VISIBILITY_READ_WRITE_VALUES</c>. Note that seller-defined custom attributes
@@ -149,7 +149,7 @@ public sealed class CustomerCustomAttributes
     /// <returns>A <see cref="Task{TResult}"/> of <see cref="DeleteCustomerCustomAttributeDefinitionResponse"/> instance.</returns>
     /// <exception cref="ApiException{TError}"> of <see cref="RawError"/> when the server returns an error response.</exception>
     /// <remarks>
-    /// Deletes a customer-related <see href="https://developer.squareup.com/reference/square_2024-05-15/objects/CustomAttributeDefinition">custom attribute definition</see> from a Square seller account.
+    /// Deletes a customer-related <see href="https://developer.squareup.com/reference/square_2024-08-21/objects/CustomAttributeDefinition">custom attribute definition</see> from a Square seller account.
     /// <para>
     /// Deleting a custom attribute definition also deletes the corresponding custom attribute from
     /// all customer profiles in the seller's Customer Directory.
@@ -183,7 +183,7 @@ public sealed class CustomerCustomAttributes
     /// <returns>A <see cref="Task{TResult}"/> of <see cref="ListCustomerCustomAttributeDefinitionsResponse"/> instance.</returns>
     /// <exception cref="ApiException{TError}"> of <see cref="RawError"/> when the server returns an error response.</exception>
     /// <remarks>
-    /// Lists the customer-related <see href="https://developer.squareup.com/reference/square_2024-05-15/objects/CustomAttributeDefinition">custom attribute definitions</see> that belong to a Square seller account.
+    /// Lists the customer-related <see href="https://developer.squareup.com/reference/square_2024-08-21/objects/CustomAttributeDefinition">custom attribute definitions</see> that belong to a Square seller account.
     /// <para>
     /// When all response pages are retrieved, the results include all custom attribute definitions
     /// that are visible to the requesting application, including those that are created by other
@@ -216,7 +216,7 @@ public sealed class CustomerCustomAttributes
     /// <returns>A <see cref="Task{TResult}"/> of <see cref="ListCustomerCustomAttributesResponse"/> instance.</returns>
     /// <exception cref="ApiException{TError}"> of <see cref="RawError"/> when the server returns an error response.</exception>
     /// <remarks>
-    /// Lists the <see href="https://developer.squareup.com/reference/square_2024-05-15/objects/CustomAttribute">custom attributes</see> associated with a customer profile.
+    /// Lists the <see href="https://developer.squareup.com/reference/square_2024-08-21/objects/CustomAttribute">custom attributes</see> associated with a customer profile.
     /// <para>
     /// You can use the <c>with_definitions</c> query parameter to also retrieve custom attribute definitions
     /// in the same call.
@@ -256,7 +256,7 @@ public sealed class CustomerCustomAttributes
     /// <returns>A <see cref="Task{TResult}"/> of <see cref="RetrieveCustomerCustomAttributeResponse"/> instance.</returns>
     /// <exception cref="ApiException{TError}"> of <see cref="RawError"/> when the server returns an error response.</exception>
     /// <remarks>
-    /// Retrieves a <see href="https://developer.squareup.com/reference/square_2024-05-15/objects/CustomAttribute">custom attribute</see> associated with a customer profile.
+    /// Retrieves a <see href="https://developer.squareup.com/reference/square_2024-08-21/objects/CustomAttribute">custom attribute</see> associated with a customer profile.
     /// <para>
     /// You can use the <c>with_definition</c> query parameter to also retrieve the custom attribute definition
     /// in the same call.
@@ -292,7 +292,7 @@ public sealed class CustomerCustomAttributes
     /// <returns>A <see cref="Task{TResult}"/> of <see cref="RetrieveCustomerCustomAttributeDefinitionResponse"/> instance.</returns>
     /// <exception cref="ApiException{TError}"> of <see cref="RawError"/> when the server returns an error response.</exception>
     /// <remarks>
-    /// Retrieves a customer-related <see href="https://developer.squareup.com/reference/square_2024-05-15/objects/CustomAttributeDefinition">custom attribute definition</see> from a Square seller account.
+    /// Retrieves a customer-related <see href="https://developer.squareup.com/reference/square_2024-08-21/objects/CustomAttributeDefinition">custom attribute definition</see> from a Square seller account.
     /// <para>
     /// To retrieve a custom attribute definition created by another application, the <c>visibility</c>
     /// setting must be <c>VISIBILITY_READ_ONLY</c> or <c>VISIBILITY_READ_WRITE_VALUES</c>. Note that seller-defined custom attributes
@@ -324,7 +324,7 @@ public sealed class CustomerCustomAttributes
     /// <returns>A <see cref="Task{TResult}"/> of <see cref="UpdateCustomerCustomAttributeDefinitionResponse"/> instance.</returns>
     /// <exception cref="ApiException{TError}"> of <see cref="RawError"/> when the server returns an error response.</exception>
     /// <remarks>
-    /// Updates a customer-related <see href="https://developer.squareup.com/reference/square_2024-05-15/objects/CustomAttributeDefinition">custom attribute definition</see> for a Square seller account.
+    /// Updates a customer-related <see href="https://developer.squareup.com/reference/square_2024-08-21/objects/CustomAttributeDefinition">custom attribute definition</see> for a Square seller account.
     /// <para>
     /// Use this endpoint to update the following fields: <c>name</c>, <c>description</c>, <c>visibility</c>, or the
     /// <c>schema</c> for a <c>Selection</c> data type.
@@ -359,11 +359,11 @@ public sealed class CustomerCustomAttributes
     /// <returns>A <see cref="Task{TResult}"/> of <see cref="UpsertCustomerCustomAttributeResponse"/> instance.</returns>
     /// <exception cref="ApiException{TError}"> of <see cref="RawError"/> when the server returns an error response.</exception>
     /// <remarks>
-    /// Creates or updates a <see href="https://developer.squareup.com/reference/square_2024-05-15/objects/CustomAttribute">custom attribute</see> for a customer profile.
+    /// Creates or updates a <see href="https://developer.squareup.com/reference/square_2024-08-21/objects/CustomAttribute">custom attribute</see> for a customer profile.
     /// <para>
     /// Use this endpoint to set the value of a custom attribute for a specified customer profile.
     /// A custom attribute is based on a custom attribute definition in a Square seller account, which
-    /// is created using the <see href="https://developer.squareup.com/reference/square_2024-05-15/customer-custom-attributes-api/create-customer-custom-attribute-definition">CreateCustomerCustomAttributeDefinition</see> endpoint.
+    /// is created using the <see href="https://developer.squareup.com/reference/square_2024-08-21/customer-custom-attributes-api/create-customer-custom-attribute-definition">CreateCustomerCustomAttributeDefinition</see> endpoint.
     /// </para>
     /// <para>
     /// To create or update a custom attribute owned by another application, the <c>visibility</c> setting

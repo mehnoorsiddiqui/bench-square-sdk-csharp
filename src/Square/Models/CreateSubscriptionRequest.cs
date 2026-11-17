@@ -8,7 +8,7 @@ namespace Square.Models;
 
 /// <summary>
 /// Defines input parameters in a request to the
-/// <see href="https://developer.squareup.com/reference/square_2024-05-15/subscriptions-api/create-subscription">CreateSubscription</see> endpoint.
+/// <see href="https://developer.squareup.com/reference/square_2024-08-21/subscriptions-api/create-subscription">CreateSubscription</see> endpoint.
 /// </summary>
 public record CreateSubscriptionRequest
 {
@@ -39,7 +39,7 @@ public record CreateSubscriptionRequest
     public string? PlanVariationId { get; init; }
 
     /// <summary>
-    /// The ID of the <see href="https://developer.squareup.com/reference/square_2024-05-15/objects/Customer">customer</see> subscribing to the subscription plan variation.
+    /// The ID of the <see href="https://developer.squareup.com/reference/square_2024-08-21/objects/Customer">customer</see> subscribing to the subscription plan variation.
     /// </summary>
     [JsonPropertyName("customer_id")]
     [MinLength(1)]
@@ -94,7 +94,7 @@ public record CreateSubscriptionRequest
     public Money? PriceOverrideMoney { get; init; }
 
     /// <summary>
-    /// The ID of the <see href="https://developer.squareup.com/reference/square_2024-05-15/objects/Customer">subscriber's</see> <see href="https://developer.squareup.com/reference/square_2024-05-15/objects/Card">card</see> to charge.
+    /// The ID of the <see href="https://developer.squareup.com/reference/square_2024-08-21/objects/Customer">subscriber's</see> <see href="https://developer.squareup.com/reference/square_2024-08-21/objects/Card">card</see> to charge.
     /// If it is not specified, the subscriber receives an invoice via email with a link to pay for their subscription.
     /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]

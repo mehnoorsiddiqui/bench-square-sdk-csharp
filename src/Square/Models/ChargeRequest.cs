@@ -7,9 +7,9 @@ namespace Square.Models;
 
 /// <summary>
 /// Defines the parameters that can be included in the body of
-/// a request to the <see href="https://developer.squareup.com/reference/square_2024-05-15/transactions-api/charge">Charge</see> endpoint.
+/// a request to the <see href="https://developer.squareup.com/reference/square_2024-08-21/transactions-api/charge">Charge</see> endpoint.
 /// <para>
-/// Deprecated - recommend using <see href="https://developer.squareup.com/reference/square_2024-05-15/payments-api/create-payment">CreatePayment</see>
+/// Deprecated - recommend using <see href="https://developer.squareup.com/reference/square_2024-08-21/payments-api/create-payment">CreatePayment</see>
 /// </para>
 /// </summary>
 public record ChargeRequest
@@ -75,8 +75,8 @@ public record ChargeRequest
     /// <summary>
     /// If <c>true</c>, the request will only perform an Auth on the provided
     /// card. You can then later perform either a Capture (with the
-    /// <see href="https://developer.squareup.com/reference/square_2024-05-15/transactions-api/capture-transaction">CaptureTransaction</see> endpoint) or a Void
-    /// (with the <see href="https://developer.squareup.com/reference/square_2024-05-15/transactions-api/void-transaction">VoidTransaction</see> endpoint).
+    /// <see href="https://developer.squareup.com/reference/square_2024-08-21/transactions-api/capture-transaction">CaptureTransaction</see> endpoint) or a Void
+    /// (with the <see href="https://developer.squareup.com/reference/square_2024-08-21/transactions-api/void-transaction">VoidTransaction</see> endpoint).
     /// <para>
     /// Default value: <c>false</c>
     /// </para>

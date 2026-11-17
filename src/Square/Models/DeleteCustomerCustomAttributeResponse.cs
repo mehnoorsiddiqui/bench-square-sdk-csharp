@@ -5,7 +5,7 @@ using Square.Core.Models;
 namespace Square.Models;
 
 /// <summary>
-/// Represents a <see href="https://developer.squareup.com/reference/square_2024-05-15/customer-custom-attributes-api/delete-customer-custom-attribute">DeleteCustomerCustomAttribute</see> response.
+/// Represents a <see href="https://developer.squareup.com/reference/square_2024-08-21/customer-custom-attributes-api/delete-customer-custom-attribute">DeleteCustomerCustomAttribute</see> response.
 /// Either an empty object <c>{}</c> (for a successful deletion) or <c>errors</c> is present in the response.
 /// </summary>
 public record DeleteCustomerCustomAttributeResponse

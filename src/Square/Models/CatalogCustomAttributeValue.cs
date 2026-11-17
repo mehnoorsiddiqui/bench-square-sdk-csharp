@@ -26,7 +26,7 @@ public record CatalogCustomAttributeValue
     public string? StringValue { get; init; }
 
     /// <summary>
-    /// The id of the <see href="https://developer.squareup.com/reference/square_2024-05-15/objects/CatalogCustomAttributeDefinition">CatalogCustomAttributeDefinition</see> this value belongs to.
+    /// The id of the <see href="https://developer.squareup.com/reference/square_2024-08-21/objects/CatalogCustomAttributeDefinition">CatalogCustomAttributeDefinition</see> this value belongs to.
     /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("custom_attribute_definition_id")]

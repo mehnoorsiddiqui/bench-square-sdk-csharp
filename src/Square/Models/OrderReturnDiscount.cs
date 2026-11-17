@@ -32,7 +32,7 @@ public record OrderReturnDiscount
     public string? SourceDiscountUid { get; init; }
 
     /// <summary>
-    /// The catalog object ID referencing <see href="https://developer.squareup.com/reference/square_2024-05-15/objects/CatalogDiscount">CatalogDiscount</see>.
+    /// The catalog object ID referencing <see href="https://developer.squareup.com/reference/square_2024-08-21/objects/CatalogDiscount">CatalogDiscount</see>.
     /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("catalog_object_id")]

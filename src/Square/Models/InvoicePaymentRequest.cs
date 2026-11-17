@@ -6,7 +6,7 @@ using Square.Core.Models;
 namespace Square.Models;
 
 /// <summary>
-/// Represents a payment request for an <see href="https://developer.squareup.com/reference/square_2024-05-15/objects/Invoice">invoice</see>. Invoices can specify a maximum
+/// Represents a payment request for an <see href="https://developer.squareup.com/reference/square_2024-08-21/objects/Invoice">invoice</see>. Invoices can specify a maximum
 /// of 13 payment requests, with up to 12 <c>INSTALLMENT</c> request types. For more information,
 /// see <see href="https://developer.squareup.com/docs/invoices-api/create-publish-invoices#payment-requests">Configuring payment requests</see>.
 /// <para>
@@ -17,7 +17,7 @@ namespace Square.Models;
 public record InvoicePaymentRequest
 {
     /// <summary>
-    /// The Square-generated ID of the payment request in an <see href="https://developer.squareup.com/reference/square_2024-05-15/objects/Invoice">invoice</see>.
+    /// The Square-generated ID of the payment request in an <see href="https://developer.squareup.com/reference/square_2024-08-21/objects/Invoice">invoice</see>.
     /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("uid")]
@@ -113,7 +113,7 @@ public record InvoicePaymentRequest
 
     /// <summary>
     /// The ID of the credit or debit card on file to charge for the payment request. To get the cards on file for a customer,
-    /// call <see href="https://developer.squareup.com/reference/square_2024-05-15/cards-api/list-cards">ListCards</see> and include the <c>customer_id</c> of the invoice recipient.
+    /// call <see href="https://developer.squareup.com/reference/square_2024-08-21/cards-api/list-cards">ListCards</see> and include the <c>customer_id</c> of the invoice recipient.
     /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("card_id")]

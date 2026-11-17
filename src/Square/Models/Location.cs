@@ -47,7 +47,7 @@ public record Location
 
     /// <summary>
     /// The Square features that are enabled for the location.
-    /// See <see href="https://developer.squareup.com/reference/square_2024-05-15/enums/LocationCapability">LocationCapability</see> for possible values.
+    /// See <see href="https://developer.squareup.com/reference/square_2024-08-21/enums/LocationCapability">LocationCapability</see> for possible values.
     /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("capabilities")]
@@ -80,7 +80,7 @@ public record Location
     /// <summary>
     /// The country of the location, in the two-letter format of ISO 3166. For example, <c>US</c> or <c>JP</c>.
     /// <para>
-    /// See <see href="https://developer.squareup.com/reference/square_2024-05-15/enums/Country">Country</see> for possible values.
+    /// See <see href="https://developer.squareup.com/reference/square_2024-08-21/enums/Country">Country</see> for possible values.
     /// </para>
     /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
@@ -100,7 +100,7 @@ public record Location
     /// <summary>
     /// The currency used for all transactions at this location,
     /// in ISO 4217 format. For example, the currency code for US dollars is <c>USD</c>.
-    /// See <see href="https://developer.squareup.com/reference/square_2024-05-15/enums/Currency">Currency</see> for possible values.
+    /// See <see href="https://developer.squareup.com/reference/square_2024-08-21/enums/Currency">Currency</see> for possible values.
     /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("currency")]

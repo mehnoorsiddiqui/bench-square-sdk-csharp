@@ -101,7 +101,7 @@ public sealed class CashDrawers
     /// <exception cref="ApiException{TError}"> of <see cref="RawError"/> when the server returns an error response.</exception>
     /// <remarks>
     /// Provides the summary details for a single cash drawer shift. See
-    /// <see href="https://developer.squareup.com/reference/square_2024-05-15/cash-drawers-api/list-cash-drawer-shift-events">ListCashDrawerShiftEvents</see> for a list of cash drawer shift events.
+    /// <see href="https://developer.squareup.com/reference/square_2024-08-21/cash-drawers-api/list-cash-drawer-shift-events">ListCashDrawerShiftEvents</see> for a list of cash drawer shift events.
     /// </remarks>
     public Task<RetrieveCashDrawerShiftResponse> RetrieveCashDrawerShift(RetrieveCashDrawerShiftOperationRequest request,
         RequestOptions? requestOptions = null,

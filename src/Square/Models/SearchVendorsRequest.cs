@@ -4,7 +4,7 @@ using Square.Core.Models;
 namespace Square.Models;
 
 /// <summary>
-/// Represents an input into a call to <see href="https://developer.squareup.com/reference/square_2024-05-15/vendors-api/search-vendors">SearchVendors</see>.
+/// Represents an input into a call to <see href="https://developer.squareup.com/reference/square_2024-08-21/vendors-api/search-vendors">SearchVendors</see>.
 /// </summary>
 public record SearchVendorsRequest
 {
@@ -16,7 +16,7 @@ public record SearchVendorsRequest
     public SearchVendorsRequestFilter? Filter { get; init; }
 
     /// <summary>
-    /// Defines a sorter used to sort results from <see href="https://developer.squareup.com/reference/square_2024-05-15/vendors-api/search-vendors">SearchVendors</see>.
+    /// Defines a sorter used to sort results from <see href="https://developer.squareup.com/reference/square_2024-08-21/vendors-api/search-vendors">SearchVendors</see>.
     /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("sort")]

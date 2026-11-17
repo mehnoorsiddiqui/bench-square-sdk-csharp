@@ -23,7 +23,7 @@ public record LoyaltyProgramAccrualRuleSpendData
     /// <summary>
     /// The IDs of any <c>CATEGORY</c> catalog objects that are excluded from points accrual.
     /// <para>
-    /// You can use the <see href="https://developer.squareup.com/reference/square_2024-05-15/catalog-api/batch-retrieve-catalog-objects">BatchRetrieveCatalogObjects</see>
+    /// You can use the <see href="https://developer.squareup.com/reference/square_2024-08-21/catalog-api/batch-retrieve-catalog-objects">BatchRetrieveCatalogObjects</see>
     /// endpoint to retrieve information about the excluded categories.
     /// </para>
     /// </summary>
@@ -34,7 +34,7 @@ public record LoyaltyProgramAccrualRuleSpendData
     /// <summary>
     /// The IDs of any <c>ITEM_VARIATION</c> catalog objects that are excluded from points accrual.
     /// <para>
-    /// You can use the <see href="https://developer.squareup.com/reference/square_2024-05-15/catalog-api/batch-retrieve-catalog-objects">BatchRetrieveCatalogObjects</see>
+    /// You can use the <see href="https://developer.squareup.com/reference/square_2024-08-21/catalog-api/batch-retrieve-catalog-objects">BatchRetrieveCatalogObjects</see>
     /// endpoint to retrieve information about the excluded item variations.
     /// </para>
     /// </summary>

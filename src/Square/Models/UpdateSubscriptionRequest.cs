@@ -5,7 +5,7 @@ namespace Square.Models;
 
 /// <summary>
 /// Defines input parameters in a request to the
-/// <see href="https://developer.squareup.com/reference/square_2024-05-15/subscriptions-api/update-subscription">UpdateSubscription</see> endpoint.
+/// <see href="https://developer.squareup.com/reference/square_2024-08-21/subscriptions-api/update-subscription">UpdateSubscription</see> endpoint.
 /// </summary>
 public record UpdateSubscriptionRequest
 {

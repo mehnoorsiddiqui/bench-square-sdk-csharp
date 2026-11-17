@@ -25,7 +25,7 @@ public record OrderLineItemDiscount
     public string? Uid { get; init; }
 
     /// <summary>
-    /// The catalog object ID referencing <see href="https://developer.squareup.com/reference/square_2024-05-15/objects/CatalogDiscount">CatalogDiscount</see>.
+    /// The catalog object ID referencing <see href="https://developer.squareup.com/reference/square_2024-08-21/objects/CatalogDiscount">CatalogDiscount</see>.
     /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("catalog_object_id")]
@@ -149,7 +149,7 @@ public record OrderLineItemDiscount
     public IReadOnlyList<string>? RewardIds { get; init; }
 
     /// <summary>
-    /// The object ID of a <see href="https://developer.squareup.com/reference/square_2024-05-15/objects/CatalogPricingRule">pricing rule</see> to be applied
+    /// The object ID of a <see href="https://developer.squareup.com/reference/square_2024-08-21/objects/CatalogPricingRule">pricing rule</see> to be applied
     /// automatically to this discount. The specification and application of the discounts, to
     /// which a <c>pricing_rule_id</c> is assigned, are completely controlled by the corresponding
     /// pricing rule.

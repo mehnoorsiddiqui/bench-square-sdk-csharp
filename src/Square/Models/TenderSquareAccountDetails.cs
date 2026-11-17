@@ -10,7 +10,7 @@ public record TenderSquareAccountDetails
 {
     /// <summary>
     /// The Square Account payment's current state (such as <c>AUTHORIZED</c> or
-    /// <c>CAPTURED</c>). See <see href="https://developer.squareup.com/reference/square_2024-05-15/enums/TenderSquareAccountDetailsStatus">TenderSquareAccountDetailsStatus</see>
+    /// <c>CAPTURED</c>). See <see href="https://developer.squareup.com/reference/square_2024-08-21/enums/TenderSquareAccountDetailsStatus">TenderSquareAccountDetailsStatus</see>
     /// for possible values.
     /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]

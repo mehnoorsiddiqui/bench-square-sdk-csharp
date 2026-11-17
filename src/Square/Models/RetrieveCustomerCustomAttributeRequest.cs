@@ -4,12 +4,12 @@ using Square.Core.Models;
 namespace Square.Models;
 
 /// <summary>
-/// Represents a <see href="https://developer.squareup.com/reference/square_2024-05-15/customer-custom-attributes-api/retrieve-customer-custom-attribute">RetrieveCustomerCustomAttribute</see> request.
+/// Represents a <see href="https://developer.squareup.com/reference/square_2024-08-21/customer-custom-attributes-api/retrieve-customer-custom-attribute">RetrieveCustomerCustomAttribute</see> request.
 /// </summary>
 public record RetrieveCustomerCustomAttributeRequest
 {
     /// <summary>
-    /// Indicates whether to return the <see href="https://developer.squareup.com/reference/square_2024-05-15/objects/CustomAttributeDefinition">custom attribute definition</see> in the <c>definition</c> field of
+    /// Indicates whether to return the <see href="https://developer.squareup.com/reference/square_2024-08-21/objects/CustomAttributeDefinition">custom attribute definition</see> in the <c>definition</c> field of
     /// the custom attribute. Set this parameter to <c>true</c> to get the name and description of the custom
     /// attribute, information about the data type, or other definition details. The default value is <c>false</c>.
     /// </summary>

@@ -6,7 +6,7 @@ namespace Square.Models;
 
 /// <summary>
 /// Defines the fields that are included in the response body of
-/// a request to the <see href="https://developer.squareup.com/reference/square_2024-05-15/webhook-subscriptions-api/delete-webhook-subscription">DeleteWebhookSubscription</see> endpoint.
+/// a request to the <see href="https://developer.squareup.com/reference/square_2024-08-21/webhook-subscriptions-api/delete-webhook-subscription">DeleteWebhookSubscription</see> endpoint.
 /// </summary>
 public record DeleteWebhookSubscriptionResponse
 {

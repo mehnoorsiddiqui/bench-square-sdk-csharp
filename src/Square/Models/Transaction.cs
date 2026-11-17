@@ -54,7 +54,7 @@ public record Transaction
     public IReadOnlyList<Refund>? Refunds { get; init; }
 
     /// <summary>
-    /// If the transaction was created with the <see href="https://developer.squareup.com/reference/square_2024-05-15/transactions-api/charge">Charge</see>
+    /// If the transaction was created with the <see href="https://developer.squareup.com/reference/square_2024-08-21/transactions-api/charge">Charge</see>
     /// endpoint, this value is the same as the value provided for the <c>reference_id</c>
     /// parameter in the request to that endpoint. Otherwise, it is not set.
     /// </summary>

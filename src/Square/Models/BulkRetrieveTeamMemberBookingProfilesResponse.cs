@@ -5,12 +5,12 @@ using Square.Core.Models;
 namespace Square.Models;
 
 /// <summary>
-/// Response payload for the <see href="https://developer.squareup.com/reference/square_2024-05-15/bookings-api/bulk-retrieve-team-member-booking-profiles">BulkRetrieveTeamMemberBookingProfiles</see> endpoint.
+/// Response payload for the <see href="https://developer.squareup.com/reference/square_2024-08-21/bookings-api/bulk-retrieve-team-member-booking-profiles">BulkRetrieveTeamMemberBookingProfiles</see> endpoint.
 /// </summary>
 public record BulkRetrieveTeamMemberBookingProfilesResponse
 {
     /// <summary>
-    /// The returned team members' booking profiles, as a map with <c>team_member_id</c> as the key and <see href="https://developer.squareup.com/reference/square_2024-05-15/objects/TeamMemberBookingProfile">TeamMemberBookingProfile</see> the value.
+    /// The returned team members' booking profiles, as a map with <c>team_member_id</c> as the key and <see href="https://developer.squareup.com/reference/square_2024-08-21/objects/TeamMemberBookingProfile">TeamMemberBookingProfile</see> the value.
     /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("team_member_booking_profiles")]

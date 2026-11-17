@@ -10,7 +10,7 @@ namespace Square.Models;
 public record LoyaltyEventAccumulatePromotionPoints
 {
     /// <summary>
-    /// The Square-assigned ID of the <see href="https://developer.squareup.com/reference/square_2024-05-15/objects/LoyaltyProgram">loyalty program</see>.
+    /// The Square-assigned ID of the <see href="https://developer.squareup.com/reference/square_2024-08-21/objects/LoyaltyProgram">loyalty program</see>.
     /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("loyalty_program_id")]
@@ -18,7 +18,7 @@ public record LoyaltyEventAccumulatePromotionPoints
     public string? LoyaltyProgramId { get; init; }
 
     /// <summary>
-    /// The Square-assigned ID of the <see href="https://developer.squareup.com/reference/square_2024-05-15/objects/LoyaltyPromotion">loyalty promotion</see>.
+    /// The Square-assigned ID of the <see href="https://developer.squareup.com/reference/square_2024-08-21/objects/LoyaltyPromotion">loyalty promotion</see>.
     /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("loyalty_promotion_id")]
@@ -32,7 +32,7 @@ public record LoyaltyEventAccumulatePromotionPoints
     public required int Points { get; init; }
 
     /// <summary>
-    /// The ID of the <see href="https://developer.squareup.com/reference/square_2024-05-15/objects/Order">order</see> for which the buyer earned the promotion points.
+    /// The ID of the <see href="https://developer.squareup.com/reference/square_2024-08-21/objects/Order">order</see> for which the buyer earned the promotion points.
     /// Only applications that use the Orders API to process orders can trigger this event.
     /// </summary>
     [JsonPropertyName("order_id")]

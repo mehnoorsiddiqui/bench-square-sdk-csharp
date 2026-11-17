@@ -24,9 +24,9 @@ public sealed class SquareClient
         var urlFactory = new UriFactory(queryParameterFactory, templateParamsFactory);
         var httpStatusPolicy = new HttpStatusPolicy([]);
         var headersFactory = new HeadersFactory([
-            new HeaderParam("User-Agent", "SquareClient/1.1.0 CSharp"),
+            new HeaderParam("User-Agent", "SquareClient/1.2.0 CSharp"),
             new HeaderParam("X-APIMatic-Lang", "CSharp"),
-            new HeaderParam("X-APIMatic-Package-Version", "1.1.0"),
+            new HeaderParam("X-APIMatic-Package-Version", "1.2.0"),
             new HeaderParam("X-APIMatic-Gen-Version", "4.0.0"),
             new HeaderParam("X-APIMatic-OS", RuntimeEnvironment.Os),
             new HeaderParam("X-APIMatic-Runtime", RuntimeEnvironment.Runtime),
@@ -81,6 +81,8 @@ public sealed class SquareClient
     public Disputes Disputes => field ??= new Disputes(_rawClient, _server, _auth);
 
     public Employees Employees => field ??= new Employees(_rawClient, _server, _auth);
+
+    public Events Events => field ??= new Events(_rawClient, _server, _auth);
 
     public GiftCardActivities GiftCardActivities => field ??= new GiftCardActivities(_rawClient, _server, _auth);
 

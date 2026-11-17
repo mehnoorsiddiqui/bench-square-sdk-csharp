@@ -5,7 +5,7 @@ using Square.Core.Validation.Attributes;
 namespace Square.Models;
 
 /// <summary>
-/// Represents a <see href="https://developer.squareup.com/reference/square_2024-05-15/merchant-custom-attributes-api/list-merchant-custom-attributes">ListMerchantCustomAttributes</see> request.
+/// Represents a <see href="https://developer.squareup.com/reference/square_2024-08-21/merchant-custom-attributes-api/list-merchant-custom-attributes">ListMerchantCustomAttributes</see> request.
 /// </summary>
 public record ListMerchantCustomAttributesRequest
 {
@@ -37,7 +37,7 @@ public record ListMerchantCustomAttributesRequest
     public string? Cursor { get; init; }
 
     /// <summary>
-    /// Indicates whether to return the <see href="https://developer.squareup.com/reference/square_2024-05-15/objects/CustomAttributeDefinition">custom attribute definition</see> in the <c>definition</c> field of each
+    /// Indicates whether to return the <see href="https://developer.squareup.com/reference/square_2024-08-21/objects/CustomAttributeDefinition">custom attribute definition</see> in the <c>definition</c> field of each
     /// custom attribute. Set this parameter to <c>true</c> to get the name and description of each custom
     /// attribute, information about the data type, or other definition details. The default value is <c>false</c>.
     /// </summary>

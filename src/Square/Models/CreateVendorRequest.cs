@@ -5,12 +5,12 @@ using Square.Core.Models;
 namespace Square.Models;
 
 /// <summary>
-/// Represents an input to a call to <see href="https://developer.squareup.com/reference/square_2024-05-15/vendors-api/create-vendor">CreateVendor</see>.
+/// Represents an input to a call to <see href="https://developer.squareup.com/reference/square_2024-08-21/vendors-api/create-vendor">CreateVendor</see>.
 /// </summary>
 public record CreateVendorRequest
 {
     /// <summary>
-    /// A client-supplied, universally unique identifier (UUID) to make this <see href="https://developer.squareup.com/reference/square_2024-05-15/vendors-api/create-vendor">CreateVendor</see> call idempotent.
+    /// A client-supplied, universally unique identifier (UUID) to make this <see href="https://developer.squareup.com/reference/square_2024-08-21/vendors-api/create-vendor">CreateVendor</see> call idempotent.
     /// <para>
     /// See <see href="https://developer.squareup.com/docs/build-basics/common-api-patterns/idempotency">Idempotency</see> in the
     /// <see href="https://developer.squareup.com/docs/buildbasics">API Development 101</see> section for more

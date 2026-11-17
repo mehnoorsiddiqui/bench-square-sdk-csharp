@@ -5,12 +5,12 @@ using Square.Core.Models;
 namespace Square.Models;
 
 /// <summary>
-/// Represents a response for an individual upsert request in a <see href="https://developer.squareup.com/reference/square_2024-05-15/booking-custom-attributes-api/bulk-delete-booking-custom-attributes">BulkDeleteBookingCustomAttributes</see> operation.
+/// Represents a response for an individual upsert request in a <see href="https://developer.squareup.com/reference/square_2024-08-21/booking-custom-attributes-api/bulk-delete-booking-custom-attributes">BulkDeleteBookingCustomAttributes</see> operation.
 /// </summary>
 public record BookingCustomAttributeDeleteResponse
 {
     /// <summary>
-    /// The ID of the <see href="https://developer.squareup.com/reference/square_2024-05-15/objects/Booking">booking</see> associated with the custom attribute.
+    /// The ID of the <see href="https://developer.squareup.com/reference/square_2024-08-21/objects/Booking">booking</see> associated with the custom attribute.
     /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("booking_id")]

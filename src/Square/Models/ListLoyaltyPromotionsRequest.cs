@@ -5,7 +5,7 @@ using Square.Core.Validation.Attributes;
 namespace Square.Models;
 
 /// <summary>
-/// Represents a <see href="https://developer.squareup.com/reference/square_2024-05-15/loyalty-api/list-loyalty-promotions">ListLoyaltyPromotions</see> request.
+/// Represents a <see href="https://developer.squareup.com/reference/square_2024-08-21/loyalty-api/list-loyalty-promotions">ListLoyaltyPromotions</see> request.
 /// </summary>
 public record ListLoyaltyPromotionsRequest
 {

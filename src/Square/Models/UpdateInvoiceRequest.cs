@@ -31,8 +31,9 @@ public record UpdateInvoiceRequest
     public string? IdempotencyKey { get; init; }
 
     /// <summary>
-    /// The list of fields to clear.
-    /// For examples, see <see href="https://developer.squareup.com/docs/invoices-api/update-invoices">Update an Invoice</see>.
+    /// The list of fields to clear. Although this field is currently supported, we
+    /// recommend using null values or the <c>remove</c> field when possible. For examples, see
+    /// <see href="https://developer.squareup.com/docs/invoices-api/update-invoices">Update an Invoice</see>.
     /// </summary>
     [JsonPropertyName("fields_to_clear")]
     public required IReadOnlyList<string> FieldsToClear { get; init; }

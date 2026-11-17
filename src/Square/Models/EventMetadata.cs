@@ -1,0 +1,27 @@
+using System.Text.Json.Serialization;
+using Square.Core.Models;
+
+namespace Square.Models;
+
+/// <summary>
+/// Contains metadata about a particular <see href="https://developer.squareup.com/reference/square_2024-08-21/objects/Event">Event</see>.
+/// </summary>
+public record EventMetadata
+{
+    /// <summary>
+    /// A unique ID for the event.
+    /// </summary>
+    [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
+    [JsonPropertyName("event_id")]
+    public string? EventId { get; init; }
+
+    /// <summary>
+    /// The API version of the event. This corresponds to the default API version of the developer application at the time when the event was created.
+    /// </summary>
+    [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
+    [JsonPropertyName("api_version")]
+    public string? ApiVersion { get; init; }
+
+    [JsonExtensionData]
+    public AdditionalProperties AdditionalProperties { get; init; } = [];
+}

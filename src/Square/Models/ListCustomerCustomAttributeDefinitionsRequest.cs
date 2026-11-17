@@ -5,7 +5,7 @@ using Square.Core.Validation.Attributes;
 namespace Square.Models;
 
 /// <summary>
-/// Represents a <see href="https://developer.squareup.com/reference/square_2024-05-15/customer-custom-attributes-api/list-customer-custom-attribute-definitions">ListCustomerCustomAttributeDefinitions</see> request.
+/// Represents a <see href="https://developer.squareup.com/reference/square_2024-08-21/customer-custom-attributes-api/list-customer-custom-attribute-definitions">ListCustomerCustomAttributeDefinitions</see> request.
 /// </summary>
 public record ListCustomerCustomAttributeDefinitionsRequest
 {

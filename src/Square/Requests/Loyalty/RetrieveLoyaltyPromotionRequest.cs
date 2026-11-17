@@ -6,13 +6,13 @@ namespace Square.Requests.Loyalty;
 public sealed record RetrieveLoyaltyPromotionRequest
 {
     /// <summary>
-    /// The ID of the <see href="https://developer.squareup.com/reference/square_2024-05-15/objects/LoyaltyPromotion">loyalty promotion</see> to retrieve.
+    /// The ID of the <see href="https://developer.squareup.com/reference/square_2024-08-21/objects/LoyaltyPromotion">loyalty promotion</see> to retrieve.
     /// </summary>
     public required string PromotionId { get; init; }
 
     /// <summary>
-    /// The ID of the base <see href="https://developer.squareup.com/reference/square_2024-05-15/objects/LoyaltyProgram">loyalty program</see>. To get the program ID,
-    /// call <see href="https://developer.squareup.com/reference/square_2024-05-15/loyalty-api/retrieve-loyalty-program">RetrieveLoyaltyProgram</see> using the <c>main</c> keyword.
+    /// The ID of the base <see href="https://developer.squareup.com/reference/square_2024-08-21/objects/LoyaltyProgram">loyalty program</see>. To get the program ID,
+    /// call <see href="https://developer.squareup.com/reference/square_2024-08-21/loyalty-api/retrieve-loyalty-program">RetrieveLoyaltyProgram</see> using the <c>main</c> keyword.
     /// </summary>
     public required string ProgramId { get; init; }
 }

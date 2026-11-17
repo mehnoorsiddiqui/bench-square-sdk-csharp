@@ -8,7 +8,7 @@ namespace Square.Requests.Loyalty;
 public sealed record AdjustLoyaltyPointsOperationRequest
 {
     /// <summary>
-    /// The ID of the target <see href="https://developer.squareup.com/reference/square_2024-05-15/objects/LoyaltyAccount">loyalty account</see>.
+    /// The ID of the target <see href="https://developer.squareup.com/reference/square_2024-08-21/objects/LoyaltyAccount">loyalty account</see>.
     /// </summary>
     public required string AccountId { get; init; }
 

@@ -6,7 +6,7 @@ namespace Square.Models;
 
 /// <summary>
 /// Represents a set of query expressions (filters) to narrow the scope of targeted subscriptions returned by
-/// the <see href="https://developer.squareup.com/reference/square_2024-05-15/subscriptions-api/search-subscriptions">SearchSubscriptions</see> endpoint.
+/// the <see href="https://developer.squareup.com/reference/square_2024-08-21/subscriptions-api/search-subscriptions">SearchSubscriptions</see> endpoint.
 /// </summary>
 public record SearchSubscriptionsFilter
 {

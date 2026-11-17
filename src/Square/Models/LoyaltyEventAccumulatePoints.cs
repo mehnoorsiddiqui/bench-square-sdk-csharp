@@ -11,7 +11,7 @@ namespace Square.Models;
 public record LoyaltyEventAccumulatePoints
 {
     /// <summary>
-    /// The ID of the <see href="https://developer.squareup.com/reference/square_2024-05-15/objects/LoyaltyProgram">loyalty program</see>.
+    /// The ID of the <see href="https://developer.squareup.com/reference/square_2024-08-21/objects/LoyaltyProgram">loyalty program</see>.
     /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("loyalty_program_id")]
@@ -27,7 +27,7 @@ public record LoyaltyEventAccumulatePoints
     public int? Points { get; init; }
 
     /// <summary>
-    /// The ID of the <see href="https://developer.squareup.com/reference/square_2024-05-15/objects/Order">order</see> for which the buyer accumulated the points.
+    /// The ID of the <see href="https://developer.squareup.com/reference/square_2024-08-21/objects/Order">order</see> for which the buyer accumulated the points.
     /// This field is returned only if the Orders API is used to process orders.
     /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]

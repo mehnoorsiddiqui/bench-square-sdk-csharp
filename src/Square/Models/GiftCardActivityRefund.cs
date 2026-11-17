@@ -4,15 +4,14 @@ using Square.Core.Models;
 namespace Square.Models;
 
 /// <summary>
-/// Represents details about a <c>REFUND</c> <see href="https://developer.squareup.com/reference/square_2024-05-15/objects/GiftCardActivityType">gift card activity type</see>.
+/// Represents details about a <c>REFUND</c> <see href="https://developer.squareup.com/reference/square_2024-08-21/objects/GiftCardActivityType">gift card activity type</see>.
 /// </summary>
 public record GiftCardActivityRefund
 {
     /// <summary>
     /// The ID of the refunded <c>REDEEM</c> gift card activity. Square populates this field if the
-    /// <c>payment_id</c> in the corresponding <see href="https://developer.squareup.com/reference/square_2024-05-15/refunds-api/refund-payment">RefundPayment</see> request
-    /// represents a redemption made by the same gift card. Note that you must use <c>RefundPayment</c>
-    /// to refund a gift card payment to the same gift card if the payment was processed by Square.
+    /// <c>payment_id</c> in the corresponding <see href="https://developer.squareup.com/reference/square_2024-08-21/refunds-api/refund-payment">RefundPayment</see> request
+    /// represents a gift card redemption.
     /// <para>
     /// For applications that use a custom payment processing system, this field is required when creating
     /// a <c>REFUND</c> activity. The provided <c>REDEEM</c> activity ID must be linked to the same gift card.
@@ -43,12 +42,8 @@ public record GiftCardActivityRefund
 
     /// <summary>
     /// The ID of the refunded payment. Square populates this field if the refund is for a
-    /// payment processed by Square and one of the following conditions is true:
-    /// <para>
-    /// - The Refunds API is used to refund a gift card payment to the same gift card.
-    /// - A seller initiated the refund from Square Point of Sale or the Seller Dashboard. The payment source can be the
-    /// same gift card or a cross-tender payment from a credit card or a different gift card.
-    /// </para>
+    /// payment processed by Square. This field matches the <c>payment_id</c> in the corresponding
+    /// <see href="https://developer.squareup.com/reference/square_2024-08-21/refunds-api/refund-payment">RefundPayment</see> request.
     /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("payment_id")]

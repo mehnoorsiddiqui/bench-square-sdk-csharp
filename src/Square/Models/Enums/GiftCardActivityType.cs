@@ -5,7 +5,7 @@ using Square.Core.Enum;
 namespace Square.Models.Enums;
 
 /// <summary>
-/// Indicates the type of <see href="https://developer.squareup.com/reference/square_2024-05-15/objects/GiftCardActivity">gift card activity</see>.
+/// Indicates the type of <see href="https://developer.squareup.com/reference/square_2024-08-21/objects/GiftCardActivity">gift card activity</see>.
 /// </summary>
 [JsonConverter(typeof(StringEnumConverter<GiftCardActivityType>))]
 public sealed record GiftCardActivityType : OpenStringEnum<GiftCardActivityType>
@@ -54,11 +54,9 @@ public sealed record GiftCardActivityType : OpenStringEnum<GiftCardActivityType>
     /// <summary>
     /// Added money to a gift card from a refunded transaction. A <c>REFUND</c> activity might be linked to
     /// a Square payment, depending on how the payment and refund are processed. For example:
-    /// - A gift card payment processed by Square can be refunded to the same gift card using Square Point of Sale,
-    /// the Square Seller Dashboard, or the Refunds API.
-    /// - A cross-tender payment processed by Square can be refunded to a gift card using Square Point of Sale or the
-    /// Square Seller Dashboard. The payment source might be a credit card or different gift card.
-    /// - A payment processed using a custom payment processing system can be refunded to the same gift card.
+    /// - A payment processed by Square can be refunded to a <c>PENDING</c> or <c>ACTIVE</c> gift card using the Square
+    /// Seller Dashboard, Square Point of Sale, or Refunds API.
+    /// - A payment processed using a custom processing system can be refunded to the same gift card.
     /// </summary>
     public static readonly GiftCardActivityType Refund = new("REFUND");
 

@@ -4,8 +4,8 @@ using Square.Core.Models;
 namespace Square.Models;
 
 /// <summary>
-/// Represents the sorting criteria in a <see href="https://developer.squareup.com/reference/square_2024-05-15/objects/CustomerQuery">search query</see> that defines how to sort
-/// customer profiles returned in <see href="https://developer.squareup.com/reference/square_2024-05-15/customers-api/search-customers">SearchCustomers</see> results.
+/// Represents the sorting criteria in a <see href="https://developer.squareup.com/reference/square_2024-08-21/objects/CustomerQuery">search query</see> that defines how to sort
+/// customer profiles returned in <see href="https://developer.squareup.com/reference/square_2024-08-21/customers-api/search-customers">SearchCustomers</see> results.
 /// </summary>
 public record CustomerSort
 {

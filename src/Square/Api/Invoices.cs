@@ -66,7 +66,7 @@ public sealed class Invoices
     /// <returns>A <see cref="Task{TResult}"/> of <see cref="CreateInvoiceResponse"/> instance.</returns>
     /// <exception cref="ApiException{TError}"> of <see cref="RawError"/> when the server returns an error response.</exception>
     /// <remarks>
-    /// Creates a draft <see href="https://developer.squareup.com/reference/square_2024-05-15/objects/Invoice">invoice</see>
+    /// Creates a draft <see href="https://developer.squareup.com/reference/square_2024-08-21/objects/Invoice">invoice</see>
     /// for an order created using the Orders API.
     /// <para>
     /// A draft invoice remains in your account and no action is taken.
@@ -295,10 +295,10 @@ public sealed class Invoices
     /// <returns>A <see cref="Task{TResult}"/> of <see cref="UpdateInvoiceResponse"/> instance.</returns>
     /// <exception cref="ApiException{TError}"> of <see cref="RawError"/> when the server returns an error response.</exception>
     /// <remarks>
-    /// Updates an invoice by modifying fields, clearing fields, or both. For most updates, you can use a sparse
-    /// <c>Invoice</c> object to add fields or change values and use the <c>fields_to_clear</c> field to specify fields to clear.
-    /// However, some restrictions apply. For example, you cannot change the <c>order_id</c> or <c>location_id</c> field and you
-    /// must provide the complete <c>custom_fields</c> list to update a custom field. Published invoices have additional restrictions.
+    /// Updates an invoice. This endpoint supports sparse updates, so you only need
+    /// to specify the fields you want to change along with the required <c>version</c> field.
+    /// Some restrictions apply to updating invoices. For example, you cannot change the
+    /// <c>order_id</c> or <c>location_id</c> field.
     /// </remarks>
     public Task<UpdateInvoiceResponse> UpdateInvoice(UpdateInvoiceOperationRequest request,
         RequestOptions? requestOptions = null,

@@ -37,11 +37,11 @@ public record Invoice
     public string? LocationId { get; init; }
 
     /// <summary>
-    /// The ID of the <see href="https://developer.squareup.com/reference/square_2024-05-15/objects/Order">order</see> for which the invoice is created.
+    /// The ID of the <see href="https://developer.squareup.com/reference/square_2024-08-21/objects/Order">order</see> for which the invoice is created.
     /// This field is required when creating an invoice, and the order must be in the <c>OPEN</c> state.
     /// <para>
     /// To view the line items and other information for the associated order, call the
-    /// <see href="https://developer.squareup.com/reference/square_2024-05-15/orders-api/retrieve-order">RetrieveOrder</see> endpoint using the order ID.
+    /// <see href="https://developer.squareup.com/reference/square_2024-08-21/orders-api/retrieve-order">RetrieveOrder</see> endpoint using the order ID.
     /// </para>
     /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
@@ -197,7 +197,7 @@ public record Invoice
     public string? UpdatedAt { get; init; }
 
     /// <summary>
-    /// The payment methods that customers can use to pay an <see href="https://developer.squareup.com/reference/square_2024-05-15/objects/Invoice">invoice</see> on the Square-hosted invoice payment page.
+    /// The payment methods that customers can use to pay an <see href="https://developer.squareup.com/reference/square_2024-08-21/objects/Invoice">invoice</see> on the Square-hosted invoice payment page.
     /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("accepted_payment_methods")]
@@ -219,7 +219,7 @@ public record Invoice
     public IReadOnlyList<InvoiceCustomField>? CustomFields { get; init; }
 
     /// <summary>
-    /// The ID of the <see href="https://developer.squareup.com/reference/square_2024-05-15/objects/Subscription">subscription</see> associated with the invoice.
+    /// The ID of the <see href="https://developer.squareup.com/reference/square_2024-08-21/objects/Subscription">subscription</see> associated with the invoice.
     /// This field is present only on subscription billing invoices.
     /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
@@ -258,7 +258,7 @@ public record Invoice
 
     /// <summary>
     /// Metadata about the attachments on the invoice. Invoice attachments are managed using the
-    /// <see href="https://developer.squareup.com/reference/square_2024-05-15/invoices-api/create-invoice-attachment">CreateInvoiceAttachment</see> and <see href="https://developer.squareup.com/reference/square_2024-05-15/invoices-api/delete-invoice-attachment">DeleteInvoiceAttachment</see> endpoints.
+    /// <see href="https://developer.squareup.com/reference/square_2024-08-21/invoices-api/create-invoice-attachment">CreateInvoiceAttachment</see> and <see href="https://developer.squareup.com/reference/square_2024-08-21/invoices-api/delete-invoice-attachment">DeleteInvoiceAttachment</see> endpoints.
     /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("attachments")]

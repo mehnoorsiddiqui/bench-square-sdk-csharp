@@ -12,8 +12,8 @@ public record Customer
     /// <summary>
     /// A unique Square-assigned ID for the customer profile.
     /// <para>
-    /// If you need this ID for an API request, use the ID returned when you created the customer profile or call the <see href="https://developer.squareup.com/reference/square_2024-05-15/customers-api/search-customers">SearchCustomers</see>
-    /// or <see href="https://developer.squareup.com/reference/square_2024-05-15/customers-api/list-customers">ListCustomers</see> endpoint.
+    /// If you need this ID for an API request, use the ID returned when you created the customer profile or call the <see href="https://developer.squareup.com/reference/square_2024-08-21/customers-api/search-customers">SearchCustomers</see>
+    /// or <see href="https://developer.squareup.com/reference/square_2024-08-21/customers-api/list-customers">ListCustomers</see> endpoint.
     /// </para>
     /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
@@ -37,8 +37,8 @@ public record Customer
     /// <summary>
     /// Payment details of the credit, debit, and gift cards stored on file for the customer profile.
     /// <para>
-    /// DEPRECATED at version 2021-06-16. Replaced by calling <see href="https://developer.squareup.com/reference/square_2024-05-15/cards-api/list-cards">ListCards</see> (for credit and debit cards on file)
-    /// or <see href="https://developer.squareup.com/reference/square_2024-05-15/gift-cards-api/list-gift-cards">ListGiftCards</see> (for gift cards on file) and including the <c>customer_id</c> query parameter.
+    /// DEPRECATED at version 2021-06-16. Replaced by calling <see href="https://developer.squareup.com/reference/square_2024-08-21/cards-api/list-cards">ListCards</see> (for credit and debit cards on file)
+    /// or <see href="https://developer.squareup.com/reference/square_2024-08-21/gift-cards-api/list-gift-cards">ListGiftCards</see> (for gift cards on file) and including the <c>customer_id</c> query parameter.
     /// For more information, see <see href="https://developer.squareup.com/docs/customers-api/what-it-does#migrate-customer-cards">Migration notes</see>.
     /// </para>
     /// </summary>
@@ -134,14 +134,14 @@ public record Customer
     public string? CreationSource { get; init; }
 
     /// <summary>
-    /// The IDs of <see href="https://developer.squareup.com/reference/square_2024-05-15/objects/CustomerGroup">customer groups</see> the customer belongs to.
+    /// The IDs of <see href="https://developer.squareup.com/reference/square_2024-08-21/objects/CustomerGroup">customer groups</see> the customer belongs to.
     /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("group_ids")]
     public IReadOnlyList<string>? GroupIds { get; init; }
 
     /// <summary>
-    /// The IDs of <see href="https://developer.squareup.com/reference/square_2024-05-15/objects/CustomerSegment">customer segments</see> the customer belongs to.
+    /// The IDs of <see href="https://developer.squareup.com/reference/square_2024-08-21/objects/CustomerSegment">customer segments</see> the customer belongs to.
     /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("segment_ids")]

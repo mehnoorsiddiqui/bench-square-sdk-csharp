@@ -6,7 +6,7 @@ namespace Square.Requests.CustomerCustomAttributes;
 public sealed record DeleteCustomerCustomAttributeRequest
 {
     /// <summary>
-    /// The ID of the target <see href="https://developer.squareup.com/reference/square_2024-05-15/objects/Customer">customer profile</see>.
+    /// The ID of the target <see href="https://developer.squareup.com/reference/square_2024-08-21/objects/Customer">customer profile</see>.
     /// </summary>
     public required string CustomerId { get; init; }
 

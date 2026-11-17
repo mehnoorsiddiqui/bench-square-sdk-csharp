@@ -18,7 +18,7 @@ public record RedeemLoyaltyRewardRequest
     public required string IdempotencyKey { get; init; }
 
     /// <summary>
-    /// The ID of the <see href="https://developer.squareup.com/reference/square_2024-05-15/objects/Location">location</see> where the reward is redeemed.
+    /// The ID of the <see href="https://developer.squareup.com/reference/square_2024-08-21/objects/Location">location</see> where the reward is redeemed.
     /// </summary>
     [JsonPropertyName("location_id")]
     [MinLength(1)]
