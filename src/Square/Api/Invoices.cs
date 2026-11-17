@@ -66,7 +66,7 @@ public sealed class Invoices
     /// <returns>A <see cref="Task{TResult}"/> of <see cref="CreateInvoiceResponse"/> instance.</returns>
     /// <exception cref="ApiException{TError}"> of <see cref="RawError"/> when the server returns an error response.</exception>
     /// <remarks>
-    /// Creates a draft <see href="https://developer.squareup.com/reference/square_2024-08-21/objects/Invoice">invoice</see>
+    /// Creates a draft <see href="$m/Invoice">invoice</see>
     /// for an order created using the Orders API.
     /// <para>
     /// A draft invoice remains in your account and no action is taken.
@@ -84,6 +84,41 @@ public sealed class Invoices
             HttpMethod.Post,
             JsonRequest.Create(request.Body),
             JsonResponse.Create<CreateInvoiceResponse>(),
+            RawErrorResponse.Instance,
+            _auth.BearerAuth,
+            requestOptions,
+            cancellationToken);
+
+    /// <summary>
+    /// CreateInvoiceAttachment
+    /// </summary>
+    /// <param name="request">The operation's inputs</param>
+    /// <param name="requestOptions">Per-request options, such as an overriding log level for this call</param>
+    /// <param name="cancellationToken">Cancellation token</param>
+    /// <returns>A <see cref="Task{TResult}"/> of <see cref="CreateInvoiceAttachmentResponse"/> instance.</returns>
+    /// <exception cref="ApiException{TError}"> of <see cref="RawError"/> when the server returns an error response.</exception>
+    /// <remarks>
+    /// Uploads a file and attaches it to an invoice. This endpoint accepts HTTP multipart/form-data file uploads
+    /// with a JSON <c>request</c> part and a <c>file</c> part. The <c>file</c> part must be a <c>readable stream</c> that contains a file
+    /// in a supported format: GIF, JPEG, PNG, TIFF, BMP, or PDF.
+    /// <para>
+    /// Invoices can have up to 10 attachments with a total file size of 25 MB. Attachments can be added only to invoices
+    /// in the <c>DRAFT</c>, <c>SCHEDULED</c>, <c>UNPAID</c>, or <c>PARTIALLY_PAID</c> state.
+    /// </para>
+    /// </remarks>
+    public Task<CreateInvoiceAttachmentResponse> CreateInvoiceAttachment(CreateInvoiceAttachmentOperationRequest request,
+        RequestOptions? requestOptions = null,
+        CancellationToken cancellationToken = default) =>
+        _rawClient.Execute(
+            _server.Default("/v2/invoices/{invoice_id}/attachments"),
+            [new TemplateParam("invoice_id", request.InvoiceId)],
+            [],
+            [new HeaderParam("Idempotency-Key", Guid.NewGuid())],
+            HttpMethod.Post,
+            FormRequest.Create(
+                new MultipartParam("request", request.Request, "application/json; charset=utf-8"),
+                new MultipartParam("image_file", request.ImageFile)),
+            JsonResponse.Create<CreateInvoiceAttachmentResponse>(),
             RawErrorResponse.Instance,
             _auth.BearerAuth,
             requestOptions,

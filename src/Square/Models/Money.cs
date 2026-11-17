@@ -1,5 +1,6 @@
 using System.Text.Json.Serialization;
 using Square.Core.Models;
+using Square.Models.Enums;
 
 namespace Square.Models;
 
@@ -24,15 +25,12 @@ public record Money
     public long? Amount { get; init; }
 
     /// <summary>
-    /// The type of currency, in __ISO 4217 format__. For example, the currency
-    /// code for US dollars is <c>USD</c>.
-    /// <para>
-    /// See <see href="https://developer.squareup.com/reference/square_2024-08-21/enums/Currency">Currency</see> for possible values.
-    /// </para>
+    /// Indicates the associated currency for an amount of money. Values correspond
+    /// to <see href="https://wikipedia.org/wiki/ISO_4217">ISO 4217</see>.
     /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("currency")]
-    public string? Currency { get; init; }
+    public Currency? Currency { get; init; }
 
     [JsonExtensionData]
     public AdditionalProperties AdditionalProperties { get; init; } = [];

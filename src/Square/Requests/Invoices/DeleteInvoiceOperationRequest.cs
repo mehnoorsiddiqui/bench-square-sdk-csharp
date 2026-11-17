@@ -11,9 +11,9 @@ public sealed record DeleteInvoiceOperationRequest
     public required string InvoiceId { get; init; }
 
     /// <summary>
-    /// The version of the <see href="https://developer.squareup.com/reference/square_2024-08-21/objects/Invoice">invoice</see> to delete.
-    /// If you do not know the version, you can call <see href="https://developer.squareup.com/reference/square_2024-08-21/invoices-api/get-invoice">GetInvoice</see> or
-    /// <see href="https://developer.squareup.com/reference/square_2024-08-21/invoices-api/list-invoices">ListInvoices</see>.
+    /// The version of the <see href="entity:Invoice">invoice</see> to delete.
+    /// If you do not know the version, you can call <see href="api-endpoint:Invoices-GetInvoice">GetInvoice</see> or
+    /// <see href="api-endpoint:Invoices-ListInvoices">ListInvoices</see>.
     /// </summary>
     public int? Version { get; init; }
 }

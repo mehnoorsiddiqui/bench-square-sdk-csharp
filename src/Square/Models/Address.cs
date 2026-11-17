@@ -1,5 +1,6 @@
 using System.Text.Json.Serialization;
 using Square.Core.Models;
+using Square.Models.Enums;
 
 namespace Square.Models;
 
@@ -96,11 +97,12 @@ public record Address
     public string? PostalCode { get; init; }
 
     /// <summary>
-    /// The address's country, in the two-letter format of ISO 3166. For example, <c>US</c> or <c>FR</c>.
+    /// Indicates the country associated with another entity, such as a business.
+    /// Values are in <see href="http://www.iso.org/iso/home/standards/country_codes.htm">ISO 3166-1-alpha-2 format</see>.
     /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("country")]
-    public string? Country { get; init; }
+    public Country? Country { get; init; }
 
     /// <summary>
     /// Optional first name when it's representing recipient.

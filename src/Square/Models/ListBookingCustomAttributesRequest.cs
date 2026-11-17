@@ -5,7 +5,7 @@ using Square.Core.Validation.Attributes;
 namespace Square.Models;
 
 /// <summary>
-/// Represents a <see href="https://developer.squareup.com/reference/square_2024-08-21/booking-custom-attributes-api/list-booking-custom-attributes">ListBookingCustomAttributes</see> request.
+/// Represents a <see href="$e/BookingCustomAttributes/ListBookingCustomAttributes">ListBookingCustomAttributes</see> request.
 /// </summary>
 public record ListBookingCustomAttributesRequest
 {
@@ -30,7 +30,7 @@ public record ListBookingCustomAttributesRequest
     public string? Cursor { get; init; }
 
     /// <summary>
-    /// Indicates whether to return the <see href="https://developer.squareup.com/reference/square_2024-08-21/objects/CustomAttributeDefinition">custom attribute definition</see> in the <c>definition</c> field of each
+    /// Indicates whether to return the <see href="entity:CustomAttributeDefinition">custom attribute definition</see> in the <c>definition</c> field of each
     /// custom attribute. Set this parameter to <c>true</c> to get the name and description of each custom
     /// attribute, information about the data type, or other definition details. The default value is <c>false</c>.
     /// </summary>

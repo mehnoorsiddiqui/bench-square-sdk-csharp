@@ -1,6 +1,7 @@
 using System.ComponentModel.DataAnnotations;
 using System.Text.Json.Serialization;
 using Square.Core.Models;
+using Square.Models.Enums;
 
 namespace Square.Models;
 
@@ -19,11 +20,11 @@ public record Card
     public string? Id { get; init; }
 
     /// <summary>
-    /// The card's brand.
+    /// Indicates a card's brand, such as <c>VISA</c> or <c>MASTERCARD</c>.
     /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("card_brand")]
-    public string? CardBrand { get; init; }
+    public CardBrand? CardBrand { get; init; }
 
     /// <summary>
     /// The last 4 digits of the card number.
@@ -105,20 +106,18 @@ public record Card
     public bool? Enabled { get; init; }
 
     /// <summary>
-    /// The type of the card.
-    /// The Card object includes this field only in response to Payments API calls.
+    /// Indicates a card's type, such as <c>CREDIT</c> or <c>DEBIT</c>.
     /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("card_type")]
-    public string? CardType { get; init; }
+    public CardType? CardType { get; init; }
 
     /// <summary>
-    /// Indicates whether the Card is prepaid or not.
-    /// The Card object includes this field only in response to Payments API calls.
+    /// Indicates a card's prepaid type, such as <c>NOT_PREPAID</c> or <c>PREPAID</c>.
     /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("prepaid_type")]
-    public string? PrepaidType { get; init; }
+    public CardPrepaidType? PrepaidType { get; init; }
 
     /// <summary>
     /// The first six digits of the card number, known as the Bank Identification Number (BIN). Only the Payments API
@@ -139,12 +138,11 @@ public record Card
     public long? Version { get; init; }
 
     /// <summary>
-    /// The card's co-brand if available. For example, an Afterpay virtual card would have a
-    /// co-brand of AFTERPAY.
+    /// Indicates the brand for a co-branded card.
     /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("card_co_brand")]
-    public string? CardCoBrand { get; init; }
+    public CardCoBrand? CardCoBrand { get; init; }
 
     [JsonExtensionData]
     public AdditionalProperties AdditionalProperties { get; init; } = [];

@@ -1,3 +1,5 @@
+using Square.Models.Enums;
+
 namespace Square.Requests.LocationCustomAttributes;
 
 /// <summary>
@@ -8,7 +10,7 @@ public sealed record ListLocationCustomAttributeDefinitionsOperationRequest
     /// <summary>
     /// Filters the <c>CustomAttributeDefinition</c> results by their <c>visibility</c> values.
     /// </summary>
-    public string? VisibilityFilter { get; init; }
+    public VisibilityFilter? VisibilityFilter { get; init; }
 
     /// <summary>
     /// The maximum number of results to return in a single paged response. This limit is advisory.

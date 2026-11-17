@@ -2,6 +2,7 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Text.Json.Serialization;
 using Square.Core.Models;
+using Square.Models.Enums;
 
 namespace Square.Models;
 
@@ -66,11 +67,10 @@ public record Refund
     public required Money AmountMoney { get; init; }
 
     /// <summary>
-    /// The current status of the refund (<c>PENDING</c>, <c>APPROVED</c>, <c>REJECTED</c>,
-    /// or <c>FAILED</c>).
+    /// Indicates a refund's current status.
     /// </summary>
     [JsonPropertyName("status")]
-    public required string Status { get; init; }
+    public required RefundStatus Status { get; init; }
 
     /// <summary>
     /// Represents an amount of money. <c>Money</c> fields can be signed or unsigned.

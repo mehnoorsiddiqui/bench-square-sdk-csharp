@@ -2,12 +2,11 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Text.Json.Serialization;
 using Square.Core.Models;
-using Square.Core.Validation.Attributes;
 
 namespace Square.Models;
 
 /// <summary>
-/// Describes a loyalty account in a <see href="https://developer.squareup.com/reference/square_2024-08-21/objects/LoyaltyProgram">loyalty program</see>. For more information, see
+/// Describes a loyalty account in a <see href="$m/LoyaltyProgram">loyalty program</see>. For more information, see
 /// <see href="https://developer.squareup.com/docs/loyalty-api/loyalty-accounts">Create and Retrieve Loyalty Accounts</see>.
 /// </summary>
 public record LoyaltyAccount
@@ -21,7 +20,7 @@ public record LoyaltyAccount
     public string? Id { get; init; }
 
     /// <summary>
-    /// The Square-assigned ID of the <see href="https://developer.squareup.com/reference/square_2024-08-21/objects/LoyaltyProgram">loyalty program</see> to which the account belongs.
+    /// The Square-assigned ID of the <see href="entity:LoyaltyProgram">loyalty program</see> to which the account belongs.
     /// </summary>
     [JsonPropertyName("program_id")]
     [StringLength(36, MinimumLength = 1)]
@@ -42,11 +41,10 @@ public record LoyaltyAccount
     /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("lifetime_points")]
-    [Minimum(0)]
     public int? LifetimePoints { get; init; }
 
     /// <summary>
-    /// The Square-assigned ID of the <see href="https://developer.squareup.com/reference/square_2024-08-21/objects/Customer">customer</see> that is associated with the account.
+    /// The Square-assigned ID of the <see href="entity:Customer">customer</see> that is associated with the account.
     /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("customer_id")]

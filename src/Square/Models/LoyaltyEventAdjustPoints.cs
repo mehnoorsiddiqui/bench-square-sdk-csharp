@@ -10,7 +10,7 @@ namespace Square.Models;
 public record LoyaltyEventAdjustPoints
 {
     /// <summary>
-    /// The Square-assigned ID of the <see href="https://developer.squareup.com/reference/square_2024-08-21/objects/LoyaltyProgram">loyalty program</see>.
+    /// The Square-assigned ID of the <see href="entity:LoyaltyProgram">loyalty program</see>.
     /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("loyalty_program_id")]

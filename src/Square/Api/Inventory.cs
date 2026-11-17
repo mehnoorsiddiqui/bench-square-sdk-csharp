@@ -104,8 +104,8 @@ public sealed class Inventory
     /// <exception cref="ApiException{TError}"> of <see cref="RawError"/> when the server returns an error response.</exception>
     /// <remarks>
     /// Returns current counts for the provided
-    /// <see href="https://developer.squareup.com/reference/square_2024-08-21/objects/CatalogObject">CatalogObject</see>s at the requested
-    /// <see href="https://developer.squareup.com/reference/square_2024-08-21/objects/Location">Location</see>s.
+    /// <see href="$m/CatalogObject">CatalogObject</see>s at the requested
+    /// <see href="$m/Location">Location</see>s.
     /// <para>
     /// Results are paginated and sorted in descending order according to their
     /// <c>calculated_at</c> timestamp (newest first).
@@ -142,7 +142,7 @@ public sealed class Inventory
     /// <returns>A <see cref="Task{TResult}"/> of <see cref="BatchChangeInventoryResponse"/> instance.</returns>
     /// <exception cref="ApiException{TError}"> of <see cref="RawError"/> when the server returns an error response.</exception>
     /// <remarks>
-    /// Deprecated version of <see href="https://developer.squareup.com/reference/square_2024-08-21/inventory-api/batch-change-inventory">BatchChangeInventory</see> after the endpoint URL
+    /// Deprecated version of <see href="api-endpoint:Inventory-BatchChangeInventory">BatchChangeInventory</see> after the endpoint URL
     /// is updated to conform to the standard convention.
     /// </remarks>
     public Task<BatchChangeInventoryResponse> DeprecatedBatchChangeInventory(DeprecatedBatchChangeInventoryRequest request,
@@ -170,7 +170,7 @@ public sealed class Inventory
     /// <returns>A <see cref="Task{TResult}"/> of <see cref="BatchRetrieveInventoryChangesResponse"/> instance.</returns>
     /// <exception cref="ApiException{TError}"> of <see cref="RawError"/> when the server returns an error response.</exception>
     /// <remarks>
-    /// Deprecated version of <see href="https://developer.squareup.com/reference/square_2024-08-21/inventory-api/batch-retrieve-inventory-changes">BatchRetrieveInventoryChanges</see> after the endpoint URL
+    /// Deprecated version of <see href="api-endpoint:Inventory-BatchRetrieveInventoryChanges">BatchRetrieveInventoryChanges</see> after the endpoint URL
     /// is updated to conform to the standard convention.
     /// </remarks>
     public Task<BatchRetrieveInventoryChangesResponse> DeprecatedBatchRetrieveInventoryChanges(DeprecatedBatchRetrieveInventoryChangesRequest request,
@@ -198,7 +198,7 @@ public sealed class Inventory
     /// <returns>A <see cref="Task{TResult}"/> of <see cref="BatchRetrieveInventoryCountsResponse"/> instance.</returns>
     /// <exception cref="ApiException{TError}"> of <see cref="RawError"/> when the server returns an error response.</exception>
     /// <remarks>
-    /// Deprecated version of <see href="https://developer.squareup.com/reference/square_2024-08-21/inventory-api/batch-retrieve-inventory-counts">BatchRetrieveInventoryCounts</see> after the endpoint URL
+    /// Deprecated version of <see href="api-endpoint:Inventory-BatchRetrieveInventoryCounts">BatchRetrieveInventoryCounts</see> after the endpoint URL
     /// is updated to conform to the standard convention.
     /// </remarks>
     public Task<BatchRetrieveInventoryCountsResponse> DeprecatedBatchRetrieveInventoryCounts(DeprecatedBatchRetrieveInventoryCountsRequest request,
@@ -226,7 +226,7 @@ public sealed class Inventory
     /// <returns>A <see cref="Task{TResult}"/> of <see cref="RetrieveInventoryAdjustmentResponse"/> instance.</returns>
     /// <exception cref="ApiException{TError}"> of <see cref="RawError"/> when the server returns an error response.</exception>
     /// <remarks>
-    /// Deprecated version of <see href="https://developer.squareup.com/reference/square_2024-08-21/inventory-api/retrieve-inventory-adjustment">RetrieveInventoryAdjustment</see> after the endpoint URL
+    /// Deprecated version of <see href="api-endpoint:Inventory-RetrieveInventoryAdjustment">RetrieveInventoryAdjustment</see> after the endpoint URL
     /// is updated to conform to the standard convention.
     /// </remarks>
     public Task<RetrieveInventoryAdjustmentResponse> DeprecatedRetrieveInventoryAdjustment(DeprecatedRetrieveInventoryAdjustmentRequest request,
@@ -254,7 +254,7 @@ public sealed class Inventory
     /// <returns>A <see cref="Task{TResult}"/> of <see cref="RetrieveInventoryPhysicalCountResponse"/> instance.</returns>
     /// <exception cref="ApiException{TError}"> of <see cref="RawError"/> when the server returns an error response.</exception>
     /// <remarks>
-    /// Deprecated version of <see href="https://developer.squareup.com/reference/square_2024-08-21/inventory-api/retrieve-inventory-physical-count">RetrieveInventoryPhysicalCount</see> after the endpoint URL
+    /// Deprecated version of <see href="api-endpoint:Inventory-RetrieveInventoryPhysicalCount">RetrieveInventoryPhysicalCount</see> after the endpoint URL
     /// is updated to conform to the standard convention.
     /// </remarks>
     public Task<RetrieveInventoryPhysicalCountResponse> DeprecatedRetrieveInventoryPhysicalCount(DeprecatedRetrieveInventoryPhysicalCountRequest request,
@@ -282,7 +282,7 @@ public sealed class Inventory
     /// <returns>A <see cref="Task{TResult}"/> of <see cref="RetrieveInventoryAdjustmentResponse"/> instance.</returns>
     /// <exception cref="ApiException{TError}"> of <see cref="RawError"/> when the server returns an error response.</exception>
     /// <remarks>
-    /// Returns the <see href="https://developer.squareup.com/reference/square_2024-08-21/objects/InventoryAdjustment">InventoryAdjustment</see> object
+    /// Returns the <see href="$m/InventoryAdjustment">InventoryAdjustment</see> object
     /// with the provided <c>adjustment_id</c>.
     /// </remarks>
     public Task<RetrieveInventoryAdjustmentResponse> RetrieveInventoryAdjustment(RetrieveInventoryAdjustmentRequest request,
@@ -311,10 +311,10 @@ public sealed class Inventory
     /// <exception cref="ApiException{TError}"> of <see cref="RawError"/> when the server returns an error response.</exception>
     /// <remarks>
     /// Returns a set of physical counts and inventory adjustments for the
-    /// provided <see href="https://developer.squareup.com/reference/square_2024-08-21/objects/CatalogObject">CatalogObject</see> at the requested
-    /// <see href="https://developer.squareup.com/reference/square_2024-08-21/objects/Location">Location</see>s.
+    /// provided <see href="entity:CatalogObject">CatalogObject</see> at the requested
+    /// <see href="entity:Location">Location</see>s.
     /// <para>
-    /// You can achieve the same result by calling <see href="https://developer.squareup.com/reference/square_2024-08-21/inventory-api/batch-retrieve-inventory-changes">BatchRetrieveInventoryChanges</see>
+    /// You can achieve the same result by calling <see href="api-endpoint:Inventory-BatchRetrieveInventoryChanges">BatchRetrieveInventoryChanges</see>
     /// and having the <c>catalog_object_ids</c> list contain a single element of the <c>CatalogObject</c> ID.
     /// </para>
     /// <para>
@@ -353,8 +353,8 @@ public sealed class Inventory
     /// <exception cref="ApiException{TError}"> of <see cref="RawError"/> when the server returns an error response.</exception>
     /// <remarks>
     /// Retrieves the current calculated stock count for a given
-    /// <see href="https://developer.squareup.com/reference/square_2024-08-21/objects/CatalogObject">CatalogObject</see> at a given set of
-    /// <see href="https://developer.squareup.com/reference/square_2024-08-21/objects/Location">Location</see>s. Responses are paginated and unsorted.
+    /// <see href="$m/CatalogObject">CatalogObject</see> at a given set of
+    /// <see href="$m/Location">Location</see>s. Responses are paginated and unsorted.
     /// For more sophisticated queries, use a batch endpoint.
     /// </remarks>
     public Task<RetrieveInventoryCountResponse> RetrieveInventoryCount(RetrieveInventoryCountOperationRequest request,
@@ -382,7 +382,7 @@ public sealed class Inventory
     /// <returns>A <see cref="Task{TResult}"/> of <see cref="RetrieveInventoryPhysicalCountResponse"/> instance.</returns>
     /// <exception cref="ApiException{TError}"> of <see cref="RawError"/> when the server returns an error response.</exception>
     /// <remarks>
-    /// Returns the <see href="https://developer.squareup.com/reference/square_2024-08-21/objects/InventoryPhysicalCount">InventoryPhysicalCount</see>
+    /// Returns the <see href="$m/InventoryPhysicalCount">InventoryPhysicalCount</see>
     /// object with the provided <c>physical_count_id</c>.
     /// </remarks>
     public Task<RetrieveInventoryPhysicalCountResponse> RetrieveInventoryPhysicalCount(RetrieveInventoryPhysicalCountRequest request,
@@ -410,7 +410,7 @@ public sealed class Inventory
     /// <returns>A <see cref="Task{TResult}"/> of <see cref="RetrieveInventoryTransferResponse"/> instance.</returns>
     /// <exception cref="ApiException{TError}"> of <see cref="RawError"/> when the server returns an error response.</exception>
     /// <remarks>
-    /// Returns the <see href="https://developer.squareup.com/reference/square_2024-08-21/objects/InventoryTransfer">InventoryTransfer</see> object
+    /// Returns the <see href="$m/InventoryTransfer">InventoryTransfer</see> object
     /// with the provided <c>transfer_id</c>.
     /// </remarks>
     public Task<RetrieveInventoryTransferResponse> RetrieveInventoryTransfer(RetrieveInventoryTransferRequest request,

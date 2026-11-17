@@ -66,7 +66,7 @@ public sealed class Customers
     /// <returns>A <see cref="Task{TResult}"/> of <see cref="BulkCreateCustomersResponse"/> instance.</returns>
     /// <exception cref="ApiException{TError}"> of <see cref="RawError"/> when the server returns an error response.</exception>
     /// <remarks>
-    /// Creates multiple <see href="https://developer.squareup.com/reference/square_2024-08-21/objects/Customer">customer profiles</see> for a business.
+    /// Creates multiple <see href="$m/Customer">customer profiles</see> for a business.
     /// <para>
     /// This endpoint takes a map of individual create requests and returns a map of responses.
     /// </para>
@@ -171,7 +171,7 @@ public sealed class Customers
     /// This endpoint takes a map of individual update requests and returns a map of responses.
     /// </para>
     /// <para>
-    /// You cannot use this endpoint to change cards on file. To make changes, use the <see href="https://developer.squareup.com/reference/square_2024-08-21/cards-api">Cards API</see> or <see href="https://developer.squareup.com/reference/square_2024-08-21/gift-cards-api">Gift Cards API</see>.
+    /// You cannot use this endpoint to change cards on file. To make changes, use the <see href="$e/Cards">Cards API</see> or <see href="$e/GiftCards">Gift Cards API</see>.
     /// </para>
     /// </remarks>
     public Task<BulkUpdateCustomersResponse> BulkUpdateCustomers(BulkUpdateCustomersOperationRequest request,
@@ -465,7 +465,7 @@ public sealed class Customers
     /// To update a customer profile that was created by merging existing profiles, you must use the ID of the newly created profile.
     /// </para>
     /// <para>
-    /// You cannot use this endpoint to change cards on file. To make changes, use the <see href="https://developer.squareup.com/reference/square_2024-08-21/cards-api">Cards API</see> or <see href="https://developer.squareup.com/reference/square_2024-08-21/gift-cards-api">Gift Cards API</see>.
+    /// You cannot use this endpoint to change cards on file. To make changes, use the <see href="$e/Cards">Cards API</see> or <see href="$e/GiftCards">Gift Cards API</see>.
     /// </para>
     /// </remarks>
     public Task<UpdateCustomerResponse> UpdateCustomer(UpdateCustomerOperationRequest request,

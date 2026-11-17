@@ -6,8 +6,8 @@ namespace Square.Models;
 
 /// <summary>
 /// Defines the fields that are included in the response body of
-/// a request to the <see href="https://developer.squareup.com/reference/square_2024-08-21/customers-api/create-customer">CreateCustomer</see> or
-/// <see href="https://developer.squareup.com/reference/square_2024-08-21/customers-api/bulk-create-customers">BulkCreateCustomers</see> endpoint.
+/// a request to the <see href="$e/Customers/CreateCustomer">CreateCustomer</see> or
+/// <see href="$e/Customers/BulkCreateCustomers">BulkCreateCustomers</see> endpoint.
 /// <para>
 /// Either <c>errors</c> or <c>customer</c> is present in a given response (never both).
 /// </para>

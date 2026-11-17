@@ -2,6 +2,7 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Text.Json.Serialization;
 using Square.Core.Models;
+using Square.Models.Enums;
 
 namespace Square.Models;
 
@@ -39,18 +40,19 @@ public record Dispute
     public Money? AmountMoney { get; init; }
 
     /// <summary>
-    /// The reason why the cardholder initiated the dispute.
+    /// The list of possible reasons why a cardholder might initiate a
+    /// dispute with their bank.
     /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("reason")]
-    public string? Reason { get; init; }
+    public DisputeReason? Reason { get; init; }
 
     /// <summary>
-    /// The current state of this dispute.
+    /// The list of possible dispute states.
     /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("state")]
-    public string? State { get; init; }
+    public DisputeState? State { get; init; }
 
     /// <summary>
     /// The deadline by which the seller must respond to the dispute, in <see href="https://developer.squareup.com/docs/build-basics/common-data-types/working-with-dates">RFC 3339 format</see>.
@@ -75,11 +77,11 @@ public record Dispute
     public IReadOnlyList<string>? EvidenceIds { get; init; }
 
     /// <summary>
-    /// The card brand used in the disputed payment.
+    /// Indicates a card's brand, such as <c>VISA</c> or <c>MASTERCARD</c>.
     /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("card_brand")]
-    public string? CardBrand { get; init; }
+    public CardBrand? CardBrand { get; init; }
 
     /// <summary>
     /// The timestamp when the dispute was created, in RFC 3339 format.

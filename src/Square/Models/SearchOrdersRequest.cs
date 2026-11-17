@@ -1,7 +1,6 @@
 using System.Collections.Generic;
 using System.Text.Json.Serialization;
 using Square.Core.Models;
-using Square.Core.Validation.Attributes;
 
 namespace Square.Models;
 
@@ -43,12 +42,11 @@ public record SearchOrdersRequest
     /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("limit")]
-    [Minimum(0)]
     public int? Limit { get; init; }
 
     /// <summary>
     /// A Boolean that controls the format of the search results. If <c>true</c>,
-    /// <c>SearchOrders</c> returns <see href="https://developer.squareup.com/reference/square_2024-08-21/objects/OrderEntry">OrderEntry</see> objects. If <c>false</c>, <c>SearchOrders</c>
+    /// <c>SearchOrders</c> returns <see href="entity:OrderEntry">OrderEntry</see> objects. If <c>false</c>, <c>SearchOrders</c>
     /// returns complete order objects.
     /// <para>
     /// Default: <c>false</c>.

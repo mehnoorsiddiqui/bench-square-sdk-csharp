@@ -10,7 +10,7 @@ namespace Square.Models;
 public record CreateLoyaltyAccountRequest
 {
     /// <summary>
-    /// Describes a loyalty account in a <see href="https://developer.squareup.com/reference/square_2024-08-21/objects/LoyaltyProgram">loyalty program</see>. For more information, see
+    /// Describes a loyalty account in a <see href="$m/LoyaltyProgram">loyalty program</see>. For more information, see
     /// <see href="https://developer.squareup.com/docs/loyalty-api/loyalty-accounts">Create and Retrieve Loyalty Accounts</see>.
     /// </summary>
     [JsonPropertyName("loyalty_account")]

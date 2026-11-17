@@ -10,7 +10,7 @@ namespace Square.Models;
 public record LoyaltyEventLocationFilter
 {
     /// <summary>
-    /// The <see href="https://developer.squareup.com/reference/square_2024-08-21/objects/Location">location</see> IDs for loyalty events to query.
+    /// The <see href="entity:Location">location</see> IDs for loyalty events to query.
     /// If multiple values are specified, the endpoint uses
     /// a logical OR to combine them.
     /// </summary>

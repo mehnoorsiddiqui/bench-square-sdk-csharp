@@ -1,6 +1,7 @@
 using System.ComponentModel.DataAnnotations;
 using System.Text.Json.Serialization;
 using Square.Core.Models;
+using Square.Models.Enums;
 
 namespace Square.Models;
 
@@ -26,24 +27,24 @@ public record BankAccount
     public required string AccountNumberSuffix { get; init; }
 
     /// <summary>
-    /// The ISO 3166 Alpha-2 country code where the bank account is based.
+    /// Indicates the country associated with another entity, such as a business.
+    /// Values are in <see href="http://www.iso.org/iso/home/standards/country_codes.htm">ISO 3166-1-alpha-2 format</see>.
     /// </summary>
     [JsonPropertyName("country")]
-    public required string Country { get; init; }
+    public required Country Country { get; init; }
 
     /// <summary>
-    /// The 3-character ISO 4217 currency code indicating the operating
-    /// currency of the bank account. For example, the currency code for US dollars
-    /// is <c>USD</c>.
+    /// Indicates the associated currency for an amount of money. Values correspond
+    /// to <see href="https://wikipedia.org/wiki/ISO_4217">ISO 4217</see>.
     /// </summary>
     [JsonPropertyName("currency")]
-    public required string Currency { get; init; }
+    public required Currency Currency { get; init; }
 
     /// <summary>
-    /// The financial purpose of the associated bank account.
+    /// Indicates the financial purpose of the bank account.
     /// </summary>
     [JsonPropertyName("account_type")]
-    public required string AccountType { get; init; }
+    public required BankAccountType AccountType { get; init; }
 
     /// <summary>
     /// Name of the account holder. This name must match the name
@@ -94,10 +95,10 @@ public record BankAccount
     public string? LocationId { get; init; }
 
     /// <summary>
-    /// Read-only. The current verification status of this BankAccount object.
+    /// Indicates the current verification status of a <c>BankAccount</c> object.
     /// </summary>
     [JsonPropertyName("status")]
-    public required string Status { get; init; }
+    public required BankAccountStatus Status { get; init; }
 
     /// <summary>
     /// Indicates whether it is possible for Square to send money to this bank account.

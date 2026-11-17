@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using System.Text.Json.Serialization;
 using Square.Core.Models;
+using Square.Models.Enums;
 
 namespace Square.Models;
 
@@ -17,24 +18,25 @@ public record GiftCard
     public string? Id { get; init; }
 
     /// <summary>
-    /// The gift card type.
+    /// Indicates the gift card type.
     /// </summary>
     [JsonPropertyName("type")]
-    public required string Type { get; init; }
+    public required GiftCardType Type { get; init; }
 
     /// <summary>
-    /// The source that generated the gift card account number (GAN). The default value is <c>SQUARE</c>.
+    /// Indicates the source that generated the gift card
+    /// account number (GAN).
     /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("gan_source")]
-    public string? GanSource { get; init; }
+    public GiftCardGanSource? GanSource { get; init; }
 
     /// <summary>
-    /// The current gift card state.
+    /// Indicates the gift card state.
     /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("state")]
-    public string? State { get; init; }
+    public GiftCardStatus? State { get; init; }
 
     /// <summary>
     /// Represents an amount of money. <c>Money</c> fields can be signed or unsigned.
@@ -68,7 +70,7 @@ public record GiftCard
     public string? CreatedAt { get; init; }
 
     /// <summary>
-    /// The IDs of the <see href="https://developer.squareup.com/reference/square_2024-08-21/objects/Customer">customer profiles</see> to whom this gift card is linked.
+    /// The IDs of the <see href="entity:Customer">customer profiles</see> to whom this gift card is linked.
     /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("customer_ids")]

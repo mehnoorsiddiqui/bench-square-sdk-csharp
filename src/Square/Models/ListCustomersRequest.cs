@@ -1,6 +1,7 @@
 using System.Text.Json.Serialization;
 using Square.Core.Models;
 using Square.Core.Validation.Attributes;
+using Square.Models.Enums;
 
 namespace Square.Models;
 
@@ -35,25 +36,18 @@ public record ListCustomersRequest
     public int? Limit { get; init; }
 
     /// <summary>
-    /// Indicates how customers should be sorted.
-    /// <para>
-    /// The default value is <c>DEFAULT</c>.
-    /// </para>
+    /// Specifies customer attributes as the sort key to customer profiles returned from a search.
     /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("sort_field")]
-    public string? SortField { get; init; }
+    public CustomerSortField? SortField { get; init; }
 
     /// <summary>
-    /// Indicates whether customers should be sorted in ascending (<c>ASC</c>) or
-    /// descending (<c>DESC</c>) order.
-    /// <para>
-    /// The default value is <c>ASC</c>.
-    /// </para>
+    /// The order (e.g., chronological or alphabetical) in which results from a request are returned.
     /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("sort_order")]
-    public string? SortOrder { get; init; }
+    public SortOrder? SortOrder { get; init; }
 
     /// <summary>
     /// Indicates whether to return the total count of customers in the <c>count</c> field of the response.

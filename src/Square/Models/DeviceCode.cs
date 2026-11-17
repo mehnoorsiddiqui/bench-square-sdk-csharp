@@ -1,6 +1,7 @@
 using System.ComponentModel.DataAnnotations;
 using System.Text.Json.Serialization;
 using Square.Core.Models;
+using Square.Models.Enums;
 
 namespace Square.Models;
 
@@ -35,11 +36,8 @@ public record DeviceCode
     [JsonPropertyName("device_id")]
     public string? DeviceId { get; init; }
 
-    /// <summary>
-    /// The targeting product type of the device code.
-    /// </summary>
     [JsonPropertyName("product_type")]
-    public required string ProductType { get; init; }
+    public string ProductType { get; } = "TERMINAL_API";
 
     /// <summary>
     /// The location assigned to this code.
@@ -50,11 +48,11 @@ public record DeviceCode
     public string? LocationId { get; init; }
 
     /// <summary>
-    /// The pairing status of the device code.
+    /// DeviceCode.Status enum.
     /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("status")]
-    public string? Status { get; init; }
+    public DeviceCodeStatus? Status { get; init; }
 
     /// <summary>
     /// When this DeviceCode will expire and no longer login. Timestamp in RFC 3339 format.

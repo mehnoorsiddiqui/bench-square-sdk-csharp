@@ -26,7 +26,7 @@ public record SearchAvailabilityFilter
     /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("location_id")]
-    [StringLength(32, MinimumLength = 0)]
+    [MaxLength(32)]
     public string? LocationId { get; init; }
 
     /// <summary>
@@ -47,7 +47,7 @@ public record SearchAvailabilityFilter
     /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("booking_id")]
-    [StringLength(36, MinimumLength = 0)]
+    [MaxLength(36)]
     public string? BookingId { get; init; }
 
     [JsonExtensionData]

@@ -1,5 +1,6 @@
 using System.Text.Json.Serialization;
 using Square.Core.Models;
+using Square.Models.Enums;
 
 namespace Square.Models;
 
@@ -9,11 +10,10 @@ namespace Square.Models;
 public record Component
 {
     /// <summary>
-    /// The type of this component. Each component type has expected properties expressed
-    /// in a structured format within its corresponding <c>*_details</c> field.
+    /// An enum for ComponentType.
     /// </summary>
     [JsonPropertyName("type")]
-    public required string Type { get; init; }
+    public required ComponentComponentType Type { get; init; }
 
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("application_details")]

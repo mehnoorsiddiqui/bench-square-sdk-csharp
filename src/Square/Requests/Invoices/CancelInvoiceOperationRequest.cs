@@ -8,7 +8,7 @@ namespace Square.Requests.Invoices;
 public sealed record CancelInvoiceOperationRequest
 {
     /// <summary>
-    /// The ID of the <see href="https://developer.squareup.com/reference/square_2024-08-21/objects/Invoice">invoice</see> to cancel.
+    /// The ID of the <see href="entity:Invoice">invoice</see> to cancel.
     /// </summary>
     public required string InvoiceId { get; init; }
 

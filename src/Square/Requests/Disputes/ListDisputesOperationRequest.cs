@@ -1,3 +1,5 @@
+using Square.Models.Enums;
+
 namespace Square.Requests.Disputes;
 
 /// <summary>
@@ -15,7 +17,7 @@ public sealed record ListDisputesOperationRequest
     /// <summary>
     /// The dispute states used to filter the result. If not specified, the endpoint returns all disputes.
     /// </summary>
-    public string? States { get; init; }
+    public DisputeState? States { get; init; }
 
     /// <summary>
     /// The ID of the location for which to return a list of disputes.

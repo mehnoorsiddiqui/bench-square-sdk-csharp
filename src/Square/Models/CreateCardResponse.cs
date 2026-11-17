@@ -6,7 +6,7 @@ namespace Square.Models;
 
 /// <summary>
 /// Defines the fields that are included in the response body of
-/// a request to the <see href="https://developer.squareup.com/reference/square_2024-08-21/cards-api/create-card">CreateCard</see> endpoint.
+/// a request to the <see href="$e/Cards/CreateCard">CreateCard</see> endpoint.
 /// <para>
 /// Note: if there are errors processing the request, the card field will not be
 /// present.

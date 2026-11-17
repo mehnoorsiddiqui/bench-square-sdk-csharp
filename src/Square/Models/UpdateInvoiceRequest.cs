@@ -35,8 +35,9 @@ public record UpdateInvoiceRequest
     /// recommend using null values or the <c>remove</c> field when possible. For examples, see
     /// <see href="https://developer.squareup.com/docs/invoices-api/update-invoices">Update an Invoice</see>.
     /// </summary>
+    [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("fields_to_clear")]
-    public required IReadOnlyList<string> FieldsToClear { get; init; }
+    public IReadOnlyList<string>? FieldsToClear { get; init; }
 
     [JsonExtensionData]
     public AdditionalProperties AdditionalProperties { get; init; } = [];

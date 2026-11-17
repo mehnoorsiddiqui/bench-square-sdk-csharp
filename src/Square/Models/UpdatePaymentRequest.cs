@@ -6,7 +6,7 @@ namespace Square.Models;
 
 /// <summary>
 /// Describes a request to update a payment using
-/// <see href="https://developer.squareup.com/reference/square_2024-08-21/payments-api/update-payment">UpdatePayment</see>.
+/// <see href="$e/Payments/UpdatePayment">UpdatePayment</see>.
 /// </summary>
 public record UpdatePaymentRequest
 {

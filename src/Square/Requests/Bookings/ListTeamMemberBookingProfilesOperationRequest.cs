@@ -8,7 +8,7 @@ public sealed record ListTeamMemberBookingProfilesOperationRequest
     /// <summary>
     /// Indicates whether to include only bookable team members in the returned result (<c>true</c>) or not (<c>false</c>).
     /// </summary>
-    public bool? BookableOnly { get; init; }
+    public bool BookableOnly { get; init; } = false;
 
     /// <summary>
     /// The maximum number of results to return in a paged response.

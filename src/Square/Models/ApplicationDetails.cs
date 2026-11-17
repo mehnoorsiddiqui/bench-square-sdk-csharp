@@ -1,5 +1,6 @@
 using System.Text.Json.Serialization;
 using Square.Core.Models;
+using Square.Models.Enums;
 
 namespace Square.Models;
 
@@ -9,12 +10,11 @@ namespace Square.Models;
 public record ApplicationDetails
 {
     /// <summary>
-    /// The Square product, such as Square Point of Sale (POS),
-    /// Square Invoices, or Square Virtual Terminal.
+    /// A list of products to return to external callers.
     /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("square_product")]
-    public string? SquareProduct { get; init; }
+    public ApplicationDetailsExternalSquareProduct? SquareProduct { get; init; }
 
     /// <summary>
     /// The Square ID assigned to the application used to take the payment.

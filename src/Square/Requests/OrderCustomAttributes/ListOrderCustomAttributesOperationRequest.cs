@@ -1,3 +1,5 @@
+using Square.Models.Enums;
+
 namespace Square.Requests.OrderCustomAttributes;
 
 /// <summary>
@@ -6,14 +8,14 @@ namespace Square.Requests.OrderCustomAttributes;
 public sealed record ListOrderCustomAttributesOperationRequest
 {
     /// <summary>
-    /// The ID of the target <see href="https://developer.squareup.com/reference/square_2024-08-21/objects/Order">order</see>.
+    /// The ID of the target <see href="entity:Order">order</see>.
     /// </summary>
     public required string OrderId { get; init; }
 
     /// <summary>
     /// Requests that all of the custom attributes be returned, or only those that are read-only or read-write.
     /// </summary>
-    public string? VisibilityFilter { get; init; }
+    public VisibilityFilter? VisibilityFilter { get; init; }
 
     /// <summary>
     /// The cursor returned in the paged response from the previous call to this endpoint.
@@ -31,9 +33,9 @@ public sealed record ListOrderCustomAttributesOperationRequest
     public int? Limit { get; init; }
 
     /// <summary>
-    /// Indicates whether to return the <see href="https://developer.squareup.com/reference/square_2024-08-21/objects/CustomAttributeDefinition">custom attribute definition</see> in the <c>definition</c> field of each
+    /// Indicates whether to return the <see href="entity:CustomAttributeDefinition">custom attribute definition</see> in the <c>definition</c> field of each
     /// custom attribute. Set this parameter to <c>true</c> to get the name and description of each custom attribute,
     /// information about the data type, or other definition details. The default value is <c>false</c>.
     /// </summary>
-    public bool? WithDefinitions { get; init; }
+    public bool WithDefinitions { get; init; } = false;
 }

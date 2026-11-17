@@ -5,7 +5,7 @@ using Square.Core.Models;
 namespace Square.Models;
 
 /// <summary>
-/// Defines the fields that the <see href="https://developer.squareup.com/reference/square_2024-08-21/locations-api/retrieve-location">RetrieveLocation</see>
+/// Defines the fields that the <see href="$e/Locations/RetrieveLocation">RetrieveLocation</see>
 /// endpoint returns in a response.
 /// </summary>
 public record RetrieveLocationResponse

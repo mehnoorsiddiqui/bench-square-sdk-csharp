@@ -14,7 +14,7 @@ namespace Square.Models;
 /// </para>
 /// <para>
 /// __Important:__ If you use the <c>DateTimeFilter</c> in a <c>SearchOrders</c> query,
-/// you must set the <c>sort_field</c> in <see href="https://developer.squareup.com/reference/square_2024-08-21/objects/SearchOrdersSort">OrdersSort</see>
+/// you must set the <c>sort_field</c> in <see href="$m/SearchOrdersSort">OrdersSort</see>
 /// to the same field you filter for. For example, if you set the <c>CLOSED_AT</c> field
 /// in <c>DateTimeFilter</c>, you must set the <c>sort_field</c> in <c>SearchOrdersSort</c> to
 /// <c>CLOSED_AT</c>. Otherwise, <c>SearchOrders</c> throws an error.

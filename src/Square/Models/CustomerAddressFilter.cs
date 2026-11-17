@@ -1,10 +1,11 @@
 using System.Text.Json.Serialization;
 using Square.Core.Models;
+using Square.Models.Enums;
 
 namespace Square.Models;
 
 /// <summary>
-/// The customer address filter. This filter is used in a <see href="https://developer.squareup.com/reference/square_2024-08-21/objects/CustomerCustomAttributeFilterValue">CustomerCustomAttributeFilterValue</see> filter when
+/// The customer address filter. This filter is used in a <see href="$m/CustomerCustomAttributeFilterValue">CustomerCustomAttributeFilterValue</see> filter when
 /// searching by an <c>Address</c>-type custom attribute.
 /// </summary>
 public record CustomerAddressFilter
@@ -19,11 +20,12 @@ public record CustomerAddressFilter
     public CustomerTextFilter? PostalCode { get; init; }
 
     /// <summary>
-    /// The country code to search for.
+    /// Indicates the country associated with another entity, such as a business.
+    /// Values are in <see href="http://www.iso.org/iso/home/standards/country_codes.htm">ISO 3166-1-alpha-2 format</see>.
     /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("country")]
-    public string? Country { get; init; }
+    public Country? Country { get; init; }
 
     [JsonExtensionData]
     public AdditionalProperties AdditionalProperties { get; init; } = [];

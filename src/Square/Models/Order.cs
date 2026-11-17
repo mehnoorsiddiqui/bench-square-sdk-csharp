@@ -2,6 +2,7 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Text.Json.Serialization;
 using Square.Core.Models;
+using Square.Models.Enums;
 
 namespace Square.Models;
 
@@ -47,7 +48,7 @@ public record Order
     public OrderSource? Source { get; init; }
 
     /// <summary>
-    /// The ID of the <see href="https://developer.squareup.com/reference/square_2024-08-21/objects/Customer">customer</see> associated with the order.
+    /// The ID of the <see href="$m/Customer">customer</see> associated with the order.
     /// <para>
     /// You should specify a <c>customer_id</c> on the order (or the payment) to ensure that transactions
     /// are reliably linked to customers. Omitting this field might result in the creation of new
@@ -211,18 +212,18 @@ public record Order
     public string? UpdatedAt { get; init; }
 
     /// <summary>
-    /// The timestamp for when the order reached a terminal <see href="https://developer.squareup.com/reference/square_2024-08-21/enums/OrderState">state</see>, in RFC 3339 format (for example "2016-09-04T23:59:33.123Z").
+    /// The timestamp for when the order reached a terminal <see href="entity:OrderState">state</see>, in RFC 3339 format (for example "2016-09-04T23:59:33.123Z").
     /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("closed_at")]
     public string? ClosedAt { get; init; }
 
     /// <summary>
-    /// The current state of the order.
+    /// The state of the order.
     /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("state")]
-    public string? State { get; init; }
+    public OrderState? State { get; init; }
 
     /// <summary>
     /// The version number, which is incremented each time an update is committed to the order.
@@ -308,7 +309,7 @@ public record Order
     /// <summary>
     /// Pricing options for an order. The options affect how the order's price is calculated.
     /// They can be used, for example, to apply automatic price adjustments that are based on preconfigured
-    /// <see href="https://developer.squareup.com/reference/square_2024-08-21/objects/CatalogPricingRule">pricing rules</see>.
+    /// <see href="$m/CatalogPricingRule">pricing rules</see>.
     /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("pricing_options")]

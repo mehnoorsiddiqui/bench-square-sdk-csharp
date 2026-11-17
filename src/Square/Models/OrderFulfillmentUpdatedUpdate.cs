@@ -1,5 +1,6 @@
 using System.Text.Json.Serialization;
 using Square.Core.Models;
+using Square.Models.Enums;
 
 namespace Square.Models;
 
@@ -16,20 +17,18 @@ public record OrderFulfillmentUpdatedUpdate
     public string? FulfillmentUid { get; init; }
 
     /// <summary>
-    /// The state of the fulfillment before the change.
-    /// The state is not populated if the fulfillment is created with this new <c>Order</c> version.
+    /// The current state of this fulfillment.
     /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("old_state")]
-    public string? OldState { get; init; }
+    public FulfillmentState? OldState { get; init; }
 
     /// <summary>
-    /// The state of the fulfillment after the change. The state might be equal to <c>old_state</c> if a non-state
-    /// field was changed on the fulfillment (such as the tracking number).
+    /// The current state of this fulfillment.
     /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("new_state")]
-    public string? NewState { get; init; }
+    public FulfillmentState? NewState { get; init; }
 
     [JsonExtensionData]
     public AdditionalProperties AdditionalProperties { get; init; } = [];

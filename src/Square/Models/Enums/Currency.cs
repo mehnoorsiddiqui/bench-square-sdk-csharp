@@ -676,9 +676,14 @@ public sealed record Currency : OpenStringEnum<Currency>
     public static readonly Currency Shp = new("SHP");
 
     /// <summary>
-    /// Sierra Leonean leone
+    /// Sierra Leonean first leone
     /// </summary>
     public static readonly Currency Sll = new("SLL");
+
+    /// <summary>
+    /// Sierra Leonean second leone
+    /// </summary>
+    public static readonly Currency Sle = new("SLE");
 
     /// <summary>
     /// Somali shilling
@@ -1058,6 +1063,7 @@ public sealed record Currency : OpenStringEnum<Currency>
         Func<TResult> onSgd,
         Func<TResult> onShp,
         Func<TResult> onSll,
+        Func<TResult> onSle,
         Func<TResult> onSos,
         Func<TResult> onSrd,
         Func<TResult> onSsp,
@@ -1243,6 +1249,7 @@ public sealed record Currency : OpenStringEnum<Currency>
             _ when this == Sgd => onSgd(),
             _ when this == Shp => onShp(),
             _ when this == Sll => onSll(),
+            _ when this == Sle => onSle(),
             _ when this == Sos => onSos(),
             _ when this == Srd => onSrd(),
             _ when this == Ssp => onSsp(),
@@ -1428,6 +1435,7 @@ public sealed record Currency : OpenStringEnum<Currency>
         Action onSgd,
         Action onShp,
         Action onSll,
+        Action onSle,
         Action onSos,
         Action onSrd,
         Action onSsp,
@@ -1612,6 +1620,7 @@ public sealed record Currency : OpenStringEnum<Currency>
         else if (this == Sgd) onSgd();
         else if (this == Shp) onShp();
         else if (this == Sll) onSll();
+        else if (this == Sle) onSle();
         else if (this == Sos) onSos();
         else if (this == Srd) onSrd();
         else if (this == Ssp) onSsp();

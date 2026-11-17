@@ -1,3 +1,5 @@
+using Square.Models.Enums;
+
 namespace Square.Requests.LocationCustomAttributes;
 
 /// <summary>
@@ -6,14 +8,14 @@ namespace Square.Requests.LocationCustomAttributes;
 public sealed record ListLocationCustomAttributesOperationRequest
 {
     /// <summary>
-    /// The ID of the target <see href="https://developer.squareup.com/reference/square_2024-08-21/objects/Location">location</see>.
+    /// The ID of the target <see href="entity:Location">location</see>.
     /// </summary>
     public required string LocationId { get; init; }
 
     /// <summary>
     /// Filters the <c>CustomAttributeDefinition</c> results by their <c>visibility</c> values.
     /// </summary>
-    public string? VisibilityFilter { get; init; }
+    public VisibilityFilter? VisibilityFilter { get; init; }
 
     /// <summary>
     /// The maximum number of results to return in a single paged response. This limit is advisory.
@@ -30,9 +32,9 @@ public sealed record ListLocationCustomAttributesOperationRequest
     public string? Cursor { get; init; }
 
     /// <summary>
-    /// Indicates whether to return the <see href="https://developer.squareup.com/reference/square_2024-08-21/objects/CustomAttributeDefinition">custom attribute definition</see> in the <c>definition</c> field of each
+    /// Indicates whether to return the <see href="entity:CustomAttributeDefinition">custom attribute definition</see> in the <c>definition</c> field of each
     /// custom attribute. Set this parameter to <c>true</c> to get the name and description of each custom
     /// attribute, information about the data type, or other definition details. The default value is <c>false</c>.
     /// </summary>
-    public bool? WithDefinitions { get; init; }
+    public bool WithDefinitions { get; init; } = false;
 }

@@ -102,7 +102,7 @@ catch (ApiException<RawError> ex)
 <dl>
 <dd>
 
-Returns details of a [BankAccount](https://developer.squareup.com/reference/square_2024-08-21/objects/BankAccount)
+Returns details of a [BankAccount]($m/BankAccount)
 linked to a Square account.
 
 </dd>
@@ -169,7 +169,7 @@ catch (ApiException<RawError> ex)
 <dl>
 <dd>
 
-Returns details of a [BankAccount](https://developer.squareup.com/reference/square_2024-08-21/objects/BankAccount) identified by V1 bank account ID.
+Returns details of a [BankAccount]($m/BankAccount) identified by V1 bank account ID.
 
 </dd>
 </dl>
@@ -235,7 +235,7 @@ catch (ApiException<RawError> ex)
 <dl>
 <dd>
 
-Returns a list of [BankAccount](https://developer.squareup.com/reference/square_2024-08-21/objects/BankAccount) objects linked to a Square account.
+Returns a list of [BankAccount]($m/BankAccount) objects linked to a Square account.
 
 </dd>
 </dl>
@@ -2400,7 +2400,7 @@ catch (ApiException<RawError> ex)
 <dd>
 
 Provides the summary details for a single cash drawer shift. See
-[ListCashDrawerShiftEvents](https://developer.squareup.com/reference/square_2024-08-21/cash-drawers-api/list-cash-drawer-shift-events) for a list of cash drawer shift events.
+[ListCashDrawerShiftEvents]($e/CashDrawers/ListCashDrawerShiftEvents) for a list of cash drawer shift events.
 
 </dd>
 </dl>
@@ -2471,11 +2471,11 @@ catch (ApiException<RawError> ex)
 <dl>
 <dd>
 
-Deletes a set of [CatalogItem](https://developer.squareup.com/reference/square_2024-08-21/objects/CatalogItem)s based on the
+Deletes a set of [CatalogItem]($m/CatalogItem)s based on the
 provided list of target IDs and returns a set of successfully deleted IDs in
 the response. Deletion is a cascading event such that all children of the
 targeted object are also deleted. For example, deleting a CatalogItem will
-also delete all of its [CatalogItemVariation](https://developer.squareup.com/reference/square_2024-08-21/objects/CatalogItemVariation)
+also delete all of its [CatalogItemVariation]($m/CatalogItemVariation)
 children.
 
 `BatchDeleteCatalogObjects` succeeds even if only a portion of the targeted
@@ -2551,11 +2551,11 @@ catch (ApiException<RawError> ex)
 <dd>
 
 Returns a set of objects based on the provided ID.
-Each [CatalogItem](https://developer.squareup.com/reference/square_2024-08-21/objects/CatalogItem) returned in the set includes all of its
+Each [CatalogItem]($m/CatalogItem) returned in the set includes all of its
 child information including: all of its
-[CatalogItemVariation](https://developer.squareup.com/reference/square_2024-08-21/objects/CatalogItemVariation) objects, references to
-its [CatalogModifierList](https://developer.squareup.com/reference/square_2024-08-21/objects/CatalogModifierList) objects, and the ids of
-any [CatalogTax](https://developer.squareup.com/reference/square_2024-08-21/objects/CatalogTax) objects that apply to it.
+[CatalogItemVariation]($m/CatalogItemVariation) objects, references to
+its [CatalogModifierList]($m/CatalogModifierList) objects, and the ids of
+any [CatalogTax]($m/CatalogTax) objects that apply to it.
 
 </dd>
 </dl>
@@ -2654,7 +2654,7 @@ try
             Batches = [
                 new CatalogObjectBatch
                 {
-                    Objects = [new CatalogObject { Type = "some example string", Id = "some example string" }],
+                    Objects = [new CatalogObject { Type = CatalogObjectType.Item, Id = "some example string" }],
                 },
             ],
         },
@@ -2752,6 +2752,74 @@ catch (ApiException<RawError> ex)
 </details>
 
 <details>
+<summary><code>Task&lt;CreateCatalogImageResponse&gt; CreateCatalogImage(CreateCatalogImageOperationRequest request, RequestOptions? requestOptions = null, CancellationToken cancellationToken = default);</code></summary>
+
+<dl>
+<dd>
+
+### Description
+
+<dl>
+<dd>
+
+Uploads an image file to be represented by a [CatalogImage]($m/CatalogImage) object that can be linked to an existing
+[CatalogObject]($m/CatalogObject) instance. The resulting `CatalogImage` is unattached to any `CatalogObject` if the `object_id`
+is not specified.
+
+This `CreateCatalogImage` endpoint accepts HTTP multipart/form-data requests with a JSON part and an image file part in
+JPEG, PJPEG, PNG, or GIF format. The maximum file size is 15MB.
+
+</dd>
+</dl>
+
+### Usage
+
+<dl>
+<dd>
+
+```csharp
+try
+{
+    var response = await client.Catalog.CreateCatalogImage(new CreateCatalogImageOperationRequest());
+    // TODO: Handle 'response' of type CreateCatalogImageResponse
+}
+catch (ApiException<RawError> ex)
+{
+    // TODO: Handle 'ex.Error' of type RawError
+}
+```
+
+</dd>
+</dl>
+
+### Request
+
+<dl>
+<dd>
+
+<code>[CreateCatalogImageOperationRequest](src/Square/Requests/Catalog/CreateCatalogImageOperationRequest.cs)</code>
+
+</dd>
+</dl>
+
+### Response
+
+<dl>
+<dd>
+
+**OnSuccess**: <code>[CreateCatalogImageResponse](src/Square/Models/CreateCatalogImageResponse.cs)</code>
+
+**OnError**: <code>[ApiException](src/Square/Core/Exceptions/ApiException.cs)&lt;[RawError](src/Square/Core/ErrorResponse/RawError.cs)&gt;</code>
+
+</dd>
+</dl>
+
+</dd>
+</dl>
+
+</details>
+
+<details>
 <summary><code>Task&lt;DeleteCatalogObjectResponse&gt; DeleteCatalogObject(DeleteCatalogObjectRequest request, RequestOptions? requestOptions = null, CancellationToken cancellationToken = default);</code></summary>
 
 <dl>
@@ -2762,12 +2830,12 @@ catch (ApiException<RawError> ex)
 <dl>
 <dd>
 
-Deletes a single [CatalogObject](https://developer.squareup.com/reference/square_2024-08-21/objects/CatalogObject) based on the
+Deletes a single [CatalogObject]($m/CatalogObject) based on the
 provided ID and returns the set of successfully deleted IDs in the response.
 Deletion is a cascading event such that all children of the targeted object
-are also deleted. For example, deleting a [CatalogItem](https://developer.squareup.com/reference/square_2024-08-21/objects/CatalogItem)
+are also deleted. For example, deleting a [CatalogItem]($m/CatalogItem)
 will also delete all of its
-[CatalogItemVariation](https://developer.squareup.com/reference/square_2024-08-21/objects/CatalogItemVariation) children.
+[CatalogItemVariation]($m/CatalogItemVariation) children.
 
 To ensure consistency, only one delete request is processed at a time per seller account.
 While one (batch or non-batch) delete request is being processed, other (batched and non-batched)
@@ -2837,13 +2905,13 @@ catch (ApiException<RawError> ex)
 <dl>
 <dd>
 
-Returns a list of all [CatalogObject](https://developer.squareup.com/reference/square_2024-08-21/objects/CatalogObject)s of the specified types in the catalog.
+Returns a list of all [CatalogObject]($m/CatalogObject)s of the specified types in the catalog.
 
-The `types` parameter is specified as a comma-separated list of the [CatalogObjectType](https://developer.squareup.com/reference/square_2024-08-21/enums/CatalogObjectType) values,
+The `types` parameter is specified as a comma-separated list of the [CatalogObjectType]($m/CatalogObjectType) values,
 for example, "`ITEM`, `ITEM_VARIATION`, `MODIFIER`, `MODIFIER_LIST`, `CATEGORY`, `DISCOUNT`, `TAX`, `IMAGE`".
 
 __Important:__ ListCatalog does not return deleted catalog items. To retrieve
-deleted catalog items, use [SearchCatalogObjects](https://developer.squareup.com/reference/square_2024-08-21/catalog-api/search-catalog-objects)
+deleted catalog items, use [SearchCatalogObjects]($e/Catalog/SearchCatalogObjects)
 and set the `include_deleted_objects` attribute value to `true`.
 
 </dd>
@@ -2907,13 +2975,13 @@ catch (ApiException<RawError> ex)
 <dl>
 <dd>
 
-Returns a single [CatalogItem](https://developer.squareup.com/reference/square_2024-08-21/objects/CatalogItem) as a
-[CatalogObject](https://developer.squareup.com/reference/square_2024-08-21/objects/CatalogObject) based on the provided ID. The returned
-object includes all of the relevant [CatalogItem](https://developer.squareup.com/reference/square_2024-08-21/objects/CatalogItem)
-information including: [CatalogItemVariation](https://developer.squareup.com/reference/square_2024-08-21/objects/CatalogItemVariation)
+Returns a single [CatalogItem]($m/CatalogItem) as a
+[CatalogObject]($m/CatalogObject) based on the provided ID. The returned
+object includes all of the relevant [CatalogItem]($m/CatalogItem)
+information including: [CatalogItemVariation]($m/CatalogItemVariation)
 children, references to its
-[CatalogModifierList](https://developer.squareup.com/reference/square_2024-08-21/objects/CatalogModifierList) objects, and the ids of
-any [CatalogTax](https://developer.squareup.com/reference/square_2024-08-21/objects/CatalogTax) objects that apply to it.
+[CatalogModifierList]($m/CatalogModifierList) objects, and the ids of
+any [CatalogTax]($m/CatalogTax) objects that apply to it.
 
 </dd>
 </dl>
@@ -2982,7 +3050,7 @@ catch (ApiException<RawError> ex)
 Searches for catalog items or item variations by matching supported search attribute values, including
 custom attribute values, against one or more of the specified query filters.
 
-This (`SearchCatalogItems`) endpoint differs from the [SearchCatalogObjects](https://developer.squareup.com/reference/square_2024-08-21/catalog-api/search-catalog-objects)
+This (`SearchCatalogItems`) endpoint differs from the [SearchCatalogObjects]($e/Catalog/SearchCatalogObjects)
 endpoint in the following aspects:
 
 - `SearchCatalogItems` can only search for items or item variations, whereas `SearchCatalogObjects` can search for any type of catalog objects.
@@ -3054,10 +3122,10 @@ catch (ApiException<RawError> ex)
 <dl>
 <dd>
 
-Searches for [CatalogObject](https://developer.squareup.com/reference/square_2024-08-21/objects/CatalogObject) of any type by matching supported search attribute values,
+Searches for [CatalogObject]($m/CatalogObject) of any type by matching supported search attribute values,
 excluding custom attribute values on items or item variations, against one or more of the specified query filters.
 
-This (`SearchCatalogObjects`) endpoint differs from the [SearchCatalogItems](https://developer.squareup.com/reference/square_2024-08-21/catalog-api/search-catalog-items)
+This (`SearchCatalogObjects`) endpoint differs from the [SearchCatalogItems]($e/Catalog/SearchCatalogItems)
 endpoint in the following aspects:
 
 - `SearchCatalogItems` can only search for items or item variations, whereas `SearchCatalogObjects` can search for any type of catalog objects.
@@ -3119,6 +3187,75 @@ catch (ApiException<RawError> ex)
 </details>
 
 <details>
+<summary><code>Task&lt;UpdateCatalogImageResponse&gt; UpdateCatalogImage(UpdateCatalogImageOperationRequest request, RequestOptions? requestOptions = null, CancellationToken cancellationToken = default);</code></summary>
+
+<dl>
+<dd>
+
+### Description
+
+<dl>
+<dd>
+
+Uploads a new image file to replace the existing one in the specified [CatalogImage]($m/CatalogImage) object.
+
+This `UpdateCatalogImage` endpoint accepts HTTP multipart/form-data requests with a JSON part and an image file part in
+JPEG, PJPEG, PNG, or GIF format. The maximum file size is 15MB.
+
+</dd>
+</dl>
+
+### Usage
+
+<dl>
+<dd>
+
+```csharp
+try
+{
+    var response = await client.Catalog.UpdateCatalogImage(new UpdateCatalogImageOperationRequest
+    {
+        ImageId = "some example string",
+    });
+    // TODO: Handle 'response' of type UpdateCatalogImageResponse
+}
+catch (ApiException<RawError> ex)
+{
+    // TODO: Handle 'ex.Error' of type RawError
+}
+```
+
+</dd>
+</dl>
+
+### Request
+
+<dl>
+<dd>
+
+<code>[UpdateCatalogImageOperationRequest](src/Square/Requests/Catalog/UpdateCatalogImageOperationRequest.cs)</code>
+
+</dd>
+</dl>
+
+### Response
+
+<dl>
+<dd>
+
+**OnSuccess**: <code>[UpdateCatalogImageResponse](src/Square/Models/UpdateCatalogImageResponse.cs)</code>
+
+**OnError**: <code>[ApiException](src/Square/Core/Exceptions/ApiException.cs)&lt;[RawError](src/Square/Core/ErrorResponse/RawError.cs)&gt;</code>
+
+</dd>
+</dl>
+
+</dd>
+</dl>
+
+</details>
+
+<details>
 <summary><code>Task&lt;UpdateItemModifierListsResponse&gt; UpdateItemModifierLists(UpdateItemModifierListsOperationRequest request, RequestOptions? requestOptions = null, CancellationToken cancellationToken = default);</code></summary>
 
 <dl>
@@ -3129,8 +3266,8 @@ catch (ApiException<RawError> ex)
 <dl>
 <dd>
 
-Updates the [CatalogModifierList](https://developer.squareup.com/reference/square_2024-08-21/objects/CatalogModifierList) objects
-that apply to the targeted [CatalogItem](https://developer.squareup.com/reference/square_2024-08-21/objects/CatalogItem) without having
+Updates the [CatalogModifierList]($m/CatalogModifierList) objects
+that apply to the targeted [CatalogItem]($m/CatalogItem) without having
 to perform an upsert on the entire item.
 
 </dd>
@@ -3197,8 +3334,8 @@ catch (ApiException<RawError> ex)
 <dl>
 <dd>
 
-Updates the [CatalogTax](https://developer.squareup.com/reference/square_2024-08-21/objects/CatalogTax) objects that apply to the
-targeted [CatalogItem](https://developer.squareup.com/reference/square_2024-08-21/objects/CatalogItem) without having to perform an
+Updates the [CatalogTax]($m/CatalogTax) objects that apply to the
+targeted [CatalogItem]($m/CatalogItem) without having to perform an
 upsert on the entire item.
 
 </dd>
@@ -3265,7 +3402,7 @@ catch (ApiException<RawError> ex)
 <dl>
 <dd>
 
-Creates a new or updates the specified [CatalogObject](https://developer.squareup.com/reference/square_2024-08-21/objects/CatalogObject).
+Creates a new or updates the specified [CatalogObject]($m/CatalogObject).
 
 To ensure consistency, only one update request is processed at a time per seller account.
 While one (batch or non-batch) update request is being processed, other (batched and non-batched)
@@ -3287,7 +3424,7 @@ try
         Body = new UpsertCatalogObjectRequest
         {
             IdempotencyKey = "some example string",
-            Object = new CatalogObject { Type = "some example string", Id = "some example string" },
+            Object = new CatalogObject { Type = CatalogObjectType.Item, Id = "some example string" },
         },
     });
     // TODO: Handle 'response' of type UpsertCatalogObjectResponse
@@ -4002,11 +4139,11 @@ catch (ApiException<RawError> ex)
 <dl>
 <dd>
 
-Creates or updates [custom attributes](https://developer.squareup.com/reference/square_2024-08-21/objects/CustomAttribute) for customer profiles as a bulk operation.
+Creates or updates [custom attributes]($m/CustomAttribute) for customer profiles as a bulk operation.
 
 Use this endpoint to set the value of one or more custom attributes for one or more customer profiles.
 A custom attribute is based on a custom attribute definition in a Square seller account, which is
-created using the [CreateCustomerCustomAttributeDefinition](https://developer.squareup.com/reference/square_2024-08-21/customer-custom-attributes-api/create-customer-custom-attribute-definition) endpoint.
+created using the [CreateCustomerCustomAttributeDefinition]($e/CustomerCustomAttributes/CreateCustomerCustomAttributeDefinition) endpoint.
 
 This `BulkUpsertCustomerCustomAttributes` endpoint accepts a map of 1 to 25 individual upsert
 requests and returns a map of individual upsert responses. Each upsert request has a unique ID
@@ -4092,13 +4229,13 @@ catch (ApiException<RawError> ex)
 <dl>
 <dd>
 
-Creates a customer-related [custom attribute definition](https://developer.squareup.com/reference/square_2024-08-21/objects/CustomAttributeDefinition) for a Square seller account.
+Creates a customer-related [custom attribute definition]($m/CustomAttributeDefinition) for a Square seller account.
 Use this endpoint to define a custom attribute that can be associated with customer profiles.
 
 A custom attribute definition specifies the `key`, `visibility`, `schema`, and other properties
 for a custom attribute. After the definition is created, you can call
-[UpsertCustomerCustomAttribute](https://developer.squareup.com/reference/square_2024-08-21/customer-custom-attributes-api/upsert-customer-custom-attribute) or
-[BulkUpsertCustomerCustomAttributes](https://developer.squareup.com/reference/square_2024-08-21/customer-custom-attributes-api/bulk-upsert-customer-custom-attributes)
+[UpsertCustomerCustomAttribute]($e/CustomerCustomAttributes/UpsertCustomerCustomAttribute) or
+[BulkUpsertCustomerCustomAttributes]($e/CustomerCustomAttributes/BulkUpsertCustomerCustomAttributes)
 to set the custom attribute for customer profiles in the seller's Customer Directory.
 
 Sellers can view all custom attributes in exported customer data, including those set to
@@ -4172,7 +4309,7 @@ catch (ApiException<RawError> ex)
 <dl>
 <dd>
 
-Deletes a [custom attribute](https://developer.squareup.com/reference/square_2024-08-21/objects/CustomAttribute) associated with a customer profile.
+Deletes a [custom attribute]($m/CustomAttribute) associated with a customer profile.
 
 To delete a custom attribute owned by another application, the `visibility` setting must be
 `VISIBILITY_READ_WRITE_VALUES`. Note that seller-defined custom attributes
@@ -4240,7 +4377,7 @@ catch (ApiException<RawError> ex)
 <dl>
 <dd>
 
-Deletes a customer-related [custom attribute definition](https://developer.squareup.com/reference/square_2024-08-21/objects/CustomAttributeDefinition) from a Square seller account.
+Deletes a customer-related [custom attribute definition]($m/CustomAttributeDefinition) from a Square seller account.
 
 Deleting a custom attribute definition also deletes the corresponding custom attribute from
 all customer profiles in the seller's Customer Directory.
@@ -4309,7 +4446,7 @@ catch (ApiException<RawError> ex)
 <dl>
 <dd>
 
-Lists the customer-related [custom attribute definitions](https://developer.squareup.com/reference/square_2024-08-21/objects/CustomAttributeDefinition) that belong to a Square seller account.
+Lists the customer-related [custom attribute definitions]($m/CustomAttributeDefinition) that belong to a Square seller account.
 
 When all response pages are retrieved, the results include all custom attribute definitions
 that are visible to the requesting application, including those that are created by other
@@ -4378,7 +4515,7 @@ catch (ApiException<RawError> ex)
 <dl>
 <dd>
 
-Lists the [custom attributes](https://developer.squareup.com/reference/square_2024-08-21/objects/CustomAttribute) associated with a customer profile.
+Lists the [custom attributes]($m/CustomAttribute) associated with a customer profile.
 
 You can use the `with_definitions` query parameter to also retrieve custom attribute definitions
 in the same call.
@@ -4449,7 +4586,7 @@ catch (ApiException<RawError> ex)
 <dl>
 <dd>
 
-Retrieves a [custom attribute](https://developer.squareup.com/reference/square_2024-08-21/objects/CustomAttribute) associated with a customer profile.
+Retrieves a [custom attribute]($m/CustomAttribute) associated with a customer profile.
 
 You can use the `with_definition` query parameter to also retrieve the custom attribute definition
 in the same call.
@@ -4524,7 +4661,7 @@ catch (ApiException<RawError> ex)
 <dl>
 <dd>
 
-Retrieves a customer-related [custom attribute definition](https://developer.squareup.com/reference/square_2024-08-21/objects/CustomAttributeDefinition) from a Square seller account.
+Retrieves a customer-related [custom attribute definition]($m/CustomAttributeDefinition) from a Square seller account.
 
 To retrieve a custom attribute definition created by another application, the `visibility`
 setting must be `VISIBILITY_READ_ONLY` or `VISIBILITY_READ_WRITE_VALUES`. Note that seller-defined custom attributes
@@ -4592,7 +4729,7 @@ catch (ApiException<RawError> ex)
 <dl>
 <dd>
 
-Updates a customer-related [custom attribute definition](https://developer.squareup.com/reference/square_2024-08-21/objects/CustomAttributeDefinition) for a Square seller account.
+Updates a customer-related [custom attribute definition]($m/CustomAttributeDefinition) for a Square seller account.
 
 Use this endpoint to update the following fields: `name`, `description`, `visibility`, or the
 `schema` for a `Selection` data type.
@@ -4669,11 +4806,11 @@ catch (ApiException<RawError> ex)
 <dl>
 <dd>
 
-Creates or updates a [custom attribute](https://developer.squareup.com/reference/square_2024-08-21/objects/CustomAttribute) for a customer profile.
+Creates or updates a [custom attribute]($m/CustomAttribute) for a customer profile.
 
 Use this endpoint to set the value of a custom attribute for a specified customer profile.
 A custom attribute is based on a custom attribute definition in a Square seller account, which
-is created using the [CreateCustomerCustomAttributeDefinition](https://developer.squareup.com/reference/square_2024-08-21/customer-custom-attributes-api/create-customer-custom-attribute-definition) endpoint.
+is created using the [CreateCustomerCustomAttributeDefinition]($e/CustomerCustomAttributes/CreateCustomerCustomAttributeDefinition) endpoint.
 
 To create or update a custom attribute owned by another application, the `visibility` setting
 must be `VISIBILITY_READ_WRITE_VALUES`. Note that seller-defined custom attributes
@@ -5287,7 +5424,7 @@ catch (ApiException<RawError> ex)
 <dl>
 <dd>
 
-Creates multiple [customer profiles](https://developer.squareup.com/reference/square_2024-08-21/objects/Customer) for a business.
+Creates multiple [customer profiles]($m/Customer) for a business.
 
 This endpoint takes a map of individual create requests and returns a map of responses.
 
@@ -5506,7 +5643,7 @@ Updates multiple customer profiles.
 
 This endpoint takes a map of individual update requests and returns a map of responses.
 
-You cannot use this endpoint to change cards on file. To make changes, use the [Cards API](https://developer.squareup.com/reference/square_2024-08-21/cards-api) or [Gift Cards API](https://developer.squareup.com/reference/square_2024-08-21/gift-cards-api).
+You cannot use this endpoint to change cards on file. To make changes, use the [Cards API]($e/Cards) or [Gift Cards API]($e/GiftCards).
 
 </dd>
 </dl>
@@ -6138,7 +6275,7 @@ To add or update a field, specify the new value. To remove a field, specify `nul
 
 To update a customer profile that was created by merging existing profiles, you must use the ID of the newly created profile.
 
-You cannot use this endpoint to change cards on file. To make changes, use the [Cards API](https://developer.squareup.com/reference/square_2024-08-21/cards-api) or [Gift Cards API](https://developer.squareup.com/reference/square_2024-08-21/gift-cards-api).
+You cannot use this endpoint to change cards on file. To make changes, use the [Cards API]($e/Cards) or [Gift Cards API]($e/GiftCards).
 
 </dd>
 </dl>
@@ -6225,11 +6362,7 @@ try
 {
     var response = await client.Devices.CreateDeviceCode(new CreateDeviceCodeOperationRequest
     {
-        Body = new CreateDeviceCodeRequest
-        {
-            IdempotencyKey = "some example string",
-            DeviceCode = new DeviceCode { ProductType = "some example string" },
-        },
+        Body = new CreateDeviceCodeRequest { IdempotencyKey = "some example string", DeviceCode = new DeviceCode() },
     });
     // TODO: Handle 'response' of type CreateDeviceCodeResponse
 }
@@ -6582,6 +6715,73 @@ catch (ApiException<RawError> ex)
 <dd>
 
 **OnSuccess**: <code>[AcceptDisputeResponse](src/Square/Models/AcceptDisputeResponse.cs)</code>
+
+**OnError**: <code>[ApiException](src/Square/Core/Exceptions/ApiException.cs)&lt;[RawError](src/Square/Core/ErrorResponse/RawError.cs)&gt;</code>
+
+</dd>
+</dl>
+
+</dd>
+</dl>
+
+</details>
+
+<details>
+<summary><code>Task&lt;CreateDisputeEvidenceFileResponse&gt; CreateDisputeEvidenceFile(CreateDisputeEvidenceFileOperationRequest request, RequestOptions? requestOptions = null, CancellationToken cancellationToken = default);</code></summary>
+
+<dl>
+<dd>
+
+### Description
+
+<dl>
+<dd>
+
+Uploads a file to use as evidence in a dispute challenge. The endpoint accepts HTTP
+multipart/form-data file uploads in HEIC, HEIF, JPEG, PDF, PNG, and TIFF formats.
+
+</dd>
+</dl>
+
+### Usage
+
+<dl>
+<dd>
+
+```csharp
+try
+{
+    var response = await client.Disputes.CreateDisputeEvidenceFile(new CreateDisputeEvidenceFileOperationRequest
+    {
+        DisputeId = "some example string",
+    });
+    // TODO: Handle 'response' of type CreateDisputeEvidenceFileResponse
+}
+catch (ApiException<RawError> ex)
+{
+    // TODO: Handle 'ex.Error' of type RawError
+}
+```
+
+</dd>
+</dl>
+
+### Request
+
+<dl>
+<dd>
+
+<code>[CreateDisputeEvidenceFileOperationRequest](src/Square/Requests/Disputes/CreateDisputeEvidenceFileOperationRequest.cs)</code>
+
+</dd>
+</dl>
+
+### Response
+
+<dl>
+<dd>
+
+**OnSuccess**: <code>[CreateDisputeEvidenceFileResponse](src/Square/Models/CreateDisputeEvidenceFileResponse.cs)</code>
 
 **OnError**: <code>[ApiException](src/Square/Core/Exceptions/ApiException.cs)&lt;[RawError](src/Square/Core/ErrorResponse/RawError.cs)&gt;</code>
 
@@ -7010,8 +7210,8 @@ catch (ApiException<RawError> ex)
 Submits evidence to the cardholder's bank.
 
 The evidence submitted by this endpoint includes evidence uploaded
-using the [CreateDisputeEvidenceFile](https://developer.squareup.com/reference/square_2024-08-21/disputes-api/create-dispute-evidence-file) and
-[CreateDisputeEvidenceText](https://developer.squareup.com/reference/square_2024-08-21/disputes-api/create-dispute-evidence-text) endpoints and
+using the [CreateDisputeEvidenceFile]($e/Disputes/CreateDisputeEvidenceFile) and
+[CreateDisputeEvidenceText]($e/Disputes/CreateDisputeEvidenceText) endpoints and
 evidence automatically provided by Square, when available. Evidence cannot be removed from
 a dispute after submission.
 
@@ -7434,7 +7634,7 @@ catch (ApiException<RawError> ex)
 <dl>
 <dd>
 
-Creates a gift card activity to manage the balance or state of a [gift card](https://developer.squareup.com/reference/square_2024-08-21/objects/GiftCard).
+Creates a gift card activity to manage the balance or state of a [gift card]($m/GiftCard).
 For example, create an `ACTIVATE` activity to activate a gift card with an initial balance before first use.
 
 </dd>
@@ -7455,7 +7655,7 @@ try
             IdempotencyKey = "some example string",
             GiftCardActivity = new GiftCardActivity
             {
-                Type = "some example string",
+                Type = GiftCardActivityType.Activate,
                 LocationId = "some example string",
             },
         },
@@ -7581,8 +7781,8 @@ catch (ApiException<RawError> ex)
 
 Creates a digital gift card or registers a physical (plastic) gift card. The resulting gift card
 has a `PENDING` state. To activate a gift card so that it can be redeemed for purchases, call
-[CreateGiftCardActivity](https://developer.squareup.com/reference/square_2024-08-21/gift-card-activities-api/create-gift-card-activity) and create an `ACTIVATE`
-activity with the initial balance. Alternatively, you can use [RefundPayment](https://developer.squareup.com/reference/square_2024-08-21/refunds-api/refund-payment)
+[CreateGiftCardActivity]($e/GiftCardActivities/CreateGiftCardActivity) and create an `ACTIVATE`
+activity with the initial balance. Alternatively, you can use [RefundPayment]($e/Refunds/RefundPayment)
 to refund a payment to the new gift card.
 
 </dd>
@@ -7602,7 +7802,7 @@ try
         {
             IdempotencyKey = "some example string",
             LocationId = "some example string",
-            GiftCard = new GiftCard { Type = "some example string" },
+            GiftCard = new GiftCard { Type = GiftCardType.Physical },
         },
     });
     // TODO: Handle 'response' of type CreateGiftCardResponse
@@ -8193,8 +8393,8 @@ catch (ApiException<RawError> ex)
 <dd>
 
 Returns current counts for the provided
-[CatalogObject](https://developer.squareup.com/reference/square_2024-08-21/objects/CatalogObject)s at the requested
-[Location](https://developer.squareup.com/reference/square_2024-08-21/objects/Location)s.
+[CatalogObject]($m/CatalogObject)s at the requested
+[Location]($m/Location)s.
 
 Results are paginated and sorted in descending order according to their
 `calculated_at` timestamp (newest first).
@@ -8268,7 +8468,7 @@ catch (ApiException<RawError> ex)
 <dl>
 <dd>
 
-Deprecated version of [BatchChangeInventory](https://developer.squareup.com/reference/square_2024-08-21/inventory-api/batch-change-inventory) after the endpoint URL
+Deprecated version of [BatchChangeInventory](api-endpoint:Inventory-BatchChangeInventory) after the endpoint URL
 is updated to conform to the standard convention.
 
 </dd>
@@ -8335,7 +8535,7 @@ catch (ApiException<RawError> ex)
 <dl>
 <dd>
 
-Deprecated version of [BatchRetrieveInventoryChanges](https://developer.squareup.com/reference/square_2024-08-21/inventory-api/batch-retrieve-inventory-changes) after the endpoint URL
+Deprecated version of [BatchRetrieveInventoryChanges](api-endpoint:Inventory-BatchRetrieveInventoryChanges) after the endpoint URL
 is updated to conform to the standard convention.
 
 </dd>
@@ -8400,7 +8600,7 @@ catch (ApiException<RawError> ex)
 <dl>
 <dd>
 
-Deprecated version of [BatchRetrieveInventoryCounts](https://developer.squareup.com/reference/square_2024-08-21/inventory-api/batch-retrieve-inventory-counts) after the endpoint URL
+Deprecated version of [BatchRetrieveInventoryCounts](api-endpoint:Inventory-BatchRetrieveInventoryCounts) after the endpoint URL
 is updated to conform to the standard convention.
 
 </dd>
@@ -8465,7 +8665,7 @@ catch (ApiException<RawError> ex)
 <dl>
 <dd>
 
-Deprecated version of [RetrieveInventoryAdjustment](https://developer.squareup.com/reference/square_2024-08-21/inventory-api/retrieve-inventory-adjustment) after the endpoint URL
+Deprecated version of [RetrieveInventoryAdjustment](api-endpoint:Inventory-RetrieveInventoryAdjustment) after the endpoint URL
 is updated to conform to the standard convention.
 
 </dd>
@@ -8530,7 +8730,7 @@ catch (ApiException<RawError> ex)
 <dl>
 <dd>
 
-Deprecated version of [RetrieveInventoryPhysicalCount](https://developer.squareup.com/reference/square_2024-08-21/inventory-api/retrieve-inventory-physical-count) after the endpoint URL
+Deprecated version of [RetrieveInventoryPhysicalCount](api-endpoint:Inventory-RetrieveInventoryPhysicalCount) after the endpoint URL
 is updated to conform to the standard convention.
 
 </dd>
@@ -8595,7 +8795,7 @@ catch (ApiException<RawError> ex)
 <dl>
 <dd>
 
-Returns the [InventoryAdjustment](https://developer.squareup.com/reference/square_2024-08-21/objects/InventoryAdjustment) object
+Returns the [InventoryAdjustment]($m/InventoryAdjustment) object
 with the provided `adjustment_id`.
 
 </dd>
@@ -8663,10 +8863,10 @@ catch (ApiException<RawError> ex)
 <dd>
 
 Returns a set of physical counts and inventory adjustments for the
-provided [CatalogObject](https://developer.squareup.com/reference/square_2024-08-21/objects/CatalogObject) at the requested
-[Location](https://developer.squareup.com/reference/square_2024-08-21/objects/Location)s.
+provided [CatalogObject](entity:CatalogObject) at the requested
+[Location](entity:Location)s.
 
-You can achieve the same result by calling [BatchRetrieveInventoryChanges](https://developer.squareup.com/reference/square_2024-08-21/inventory-api/batch-retrieve-inventory-changes)
+You can achieve the same result by calling [BatchRetrieveInventoryChanges](api-endpoint:Inventory-BatchRetrieveInventoryChanges)
 and having the `catalog_object_ids` list contain a single element of the `CatalogObject` ID.
 
 Results are paginated and sorted in descending order according to their
@@ -8741,8 +8941,8 @@ catch (ApiException<RawError> ex)
 <dd>
 
 Retrieves the current calculated stock count for a given
-[CatalogObject](https://developer.squareup.com/reference/square_2024-08-21/objects/CatalogObject) at a given set of
-[Location](https://developer.squareup.com/reference/square_2024-08-21/objects/Location)s. Responses are paginated and unsorted.
+[CatalogObject]($m/CatalogObject) at a given set of
+[Location]($m/Location)s. Responses are paginated and unsorted.
 For more sophisticated queries, use a batch endpoint.
 
 </dd>
@@ -8809,7 +9009,7 @@ catch (ApiException<RawError> ex)
 <dl>
 <dd>
 
-Returns the [InventoryPhysicalCount](https://developer.squareup.com/reference/square_2024-08-21/objects/InventoryPhysicalCount)
+Returns the [InventoryPhysicalCount]($m/InventoryPhysicalCount)
 object with the provided `physical_count_id`.
 
 </dd>
@@ -8876,7 +9076,7 @@ catch (ApiException<RawError> ex)
 <dl>
 <dd>
 
-Returns the [InventoryTransfer](https://developer.squareup.com/reference/square_2024-08-21/objects/InventoryTransfer) object
+Returns the [InventoryTransfer]($m/InventoryTransfer) object
 with the provided `transfer_id`.
 
 </dd>
@@ -9017,7 +9217,7 @@ catch (ApiException<RawError> ex)
 <dl>
 <dd>
 
-Creates a draft [invoice](https://developer.squareup.com/reference/square_2024-08-21/objects/Invoice) 
+Creates a draft [invoice]($m/Invoice) 
 for an order created using the Orders API.
 
 A draft invoice remains in your account and no action is taken. 
@@ -9065,6 +9265,77 @@ catch (ApiException<RawError> ex)
 <dd>
 
 **OnSuccess**: <code>[CreateInvoiceResponse](src/Square/Models/CreateInvoiceResponse.cs)</code>
+
+**OnError**: <code>[ApiException](src/Square/Core/Exceptions/ApiException.cs)&lt;[RawError](src/Square/Core/ErrorResponse/RawError.cs)&gt;</code>
+
+</dd>
+</dl>
+
+</dd>
+</dl>
+
+</details>
+
+<details>
+<summary><code>Task&lt;CreateInvoiceAttachmentResponse&gt; CreateInvoiceAttachment(CreateInvoiceAttachmentOperationRequest request, RequestOptions? requestOptions = null, CancellationToken cancellationToken = default);</code></summary>
+
+<dl>
+<dd>
+
+### Description
+
+<dl>
+<dd>
+
+Uploads a file and attaches it to an invoice. This endpoint accepts HTTP multipart/form-data file uploads
+with a JSON `request` part and a `file` part. The `file` part must be a `readable stream` that contains a file
+in a supported format: GIF, JPEG, PNG, TIFF, BMP, or PDF.
+
+Invoices can have up to 10 attachments with a total file size of 25 MB. Attachments can be added only to invoices
+in the `DRAFT`, `SCHEDULED`, `UNPAID`, or `PARTIALLY_PAID` state.
+
+</dd>
+</dl>
+
+### Usage
+
+<dl>
+<dd>
+
+```csharp
+try
+{
+    var response = await client.Invoices.CreateInvoiceAttachment(new CreateInvoiceAttachmentOperationRequest
+    {
+        InvoiceId = "some example string",
+    });
+    // TODO: Handle 'response' of type CreateInvoiceAttachmentResponse
+}
+catch (ApiException<RawError> ex)
+{
+    // TODO: Handle 'ex.Error' of type RawError
+}
+```
+
+</dd>
+</dl>
+
+### Request
+
+<dl>
+<dd>
+
+<code>[CreateInvoiceAttachmentOperationRequest](src/Square/Requests/Invoices/CreateInvoiceAttachmentOperationRequest.cs)</code>
+
+</dd>
+</dl>
+
+### Response
+
+<dl>
+<dd>
+
+**OnSuccess**: <code>[CreateInvoiceAttachmentResponse](src/Square/Models/CreateInvoiceAttachmentResponse.cs)</code>
 
 **OnError**: <code>[ApiException](src/Square/Core/Exceptions/ApiException.cs)&lt;[RawError](src/Square/Core/ErrorResponse/RawError.cs)&gt;</code>
 
@@ -9528,7 +9799,7 @@ try
     var response = await client.Invoices.UpdateInvoice(new UpdateInvoiceOperationRequest
     {
         InvoiceId = "some example string",
-        Body = new UpdateInvoiceRequest { Invoice = new Invoice(), FieldsToClear = ["some example string"] },
+        Body = new UpdateInvoiceRequest { Invoice = new Invoice() },
     });
     // TODO: Handle 'response' of type UpdateInvoiceResponse
 }
@@ -10640,7 +10911,7 @@ try
         {
             WorkweekConfig = new WorkweekConfig
             {
-                StartOfWeek = "some example string",
+                StartOfWeek = Weekday.Mon,
                 StartOfDayLocalTime = "some example string",
             },
         },
@@ -10698,7 +10969,7 @@ catch (ApiException<RawError> ex)
 <dl>
 <dd>
 
-Deletes [custom attributes](https://developer.squareup.com/reference/square_2024-08-21/objects/CustomAttribute) for locations as a bulk operation.
+Deletes [custom attributes]($m/CustomAttribute) for locations as a bulk operation.
 To delete a custom attribute owned by another application, the `visibility` setting must be
 `VISIBILITY_READ_WRITE_VALUES`.
 
@@ -10773,10 +11044,10 @@ catch (ApiException<RawError> ex)
 <dl>
 <dd>
 
-Creates or updates [custom attributes](https://developer.squareup.com/reference/square_2024-08-21/objects/CustomAttribute) for locations as a bulk operation.
+Creates or updates [custom attributes]($m/CustomAttribute) for locations as a bulk operation.
 Use this endpoint to set the value of one or more custom attributes for one or more locations.
 A custom attribute is based on a custom attribute definition in a Square seller account, which is
-created using the [CreateLocationCustomAttributeDefinition](https://developer.squareup.com/reference/square_2024-08-21/location-custom-attributes-api/create-location-custom-attribute-definition) endpoint.
+created using the [CreateLocationCustomAttributeDefinition]($e/LocationCustomAttributes/CreateLocationCustomAttributeDefinition) endpoint.
 This `BulkUpsertLocationCustomAttributes` endpoint accepts a map of 1 to 25 individual upsert
 requests and returns a map of individual upsert responses. Each upsert request has a unique ID
 and provides a location ID and custom attribute. Each upsert response is returned with the ID
@@ -10859,12 +11130,12 @@ catch (ApiException<RawError> ex)
 <dl>
 <dd>
 
-Creates a location-related [custom attribute definition](https://developer.squareup.com/reference/square_2024-08-21/objects/CustomAttributeDefinition) for a Square seller account.
+Creates a location-related [custom attribute definition]($m/CustomAttributeDefinition) for a Square seller account.
 Use this endpoint to define a custom attribute that can be associated with locations.
 A custom attribute definition specifies the `key`, `visibility`, `schema`, and other properties
 for a custom attribute. After the definition is created, you can call
-[UpsertLocationCustomAttribute](https://developer.squareup.com/reference/square_2024-08-21/location-custom-attributes-api/upsert-location-custom-attribute) or
-[BulkUpsertLocationCustomAttributes](https://developer.squareup.com/reference/square_2024-08-21/location-custom-attributes-api/bulk-upsert-location-custom-attributes)
+[UpsertLocationCustomAttribute]($e/LocationCustomAttributes/UpsertLocationCustomAttribute) or
+[BulkUpsertLocationCustomAttributes]($e/LocationCustomAttributes/BulkUpsertLocationCustomAttributes)
 to set the custom attribute for locations.
 
 </dd>
@@ -10935,7 +11206,7 @@ catch (ApiException<RawError> ex)
 <dl>
 <dd>
 
-Deletes a [custom attribute](https://developer.squareup.com/reference/square_2024-08-21/objects/CustomAttribute) associated with a location.
+Deletes a [custom attribute]($m/CustomAttribute) associated with a location.
 To delete a custom attribute owned by another application, the `visibility` setting must be
 `VISIBILITY_READ_WRITE_VALUES`.
 
@@ -11001,7 +11272,7 @@ catch (ApiException<RawError> ex)
 <dl>
 <dd>
 
-Deletes a location-related [custom attribute definition](https://developer.squareup.com/reference/square_2024-08-21/objects/CustomAttributeDefinition) from a Square seller account.
+Deletes a location-related [custom attribute definition]($m/CustomAttributeDefinition) from a Square seller account.
 Deleting a custom attribute definition also deletes the corresponding custom attribute from
 all locations.
 Only the definition owner can delete a custom attribute definition.
@@ -11068,7 +11339,7 @@ catch (ApiException<RawError> ex)
 <dl>
 <dd>
 
-Lists the location-related [custom attribute definitions](https://developer.squareup.com/reference/square_2024-08-21/objects/CustomAttributeDefinition) that belong to a Square seller account.
+Lists the location-related [custom attribute definitions]($m/CustomAttributeDefinition) that belong to a Square seller account.
 When all response pages are retrieved, the results include all custom attribute definitions
 that are visible to the requesting application, including those that are created by other
 applications and set to `VISIBILITY_READ_ONLY` or `VISIBILITY_READ_WRITE_VALUES`.
@@ -11135,7 +11406,7 @@ catch (ApiException<RawError> ex)
 <dl>
 <dd>
 
-Lists the [custom attributes](https://developer.squareup.com/reference/square_2024-08-21/objects/CustomAttribute) associated with a location.
+Lists the [custom attributes]($m/CustomAttribute) associated with a location.
 You can use the `with_definitions` query parameter to also retrieve custom attribute definitions
 in the same call.
 When all response pages are retrieved, the results include all custom attributes that are
@@ -11204,7 +11475,7 @@ catch (ApiException<RawError> ex)
 <dl>
 <dd>
 
-Retrieves a [custom attribute](https://developer.squareup.com/reference/square_2024-08-21/objects/CustomAttribute) associated with a location.
+Retrieves a [custom attribute]($m/CustomAttribute) associated with a location.
 You can use the `with_definition` query parameter to also retrieve the custom attribute definition
 in the same call.
 To retrieve a custom attribute owned by another application, the `visibility` setting must be
@@ -11276,7 +11547,7 @@ catch (ApiException<RawError> ex)
 <dl>
 <dd>
 
-Retrieves a location-related [custom attribute definition](https://developer.squareup.com/reference/square_2024-08-21/objects/CustomAttributeDefinition) from a Square seller account.
+Retrieves a location-related [custom attribute definition]($m/CustomAttributeDefinition) from a Square seller account.
 To retrieve a custom attribute definition created by another application, the `visibility`
 setting must be `VISIBILITY_READ_ONLY` or `VISIBILITY_READ_WRITE_VALUES`.
 
@@ -11342,7 +11613,7 @@ catch (ApiException<RawError> ex)
 <dl>
 <dd>
 
-Updates a location-related [custom attribute definition](https://developer.squareup.com/reference/square_2024-08-21/objects/CustomAttributeDefinition) for a Square seller account.
+Updates a location-related [custom attribute definition]($m/CustomAttributeDefinition) for a Square seller account.
 Use this endpoint to update the following fields: `name`, `description`, `visibility`, or the
 `schema` for a `Selection` data type.
 Only the definition owner can update a custom attribute definition.
@@ -11416,10 +11687,10 @@ catch (ApiException<RawError> ex)
 <dl>
 <dd>
 
-Creates or updates a [custom attribute](https://developer.squareup.com/reference/square_2024-08-21/objects/CustomAttribute) for a location.
+Creates or updates a [custom attribute]($m/CustomAttribute) for a location.
 Use this endpoint to set the value of a custom attribute for a specified location.
 A custom attribute is based on a custom attribute definition in a Square seller account, which
-is created using the [CreateLocationCustomAttributeDefinition](https://developer.squareup.com/reference/square_2024-08-21/location-custom-attributes-api/create-location-custom-attribute-definition) endpoint.
+is created using the [CreateLocationCustomAttributeDefinition]($e/LocationCustomAttributes/CreateLocationCustomAttributeDefinition) endpoint.
 To create or update a custom attribute owned by another application, the `visibility` setting
 must be `VISIBILITY_READ_WRITE_VALUES`.
 
@@ -11758,18 +12029,18 @@ catch (ApiException<RawError> ex)
 <dl>
 <dd>
 
-Adds points earned from a purchase to a [loyalty account](https://developer.squareup.com/reference/square_2024-08-21/objects/LoyaltyAccount).
+Adds points earned from a purchase to a [loyalty account]($m/LoyaltyAccount).
 
 - If you are using the Orders API to manage orders, provide the `order_id`. Square reads the order
 to compute the points earned from both the base loyalty program and an associated
-[loyalty promotion](https://developer.squareup.com/reference/square_2024-08-21/objects/LoyaltyPromotion). For purchases that qualify for multiple accrual
+[loyalty promotion]($m/LoyaltyPromotion). For purchases that qualify for multiple accrual
 rules, Square computes points based on the accrual rule that grants the most points.
 For purchases that qualify for multiple promotions, Square computes points based on the most
 recently created promotion. A purchase must first qualify for program points to be eligible for promotion points.
 
 - If you are not using the Orders API to manage orders, provide `points` with the number of points to add.
 You must first perform a client-side computation of the points earned from the loyalty program and
-loyalty promotion. For spend-based and visit-based programs, you can call [CalculateLoyaltyPoints](https://developer.squareup.com/reference/square_2024-08-21/loyalty-api/calculate-loyalty-points)
+loyalty promotion. For spend-based and visit-based programs, you can call [CalculateLoyaltyPoints]($e/Loyalty/CalculateLoyaltyPoints)
 to compute the points earned from the base loyalty program. For information about computing points earned from a loyalty promotion, see
 [Calculating promotion points](https://developer.squareup.com/docs/loyalty-api/loyalty-promotions#calculate-promotion-points).
 
@@ -11846,7 +12117,7 @@ catch (ApiException<RawError> ex)
 Adds points to or subtracts points from a buyer's account.
 
 Use this endpoint only when you need to manually adjust points. Otherwise, in your application flow, you call
-[AccumulateLoyaltyPoints](https://developer.squareup.com/reference/square_2024-08-21/loyalty-api/accumulate-loyalty-points)
+[AccumulateLoyaltyPoints]($e/Loyalty/AccumulateLoyaltyPoints)
 to add points when a buyer pays for the purchase.
 
 </dd>
@@ -11923,14 +12194,14 @@ to display the points to the buyer.
 
 - If you are using the Orders API to manage orders, provide the `order_id` and (optional) `loyalty_account_id`.
 Square reads the order to compute the points earned from the base loyalty program and an associated
-[loyalty promotion](https://developer.squareup.com/reference/square_2024-08-21/objects/LoyaltyPromotion).
+[loyalty promotion]($m/LoyaltyPromotion).
 
 - If you are not using the Orders API to manage orders, provide `transaction_amount_money` with the
 purchase amount. Square uses this amount to calculate the points earned from the base loyalty program,
 but not points earned from a loyalty promotion. For spend-based and visit-based programs, the `tax_mode`
 setting of the accrual rule indicates how taxes should be treated for loyalty points accrual.
 If the purchase qualifies for program points, call
-[ListLoyaltyPromotions](https://developer.squareup.com/reference/square_2024-08-21/loyalty-api/list-loyalty-promotions) and perform a client-side computation
+[ListLoyaltyPromotions]($e/Loyalty/ListLoyaltyPromotions) and perform a client-side computation
 to calculate whether the purchase also qualifies for promotion points. For more information, see
 [Calculating promotion points](https://developer.squareup.com/docs/loyalty-api/loyalty-promotions#calculate-promotion-points).
 
@@ -12141,7 +12412,7 @@ catch (ApiException<RawError> ex)
 <dl>
 <dd>
 
-Creates a loyalty promotion for a [loyalty program](https://developer.squareup.com/reference/square_2024-08-21/objects/LoyaltyProgram). A loyalty promotion
+Creates a loyalty promotion for a [loyalty program]($m/LoyaltyProgram). A loyalty promotion
 enables buyers to earn points in addition to those earned from the base loyalty program.
 
 This endpoint sets the loyalty promotion to the `ACTIVE` or `SCHEDULED` status, depending on the
@@ -12167,10 +12438,8 @@ try
             LoyaltyPromotion = new LoyaltyPromotion
             {
                 Name = "some example string",
-                Incentive = new LoyaltyPromotionIncentive { Type = "some example string" },
+                Incentive = new LoyaltyPromotionIncentive { Type = LoyaltyPromotionIncentiveType.PointsMultiplier },
                 AvailableTime = new LoyaltyPromotionAvailableTimeData { TimePeriods = ["some example string"] },
-                QualifyingItemVariationIds = ["some example string"],
-                QualifyingCategoryIds = ["some example string"],
             },
             IdempotencyKey = "some example string",
         },
@@ -12309,7 +12578,7 @@ Deletes a loyalty reward by doing the following:
 
 - Returns the loyalty points back to the loyalty account.
 - If an order ID was specified when the reward was created
-(see [CreateLoyaltyReward](https://developer.squareup.com/reference/square_2024-08-21/loyalty-api/create-loyalty-reward)),
+(see [CreateLoyaltyReward]($e/Loyalty/CreateLoyaltyReward)),
 it updates the order by removing the reward and related
 discounts.
 
@@ -12383,7 +12652,7 @@ Returns a list of loyalty programs in the seller's account.
 Loyalty programs define how buyers can earn points and redeem points for rewards. Square sellers can have only one loyalty program, which is created and managed from the Seller Dashboard. For more information, see [Loyalty Program Overview](https://developer.squareup.com/docs/loyalty/overview).
 
 
-Replaced with [RetrieveLoyaltyProgram](https://developer.squareup.com/reference/square_2024-08-21/loyalty-api/retrieve-loyalty-program) when used with the keyword `main`.
+Replaced with [RetrieveLoyaltyProgram](api-endpoint:Loyalty-RetrieveLoyaltyProgram) when used with the keyword `main`.
 
 </dd>
 </dl>
@@ -12436,7 +12705,7 @@ catch (ApiException<RawError> ex)
 <dl>
 <dd>
 
-Lists the loyalty promotions associated with a [loyalty program](https://developer.squareup.com/reference/square_2024-08-21/objects/LoyaltyProgram).
+Lists the loyalty promotions associated with a [loyalty program]($m/LoyaltyProgram).
 Results are sorted by the `created_at` date in descending order (newest to oldest).
 
 </dd>
@@ -12998,7 +13267,7 @@ Searches for loyalty rewards. This endpoint accepts a request with no query filt
 If you include a `query` object, `loyalty_account_id` is required and `status` is  optional.
 
 If you know a reward ID, use the
-[RetrieveLoyaltyReward](https://developer.squareup.com/reference/square_2024-08-21/loyalty-api/retrieve-loyalty-reward) endpoint.
+[RetrieveLoyaltyReward]($e/Loyalty/RetrieveLoyaltyReward) endpoint.
 
 Search results are sorted by `updated_at` in descending order.
 
@@ -13070,7 +13339,7 @@ catch (ApiException<RawError> ex)
 <dl>
 <dd>
 
-Deletes [custom attributes](https://developer.squareup.com/reference/square_2024-08-21/objects/CustomAttribute) for a merchant as a bulk operation.
+Deletes [custom attributes]($m/CustomAttribute) for a merchant as a bulk operation.
 To delete a custom attribute owned by another application, the `visibility` setting must be
 `VISIBILITY_READ_WRITE_VALUES`.
 
@@ -13145,10 +13414,10 @@ catch (ApiException<RawError> ex)
 <dl>
 <dd>
 
-Creates or updates [custom attributes](https://developer.squareup.com/reference/square_2024-08-21/objects/CustomAttribute) for a merchant as a bulk operation.
+Creates or updates [custom attributes]($m/CustomAttribute) for a merchant as a bulk operation.
 Use this endpoint to set the value of one or more custom attributes for a merchant.
 A custom attribute is based on a custom attribute definition in a Square seller account, which is
-created using the [CreateMerchantCustomAttributeDefinition](https://developer.squareup.com/reference/square_2024-08-21/merchant-custom-attributes-api/create-merchant-custom-attribute-definition) endpoint.
+created using the [CreateMerchantCustomAttributeDefinition]($e/MerchantCustomAttributes/CreateMerchantCustomAttributeDefinition) endpoint.
 This `BulkUpsertMerchantCustomAttributes` endpoint accepts a map of 1 to 25 individual upsert
 requests and returns a map of individual upsert responses. Each upsert request has a unique ID
 and provides a merchant ID and custom attribute. Each upsert response is returned with the ID
@@ -13231,12 +13500,12 @@ catch (ApiException<RawError> ex)
 <dl>
 <dd>
 
-Creates a merchant-related [custom attribute definition](https://developer.squareup.com/reference/square_2024-08-21/objects/CustomAttributeDefinition) for a Square seller account.
+Creates a merchant-related [custom attribute definition]($m/CustomAttributeDefinition) for a Square seller account.
 Use this endpoint to define a custom attribute that can be associated with a merchant connecting to your application.
 A custom attribute definition specifies the `key`, `visibility`, `schema`, and other properties
 for a custom attribute. After the definition is created, you can call
-[UpsertMerchantCustomAttribute](https://developer.squareup.com/reference/square_2024-08-21/merchant-custom-attributes-api/upsert-merchant-custom-attribute) or
-[BulkUpsertMerchantCustomAttributes](https://developer.squareup.com/reference/square_2024-08-21/merchant-custom-attributes-api/bulk-upsert-merchant-custom-attributes)
+[UpsertMerchantCustomAttribute]($e/MerchantCustomAttributes/UpsertMerchantCustomAttribute) or
+[BulkUpsertMerchantCustomAttributes]($e/MerchantCustomAttributes/BulkUpsertMerchantCustomAttributes)
 to set the custom attribute for a merchant.
 
 </dd>
@@ -13307,7 +13576,7 @@ catch (ApiException<RawError> ex)
 <dl>
 <dd>
 
-Deletes a [custom attribute](https://developer.squareup.com/reference/square_2024-08-21/objects/CustomAttribute) associated with a merchant.
+Deletes a [custom attribute]($m/CustomAttribute) associated with a merchant.
 To delete a custom attribute owned by another application, the `visibility` setting must be
 `VISIBILITY_READ_WRITE_VALUES`.
 
@@ -13373,7 +13642,7 @@ catch (ApiException<RawError> ex)
 <dl>
 <dd>
 
-Deletes a merchant-related [custom attribute definition](https://developer.squareup.com/reference/square_2024-08-21/objects/CustomAttributeDefinition) from a Square seller account.
+Deletes a merchant-related [custom attribute definition]($m/CustomAttributeDefinition) from a Square seller account.
 Deleting a custom attribute definition also deletes the corresponding custom attribute from
 the merchant.
 Only the definition owner can delete a custom attribute definition.
@@ -13440,7 +13709,7 @@ catch (ApiException<RawError> ex)
 <dl>
 <dd>
 
-Lists the merchant-related [custom attribute definitions](https://developer.squareup.com/reference/square_2024-08-21/objects/CustomAttributeDefinition) that belong to a Square seller account.
+Lists the merchant-related [custom attribute definitions]($m/CustomAttributeDefinition) that belong to a Square seller account.
 When all response pages are retrieved, the results include all custom attribute definitions
 that are visible to the requesting application, including those that are created by other
 applications and set to `VISIBILITY_READ_ONLY` or `VISIBILITY_READ_WRITE_VALUES`.
@@ -13507,7 +13776,7 @@ catch (ApiException<RawError> ex)
 <dl>
 <dd>
 
-Lists the [custom attributes](https://developer.squareup.com/reference/square_2024-08-21/objects/CustomAttribute) associated with a merchant.
+Lists the [custom attributes]($m/CustomAttribute) associated with a merchant.
 You can use the `with_definitions` query parameter to also retrieve custom attribute definitions
 in the same call.
 When all response pages are retrieved, the results include all custom attributes that are
@@ -13576,7 +13845,7 @@ catch (ApiException<RawError> ex)
 <dl>
 <dd>
 
-Retrieves a [custom attribute](https://developer.squareup.com/reference/square_2024-08-21/objects/CustomAttribute) associated with a merchant.
+Retrieves a [custom attribute]($m/CustomAttribute) associated with a merchant.
 You can use the `with_definition` query parameter to also retrieve the custom attribute definition
 in the same call.
 To retrieve a custom attribute owned by another application, the `visibility` setting must be
@@ -13648,7 +13917,7 @@ catch (ApiException<RawError> ex)
 <dl>
 <dd>
 
-Retrieves a merchant-related [custom attribute definition](https://developer.squareup.com/reference/square_2024-08-21/objects/CustomAttributeDefinition) from a Square seller account.
+Retrieves a merchant-related [custom attribute definition]($m/CustomAttributeDefinition) from a Square seller account.
 To retrieve a custom attribute definition created by another application, the `visibility`
 setting must be `VISIBILITY_READ_ONLY` or `VISIBILITY_READ_WRITE_VALUES`.
 
@@ -13714,7 +13983,7 @@ catch (ApiException<RawError> ex)
 <dl>
 <dd>
 
-Updates a merchant-related [custom attribute definition](https://developer.squareup.com/reference/square_2024-08-21/objects/CustomAttributeDefinition) for a Square seller account.
+Updates a merchant-related [custom attribute definition]($m/CustomAttributeDefinition) for a Square seller account.
 Use this endpoint to update the following fields: `name`, `description`, `visibility`, or the
 `schema` for a `Selection` data type.
 Only the definition owner can update a custom attribute definition.
@@ -13788,10 +14057,10 @@ catch (ApiException<RawError> ex)
 <dl>
 <dd>
 
-Creates or updates a [custom attribute](https://developer.squareup.com/reference/square_2024-08-21/objects/CustomAttribute) for a merchant.
+Creates or updates a [custom attribute]($m/CustomAttribute) for a merchant.
 Use this endpoint to set the value of a custom attribute for a specified merchant.
 A custom attribute is based on a custom attribute definition in a Square seller account, which
-is created using the [CreateMerchantCustomAttributeDefinition](https://developer.squareup.com/reference/square_2024-08-21/merchant-custom-attributes-api/create-merchant-custom-attribute-definition) endpoint.
+is created using the [CreateMerchantCustomAttributeDefinition]($e/MerchantCustomAttributes/CreateMerchantCustomAttributeDefinition) endpoint.
 To create or update a custom attribute owned by another application, the `visibility` setting
 must be `VISIBILITY_READ_WRITE_VALUES`.
 
@@ -13874,7 +14143,7 @@ with a single `Merchant` object. You can specify your personal access token
 to get your own merchant information or specify an OAuth token to get the
 information for the merchant that granted your application access.
 
-If you know the merchant ID, you can also use the [RetrieveMerchant](https://developer.squareup.com/reference/square_2024-08-21/merchants-api/retrieve-merchant)
+If you know the merchant ID, you can also use the [RetrieveMerchant]($e/Merchants/RetrieveMerchant)
 endpoint to retrieve the merchant information.
 
 </dd>
@@ -14315,11 +14584,11 @@ catch (ApiException<RawError> ex)
 <dl>
 <dd>
 
-Deletes order [custom attributes](https://developer.squareup.com/reference/square_2024-08-21/objects/CustomAttribute) as a bulk operation.
+Deletes order [custom attributes]($m/CustomAttribute) as a bulk operation.
 
 Use this endpoint to delete one or more custom attributes from one or more orders.
 A custom attribute is based on a custom attribute definition in a Square seller account.  (To create a
-custom attribute definition, use the [CreateOrderCustomAttributeDefinition](https://developer.squareup.com/reference/square_2024-08-21/order-custom-attributes-api/create-order-custom-attribute-definition) endpoint.)
+custom attribute definition, use the [CreateOrderCustomAttributeDefinition]($e/OrderCustomAttributes/CreateOrderCustomAttributeDefinition) endpoint.)
 
 This `BulkDeleteOrderCustomAttributes` endpoint accepts a map of 1 to 25 individual delete
 requests and returns a map of individual delete responses. Each delete request has a unique ID
@@ -14404,11 +14673,11 @@ catch (ApiException<RawError> ex)
 <dl>
 <dd>
 
-Creates or updates order [custom attributes](https://developer.squareup.com/reference/square_2024-08-21/objects/CustomAttribute) as a bulk operation.
+Creates or updates order [custom attributes]($m/CustomAttribute) as a bulk operation.
 
 Use this endpoint to delete one or more custom attributes from one or more orders.
 A custom attribute is based on a custom attribute definition in a Square seller account.  (To create a
-custom attribute definition, use the [CreateOrderCustomAttributeDefinition](https://developer.squareup.com/reference/square_2024-08-21/order-custom-attributes-api/create-order-custom-attribute-definition) endpoint.)
+custom attribute definition, use the [CreateOrderCustomAttributeDefinition]($e/OrderCustomAttributes/CreateOrderCustomAttributeDefinition) endpoint.)
 
 This `BulkUpsertOrderCustomAttributes` endpoint accepts a map of 1 to 25 individual upsert
 requests and returns a map of individual upsert responses. Each upsert request has a unique ID
@@ -14568,7 +14837,7 @@ catch (ApiException<RawError> ex)
 <dl>
 <dd>
 
-Deletes a [custom attribute](https://developer.squareup.com/reference/square_2024-08-21/objects/CustomAttribute) associated with a customer profile.
+Deletes a [custom attribute]($m/CustomAttribute) associated with a customer profile.
 
 To delete a custom attribute owned by another application, the `visibility` setting must be
 `VISIBILITY_READ_WRITE_VALUES`. Note that seller-defined custom attributes
@@ -14639,7 +14908,7 @@ catch (ApiException<RawError> ex)
 <dl>
 <dd>
 
-Deletes an order-related [custom attribute definition](https://developer.squareup.com/reference/square_2024-08-21/objects/CustomAttributeDefinition) from a Square seller account.
+Deletes an order-related [custom attribute definition]($m/CustomAttributeDefinition) from a Square seller account.
 
 Only the definition owner can delete a custom attribute definition.
 
@@ -14705,7 +14974,7 @@ catch (ApiException<RawError> ex)
 <dl>
 <dd>
 
-Lists the order-related [custom attribute definitions](https://developer.squareup.com/reference/square_2024-08-21/objects/CustomAttributeDefinition) that belong to a Square seller account.
+Lists the order-related [custom attribute definitions]($m/CustomAttributeDefinition) that belong to a Square seller account.
 
 When all response pages are retrieved, the results include all custom attribute definitions
 that are visible to the requesting application, including those that are created by other
@@ -14774,7 +15043,7 @@ catch (ApiException<RawError> ex)
 <dl>
 <dd>
 
-Lists the [custom attributes](https://developer.squareup.com/reference/square_2024-08-21/objects/CustomAttribute) associated with an order.
+Lists the [custom attributes]($m/CustomAttribute) associated with an order.
 
 You can use the `with_definitions` query parameter to also retrieve custom attribute definitions
 in the same call.
@@ -14845,7 +15114,7 @@ catch (ApiException<RawError> ex)
 <dl>
 <dd>
 
-Retrieves a [custom attribute](https://developer.squareup.com/reference/square_2024-08-21/objects/CustomAttribute) associated with an order.
+Retrieves a [custom attribute]($m/CustomAttribute) associated with an order.
 
 You can use the `with_definition` query parameter to also retrieve the custom attribute definition
 in the same call.
@@ -14920,7 +15189,7 @@ catch (ApiException<RawError> ex)
 <dl>
 <dd>
 
-Retrieves an order-related [custom attribute definition](https://developer.squareup.com/reference/square_2024-08-21/objects/CustomAttributeDefinition) from a Square seller account.
+Retrieves an order-related [custom attribute definition]($m/CustomAttributeDefinition) from a Square seller account.
 
 To retrieve a custom attribute definition created by another application, the `visibility`
 setting must be `VISIBILITY_READ_ONLY` or `VISIBILITY_READ_WRITE_VALUES`. Note that seller-defined custom attributes
@@ -15061,11 +15330,11 @@ catch (ApiException<RawError> ex)
 <dl>
 <dd>
 
-Creates or updates a [custom attribute](https://developer.squareup.com/reference/square_2024-08-21/objects/CustomAttribute) for an order.
+Creates or updates a [custom attribute]($m/CustomAttribute) for an order.
 
 Use this endpoint to set the value of a custom attribute for a specific order.
 A custom attribute is based on a custom attribute definition in a Square seller account. (To create a
-custom attribute definition, use the [CreateOrderCustomAttributeDefinition](https://developer.squareup.com/reference/square_2024-08-21/order-custom-attributes-api/create-order-custom-attribute-definition) endpoint.)
+custom attribute definition, use the [CreateOrderCustomAttributeDefinition]($e/OrderCustomAttributes/CreateOrderCustomAttributeDefinition) endpoint.)
 
 To create or update a custom attribute owned by another application, the `visibility` setting
 must be `VISIBILITY_READ_WRITE_VALUES`. Note that seller-defined custom attributes
@@ -15142,7 +15411,7 @@ catch (ApiException<RawError> ex)
 <dl>
 <dd>
 
-Retrieves a set of [orders](https://developer.squareup.com/reference/square_2024-08-21/objects/Order) by their IDs.
+Retrieves a set of [orders]($m/Order) by their IDs.
 
 If a given order ID does not exist, the ID is ignored instead of generating an error.
 
@@ -15343,13 +15612,13 @@ catch (ApiException<RawError> ex)
 <dl>
 <dd>
 
-Creates a new [order](https://developer.squareup.com/reference/square_2024-08-21/objects/Order) that can include information about products for
+Creates a new [order]($m/Order) that can include information about products for
 purchase and settings to apply to the purchase.
 
 To pay for a created order, see
 [Pay for Orders](https://developer.squareup.com/docs/orders-api/pay-for-orders).
 
-You can modify open orders using the [UpdateOrder](https://developer.squareup.com/reference/square_2024-08-21/orders-api/update-order) endpoint.
+You can modify open orders using the [UpdateOrder]($e/Orders/UpdateOrder) endpoint.
 
 </dd>
 </dl>
@@ -15412,7 +15681,7 @@ catch (ApiException<RawError> ex)
 <dl>
 <dd>
 
-Pay for an [order](https://developer.squareup.com/reference/square_2024-08-21/objects/Order) using one or more approved [payments](https://developer.squareup.com/reference/square_2024-08-21/objects/Payment)
+Pay for an [order]($m/Order) using one or more approved [payments]($m/Payment)
 or settle an order with a total of `0`.
 
 The total of the `payment_ids` listed in the request must be equal to the order
@@ -15421,7 +15690,7 @@ array of `payment_ids` in the request.
 
 To be used with `PayOrder`, a payment must:
 
-- Reference the order by specifying the `order_id` when [creating the payment](https://developer.squareup.com/reference/square_2024-08-21/payments-api/create-payment).
+- Reference the order by specifying the `order_id` when [creating the payment]($e/Payments/CreatePayment).
 Any approved payments that reference the same `order_id` not specified in the
 `payment_ids` is canceled.
 - Be approved with [delayed capture](https://developer.squareup.com/docs/payments-api/take-payments/card-payments/delayed-capture).
@@ -15492,7 +15761,7 @@ catch (ApiException<RawError> ex)
 <dl>
 <dd>
 
-Retrieves an [Order](https://developer.squareup.com/reference/square_2024-08-21/objects/Order) by ID.
+Retrieves an [Order]($m/Order) by ID.
 
 </dd>
 </dl>
@@ -15560,13 +15829,13 @@ returns, and exchanges regardless of how or when they entered the Square
 ecosystem (such as Point of Sale, Invoices, and Connect APIs).
 
 `SearchOrders` requests need to specify which locations to search and define a
-[SearchOrdersQuery](https://developer.squareup.com/reference/square_2024-08-21/objects/SearchOrdersQuery) object that controls
+[SearchOrdersQuery]($m/SearchOrdersQuery) object that controls
 how to sort or filter the results. Your `SearchOrdersQuery` can:
 
   Set filter criteria.
   Set the sort order.
   Determine whether to return results as complete `Order` objects or as
-[OrderEntry](https://developer.squareup.com/reference/square_2024-08-21/objects/OrderEntry) objects.
+[OrderEntry]($m/OrderEntry) objects.
 
 Note that details for orders processed with Square Point of Sale while in
 offline mode might not be transmitted to Square for up to 72 hours. Offline
@@ -15637,7 +15906,7 @@ catch (ApiException<RawError> ex)
 <dl>
 <dd>
 
-Updates an open [order](https://developer.squareup.com/reference/square_2024-08-21/objects/Order) by adding, replacing, or deleting
+Updates an open [order]($m/Order) by adding, replacing, or deleting
 fields. Orders with a `COMPLETED` or `CANCELED` state cannot be updated.
 
 An `UpdateOrder` request requires the following:
@@ -16677,7 +16946,7 @@ catch (ApiException<RawError> ex)
 
 Removes your snippet from a Square Online site.
 
-You can call [ListSites](https://developer.squareup.com/reference/square_2024-08-21/sites-api/list-sites) to get the IDs of the sites that belong to a seller.
+You can call [ListSites]($e/Sites/ListSites) to get the IDs of the sites that belong to a seller.
 
 
 __Note:__ Square Online APIs are publicly available as part of an early access program. For more information, see [Early access program for Square Online APIs](https://developer.squareup.com/docs/online-api#early-access-program-for-square-online-apis).
@@ -16745,7 +17014,7 @@ catch (ApiException<RawError> ex)
 
 Retrieves your snippet from a Square Online site. A site can contain snippets from multiple snippet applications, but you can retrieve only the snippet that was added by your application.
 
-You can call [ListSites](https://developer.squareup.com/reference/square_2024-08-21/sites-api/list-sites) to get the IDs of the sites that belong to a seller.
+You can call [ListSites]($e/Sites/ListSites) to get the IDs of the sites that belong to a seller.
 
 
 __Note:__ Square Online APIs are publicly available as part of an early access program. For more information, see [Early access program for Square Online APIs](https://developer.squareup.com/docs/online-api#early-access-program-for-square-online-apis).
@@ -16814,7 +17083,7 @@ catch (ApiException<RawError> ex)
 Adds a snippet to a Square Online site or updates the existing snippet on the site. 
 The snippet code is appended to the end of the `head` element on every page of the site, except checkout pages. A snippet application can add one snippet to a given site. 
 
-You can call [ListSites](https://developer.squareup.com/reference/square_2024-08-21/sites-api/list-sites) to get the IDs of the sites that belong to a seller.
+You can call [ListSites]($e/Sites/ListSites) to get the IDs of the sites that belong to a seller.
 
 
 __Note:__ Square Online APIs are publicly available as part of an early access program. For more information, see [Early access program for Square Online APIs](https://developer.squareup.com/docs/online-api#early-access-program-for-square-online-apis).
@@ -18629,7 +18898,7 @@ catch (ApiException<RawError> ex)
 <dl>
 <dd>
 
-Creates a request to refund an Interac payment completed on a Square Terminal. Refunds for Interac payments on a Square Terminal are supported only for Interac debit cards in Canada. Other refunds for Terminal payments should use the Refunds API. For more information, see [Refunds API](https://developer.squareup.com/reference/square_2024-08-21/refunds-api).
+Creates a request to refund an Interac payment completed on a Square Terminal. Refunds for Interac payments on a Square Terminal are supported only for Interac debit cards in Canada. Other refunds for Terminal payments should use the Refunds API. For more information, see [Refunds API]($e/Refunds).
 
 </dd>
 </dl>
@@ -19295,7 +19564,7 @@ catch (ApiException<RawError> ex)
 <dl>
 <dd>
 
-Captures a transaction that was created with the [Charge](https://developer.squareup.com/reference/square_2024-08-21/transactions-api/charge)
+Captures a transaction that was created with the [Charge](api-endpoint:Transactions-Charge)
 endpoint with a `delay_capture` value of `true`.
 
 
@@ -19505,7 +19774,7 @@ catch (ApiException<RawError> ex)
 <dl>
 <dd>
 
-Cancels a transaction that was created with the [Charge](https://developer.squareup.com/reference/square_2024-08-21/transactions-api/charge)
+Cancels a transaction that was created with the [Charge](api-endpoint:Transactions-Charge)
 endpoint with a `delay_capture` value of `true`.
 
 
@@ -19731,7 +20000,7 @@ try
     {
         LocationId = "some example string",
         OrderId = "some example string",
-        Body = new V1UpdateOrderRequest { Action = "some example string" },
+        Body = new V1UpdateOrderRequest { Action = V1UpdateOrderRequestAction.Complete },
     });
     // TODO: Handle 'response' of type V1Order
 }
@@ -19786,7 +20055,7 @@ catch (ApiException<RawError> ex)
 <dl>
 <dd>
 
-Creates one or more [Vendor](https://developer.squareup.com/reference/square_2024-08-21/objects/Vendor) objects to represent suppliers to a seller.
+Creates one or more [Vendor]($m/Vendor) objects to represent suppliers to a seller.
 
 </dd>
 </dl>
@@ -19852,7 +20121,7 @@ catch (ApiException<RawError> ex)
 <dl>
 <dd>
 
-Retrieves one or more vendors of specified [Vendor](https://developer.squareup.com/reference/square_2024-08-21/objects/Vendor) IDs.
+Retrieves one or more vendors of specified [Vendor]($m/Vendor) IDs.
 
 </dd>
 </dl>
@@ -19918,7 +20187,7 @@ catch (ApiException<RawError> ex)
 <dl>
 <dd>
 
-Updates one or more of existing [Vendor](https://developer.squareup.com/reference/square_2024-08-21/objects/Vendor) objects as suppliers to a seller.
+Updates one or more of existing [Vendor]($m/Vendor) objects as suppliers to a seller.
 
 </dd>
 </dl>
@@ -19990,7 +20259,7 @@ catch (ApiException<RawError> ex)
 <dl>
 <dd>
 
-Creates a single [Vendor](https://developer.squareup.com/reference/square_2024-08-21/objects/Vendor) object to represent a supplier to a seller.
+Creates a single [Vendor]($m/Vendor) object to represent a supplier to a seller.
 
 </dd>
 </dl>
@@ -20056,7 +20325,7 @@ catch (ApiException<RawError> ex)
 <dl>
 <dd>
 
-Retrieves the vendor of a specified [Vendor](https://developer.squareup.com/reference/square_2024-08-21/objects/Vendor) ID.
+Retrieves the vendor of a specified [Vendor]($m/Vendor) ID.
 
 </dd>
 </dl>
@@ -20119,7 +20388,7 @@ catch (ApiException<RawError> ex)
 <dl>
 <dd>
 
-Searches for vendors using a filter against supported [Vendor](https://developer.squareup.com/reference/square_2024-08-21/objects/Vendor) properties and a supported sorter.
+Searches for vendors using a filter against supported [Vendor]($m/Vendor) properties and a supported sorter.
 
 </dd>
 </dl>
@@ -20185,7 +20454,7 @@ catch (ApiException<RawError> ex)
 <dl>
 <dd>
 
-Updates an existing [Vendor](https://developer.squareup.com/reference/square_2024-08-21/objects/Vendor) object as a supplier to a seller.
+Updates an existing [Vendor]($m/Vendor) object as a supplier to a seller.
 
 </dd>
 </dl>

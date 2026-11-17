@@ -37,7 +37,7 @@ public sealed class Snippets
     /// <remarks>
     /// Removes your snippet from a Square Online site.
     /// <para>
-    /// You can call <see href="https://developer.squareup.com/reference/square_2024-08-21/sites-api/list-sites">ListSites</see> to get the IDs of the sites that belong to a seller.
+    /// You can call <see href="$e/Sites/ListSites">ListSites</see> to get the IDs of the sites that belong to a seller.
     /// </para>
     /// <para>
     ///
@@ -71,7 +71,7 @@ public sealed class Snippets
     /// <remarks>
     /// Retrieves your snippet from a Square Online site. A site can contain snippets from multiple snippet applications, but you can retrieve only the snippet that was added by your application.
     /// <para>
-    /// You can call <see href="https://developer.squareup.com/reference/square_2024-08-21/sites-api/list-sites">ListSites</see> to get the IDs of the sites that belong to a seller.
+    /// You can call <see href="$e/Sites/ListSites">ListSites</see> to get the IDs of the sites that belong to a seller.
     /// </para>
     /// <para>
     ///
@@ -106,7 +106,7 @@ public sealed class Snippets
     /// Adds a snippet to a Square Online site or updates the existing snippet on the site.
     /// The snippet code is appended to the end of the <c>head</c> element on every page of the site, except checkout pages. A snippet application can add one snippet to a given site.
     /// <para>
-    /// You can call <see href="https://developer.squareup.com/reference/square_2024-08-21/sites-api/list-sites">ListSites</see> to get the IDs of the sites that belong to a seller.
+    /// You can call <see href="$e/Sites/ListSites">ListSites</see> to get the IDs of the sites that belong to a seller.
     /// </para>
     /// <para>
     ///

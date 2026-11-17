@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using System.Text.Json.Serialization;
 using Square.Core.Models;
+using Square.Models.Enums;
 
 namespace Square.Models;
 
@@ -35,7 +36,7 @@ public record SearchCatalogObjectsRequest
     /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("object_types")]
-    public IReadOnlyList<string>? ObjectTypes { get; init; }
+    public IReadOnlyList<CatalogObjectType>? ObjectTypes { get; init; }
 
     /// <summary>
     /// If <c>true</c>, deleted objects will be included in the results. Deleted objects will have their
@@ -79,13 +80,13 @@ public record SearchCatalogObjectsRequest
     /// <summary>
     /// A query composed of one or more different types of filters to narrow the scope of targeted objects when calling the <c>SearchCatalogObjects</c> endpoint.
     /// <para>
-    /// Although a query can have multiple filters, only certain query types can be combined per call to <see href="https://developer.squareup.com/reference/square_2024-08-21/catalog-api/search-catalog-objects">SearchCatalogObjects</see>.
+    /// Although a query can have multiple filters, only certain query types can be combined per call to <see href="$e/Catalog/SearchCatalogObjects">SearchCatalogObjects</see>.
     /// Any combination of the following types may be used together:
-    /// - <see href="https://developer.squareup.com/reference/square_2024-08-21/objects/CatalogQueryExact">exact_query</see>
-    /// - <see href="https://developer.squareup.com/reference/square_2024-08-21/objects/CatalogQueryPrefix">prefix_query</see>
-    /// - <see href="https://developer.squareup.com/reference/square_2024-08-21/objects/CatalogQueryRange">range_query</see>
-    /// - <see href="https://developer.squareup.com/reference/square_2024-08-21/objects/CatalogQuerySortedAttribute">sorted_attribute_query</see>
-    /// - <see href="https://developer.squareup.com/reference/square_2024-08-21/objects/CatalogQueryText">text_query</see>
+    /// - <see href="$m/CatalogQueryExact">exact_query</see>
+    /// - <see href="$m/CatalogQueryPrefix">prefix_query</see>
+    /// - <see href="$m/CatalogQueryRange">range_query</see>
+    /// - <see href="$m/CatalogQuerySortedAttribute">sorted_attribute_query</see>
+    /// - <see href="$m/CatalogQueryText">text_query</see>
     /// </para>
     /// <para>
     /// All other query types cannot be combined with any others.
@@ -105,7 +106,7 @@ public record SearchCatalogObjectsRequest
     /// - <c>display_name</c>: <c>CatalogItemOption</c>
     /// </para>
     /// <para>
-    /// For example, to search for <see href="https://developer.squareup.com/reference/square_2024-08-21/objects/CatalogItem">CatalogItem</see> objects by searchable attributes, you can use
+    /// For example, to search for <see href="$m/CatalogItem">CatalogItem</see> objects by searchable attributes, you can use
     /// the <c>"name"</c>, <c>"description"</c>, or <c>"abbreviation"</c> attribute in an applicable query filter.
     /// </para>
     /// </summary>

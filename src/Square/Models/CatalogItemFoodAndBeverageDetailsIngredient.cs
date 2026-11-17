@@ -17,11 +17,11 @@ public record CatalogItemFoodAndBeverageDetailsIngredient
     public CatalogItemFoodAndBeverageDetailsDietaryPreferenceType? Type { get; init; }
 
     /// <summary>
-    /// The name of the ingredient from a standard pre-defined list. This should be null if it's a custom dietary preference.
+    /// Standard ingredients for food and beverage items that are recommended on item creation.
     /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("standard_name")]
-    public string? StandardName { get; init; }
+    public CatalogItemFoodAndBeverageDetailsIngredientStandardIngredient? StandardName { get; init; }
 
     /// <summary>
     /// The name of a custom user-defined ingredient. This should be null if it's a standard dietary preference.

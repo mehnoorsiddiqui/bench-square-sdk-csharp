@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using System.Text.Json.Serialization;
 using Square.Core.Models;
+using Square.Models.Enums;
 
 namespace Square.Models;
 
@@ -24,12 +25,11 @@ public record SearchTeamMembersFilter
     public IReadOnlyList<string>? LocationIds { get; init; }
 
     /// <summary>
-    /// When present, filters by team members who match the given status.
-    /// When empty, includes team members of all statuses.
+    /// Enumerates the possible statuses the team member can have within a business.
     /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("status")]
-    public string? Status { get; init; }
+    public TeamMemberStatus? Status { get; init; }
 
     /// <summary>
     /// When present and set to true, returns the team member who is the owner of the Square account.

@@ -2,7 +2,7 @@
 
 # Invoices — operations
 
-Accessor: `client.Invoices` · Source: `src/Square/Api/Invoices.cs` · 9 operations
+Accessor: `client.Invoices` · Source: `src/Square/Api/Invoices.cs` · 10 operations
 
 **Type sources**: the file declaring each type an operation names (`RawError` excluded — see sdk-map.md).
 
@@ -33,6 +33,20 @@ Accessor: `client.Invoices` · Source: `src/Square/Api/Invoices.cs` · 9 operati
 | `CreateInvoiceOperationRequest` | `src/Square/Requests/Invoices/CreateInvoiceOperationRequest.cs` |
 | `CreateInvoiceRequest` | `src/Square/Models/CreateInvoiceRequest.cs` |
 | `CreateInvoiceResponse` | `src/Square/Models/CreateInvoiceResponse.cs` |
+
+### CreateInvoiceAttachment
+
+- **Auth**: `options.BearerAuth`
+- **Signature**: `CreateInvoiceAttachment(CreateInvoiceAttachmentOperationRequest request, RequestOptions? requestOptions = null, CancellationToken cancellationToken = default)`
+  - required: `InvoiceId`
+- **Returns**: `CreateInvoiceAttachmentResponse`
+- **Error**: `ApiException<RawError>` — **Case B**
+
+| Type | Source |
+| --- | --- |
+| `CreateInvoiceAttachmentOperationRequest` | `src/Square/Requests/Invoices/CreateInvoiceAttachmentOperationRequest.cs` |
+| `CreateInvoiceAttachmentRequest` | `src/Square/Models/CreateInvoiceAttachmentRequest.cs` |
+| `CreateInvoiceAttachmentResponse` | `src/Square/Models/CreateInvoiceAttachmentResponse.cs` |
 
 ### DeleteInvoice
 

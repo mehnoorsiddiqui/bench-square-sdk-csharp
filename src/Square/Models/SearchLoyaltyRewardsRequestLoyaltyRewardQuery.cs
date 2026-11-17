@@ -1,6 +1,7 @@
 using System.ComponentModel.DataAnnotations;
 using System.Text.Json.Serialization;
 using Square.Core.Models;
+using Square.Models.Enums;
 
 namespace Square.Models;
 
@@ -10,7 +11,7 @@ namespace Square.Models;
 public record SearchLoyaltyRewardsRequestLoyaltyRewardQuery
 {
     /// <summary>
-    /// The ID of the <see href="https://developer.squareup.com/reference/square_2024-08-21/objects/LoyaltyAccount">loyalty account</see> to which the loyalty reward belongs.
+    /// The ID of the <see href="entity:LoyaltyAccount">loyalty account</see> to which the loyalty reward belongs.
     /// </summary>
     [JsonPropertyName("loyalty_account_id")]
     [MinLength(1)]
@@ -21,7 +22,7 @@ public record SearchLoyaltyRewardsRequestLoyaltyRewardQuery
     /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("status")]
-    public string? Status { get; init; }
+    public LoyaltyRewardStatus? Status { get; init; }
 
     [JsonExtensionData]
     public AdditionalProperties AdditionalProperties { get; init; } = [];

@@ -74,7 +74,7 @@ public sealed record ListPaymentsOperationRequest
     /// <summary>
     /// Whether the payment was taken offline or not.
     /// </summary>
-    public bool? IsOfflinePayment { get; init; }
+    public bool IsOfflinePayment { get; init; } = false;
 
     /// <summary>
     /// Indicates the start of the time range for which to retrieve offline payments, in RFC 3339

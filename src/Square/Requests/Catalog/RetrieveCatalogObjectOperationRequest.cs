@@ -28,12 +28,12 @@ public sealed record RetrieveCatalogObjectOperationRequest
     /// Default value: <c>false</c>
     /// </para>
     /// </summary>
-    public bool? IncludeRelatedObjects { get; init; }
+    public bool IncludeRelatedObjects { get; init; } = false;
 
     /// <summary>
     /// Requests objects as of a specific version of the catalog. This allows you to retrieve historical
     /// versions of objects. The value to retrieve a specific version of an object can be found
-    /// in the version field of <see href="https://developer.squareup.com/reference/square_2024-08-21/objects/CatalogObject">CatalogObject</see>s. If not included, results will
+    /// in the version field of <see href="$m/CatalogObject">CatalogObject</see>s. If not included, results will
     /// be from the current version of the catalog.
     /// </summary>
     public long? CatalogVersion { get; init; }
@@ -44,5 +44,5 @@ public sealed record RetrieveCatalogObjectOperationRequest
     /// and ends with its root category. If the returned category is a top-level category, the <c>path_to_root</c> list is empty and is not returned
     /// in the response payload.
     /// </summary>
-    public bool? IncludeCategoryPathToRoot { get; init; }
+    public bool IncludeCategoryPathToRoot { get; init; } = false;
 }

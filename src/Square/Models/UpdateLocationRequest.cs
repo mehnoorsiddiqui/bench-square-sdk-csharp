@@ -4,7 +4,7 @@ using Square.Core.Models;
 namespace Square.Models;
 
 /// <summary>
-/// The request object for the <see href="https://developer.squareup.com/reference/square_2024-08-21/locations-api/update-location">UpdateLocation</see> endpoint.
+/// The request object for the <see href="$e/Locations/UpdateLocation">UpdateLocation</see> endpoint.
 /// </summary>
 public record UpdateLocationRequest
 {

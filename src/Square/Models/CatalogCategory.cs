@@ -2,6 +2,7 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Text.Json.Serialization;
 using Square.Core.Models;
+using Square.Models.Enums;
 
 namespace Square.Models;
 
@@ -27,11 +28,11 @@ public record CatalogCategory
     public IReadOnlyList<string>? ImageIds { get; init; }
 
     /// <summary>
-    /// The type of the category.
+    /// Indicates the type of a category.
     /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("category_type")]
-    public string? CategoryType { get; init; }
+    public CatalogCategoryType? CategoryType { get; init; }
 
     /// <summary>
     /// A category that can be assigned to an item or a parent category that can be assigned

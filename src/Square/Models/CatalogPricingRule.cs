@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using System.Text.Json.Serialization;
 using Square.Core.Models;
+using Square.Models.Enums;
 
 namespace Square.Models;
 
@@ -101,15 +102,12 @@ public record CatalogPricingRule
     public string? ValidUntilLocalTime { get; init; }
 
     /// <summary>
-    /// If an <c>exclude_products_id</c> was given, controls which subset of matched
-    /// products is excluded from any discounts.
-    /// <para>
-    /// Default value: <c>LEAST_EXPENSIVE</c>
-    /// </para>
+    /// Indicates which products matched by a CatalogPricingRule
+    /// will be excluded if the pricing rule uses an exclude set.
     /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("exclude_strategy")]
-    public string? ExcludeStrategy { get; init; }
+    public ExcludeStrategy? ExcludeStrategy { get; init; }
 
     /// <summary>
     /// Represents an amount of money. <c>Money</c> fields can be signed or unsigned.

@@ -1,6 +1,7 @@
 using System.ComponentModel.DataAnnotations;
 using System.Text.Json.Serialization;
 using Square.Core.Models;
+using Square.Models.Enums;
 
 namespace Square.Models;
 
@@ -39,11 +40,11 @@ public record FulfillmentPickupDetails
     public string? AutoCompleteDuration { get; init; }
 
     /// <summary>
-    /// The schedule type of the pickup fulfillment. Defaults to <c>SCHEDULED</c>.
+    /// The schedule type of the pickup fulfillment.
     /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("schedule_type")]
-    public string? ScheduleType { get; init; }
+    public FulfillmentPickupDetailsScheduleType? ScheduleType { get; init; }
 
     /// <summary>
     /// The <see href="https://developer.squareup.com/docs/build-basics/working-with-dates">timestamp</see>

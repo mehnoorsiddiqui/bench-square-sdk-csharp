@@ -11,7 +11,7 @@ public record CreatePaymentLinkRequest
     /// If you do not provide a unique string (or provide an empty string as the value),
     /// the endpoint treats each request as independent.
     /// <para>
-    /// For more information, see <see href="https://developer.squareup.com/docs/docs/working-with-apis/idempotency">Idempotency</see>.
+    /// For more information, see <see href="https://developer.squareup.com/docs/working-with-apis/idempotency">Idempotency</see>.
     /// </para>
     /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]

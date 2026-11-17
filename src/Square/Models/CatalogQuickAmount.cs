@@ -1,5 +1,6 @@
 using System.Text.Json.Serialization;
 using Square.Core.Models;
+using Square.Models.Enums;
 
 namespace Square.Models;
 
@@ -9,10 +10,10 @@ namespace Square.Models;
 public record CatalogQuickAmount
 {
     /// <summary>
-    /// Represents the type of the Quick Amount.
+    /// Determines the type of a specific Quick Amount.
     /// </summary>
     [JsonPropertyName("type")]
-    public required string Type { get; init; }
+    public required CatalogQuickAmountType Type { get; init; }
 
     /// <summary>
     /// Represents an amount of money. <c>Money</c> fields can be signed or unsigned.

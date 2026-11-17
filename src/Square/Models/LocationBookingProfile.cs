@@ -9,7 +9,7 @@ namespace Square.Models;
 public record LocationBookingProfile
 {
     /// <summary>
-    /// The ID of the <see href="https://developer.squareup.com/reference/square_2024-08-21/objects/Location">location</see>.
+    /// The ID of the <see href="entity:Location">location</see>.
     /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("location_id")]

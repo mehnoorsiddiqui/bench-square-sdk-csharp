@@ -2,6 +2,7 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Text.Json.Serialization;
 using Square.Core.Models;
+using Square.Models.Enums;
 
 namespace Square.Models;
 
@@ -86,12 +87,9 @@ public record TerminalCheckout
     [JsonPropertyName("status")]
     public string? Status { get; init; }
 
-    /// <summary>
-    /// The reason why <c>TerminalCheckout</c> is canceled. Present if the status is <c>CANCELED</c>.
-    /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("cancel_reason")]
-    public string? CancelReason { get; init; }
+    public ActionCancelReason? CancelReason { get; init; }
 
     /// <summary>
     /// A list of IDs for payments created by this <c>TerminalCheckout</c>.
@@ -129,12 +127,9 @@ public record TerminalCheckout
     [MaxLength(64)]
     public string? LocationId { get; init; }
 
-    /// <summary>
-    /// The type of payment the terminal should attempt to capture from. Defaults to <c>CARD_PRESENT</c>.
-    /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("payment_type")]
-    public string? PaymentType { get; init; }
+    public CheckoutOptionsPaymentType? PaymentType { get; init; }
 
     /// <summary>
     /// An optional ID of the team member associated with creating the checkout.

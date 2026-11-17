@@ -1,5 +1,6 @@
 using System.Text.Json.Serialization;
 using Square.Core.Models;
+using Square.Models.Enums;
 
 namespace Square.Models;
 
@@ -41,12 +42,9 @@ public record V1Tender
     [JsonPropertyName("id")]
     public string? Id { get; init; }
 
-    /// <summary>
-    /// The type of tender.
-    /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("type")]
-    public string? Type { get; init; }
+    public V1TenderType? Type { get; init; }
 
     /// <summary>
     /// A human-readable description of the tender.
@@ -70,11 +68,11 @@ public record V1Tender
     public string? ReceiptUrl { get; init; }
 
     /// <summary>
-    /// The brand of credit card provided.
+    /// The brand of a credit card.
     /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("card_brand")]
-    public string? CardBrand { get; init; }
+    public V1TenderCardBrand? CardBrand { get; init; }
 
     /// <summary>
     /// The last four digits of the provided credit card's account number.
@@ -83,12 +81,9 @@ public record V1Tender
     [JsonPropertyName("pan_suffix")]
     public string? PanSuffix { get; init; }
 
-    /// <summary>
-    /// The tender's unique ID.
-    /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("entry_method")]
-    public string? EntryMethod { get; init; }
+    public V1TenderEntryMethod? EntryMethod { get; init; }
 
     /// <summary>
     /// Notes entered by the merchant about the tender at the time of payment, if any. Typically only present for tender with the type: OTHER.

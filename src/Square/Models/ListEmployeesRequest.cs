@@ -1,5 +1,6 @@
 using System.Text.Json.Serialization;
 using Square.Core.Models;
+using Square.Models.Enums;
 
 namespace Square.Models;
 
@@ -10,11 +11,14 @@ public record ListEmployeesRequest
     public string? LocationId { get; init; }
 
     /// <summary>
-    /// Specifies the EmployeeStatus to filter the employee by.
+    /// The status of the Employee being retrieved.
+    /// <para>
+    /// DEPRECATED at version 2020-08-26. Replaced by <see href="entity:TeamMemberStatus">TeamMemberStatus</see>.
+    /// </para>
     /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("status")]
-    public string? Status { get; init; }
+    public EmployeeStatus? Status { get; init; }
 
     /// <summary>
     /// The number of employees to be returned on each page.

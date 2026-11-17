@@ -4,8 +4,8 @@ using Square.Core.Models;
 namespace Square.Models;
 
 /// <summary>
-/// A lightweight description of an <see href="https://developer.squareup.com/reference/square_2024-08-21/objects/Order">order</see> that is returned when
-/// <c>returned_entries</c> is <c>true</c> on a <see href="https://developer.squareup.com/reference/square_2024-08-21/orders-api/search-orders">SearchOrdersRequest</see>.
+/// A lightweight description of an <see href="$m/Order">order</see> that is returned when
+/// <c>returned_entries</c> is <c>true</c> on a <see href="$e/Orders/SearchOrders">SearchOrdersRequest</see>.
 /// </summary>
 public record OrderEntry
 {

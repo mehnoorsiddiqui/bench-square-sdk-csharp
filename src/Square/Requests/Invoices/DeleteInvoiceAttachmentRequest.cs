@@ -6,12 +6,12 @@ namespace Square.Requests.Invoices;
 public sealed record DeleteInvoiceAttachmentRequest
 {
     /// <summary>
-    /// The ID of the <see href="https://developer.squareup.com/reference/square_2024-08-21/objects/Invoice">invoice</see> to delete the attachment from.
+    /// The ID of the <see href="entity:Invoice">invoice</see> to delete the attachment from.
     /// </summary>
     public required string InvoiceId { get; init; }
 
     /// <summary>
-    /// The ID of the <see href="https://developer.squareup.com/reference/square_2024-08-21/objects/InvoiceAttachment">attachment</see> to delete.
+    /// The ID of the <see href="entity:InvoiceAttachment">attachment</see> to delete.
     /// </summary>
     public required string AttachmentId { get; init; }
 }

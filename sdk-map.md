@@ -9,7 +9,7 @@
 | SDK display name | Square |
 | Root namespace | `Square` |
 | Target framework | `netstandard2.0` (C# `LangVersion 14`, `Nullable enable`) |
-| API spec version | `1.2.0` |
+| API spec version | `2.0.0` |
 | Generator | APIMatic |
 
 Staleness check: the API spec version above changes when the SDK is regenerated from a new spec. If a lookup here fails to compile, trust the compiler and re-read the source file named in the row.
@@ -117,11 +117,11 @@ catch (ApiException<RawError> ex)
 }
 ```
 
-**No-throw (`…Result`) variants: absent across this SDK** — every operation is throw-only. Of **297 operations**, **0 are Case A (typed)** and **297 are Case B (raw)**.
+**No-throw (`…Result`) variants: absent across this SDK** — every operation is throw-only. Of **301 operations**, **0 are Case A (typed)** and **301 are Case B (raw)**.
 
 ---
 
-## Operations — by controller (42 groups, 297 operations)
+## Operations — by controller (42 groups, 301 operations)
 
 Each links to a sub-page with one row per operation: signature, the request record's required members, query-param wire names (with the serialization style where the spec declares one), return type, error Case A/B, and Case A's typed accessors with their statuses. Each operation also carries a **Type sources** table — every type it names, with the file that declares it — so resolving a body, return, or error payload to its source is a lookup, never a search. `RawError` is excluded there (its members and path are above); an operation with no table names nothing but primitives and `RawError`.
 
@@ -147,20 +147,20 @@ Each links to a sub-page with one row per operation: signature, the request reco
 | `Bookings` | 13 | [map/operations/Bookings.md](map/operations/Bookings.md) |
 | `Cards` | 4 | [map/operations/Cards.md](map/operations/Cards.md) |
 | `CashDrawers` | 3 | [map/operations/CashDrawers.md](map/operations/CashDrawers.md) |
-| `Catalog` | 12 | [map/operations/Catalog.md](map/operations/Catalog.md) |
+| `Catalog` | 14 | [map/operations/Catalog.md](map/operations/Catalog.md) |
 | `CheckoutApi` | 10 | [map/operations/CheckoutApi.md](map/operations/CheckoutApi.md) |
 | `CustomerCustomAttributes` | 10 | [map/operations/CustomerCustomAttributes.md](map/operations/CustomerCustomAttributes.md) |
 | `CustomerGroups` | 5 | [map/operations/CustomerGroups.md](map/operations/CustomerGroups.md) |
 | `CustomerSegments` | 2 | [map/operations/CustomerSegments.md](map/operations/CustomerSegments.md) |
 | `Customers` | 14 | [map/operations/Customers.md](map/operations/Customers.md) |
 | `Devices` | 5 | [map/operations/Devices.md](map/operations/Devices.md) |
-| `Disputes` | 8 | [map/operations/Disputes.md](map/operations/Disputes.md) |
+| `Disputes` | 9 | [map/operations/Disputes.md](map/operations/Disputes.md) |
 | `Employees` | 2 | [map/operations/Employees.md](map/operations/Employees.md) |
 | `Events` | 4 | [map/operations/Events.md](map/operations/Events.md) |
 | `GiftCardActivities` | 2 | [map/operations/GiftCardActivities.md](map/operations/GiftCardActivities.md) |
 | `GiftCards` | 7 | [map/operations/GiftCards.md](map/operations/GiftCards.md) |
 | `Inventory` | 13 | [map/operations/Inventory.md](map/operations/Inventory.md) |
-| `Invoices` | 9 | [map/operations/Invoices.md](map/operations/Invoices.md) |
+| `Invoices` | 10 | [map/operations/Invoices.md](map/operations/Invoices.md) |
 | `Labor` | 16 | [map/operations/Labor.md](map/operations/Labor.md) |
 | `LocationCustomAttributes` | 11 | [map/operations/LocationCustomAttributes.md](map/operations/LocationCustomAttributes.md) |
 | `Locations` | 4 | [map/operations/Locations.md](map/operations/Locations.md) |
@@ -192,9 +192,9 @@ Each links to a sub-page with one row per operation: signature, the request reco
 
 | Group | Count | Directory (file = `<TypeName>.cs`) |
 | --- | --- | --- |
-| Records (plain `record` data models) | 926 | `src/Square/Models/` |
+| Records (plain `record` data models) | 939 | `src/Square/Models/` |
 | Enums (`OpenStringEnum<T>` / `OpenIntEnum<T>`) — C# member names + wire values | 178 | `src/Square/Models/Enums/` |
-| Request records (one per operation that takes input; never serialized) | 288 | `src/Square/Requests/` — a controller's records sit in a folder named after it (an operation with several tags is filed under the first tag it declares) |
+| Request records (one per operation that takes input; never serialized) | 292 | `src/Square/Requests/` — a controller's records sit in a folder named after it (an operation with several tags is filed under the first tag it declares) |
 
 Conventions: records are immutable, `init`-only; `required` properties must be set in the object initializer; `T?` is optional. A field's wire name is its `[JsonPropertyName]` and often differs from the C# name (`AmountInCents` ↔ `amount_in_cents`) — read it off the property, don't derive it. `OneOf`/`AnyOf` unions wrap `Optional<T>` variants — build via static factory or implicit conversion, read one variant via `TryGet…(out …)` or branch over all of them with the generated `Match`, which takes one `on{Variant}` handler per variant in declaration order and then `otherwise`, which receives the raw `JsonElement` of a value the SDK could not place: unions are open on read, so an unrecognised discriminator value or a body no variant accepts lands in `TryGetUnknown(out JsonElement)` and re-serializes verbatim; pass handlers by name, and treat an added or moved variant as a breaking change; `AllOf` compositions are not unions — every constituent is a `required` property, so set them all, and those constituent properties carry no `[JsonPropertyName]` and have no wire name of their own, because the generated converter flattens each constituent's own fields directly into the one parent JSON object. Enums are **not** C# enums — use the static members, whose names are PascalCase even when the wire value isn't (`CollectionMethod.Invoice`, not `.invoice`); there is no public factory, so resolve a raw value with `TryGetKnownValue` and branch with the generated `Match`, whose `otherwise` arm receives any value the SDK does not declare.
 
@@ -229,14 +229,17 @@ A required credential you never configured fails the call with `AuthSchemeExcept
 
 | Environment | Value | Hosting |
 | --- | --- | --- |
-| `ServerEnvironment.Production` *(default)* | `production` | Production |
-| `ServerEnvironment.Environment2` | `environment2` | Sandbox |
+| `ServerEnvironment.Production` *(default)* | `production` | — |
+| `ServerEnvironment.Sandbox` | `sandbox` | — |
+| `ServerEnvironment.Custom` | `custom` | — |
 
 **1 server group.** Base-URL templates and override points (`options.Server.…`):
 
-| Group | `Production` base URL | `Environment2` base URL | Override point |
-| --- | --- | --- | --- |
-| `Default` | `https://connect.squareup.com` | `https://connect.squareupsandbox.com` | `options.Server.Default.Production.BaseUrl` (and the other environments) |
+| Group | `Production` base URL | `Sandbox` base URL | `Custom` base URL | Override point |
+| --- | --- | --- | --- | --- |
+| `Default` | `https://connect.squareup.com` | `https://connect.squareupsandbox.com` | `{custom_url}` | `options.Server.Default.Production.BaseUrl` (and the other environments) |
+
+`Default` · `Custom` template variables: `{custom_url}` defaults to `"https://connect.squareup.com"` — override `options.Server.Default.Custom.CustomUrl`.
 
 Retry/resilience is configurable via `options.Retry` (`RetryOptions`, backed by Polly).
 

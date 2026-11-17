@@ -1,5 +1,6 @@
 using System.Text.Json.Serialization;
 using Square.Core.Models;
+using Square.Models.Enums;
 
 namespace Square.Models;
 
@@ -36,7 +37,7 @@ public record OrderUpdated
     /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("state")]
-    public string? State { get; init; }
+    public OrderState? State { get; init; }
 
     /// <summary>
     /// The timestamp for when the order was created, in RFC 3339 format.

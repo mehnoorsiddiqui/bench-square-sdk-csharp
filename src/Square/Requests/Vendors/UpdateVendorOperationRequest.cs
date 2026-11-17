@@ -7,6 +7,9 @@ namespace Square.Requests.Vendors;
 /// </summary>
 public sealed record UpdateVendorOperationRequest
 {
+    /// <summary>
+    /// ID of the <see href="entity:Vendor">Vendor</see> to retrieve.
+    /// </summary>
     public required string VendorId { get; init; }
 
     /// <summary>

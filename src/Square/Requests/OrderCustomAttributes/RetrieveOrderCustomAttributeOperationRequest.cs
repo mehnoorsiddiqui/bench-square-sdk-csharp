@@ -6,7 +6,7 @@ namespace Square.Requests.OrderCustomAttributes;
 public sealed record RetrieveOrderCustomAttributeOperationRequest
 {
     /// <summary>
-    /// The ID of the target <see href="https://developer.squareup.com/reference/square_2024-08-21/objects/Order">order</see>.
+    /// The ID of the target <see href="entity:Order">order</see>.
     /// </summary>
     public required string OrderId { get; init; }
 
@@ -23,9 +23,9 @@ public sealed record RetrieveOrderCustomAttributeOperationRequest
     public int? Version { get; init; }
 
     /// <summary>
-    /// Indicates whether to return the <see href="https://developer.squareup.com/reference/square_2024-08-21/objects/CustomAttributeDefinition">custom attribute definition</see> in the <c>definition</c> field of each
+    /// Indicates whether to return the <see href="entity:CustomAttributeDefinition">custom attribute definition</see> in the <c>definition</c> field of each
     /// custom attribute. Set this parameter to <c>true</c> to get the name and description of each custom attribute,
     /// information about the data type, or other definition details. The default value is <c>false</c>.
     /// </summary>
-    public bool? WithDefinition { get; init; }
+    public bool WithDefinition { get; init; } = false;
 }

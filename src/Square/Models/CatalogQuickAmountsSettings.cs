@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using System.Text.Json.Serialization;
 using Square.Core.Models;
+using Square.Models.Enums;
 
 namespace Square.Models;
 
@@ -10,10 +11,10 @@ namespace Square.Models;
 public record CatalogQuickAmountsSettings
 {
     /// <summary>
-    /// Represents the option seller currently uses on Quick Amounts.
+    /// Determines a seller's option on Quick Amounts feature.
     /// </summary>
     [JsonPropertyName("option")]
-    public required string Option { get; init; }
+    public required CatalogQuickAmountsSettingsOption Option { get; init; }
 
     /// <summary>
     /// Represents location's eligibility for auto amounts

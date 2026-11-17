@@ -6,7 +6,7 @@ namespace Square.Requests.Loyalty;
 public sealed record DeleteLoyaltyRewardRequest
 {
     /// <summary>
-    /// The ID of the <see href="https://developer.squareup.com/reference/square_2024-08-21/objects/LoyaltyReward">loyalty reward</see> to delete.
+    /// The ID of the <see href="entity:LoyaltyReward">loyalty reward</see> to delete.
     /// </summary>
     public required string RewardId { get; init; }
 }

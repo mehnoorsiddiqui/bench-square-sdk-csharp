@@ -1,5 +1,6 @@
 using System.Text.Json.Serialization;
 using Square.Core.Models;
+using Square.Models.Enums;
 
 namespace Square.Models;
 
@@ -9,11 +10,11 @@ namespace Square.Models;
 public record Destination
 {
     /// <summary>
-    /// Type of the destination such as a bank account or debit card.
+    /// List of possible destinations against which a payout can be made.
     /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("type")]
-    public string? Type { get; init; }
+    public DestinationType? Type { get; init; }
 
     /// <summary>
     /// Square issued unique ID (also known as the instrument ID) associated with this destination.

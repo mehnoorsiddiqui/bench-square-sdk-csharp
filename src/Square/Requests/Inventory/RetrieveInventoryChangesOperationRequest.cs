@@ -6,12 +6,12 @@ namespace Square.Requests.Inventory;
 public sealed record RetrieveInventoryChangesOperationRequest
 {
     /// <summary>
-    /// ID of the <see href="https://developer.squareup.com/reference/square_2024-08-21/objects/CatalogObject">CatalogObject</see> to retrieve.
+    /// ID of the <see href="entity:CatalogObject">CatalogObject</see> to retrieve.
     /// </summary>
     public required string CatalogObjectId { get; init; }
 
     /// <summary>
-    /// The <see href="https://developer.squareup.com/reference/square_2024-08-21/objects/Location">Location</see> IDs to look up as a comma-separated
+    /// The <see href="entity:Location">Location</see> IDs to look up as a comma-separated
     /// list. An empty list queries all locations.
     /// </summary>
     public string? LocationIds { get; init; }

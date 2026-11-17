@@ -5,7 +5,7 @@ using Square.Core.Validation.Attributes;
 namespace Square.Models;
 
 /// <summary>
-/// Represents the metadata for a <c>POINTS_ADDITION</c> type of <see href="https://developer.squareup.com/reference/square_2024-08-21/objects/LoyaltyPromotionIncentive">loyalty promotion incentive</see>.
+/// Represents the metadata for a <c>POINTS_ADDITION</c> type of <see href="$m/LoyaltyPromotionIncentive">loyalty promotion incentive</see>.
 /// </summary>
 public record LoyaltyPromotionIncentivePointsAdditionData
 {

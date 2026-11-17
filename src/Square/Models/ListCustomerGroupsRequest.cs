@@ -6,7 +6,7 @@ namespace Square.Models;
 
 /// <summary>
 /// Defines the query parameters that can be included in a request to the
-/// <see href="https://developer.squareup.com/reference/square_2024-08-21/customer-groups-api/list-customer-groups">ListCustomerGroups</see> endpoint.
+/// <see href="$e/CustomerGroups/ListCustomerGroups">ListCustomerGroups</see> endpoint.
 /// </summary>
 public record ListCustomerGroupsRequest
 {

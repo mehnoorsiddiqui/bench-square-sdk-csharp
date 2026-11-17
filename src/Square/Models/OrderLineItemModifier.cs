@@ -6,7 +6,7 @@ using Square.Core.Models;
 namespace Square.Models;
 
 /// <summary>
-/// A <see href="https://developer.squareup.com/reference/square_2024-08-21/objects/CatalogModifier">CatalogModifier</see>.
+/// A <see href="$m/CatalogModifier">CatalogModifier</see>.
 /// </summary>
 public record OrderLineItemModifier
 {
@@ -19,7 +19,7 @@ public record OrderLineItemModifier
     public string? Uid { get; init; }
 
     /// <summary>
-    /// The catalog object ID referencing <see href="https://developer.squareup.com/reference/square_2024-08-21/objects/CatalogModifier">CatalogModifier</see>.
+    /// The catalog object ID referencing <see href="entity:CatalogModifier">CatalogModifier</see>.
     /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("catalog_object_id")]

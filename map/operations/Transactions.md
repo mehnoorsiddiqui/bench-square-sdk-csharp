@@ -31,6 +31,7 @@ Accessor: `client.Transactions` · Source: `src/Square/Api/Transactions.cs` · 4
 | Type | Source |
 | --- | --- |
 | `ListTransactionsOperationRequest` | `src/Square/Requests/Transactions/ListTransactionsOperationRequest.cs` |
+| `SortOrder` | `src/Square/Models/Enums/SortOrder.cs` |
 | `ListTransactionsResponse` | `src/Square/Models/ListTransactionsResponse.cs` |
 
 ### RetrieveTransaction

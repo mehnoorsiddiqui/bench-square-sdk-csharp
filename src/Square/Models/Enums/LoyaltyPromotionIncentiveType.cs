@@ -5,7 +5,7 @@ using Square.Core.Enum;
 namespace Square.Models.Enums;
 
 /// <summary>
-/// Indicates the type of points incentive for a <see href="https://developer.squareup.com/reference/square_2024-08-21/objects/LoyaltyPromotion">loyalty promotion</see>,
+/// Indicates the type of points incentive for a <see href="$m/LoyaltyPromotion">loyalty promotion</see>,
 /// which is used to determine how buyers can earn points from the promotion.
 /// </summary>
 [JsonConverter(typeof(StringEnumConverter<LoyaltyPromotionIncentiveType>))]

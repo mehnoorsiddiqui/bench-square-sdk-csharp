@@ -1,22 +1,21 @@
 using System.Text.Json.Serialization;
 using Square.Core.Models;
 using Square.Core.Validation.Attributes;
+using Square.Models.Enums;
 
 namespace Square.Models;
 
 /// <summary>
-/// Represents a <see href="https://developer.squareup.com/reference/square_2024-08-21/loyalty-api/list-loyalty-promotions">ListLoyaltyPromotions</see> request.
+/// Represents a <see href="$e/Loyalty/ListLoyaltyPromotions">ListLoyaltyPromotions</see> request.
 /// </summary>
 public record ListLoyaltyPromotionsRequest
 {
     /// <summary>
-    /// The status to filter the results by. If a status is provided, only loyalty promotions
-    /// with the specified status are returned. Otherwise, all loyalty promotions associated with
-    /// the loyalty program are returned.
+    /// Indicates the status of a <see href="$m/LoyaltyPromotion">loyalty promotion</see>.
     /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("status")]
-    public string? Status { get; init; }
+    public LoyaltyPromotionStatus? Status { get; init; }
 
     /// <summary>
     /// The cursor returned in the paged response from the previous call to this endpoint.

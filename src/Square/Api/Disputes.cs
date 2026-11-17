@@ -59,6 +59,36 @@ public sealed class Disputes
             cancellationToken);
 
     /// <summary>
+    /// CreateDisputeEvidenceFile
+    /// </summary>
+    /// <param name="request">The operation's inputs</param>
+    /// <param name="requestOptions">Per-request options, such as an overriding log level for this call</param>
+    /// <param name="cancellationToken">Cancellation token</param>
+    /// <returns>A <see cref="Task{TResult}"/> of <see cref="CreateDisputeEvidenceFileResponse"/> instance.</returns>
+    /// <exception cref="ApiException{TError}"> of <see cref="RawError"/> when the server returns an error response.</exception>
+    /// <remarks>
+    /// Uploads a file to use as evidence in a dispute challenge. The endpoint accepts HTTP
+    /// multipart/form-data file uploads in HEIC, HEIF, JPEG, PDF, PNG, and TIFF formats.
+    /// </remarks>
+    public Task<CreateDisputeEvidenceFileResponse> CreateDisputeEvidenceFile(CreateDisputeEvidenceFileOperationRequest request,
+        RequestOptions? requestOptions = null,
+        CancellationToken cancellationToken = default) =>
+        _rawClient.Execute(
+            _server.Default("/v2/disputes/{dispute_id}/evidence-files"),
+            [new TemplateParam("dispute_id", request.DisputeId)],
+            [],
+            [new HeaderParam("Idempotency-Key", Guid.NewGuid())],
+            HttpMethod.Post,
+            FormRequest.Create(
+                new MultipartParam("request", request.Request, "application/json; charset=utf-8"),
+                new MultipartParam("image_file", request.ImageFile)),
+            JsonResponse.Create<CreateDisputeEvidenceFileResponse>(),
+            RawErrorResponse.Instance,
+            _auth.BearerAuth,
+            requestOptions,
+            cancellationToken);
+
+    /// <summary>
     /// CreateDisputeEvidenceText
     /// </summary>
     /// <param name="request">The operation's inputs</param>
@@ -240,8 +270,8 @@ public sealed class Disputes
     /// Submits evidence to the cardholder's bank.
     /// <para>
     /// The evidence submitted by this endpoint includes evidence uploaded
-    /// using the <see href="https://developer.squareup.com/reference/square_2024-08-21/disputes-api/create-dispute-evidence-file">CreateDisputeEvidenceFile</see> and
-    /// <see href="https://developer.squareup.com/reference/square_2024-08-21/disputes-api/create-dispute-evidence-text">CreateDisputeEvidenceText</see> endpoints and
+    /// using the <see href="$e/Disputes/CreateDisputeEvidenceFile">CreateDisputeEvidenceFile</see> and
+    /// <see href="$e/Disputes/CreateDisputeEvidenceText">CreateDisputeEvidenceText</see> endpoints and
     /// evidence automatically provided by Square, when available. Evidence cannot be removed from
     /// a dispute after submission.
     /// </para>

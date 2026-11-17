@@ -18,6 +18,7 @@ Accessor: `client.V1Transactions` · Source: `src/Square/Api/V1Transactions.cs` 
 | Type | Source |
 | --- | --- |
 | `V1ListOrdersOperationRequest` | `src/Square/Requests/V1Transactions/V1ListOrdersOperationRequest.cs` |
+| `SortOrder` | `src/Square/Models/Enums/SortOrder.cs` |
 | `V1Order` | `src/Square/Models/V1Order.cs` |
 
 ### V1RetrieveOrder

@@ -7,7 +7,7 @@ namespace Square.Models;
 
 /// <summary>
 /// Defines the fields that are included in requests to the
-/// <see href="https://developer.squareup.com/reference/square_2024-08-21/orders-api/pay-order">PayOrder</see> endpoint.
+/// <see href="$e/Orders/PayOrder">PayOrder</see> endpoint.
 /// </summary>
 public record PayOrderRequest
 {
@@ -31,7 +31,7 @@ public record PayOrderRequest
     public int? OrderVersion { get; init; }
 
     /// <summary>
-    /// The IDs of the <see href="https://developer.squareup.com/reference/square_2024-08-21/objects/Payment">payments</see> to collect.
+    /// The IDs of the <see href="entity:Payment">payments</see> to collect.
     /// The payment total must match the order total.
     /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]

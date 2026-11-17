@@ -1,3 +1,5 @@
+using Square.Models.Enums;
+
 namespace Square.Requests.V1Transactions;
 
 /// <summary>
@@ -13,7 +15,7 @@ public sealed record V1ListOrdersOperationRequest
     /// <summary>
     /// The order in which payments are listed in the response.
     /// </summary>
-    public string? Order { get; init; }
+    public SortOrder? Order { get; init; }
 
     /// <summary>
     /// The maximum number of payments to return in a single response. This value cannot exceed 200.

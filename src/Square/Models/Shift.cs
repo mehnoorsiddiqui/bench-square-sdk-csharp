@@ -2,6 +2,7 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Text.Json.Serialization;
 using Square.Core.Models;
+using Square.Models.Enums;
 
 namespace Square.Models;
 
@@ -75,11 +76,11 @@ public record Shift
     public IReadOnlyList<Break>? Breaks { get; init; }
 
     /// <summary>
-    /// Describes the working state of the current <c>Shift</c>.
+    /// Enumerates the possible status of a <c>Shift</c>.
     /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("status")]
-    public string? Status { get; init; }
+    public ShiftStatus? Status { get; init; }
 
     /// <summary>
     /// Used for resolving concurrency issues. The request fails if the version

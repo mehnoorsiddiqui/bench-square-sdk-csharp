@@ -1,6 +1,7 @@
 using System.ComponentModel.DataAnnotations;
 using System.Text.Json.Serialization;
 using Square.Core.Models;
+using Square.Models.Enums;
 
 namespace Square.Models;
 
@@ -19,11 +20,11 @@ public record ListPayoutsRequest
     public string? LocationId { get; init; }
 
     /// <summary>
-    /// If provided, only payouts with the given status are returned.
+    /// Payout status types
     /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("status")]
-    public string? Status { get; init; }
+    public PayoutStatus? Status { get; init; }
 
     /// <summary>
     /// The timestamp for the beginning of the payout creation time, in RFC 3339 format.
@@ -42,11 +43,11 @@ public record ListPayoutsRequest
     public string? EndTime { get; init; }
 
     /// <summary>
-    /// The order in which payouts are listed.
+    /// The order (e.g., chronological or alphabetical) in which results from a request are returned.
     /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("sort_order")]
-    public string? SortOrder { get; init; }
+    public SortOrder? SortOrder { get; init; }
 
     /// <summary>
     /// A pagination cursor returned by a previous call to this endpoint.

@@ -1,12 +1,11 @@
 using System.Text.Json.Serialization;
 using Square.Core.Models;
-using Square.Core.Validation.Attributes;
 
 namespace Square.Models;
 
 /// <summary>
 /// Describes a request to list payments using
-/// <see href="https://developer.squareup.com/reference/square_2024-08-21/payments-api/list-payments">ListPayments</see>.
+/// <see href="$e/Payments/ListPayments">ListPayments</see>.
 /// <para>
 /// The maximum results per page is 100.
 /// </para>
@@ -66,7 +65,6 @@ public record ListPaymentsRequest
     /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("total")]
-    [Minimum(0)]
     public long? Total { get; init; }
 
     /// <summary>

@@ -8,7 +8,7 @@ namespace Square.Requests.BookingCustomAttributes;
 public sealed record UpsertBookingCustomAttributeOperationRequest
 {
     /// <summary>
-    /// The ID of the target <see href="https://developer.squareup.com/reference/square_2024-08-21/objects/Booking">booking</see>.
+    /// The ID of the target <see href="entity:Booking">booking</see>.
     /// </summary>
     public required string BookingId { get; init; }
 

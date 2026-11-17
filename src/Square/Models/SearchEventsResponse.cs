@@ -6,7 +6,7 @@ namespace Square.Models;
 
 /// <summary>
 /// Defines the fields that are included in the response body of
-/// a request to the <see href="https://developer.squareup.com/reference/square_2024-08-21/events-api/search-events">SearchEvents</see> endpoint.
+/// a request to the <see href="$e/Events/SearchEvents">SearchEvents</see> endpoint.
 /// <para>
 /// Note: if there are errors processing the request, the events field will not be
 /// present.
@@ -22,14 +22,14 @@ public record SearchEventsResponse
     public IReadOnlyList<Error>? Errors { get; init; }
 
     /// <summary>
-    /// The list of <see href="https://developer.squareup.com/reference/square_2024-08-21/objects/Event">Event</see>s returned by the search.
+    /// The list of <see href="entity:Event">Event</see>s returned by the search.
     /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("events")]
     public IReadOnlyList<Event>? Events { get; init; }
 
     /// <summary>
-    /// Contains the metadata of an event. For more information, see <see href="https://developer.squareup.com/reference/square_2024-08-21/objects/Event">Event</see>.
+    /// Contains the metadata of an event. For more information, see <see href="entity:Event">Event</see>.
     /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("metadata")]

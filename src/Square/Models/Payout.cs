@@ -2,6 +2,7 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Text.Json.Serialization;
 using Square.Core.Models;
+using Square.Models.Enums;
 
 namespace Square.Models;
 
@@ -19,11 +20,11 @@ public record Payout
     public required string Id { get; init; }
 
     /// <summary>
-    /// Indicates the payout status.
+    /// Payout status types
     /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("status")]
-    public string? Status { get; init; }
+    public PayoutStatus? Status { get; init; }
 
     /// <summary>
     /// The ID of the location associated with the payout.
@@ -74,11 +75,14 @@ public record Payout
     public int? Version { get; init; }
 
     /// <summary>
-    /// Indicates the payout type.
+    /// The type of payout: “BATCH” or “SIMPLE”.
+    /// BATCH payouts include a list of payout entries that can be considered settled.
+    /// SIMPLE payouts do not have any payout entries associated with them
+    /// and will show up as one of the payout entries in a future BATCH payout.
     /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("type")]
-    public string? Type { get; init; }
+    public PayoutType? Type { get; init; }
 
     /// <summary>
     /// A list of transfer fees and any taxes on the fees assessed by Square for this payout.

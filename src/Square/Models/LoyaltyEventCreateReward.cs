@@ -1,7 +1,6 @@
 using System.ComponentModel.DataAnnotations;
 using System.Text.Json.Serialization;
 using Square.Core.Models;
-using Square.Core.Validation.Attributes;
 
 namespace Square.Models;
 
@@ -11,14 +10,14 @@ namespace Square.Models;
 public record LoyaltyEventCreateReward
 {
     /// <summary>
-    /// The ID of the <see href="https://developer.squareup.com/reference/square_2024-08-21/objects/LoyaltyProgram">loyalty program</see>.
+    /// The ID of the <see href="entity:LoyaltyProgram">loyalty program</see>.
     /// </summary>
     [JsonPropertyName("loyalty_program_id")]
     [StringLength(36, MinimumLength = 1)]
     public required string LoyaltyProgramId { get; init; }
 
     /// <summary>
-    /// The Square-assigned ID of the created <see href="https://developer.squareup.com/reference/square_2024-08-21/objects/LoyaltyReward">loyalty reward</see>.
+    /// The Square-assigned ID of the created <see href="entity:LoyaltyReward">loyalty reward</see>.
     /// This field is returned only if the event source is <c>LOYALTY_API</c>.
     /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
@@ -30,7 +29,6 @@ public record LoyaltyEventCreateReward
     /// The loyalty points used to create the reward.
     /// </summary>
     [JsonPropertyName("points")]
-    [Maximum(0)]
     public required int Points { get; init; }
 
     [JsonExtensionData]

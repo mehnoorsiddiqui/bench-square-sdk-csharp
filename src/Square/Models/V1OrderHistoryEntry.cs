@@ -1,5 +1,6 @@
 using System.Text.Json.Serialization;
 using Square.Core.Models;
+using Square.Models.Enums;
 
 namespace Square.Models;
 
@@ -8,12 +9,9 @@ namespace Square.Models;
 /// </summary>
 public record V1OrderHistoryEntry
 {
-    /// <summary>
-    /// The type of action performed on the order.
-    /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("action")]
-    public string? Action { get; init; }
+    public V1OrderHistoryEntryAction? Action { get; init; }
 
     /// <summary>
     /// The time when the action was performed, in ISO 8601 format.

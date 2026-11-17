@@ -2,6 +2,7 @@ using System.Collections.Generic;
 using System.Text.Json.Serialization;
 using Square.Core.Models;
 using Square.Core.Validation.Attributes;
+using Square.Models.Enums;
 
 namespace Square.Models;
 
@@ -50,10 +51,10 @@ public record BatchRetrieveInventoryCountsRequest
     /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("states")]
-    public IReadOnlyList<string>? States { get; init; }
+    public IReadOnlyList<InventoryState>? States { get; init; }
 
     /// <summary>
-    /// The number of <see href="https://developer.squareup.com/reference/square_2024-08-21/objects/InventoryCount">records</see> to return.
+    /// The number of <see href="entity:InventoryCount">records</see> to return.
     /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("limit")]

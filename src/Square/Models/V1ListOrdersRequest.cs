@@ -1,16 +1,17 @@
 using System.Text.Json.Serialization;
 using Square.Core.Models;
+using Square.Models.Enums;
 
 namespace Square.Models;
 
 public record V1ListOrdersRequest
 {
     /// <summary>
-    /// The order in which payments are listed in the response.
+    /// The order (e.g., chronological or alphabetical) in which results from a request are returned.
     /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("order")]
-    public string? Order { get; init; }
+    public SortOrder? Order { get; init; }
 
     /// <summary>
     /// The maximum number of payments to return in a single response. This value cannot exceed 200.

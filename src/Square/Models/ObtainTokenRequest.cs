@@ -35,7 +35,7 @@ public record ObtainTokenRequest
     /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("code")]
-    [StringLength(191, MinimumLength = 0)]
+    [MaxLength(191)]
     public string? Code { get; init; }
 
     /// <summary>
@@ -43,7 +43,7 @@ public record ObtainTokenRequest
     /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("redirect_uri")]
-    [StringLength(2048, MinimumLength = 0)]
+    [MaxLength(2048)]
     public string? RedirectUri { get; init; }
 
     /// <summary>

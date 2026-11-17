@@ -1,3 +1,5 @@
+using Square.Models.Enums;
+
 namespace Square.Requests.WebhookSubscriptions;
 
 /// <summary>
@@ -15,16 +17,16 @@ public sealed record ListWebhookSubscriptionsOperationRequest
     public string? Cursor { get; init; }
 
     /// <summary>
-    /// Includes disabled <see href="https://developer.squareup.com/reference/square_2024-08-21/objects/WebhookSubscription">Subscription</see>s.
-    /// By default, all enabled <see href="https://developer.squareup.com/reference/square_2024-08-21/objects/WebhookSubscription">Subscription</see>s are returned.
+    /// Includes disabled <see href="entity:WebhookSubscription">Subscription</see>s.
+    /// By default, all enabled <see href="entity:WebhookSubscription">Subscription</see>s are returned.
     /// </summary>
-    public bool? IncludeDisabled { get; init; }
+    public bool IncludeDisabled { get; init; } = false;
 
     /// <summary>
-    /// Sorts the returned list by when the <see href="https://developer.squareup.com/reference/square_2024-08-21/objects/WebhookSubscription">Subscription</see> was created with the specified order.
+    /// Sorts the returned list by when the <see href="entity:WebhookSubscription">Subscription</see> was created with the specified order.
     /// This field defaults to ASC.
     /// </summary>
-    public string? SortOrder { get; init; }
+    public SortOrder? SortOrder { get; init; }
 
     /// <summary>
     /// The maximum number of results to be returned in a single page.

@@ -2,6 +2,7 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Text.Json.Serialization;
 using Square.Core.Models;
+using Square.Models.Enums;
 
 namespace Square.Models;
 
@@ -25,7 +26,7 @@ public record OrderLineItemDiscount
     public string? Uid { get; init; }
 
     /// <summary>
-    /// The catalog object ID referencing <see href="https://developer.squareup.com/reference/square_2024-08-21/objects/CatalogDiscount">CatalogDiscount</see>.
+    /// The catalog object ID referencing <see href="entity:CatalogDiscount">CatalogDiscount</see>.
     /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("catalog_object_id")]
@@ -48,15 +49,11 @@ public record OrderLineItemDiscount
     public string? Name { get; init; }
 
     /// <summary>
-    /// The type of the discount.
-    /// <para>
-    /// Discounts that do not reference a catalog object ID must have a type of
-    /// <c>FIXED_PERCENTAGE</c> or <c>FIXED_AMOUNT</c>.
-    /// </para>
+    /// Indicates how the discount is applied to the associated line item or order.
     /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("type")]
-    public string? Type { get; init; }
+    public OrderLineItemDiscountType? Type { get; init; }
 
     /// <summary>
     /// The percentage of the discount, as a string representation of a decimal number.
@@ -124,18 +121,11 @@ public record OrderLineItemDiscount
     public IReadOnlyDictionary<string, string>? Metadata { get; init; }
 
     /// <summary>
-    /// Indicates the level at which the discount applies. For <c>ORDER</c> scoped discounts,
-    /// Square generates references in <c>applied_discounts</c> on all order line items that do
-    /// not have them. For <c>LINE_ITEM</c> scoped discounts, the discount only applies to line items
-    /// with a discount reference in their <c>applied_discounts</c> field.
-    /// <para>
-    /// This field is immutable. To change the scope of a discount, you must delete
-    /// the discount and re-add it as a new discount.
-    /// </para>
+    /// Indicates whether this is a line-item or order-level discount.
     /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("scope")]
-    public string? Scope { get; init; }
+    public OrderLineItemDiscountScope? Scope { get; init; }
 
     /// <summary>
     /// The reward IDs corresponding to this discount. The application and
@@ -149,7 +139,7 @@ public record OrderLineItemDiscount
     public IReadOnlyList<string>? RewardIds { get; init; }
 
     /// <summary>
-    /// The object ID of a <see href="https://developer.squareup.com/reference/square_2024-08-21/objects/CatalogPricingRule">pricing rule</see> to be applied
+    /// The object ID of a <see href="entity:CatalogPricingRule">pricing rule</see> to be applied
     /// automatically to this discount. The specification and application of the discounts, to
     /// which a <c>pricing_rule_id</c> is assigned, are completely controlled by the corresponding
     /// pricing rule.

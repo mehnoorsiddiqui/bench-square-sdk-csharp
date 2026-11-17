@@ -1,6 +1,7 @@
 using System.ComponentModel.DataAnnotations;
 using System.Text.Json.Serialization;
 using Square.Core.Models;
+using Square.Models.Enums;
 
 namespace Square.Models;
 
@@ -18,18 +19,18 @@ public record CatalogTax
     public string? Name { get; init; }
 
     /// <summary>
-    /// Whether the tax is calculated based on a payment's subtotal or total.
+    /// When to calculate the taxes due on a cart.
     /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("calculation_phase")]
-    public string? CalculationPhase { get; init; }
+    public TaxCalculationPhase? CalculationPhase { get; init; }
 
     /// <summary>
-    /// Whether the tax is <c>ADDITIVE</c> or <c>INCLUSIVE</c>.
+    /// Whether to the tax amount should be additional to or included in the CatalogItem price.
     /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("inclusion_type")]
-    public string? InclusionType { get; init; }
+    public TaxInclusionType? InclusionType { get; init; }
 
     /// <summary>
     /// The percentage of the tax in decimal form, using a <c>'.'</c> as the decimal separator and without a <c>'%'</c> sign.

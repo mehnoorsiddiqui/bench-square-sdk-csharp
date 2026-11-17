@@ -1,5 +1,6 @@
 using System.Text.Json.Serialization;
 using Square.Core.Models;
+using Square.Models.Enums;
 
 namespace Square.Models;
 
@@ -21,11 +22,11 @@ public record LoyaltyProgramAccrualRuleVisitData
     public Money? MinimumAmountMoney { get; init; }
 
     /// <summary>
-    /// Indicates how taxes should be treated when calculating the purchase amount to determine whether the visit qualifies for points.
-    /// This setting applies only if <c>minimum_amount_money</c> is specified.
+    /// Indicates how taxes should be treated when calculating the purchase amount used for loyalty points accrual.
+    /// This setting applies only to <c>SPEND</c> accrual rules or <c>VISIT</c> accrual rules that have a minimum spend requirement.
     /// </summary>
     [JsonPropertyName("tax_mode")]
-    public required string TaxMode { get; init; }
+    public required LoyaltyProgramAccrualRuleTaxMode TaxMode { get; init; }
 
     [JsonExtensionData]
     public AdditionalProperties AdditionalProperties { get; init; } = [];

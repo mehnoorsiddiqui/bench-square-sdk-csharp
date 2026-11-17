@@ -85,6 +85,7 @@ Accessor: `client.LocationCustomAttributes` · Source: `src/Square/Api/LocationC
 | Type | Source |
 | --- | --- |
 | `ListLocationCustomAttributeDefinitionsOperationRequest` | `src/Square/Requests/LocationCustomAttributes/ListLocationCustomAttributeDefinitionsOperationRequest.cs` |
+| `VisibilityFilter` | `src/Square/Models/Enums/VisibilityFilter.cs` |
 | `ListLocationCustomAttributeDefinitionsResponse` | `src/Square/Models/ListLocationCustomAttributeDefinitionsResponse.cs` |
 
 ### ListLocationCustomAttributes
@@ -99,6 +100,7 @@ Accessor: `client.LocationCustomAttributes` · Source: `src/Square/Api/LocationC
 | Type | Source |
 | --- | --- |
 | `ListLocationCustomAttributesOperationRequest` | `src/Square/Requests/LocationCustomAttributes/ListLocationCustomAttributesOperationRequest.cs` |
+| `VisibilityFilter` | `src/Square/Models/Enums/VisibilityFilter.cs` |
 | `ListLocationCustomAttributesResponse` | `src/Square/Models/ListLocationCustomAttributesResponse.cs` |
 
 ### RetrieveLocationCustomAttribute

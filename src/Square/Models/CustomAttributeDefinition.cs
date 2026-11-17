@@ -1,6 +1,7 @@
 using System.ComponentModel.DataAnnotations;
 using System.Text.Json.Serialization;
 using Square.Core.Models;
+using Square.Models.Enums;
 
 namespace Square.Models;
 
@@ -64,12 +65,14 @@ public record CustomAttributeDefinition
     public string? Description { get; init; }
 
     /// <summary>
-    /// Specifies how the custom attribute definition and its values should be shared with
-    /// the seller and other applications. If no value is specified, the value defaults to <c>VISIBILITY_HIDDEN</c>.
+    /// The level of permission that a seller or other applications requires to
+    /// view this custom attribute definition.
+    /// The <c>Visibility</c> field controls who can read and write the custom attribute values
+    /// and custom attribute definition.
     /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("visibility")]
-    public string? Visibility { get; init; }
+    public CustomAttributeDefinitionVisibility? Visibility { get; init; }
 
     /// <summary>
     /// Read only. The current version of the custom attribute definition.

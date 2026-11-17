@@ -1,3 +1,5 @@
+using Square.Models.Enums;
+
 namespace Square.Requests.Employees;
 
 /// <summary>
@@ -10,7 +12,7 @@ public sealed record ListEmployeesOperationRequest
     /// <summary>
     /// Specifies the EmployeeStatus to filter the employee by.
     /// </summary>
-    public string? Status { get; init; }
+    public EmployeeStatus? Status { get; init; }
 
     /// <summary>
     /// The number of employees to be returned on each page.

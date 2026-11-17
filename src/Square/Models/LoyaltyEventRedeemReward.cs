@@ -10,14 +10,14 @@ namespace Square.Models;
 public record LoyaltyEventRedeemReward
 {
     /// <summary>
-    /// The ID of the <see href="https://developer.squareup.com/reference/square_2024-08-21/objects/LoyaltyProgram">loyalty program</see>.
+    /// The ID of the <see href="entity:LoyaltyProgram">loyalty program</see>.
     /// </summary>
     [JsonPropertyName("loyalty_program_id")]
     [StringLength(36, MinimumLength = 1)]
     public required string LoyaltyProgramId { get; init; }
 
     /// <summary>
-    /// The ID of the redeemed <see href="https://developer.squareup.com/reference/square_2024-08-21/objects/LoyaltyReward">loyalty reward</see>.
+    /// The ID of the redeemed <see href="entity:LoyaltyReward">loyalty reward</see>.
     /// This field is returned only if the event source is <c>LOYALTY_API</c>.
     /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
@@ -26,7 +26,7 @@ public record LoyaltyEventRedeemReward
     public string? RewardId { get; init; }
 
     /// <summary>
-    /// The ID of the <see href="https://developer.squareup.com/reference/square_2024-08-21/objects/Order">order</see> that redeemed the reward.
+    /// The ID of the <see href="entity:Order">order</see> that redeemed the reward.
     /// This field is returned only if the Orders API is used to process orders.
     /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]

@@ -6,7 +6,7 @@ namespace Square.Models;
 
 /// <summary>
 /// Supported custom attribute query expressions for calling the
-/// <see href="https://developer.squareup.com/reference/square_2024-08-21/catalog-api/search-catalog-items">SearchCatalogItems</see>
+/// <see href="$e/Catalog/SearchCatalogItems">SearchCatalogItems</see>
 /// endpoint to search for items or item variations.
 /// </summary>
 public record CustomAttributeFilter

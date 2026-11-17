@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using System.Text.Json.Serialization;
 using Square.Core.Models;
+using Square.Models.Enums;
 
 namespace Square.Models;
 
@@ -13,8 +14,9 @@ public record ShiftFilter
     /// <summary>
     /// Fetch shifts for the specified location.
     /// </summary>
+    [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("location_ids")]
-    public required IReadOnlyList<string> LocationIds { get; init; }
+    public IReadOnlyList<string>? LocationIds { get; init; }
 
     /// <summary>
     /// Fetch shifts for the specified employees. DEPRECATED at version 2020-08-26. Use <c>team_member_ids</c> instead.
@@ -24,11 +26,11 @@ public record ShiftFilter
     public IReadOnlyList<string>? EmployeeIds { get; init; }
 
     /// <summary>
-    /// Fetch a <c>Shift</c> instance by <c>Shift.status</c>.
+    /// Specifies the <c>status</c> of <c>Shift</c> records to be returned.
     /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("status")]
-    public string? Status { get; init; }
+    public ShiftFilterStatus? Status { get; init; }
 
     /// <summary>
     /// Represents a generic time range. The start and end values are
@@ -63,8 +65,9 @@ public record ShiftFilter
     /// <summary>
     /// Fetch shifts for the specified team members. Replaced <c>employee_ids</c> at version "2020-08-26".
     /// </summary>
+    [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("team_member_ids")]
-    public required IReadOnlyList<string> TeamMemberIds { get; init; }
+    public IReadOnlyList<string>? TeamMemberIds { get; init; }
 
     [JsonExtensionData]
     public AdditionalProperties AdditionalProperties { get; init; } = [];

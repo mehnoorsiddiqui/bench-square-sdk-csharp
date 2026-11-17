@@ -2,6 +2,7 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Text.Json.Serialization;
 using Square.Core.Models;
+using Square.Models.Enums;
 
 namespace Square.Models;
 
@@ -64,7 +65,7 @@ public record OrderLineItem
     public string? Note { get; init; }
 
     /// <summary>
-    /// The <see href="https://developer.squareup.com/reference/square_2024-08-21/objects/CatalogItemVariation">CatalogItemVariation</see> ID applied to this line item.
+    /// The <see href="entity:CatalogItemVariation">CatalogItemVariation</see> ID applied to this line item.
     /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("catalog_object_id")]
@@ -87,12 +88,11 @@ public record OrderLineItem
     public string? VariationName { get; init; }
 
     /// <summary>
-    /// The type of line item: an itemized sale, a non-itemized sale (custom amount), or the
-    /// activation or reloading of a gift card.
+    /// Represents the line item type.
     /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("item_type")]
-    public string? ItemType { get; init; }
+    public OrderLineItemItemType? ItemType { get; init; }
 
     /// <summary>
     /// Application-defined data attached to this line item. Metadata fields are intended
@@ -124,7 +124,7 @@ public record OrderLineItem
     public IReadOnlyDictionary<string, string>? Metadata { get; init; }
 
     /// <summary>
-    /// The <see href="https://developer.squareup.com/reference/square_2024-08-21/objects/CatalogModifier">CatalogModifier</see>s applied to this line item.
+    /// The <see href="entity:CatalogModifier">CatalogModifier</see>s applied to this line item.
     /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("modifiers")]

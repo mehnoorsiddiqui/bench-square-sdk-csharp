@@ -16,20 +16,19 @@ public record AppointmentSegment
     /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("duration_minutes")]
-    [Minimum(0)]
     [Maximum(1500)]
     public int? DurationMinutes { get; init; }
 
     /// <summary>
-    /// The ID of the <see href="https://developer.squareup.com/reference/square_2024-08-21/objects/CatalogItemVariation">CatalogItemVariation</see> object representing the service booked in this segment.
+    /// The ID of the <see href="entity:CatalogItemVariation">CatalogItemVariation</see> object representing the service booked in this segment.
     /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("service_variation_id")]
-    [StringLength(36, MinimumLength = 0)]
+    [MaxLength(36)]
     public string? ServiceVariationId { get; init; }
 
     /// <summary>
-    /// The ID of the <see href="https://developer.squareup.com/reference/square_2024-08-21/objects/TeamMember">TeamMember</see> object representing the team member booked in this segment.
+    /// The ID of the <see href="entity:TeamMember">TeamMember</see> object representing the team member booked in this segment.
     /// </summary>
     [JsonPropertyName("team_member_id")]
     [StringLength(32, MinimumLength = 1)]

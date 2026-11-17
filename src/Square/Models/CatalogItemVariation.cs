@@ -2,11 +2,12 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Text.Json.Serialization;
 using Square.Core.Models;
+using Square.Models.Enums;
 
 namespace Square.Models;
 
 /// <summary>
-/// An item variation, representing a product for sale, in the Catalog object model. Each <see href="https://developer.squareup.com/reference/square_2024-08-21/objects/CatalogItem">item</see> must have at least one
+/// An item variation, representing a product for sale, in the Catalog object model. Each <see href="$m/CatalogItem">item</see> must have at least one
 /// item variation and can have at most 250 item variations.
 /// <para>
 /// An item variation can be sellable, stockable, or both if it has a unit of measure for its count for the sold number of the variation, the stocked
@@ -30,8 +31,8 @@ public record CatalogItemVariation
     /// <summary>
     /// The item variation's name. This is a searchable attribute for use in applicable query filters.
     /// <para>
-    /// Its value has a maximum length of 255 Unicode code points. However, when the parent <see href="https://developer.squareup.com/reference/square_2024-08-21/objects/CatalogItem">item</see>
-    /// uses <see href="https://developer.squareup.com/reference/square_2024-08-21/objects/CatalogItemOption">item options</see>, this attribute is auto-generated, read-only, and can be
+    /// Its value has a maximum length of 255 Unicode code points. However, when the parent <see href="entity:CatalogItem">item</see>
+    /// uses <see href="entity:CatalogItemOption">item options</see>, this attribute is auto-generated, read-only, and can be
     /// longer than 255 Unicode code points.
     /// </para>
     /// </summary>
@@ -69,12 +70,11 @@ public record CatalogItemVariation
     public int? Ordinal { get; init; }
 
     /// <summary>
-    /// Indicates whether the item variation's price is fixed or determined at the time
-    /// of sale.
+    /// Indicates whether the price of a CatalogItemVariation should be entered manually at the time of sale.
     /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("pricing_type")]
-    public string? PricingType { get; init; }
+    public CatalogPricingType? PricingType { get; init; }
 
     /// <summary>
     /// Represents an amount of money. <c>Money</c> fields can be signed or unsigned.
@@ -103,12 +103,11 @@ public record CatalogItemVariation
     public bool? TrackInventory { get; init; }
 
     /// <summary>
-    /// Indicates whether the item variation displays an alert when its inventory quantity is less than or equal
-    /// to its <c>inventory_alert_threshold</c>.
+    /// Indicates whether Square should alert the merchant when the inventory quantity of a CatalogItemVariation is low.
     /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("inventory_alert_type")]
-    public string? InventoryAlertType { get; init; }
+    public InventoryAlertType? InventoryAlertType { get; init; }
 
     /// <summary>
     /// If the inventory quantity for the variation is less than or equal to this value and <c>inventory_alert_type</c>
@@ -199,7 +198,7 @@ public record CatalogItemVariation
     public IReadOnlyList<string>? TeamMemberIds { get; init; }
 
     /// <summary>
-    /// Represents the rule of conversion between a stockable <see href="https://developer.squareup.com/reference/square_2024-08-21/objects/CatalogItemVariation">CatalogItemVariation</see>
+    /// Represents the rule of conversion between a stockable <see href="$m/CatalogItemVariation">CatalogItemVariation</see>
     /// and a non-stockable sell-by or receive-by <c>CatalogItemVariation</c> that
     /// share the same underlying stock.
     /// </summary>

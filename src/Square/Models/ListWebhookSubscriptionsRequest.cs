@@ -2,11 +2,12 @@ using System.ComponentModel.DataAnnotations;
 using System.Text.Json.Serialization;
 using Square.Core.Models;
 using Square.Core.Validation.Attributes;
+using Square.Models.Enums;
 
 namespace Square.Models;
 
 /// <summary>
-/// Lists all <see href="https://developer.squareup.com/reference/square_2024-08-21/objects/WebhookSubscription">Subscription</see>s owned by your application.
+/// Lists all <see href="$m/WebhookSubscription">Subscription</see>s owned by your application.
 /// </summary>
 public record ListWebhookSubscriptionsRequest
 {
@@ -23,20 +24,19 @@ public record ListWebhookSubscriptionsRequest
     public string? Cursor { get; init; }
 
     /// <summary>
-    /// Includes disabled <see href="https://developer.squareup.com/reference/square_2024-08-21/objects/WebhookSubscription">Subscription</see>s.
-    /// By default, all enabled <see href="https://developer.squareup.com/reference/square_2024-08-21/objects/WebhookSubscription">Subscription</see>s are returned.
+    /// Includes disabled <see href="entity:WebhookSubscription">Subscription</see>s.
+    /// By default, all enabled <see href="entity:WebhookSubscription">Subscription</see>s are returned.
     /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("include_disabled")]
     public bool? IncludeDisabled { get; init; }
 
     /// <summary>
-    /// Sorts the returned list by when the <see href="https://developer.squareup.com/reference/square_2024-08-21/objects/WebhookSubscription">Subscription</see> was created with the specified order.
-    /// This field defaults to ASC.
+    /// The order (e.g., chronological or alphabetical) in which results from a request are returned.
     /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("sort_order")]
-    public string? SortOrder { get; init; }
+    public SortOrder? SortOrder { get; init; }
 
     /// <summary>
     /// The maximum number of results to be returned in a single page.

@@ -10,7 +10,7 @@ namespace Square.Models;
 public record BulkRetrieveBookingsRequest
 {
     /// <summary>
-    /// A non-empty list of <see href="https://developer.squareup.com/reference/square_2024-08-21/objects/Booking">Booking</see> IDs specifying bookings to retrieve.
+    /// A non-empty list of <see href="entity:Booking">Booking</see> IDs specifying bookings to retrieve.
     /// </summary>
     [JsonPropertyName("booking_ids")]
     public required IReadOnlyList<string> BookingIds { get; init; }

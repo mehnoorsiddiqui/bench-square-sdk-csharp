@@ -1,5 +1,6 @@
 using System.Text.Json.Serialization;
 using Square.Core.Models;
+using Square.Models.Enums;
 
 namespace Square.Models;
 
@@ -30,11 +31,11 @@ public record TeamMember
     public bool? IsOwner { get; init; }
 
     /// <summary>
-    /// Describes the status of the team member.
+    /// Enumerates the possible statuses the team member can have within a business.
     /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("status")]
-    public string? Status { get; init; }
+    public TeamMemberStatus? Status { get; init; }
 
     /// <summary>
     /// The given name (that is, the first name) associated with the team member.

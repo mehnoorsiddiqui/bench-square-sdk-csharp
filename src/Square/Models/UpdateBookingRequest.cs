@@ -11,7 +11,7 @@ public record UpdateBookingRequest
     /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("idempotency_key")]
-    [StringLength(255, MinimumLength = 0)]
+    [MaxLength(255)]
     public string? IdempotencyKey { get; init; }
 
     /// <summary>

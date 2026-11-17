@@ -6,12 +6,12 @@ namespace Square.Models;
 
 /// <summary>
 /// Defines the body parameters that can be included in requests to the
-/// <see href="https://developer.squareup.com/reference/square_2024-08-21/customers-api/bulk-delete-customers">BulkDeleteCustomers</see> endpoint.
+/// <see href="$e/Customers/BulkDeleteCustomers">BulkDeleteCustomers</see> endpoint.
 /// </summary>
 public record BulkDeleteCustomersRequest
 {
     /// <summary>
-    /// The IDs of the <see href="https://developer.squareup.com/reference/square_2024-08-21/objects/Customer">customer profiles</see> to delete.
+    /// The IDs of the <see href="entity:Customer">customer profiles</see> to delete.
     /// </summary>
     [JsonPropertyName("customer_ids")]
     public required IReadOnlyList<string> CustomerIds { get; init; }

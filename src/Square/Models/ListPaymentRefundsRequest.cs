@@ -5,7 +5,7 @@ namespace Square.Models;
 
 /// <summary>
 /// Describes a request to list refunds using
-/// <see href="https://developer.squareup.com/reference/square_2024-08-21/refunds-api/list-payment-refunds">ListPaymentRefunds</see>.
+/// <see href="$e/Refunds/ListPaymentRefunds">ListPaymentRefunds</see>.
 /// <para>
 /// The maximum results per page is 100.
 /// </para>
@@ -64,7 +64,7 @@ public record ListPaymentRefundsRequest
 
     /// <summary>
     /// If provided, only refunds with the given status are returned.
-    /// For a list of refund status values, see <see href="https://developer.squareup.com/reference/square_2024-08-21/objects/PaymentRefund">PaymentRefund</see>.
+    /// For a list of refund status values, see <see href="entity:PaymentRefund">PaymentRefund</see>.
     /// <para>
     /// Default: If omitted, refunds are returned regardless of their status.
     /// </para>

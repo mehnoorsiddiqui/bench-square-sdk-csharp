@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using System.Text.Json.Serialization;
 using Square.Core.Models;
+using Square.Models.Enums;
 
 namespace Square.Models;
 
@@ -17,11 +18,11 @@ public record SubscriptionAction
     public string? Id { get; init; }
 
     /// <summary>
-    /// The type of the action.
+    /// Supported types of an action as a pending change to a subscription.
     /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("type")]
-    public string? Type { get; init; }
+    public SubscriptionActionType? Type { get; init; }
 
     /// <summary>
     /// The <c>YYYY-MM-DD</c>-formatted date when the action occurs on the subscription.

@@ -16,7 +16,7 @@ public sealed record ListBookingsOperationRequest
     public string? Cursor { get; init; }
 
     /// <summary>
-    /// The <see href="https://developer.squareup.com/reference/square_2024-08-21/objects/Customer">customer</see> for whom to retrieve bookings. If this is not set, bookings for all customers are retrieved.
+    /// The <see href="entity:Customer">customer</see> for whom to retrieve bookings. If this is not set, bookings for all customers are retrieved.
     /// </summary>
     public string? CustomerId { get; init; }
 

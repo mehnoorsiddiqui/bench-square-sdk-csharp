@@ -1,3 +1,5 @@
+using Square.Models.Enums;
+
 namespace Square.Requests.Payouts;
 
 /// <summary>
@@ -13,7 +15,7 @@ public sealed record ListPayoutEntriesOperationRequest
     /// <summary>
     /// The order in which payout entries are listed.
     /// </summary>
-    public string? SortOrder { get; init; }
+    public SortOrder? SortOrder { get; init; }
 
     /// <summary>
     /// A pagination cursor returned by a previous call to this endpoint.

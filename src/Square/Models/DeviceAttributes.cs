@@ -6,10 +6,10 @@ namespace Square.Models;
 public record DeviceAttributes
 {
     /// <summary>
-    /// The device type.
+    /// An enum identifier of the device type.
     /// </summary>
     [JsonPropertyName("type")]
-    public required string Type { get; init; }
+    public string Type { get; } = "TERMINAL";
 
     /// <summary>
     /// The maker of the device.

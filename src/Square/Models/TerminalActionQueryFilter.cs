@@ -1,5 +1,6 @@
 using System.Text.Json.Serialization;
 using Square.Core.Models;
+using Square.Models.Enums;
 
 namespace Square.Models;
 
@@ -33,11 +34,11 @@ public record TerminalActionQueryFilter
     public string? Status { get; init; }
 
     /// <summary>
-    /// Filter results with the requested ActionType.
+    /// Describes the type of this unit and indicates which field contains the unit information. This is an ‘open’ enum.
     /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("type")]
-    public string? Type { get; init; }
+    public TerminalActionActionType? Type { get; init; }
 
     [JsonExtensionData]
     public AdditionalProperties AdditionalProperties { get; init; } = [];

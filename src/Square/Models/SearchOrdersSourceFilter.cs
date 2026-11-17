@@ -10,7 +10,7 @@ namespace Square.Models;
 public record SearchOrdersSourceFilter
 {
     /// <summary>
-    /// Filters by the <see href="https://developer.squareup.com/reference/square_2024-08-21/objects/OrderSource">Source</see> <c>name</c>. The filter returns any orders
+    /// Filters by the <see href="entity:OrderSource">Source</see> <c>name</c>. The filter returns any orders
     /// with a <c>source.name</c> that matches any of the listed source names.
     /// <para>
     /// Max: 10 source names.

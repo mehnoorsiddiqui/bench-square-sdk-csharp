@@ -22,7 +22,7 @@ public record ListGiftCardActivitiesRequest
     public string? GiftCardId { get; init; }
 
     /// <summary>
-    /// If a <see href="https://developer.squareup.com/reference/square_2024-08-21/objects/GiftCardActivityType">type</see> is provided, the endpoint returns gift card activities of the specified type.
+    /// If a <see href="entity:GiftCardActivityType">type</see> is provided, the endpoint returns gift card activities of the specified type.
     /// Otherwise, the endpoint returns all types of gift card activities.
     /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]

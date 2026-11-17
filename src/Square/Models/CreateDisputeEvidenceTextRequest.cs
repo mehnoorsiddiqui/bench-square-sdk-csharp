@@ -1,6 +1,7 @@
 using System.ComponentModel.DataAnnotations;
 using System.Text.Json.Serialization;
 using Square.Core.Models;
+using Square.Models.Enums;
 
 namespace Square.Models;
 
@@ -17,11 +18,11 @@ public record CreateDisputeEvidenceTextRequest
     public required string IdempotencyKey { get; init; }
 
     /// <summary>
-    /// The type of evidence you are uploading.
+    /// The type of the dispute evidence.
     /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("evidence_type")]
-    public string? EvidenceType { get; init; }
+    public DisputeEvidenceType? EvidenceType { get; init; }
 
     /// <summary>
     /// The evidence string.

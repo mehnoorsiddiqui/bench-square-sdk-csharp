@@ -1,6 +1,7 @@
 using System.ComponentModel.DataAnnotations;
 using System.Text.Json.Serialization;
 using Square.Core.Models;
+using Square.Models.Enums;
 
 namespace Square.Models;
 
@@ -86,12 +87,9 @@ public record TerminalRefund
     [JsonPropertyName("status")]
     public string? Status { get; init; }
 
-    /// <summary>
-    /// Present if the status is <c>CANCELED</c>.
-    /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("cancel_reason")]
-    public string? CancelReason { get; init; }
+    public ActionCancelReason? CancelReason { get; init; }
 
     /// <summary>
     /// The time when the <c>TerminalRefund</c> was created, as an RFC 3339 timestamp.

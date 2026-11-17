@@ -35,7 +35,7 @@ public sealed class GiftCardActivities
     /// <returns>A <see cref="Task{TResult}"/> of <see cref="CreateGiftCardActivityResponse"/> instance.</returns>
     /// <exception cref="ApiException{TError}"> of <see cref="RawError"/> when the server returns an error response.</exception>
     /// <remarks>
-    /// Creates a gift card activity to manage the balance or state of a <see href="https://developer.squareup.com/reference/square_2024-08-21/objects/GiftCard">gift card</see>.
+    /// Creates a gift card activity to manage the balance or state of a <see href="$m/GiftCard">gift card</see>.
     /// For example, create an <c>ACTIVATE</c> activity to activate a gift card with an initial balance before first use.
     /// </remarks>
     public Task<CreateGiftCardActivityResponse> CreateGiftCardActivity(CreateGiftCardActivityOperationRequest request,

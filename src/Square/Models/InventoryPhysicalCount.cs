@@ -1,6 +1,7 @@
 using System.ComponentModel.DataAnnotations;
 using System.Text.Json.Serialization;
 using Square.Core.Models;
+using Square.Models.Enums;
 
 namespace Square.Models;
 
@@ -14,7 +15,7 @@ public record InventoryPhysicalCount
 {
     /// <summary>
     /// A unique Square-generated ID for the
-    /// <see href="https://developer.squareup.com/reference/square_2024-08-21/objects/InventoryPhysicalCount">InventoryPhysicalCount</see>.
+    /// <see href="entity:InventoryPhysicalCount">InventoryPhysicalCount</see>.
     /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("id")]
@@ -23,7 +24,7 @@ public record InventoryPhysicalCount
 
     /// <summary>
     /// An optional ID provided by the application to tie the
-    /// <see href="https://developer.squareup.com/reference/square_2024-08-21/objects/InventoryPhysicalCount">InventoryPhysicalCount</see> to an external
+    /// <see href="entity:InventoryPhysicalCount">InventoryPhysicalCount</see> to an external
     /// system.
     /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
@@ -33,7 +34,7 @@ public record InventoryPhysicalCount
 
     /// <summary>
     /// The Square-generated ID of the
-    /// <see href="https://developer.squareup.com/reference/square_2024-08-21/objects/CatalogObject">CatalogObject</see> being tracked.
+    /// <see href="entity:CatalogObject">CatalogObject</see> being tracked.
     /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("catalog_object_id")]
@@ -41,7 +42,7 @@ public record InventoryPhysicalCount
     public string? CatalogObjectId { get; init; }
 
     /// <summary>
-    /// The <see href="https://developer.squareup.com/reference/square_2024-08-21/enums/CatalogObjectType">type</see> of the <see href="https://developer.squareup.com/reference/square_2024-08-21/objects/CatalogObject">CatalogObject</see> being tracked.
+    /// The <see href="entity:CatalogObjectType">type</see> of the <see href="entity:CatalogObject">CatalogObject</see> being tracked.
     /// <para>
     /// The Inventory API supports setting and reading the <c>"catalog_object_type": "ITEM_VARIATION"</c> field value.
     /// In addition, it can also read the <c>"catalog_object_type": "ITEM"</c> field value that is set by the Square Restaurants app.
@@ -53,15 +54,14 @@ public record InventoryPhysicalCount
     public string? CatalogObjectType { get; init; }
 
     /// <summary>
-    /// The current <see href="https://developer.squareup.com/reference/square_2024-08-21/enums/InventoryState">inventory state</see> for the related
-    /// quantity of items.
+    /// Indicates the state of a tracked item quantity in the lifecycle of goods.
     /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("state")]
-    public string? State { get; init; }
+    public InventoryState? State { get; init; }
 
     /// <summary>
-    /// The Square-generated ID of the <see href="https://developer.squareup.com/reference/square_2024-08-21/objects/Location">Location</see> where the related
+    /// The Square-generated ID of the <see href="entity:Location">Location</see> where the related
     /// quantity of items is being tracked.
     /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
@@ -86,7 +86,7 @@ public record InventoryPhysicalCount
     public SourceApplication? Source { get; init; }
 
     /// <summary>
-    /// The Square-generated ID of the <see href="https://developer.squareup.com/reference/square_2024-08-21/objects/Employee">Employee</see> responsible for the
+    /// The Square-generated ID of the <see href="entity:Employee">Employee</see> responsible for the
     /// physical count.
     /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
@@ -95,7 +95,7 @@ public record InventoryPhysicalCount
     public string? EmployeeId { get; init; }
 
     /// <summary>
-    /// The Square-generated ID of the <see href="https://developer.squareup.com/reference/square_2024-08-21/objects/TeamMember">Team Member</see> responsible for the
+    /// The Square-generated ID of the <see href="entity:TeamMember">Team Member</see> responsible for the
     /// physical count.
     /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]

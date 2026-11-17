@@ -2,6 +2,7 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Text.Json.Serialization;
 using Square.Core.Models;
+using Square.Models.Enums;
 
 namespace Square.Models;
 
@@ -47,18 +48,19 @@ public record Location
 
     /// <summary>
     /// The Square features that are enabled for the location.
-    /// See <see href="https://developer.squareup.com/reference/square_2024-08-21/enums/LocationCapability">LocationCapability</see> for possible values.
+    /// See <see href="entity:LocationCapability">LocationCapability</see> for possible values.
+    /// See <see href="#type-locationcapability">LocationCapability</see> for possible values
     /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("capabilities")]
-    public IReadOnlyList<string>? Capabilities { get; init; }
+    public IReadOnlyList<LocationCapability>? Capabilities { get; init; }
 
     /// <summary>
-    /// The status of the location.
+    /// A location's status.
     /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("status")]
-    public string? Status { get; init; }
+    public LocationStatus? Status { get; init; }
 
     /// <summary>
     /// The time when the location was created, in RFC 3339 format.
@@ -78,14 +80,12 @@ public record Location
     public string? MerchantId { get; init; }
 
     /// <summary>
-    /// The country of the location, in the two-letter format of ISO 3166. For example, <c>US</c> or <c>JP</c>.
-    /// <para>
-    /// See <see href="https://developer.squareup.com/reference/square_2024-08-21/enums/Country">Country</see> for possible values.
-    /// </para>
+    /// Indicates the country associated with another entity, such as a business.
+    /// Values are in <see href="http://www.iso.org/iso/home/standards/country_codes.htm">ISO 3166-1-alpha-2 format</see>.
     /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("country")]
-    public string? Country { get; init; }
+    public Country? Country { get; init; }
 
     /// <summary>
     /// The language associated with the location, in
@@ -98,13 +98,12 @@ public record Location
     public string? LanguageCode { get; init; }
 
     /// <summary>
-    /// The currency used for all transactions at this location,
-    /// in ISO 4217 format. For example, the currency code for US dollars is <c>USD</c>.
-    /// See <see href="https://developer.squareup.com/reference/square_2024-08-21/enums/Currency">Currency</see> for possible values.
+    /// Indicates the associated currency for an amount of money. Values correspond
+    /// to <see href="https://wikipedia.org/wiki/ISO_4217">ISO 4217</see>.
     /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("currency")]
-    public string? Currency { get; init; }
+    public Currency? Currency { get; init; }
 
     /// <summary>
     /// The phone number of the location. For example, <c>+1 855-700-6000</c>.
@@ -123,11 +122,11 @@ public record Location
     public string? BusinessName { get; init; }
 
     /// <summary>
-    /// The type of the location.
+    /// A location's type.
     /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("type")]
-    public string? Type { get; init; }
+    public LocationType? Type { get; init; }
 
     /// <summary>
     /// The website URL of the location.  For example, <c>https://squareup.com</c>.
@@ -161,7 +160,7 @@ public record Location
     public string? Description { get; init; }
 
     /// <summary>
-    /// The Twitter username of the location without the '&amp;#64;' symbol. For example, <c>Square</c>.
+    /// The Twitter username of the location without the '@' symbol. For example, <c>Square</c>.
     /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("twitter_username")]
@@ -169,7 +168,7 @@ public record Location
     public string? TwitterUsername { get; init; }
 
     /// <summary>
-    /// The Instagram username of the location without the '&amp;#64;' symbol. For example, <c>square</c>.
+    /// The Instagram username of the location without the '@' symbol. For example, <c>square</c>.
     /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("instagram_username")]

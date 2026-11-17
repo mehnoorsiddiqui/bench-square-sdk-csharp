@@ -1,5 +1,6 @@
 using System.Text.Json.Serialization;
 using Square.Core.Models;
+using Square.Models.Enums;
 
 namespace Square.Models;
 
@@ -16,10 +17,10 @@ public record SubscriptionPhase
     public string? Uid { get; init; }
 
     /// <summary>
-    /// The billing cadence of the phase. For example, weekly or monthly. This field cannot be changed after a <c>SubscriptionPhase</c> is created.
+    /// Determines the billing cadence of a <see href="$m/Subscription">Subscription</see>
     /// </summary>
     [JsonPropertyName("cadence")]
-    public required string Cadence { get; init; }
+    public required SubscriptionCadence Cadence { get; init; }
 
     /// <summary>
     /// The number of <c>cadence</c>s the phase lasts. If not set, the phase never ends. Only the last phase can be indefinite. This field cannot be changed after a <c>SubscriptionPhase</c> is created.

@@ -1,5 +1,6 @@
 using System.Text.Json.Serialization;
 using Square.Core.Models;
+using Square.Models.Enums;
 
 namespace Square.Models;
 
@@ -18,11 +19,11 @@ public record ShiftWorkday
     public DateRange? DateRange { get; init; }
 
     /// <summary>
-    /// The strategy on which the dates are applied.
+    /// Defines the logic used to apply a workday filter.
     /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("match_shifts_by")]
-    public string? MatchShiftsBy { get; init; }
+    public ShiftWorkdayMatcher? MatchShiftsBy { get; init; }
 
     /// <summary>
     /// Location-specific timezones convert workdays to datetime filters.

@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using System.Text.Json.Serialization;
 using Square.Core.Models;
+using Square.Models.Enums;
 
 namespace Square.Models;
 
@@ -12,20 +13,20 @@ namespace Square.Models;
 public record LoyaltyProgramRewardDefinition
 {
     /// <summary>
-    /// Indicates the scope of the reward tier. DEPRECATED at version 2020-12-16. You can find this information in the
-    /// <c>product_set_data</c> field of the <c>PRODUCT_SET</c> catalog object referenced by the pricing rule. For <c>ORDER</c> scopes,
-    /// <c>all_products</c> is true. For <c>ITEM_VARIATION</c> or <c>CATEGORY</c> scopes, <c>product_ids_any</c> is a list of
-    /// catalog object IDs of the given type.
+    /// Indicates the scope of the reward tier. DEPRECATED at version 2020-12-16. Discount details
+    /// are now defined using a catalog pricing rule and other catalog objects. For more information, see
+    /// <see href="https://developer.squareup.com/docs/loyalty-api/loyalty-rewards#get-discount-details">Getting discount details for a reward tier</see>.
     /// </summary>
     [JsonPropertyName("scope")]
-    public required string Scope { get; init; }
+    public required LoyaltyProgramRewardDefinitionScope Scope { get; init; }
 
     /// <summary>
-    /// The type of discount the reward tier offers. DEPRECATED at version 2020-12-16. You can find this information
-    /// in the <c>discount_data.discount_type</c> field of the <c>DISCOUNT</c> catalog object referenced by the pricing rule.
+    /// The type of discount the reward tier offers. DEPRECATED at version 2020-12-16. Discount details
+    /// are now defined using a catalog pricing rule and other catalog objects. For more information, see
+    /// <see href="https://developer.squareup.com/docs/loyalty-api/loyalty-rewards#get-discount-details">Getting discount details for a reward tier</see>.
     /// </summary>
     [JsonPropertyName("discount_type")]
-    public required string DiscountType { get; init; }
+    public required LoyaltyProgramRewardDefinitionType DiscountType { get; init; }
 
     /// <summary>
     /// The fixed percentage of the discount. Present if <c>discount_type</c> is <c>FIXED_PERCENTAGE</c>.

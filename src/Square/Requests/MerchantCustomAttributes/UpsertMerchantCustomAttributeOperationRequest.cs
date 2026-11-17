@@ -8,7 +8,7 @@ namespace Square.Requests.MerchantCustomAttributes;
 public sealed record UpsertMerchantCustomAttributeOperationRequest
 {
     /// <summary>
-    /// The ID of the target <see href="https://developer.squareup.com/reference/square_2024-08-21/objects/Merchant">merchant</see>.
+    /// The ID of the target <see href="entity:Merchant">merchant</see>.
     /// </summary>
     public required string MerchantId { get; init; }
 

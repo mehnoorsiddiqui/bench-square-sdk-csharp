@@ -2,7 +2,7 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Text.Json.Serialization;
 using Square.Core.Models;
-using Square.Core.Validation.Attributes;
+using Square.Models.Enums;
 
 namespace Square.Models;
 
@@ -17,7 +17,7 @@ public record Booking
     /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("id")]
-    [StringLength(36, MinimumLength = 0)]
+    [MaxLength(36)]
     public string? Id { get; init; }
 
     /// <summary>
@@ -25,15 +25,14 @@ public record Booking
     /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("version")]
-    [Minimum(0)]
     public int? Version { get; init; }
 
     /// <summary>
-    /// The status of the booking, describing where the booking stands with respect to the booking state machine.
+    /// Supported booking statuses.
     /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("status")]
-    public string? Status { get; init; }
+    public BookingStatus? Status { get; init; }
 
     /// <summary>
     /// The RFC 3339 timestamp specifying the creation time of this booking.
@@ -57,36 +56,36 @@ public record Booking
     public string? StartAt { get; init; }
 
     /// <summary>
-    /// The ID of the <see href="https://developer.squareup.com/reference/square_2024-08-21/objects/Location">Location</see> object representing the location where the booked service is provided. Once set when the booking is created, its value cannot be changed.
+    /// The ID of the <see href="entity:Location">Location</see> object representing the location where the booked service is provided. Once set when the booking is created, its value cannot be changed.
     /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("location_id")]
-    [StringLength(32, MinimumLength = 0)]
+    [MaxLength(32)]
     public string? LocationId { get; init; }
 
     /// <summary>
-    /// The ID of the <see href="https://developer.squareup.com/reference/square_2024-08-21/objects/Customer">Customer</see> object representing the customer receiving the booked service.
+    /// The ID of the <see href="entity:Customer">Customer</see> object representing the customer receiving the booked service.
     /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("customer_id")]
-    [StringLength(192, MinimumLength = 0)]
+    [MaxLength(192)]
     public string? CustomerId { get; init; }
 
     /// <summary>
-    /// The free-text field for the customer to supply notes about the booking. For example, the note can be preferences that cannot be expressed by supported attributes of a relevant <see href="https://developer.squareup.com/reference/square_2024-08-21/objects/CatalogObject">CatalogObject</see> instance.
+    /// The free-text field for the customer to supply notes about the booking. For example, the note can be preferences that cannot be expressed by supported attributes of a relevant <see href="entity:CatalogObject">CatalogObject</see> instance.
     /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("customer_note")]
-    [StringLength(4096, MinimumLength = 0)]
+    [MaxLength(4096)]
     public string? CustomerNote { get; init; }
 
     /// <summary>
-    /// The free-text field for the seller to supply notes about the booking. For example, the note can be preferences that cannot be expressed by supported attributes of a specific <see href="https://developer.squareup.com/reference/square_2024-08-21/objects/CatalogObject">CatalogObject</see> instance.
+    /// The free-text field for the seller to supply notes about the booking. For example, the note can be preferences that cannot be expressed by supported attributes of a specific <see href="entity:CatalogObject">CatalogObject</see> instance.
     /// This field should not be visible to customers.
     /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("seller_note")]
-    [StringLength(4096, MinimumLength = 0)]
+    [MaxLength(4096)]
     public string? SellerNote { get; init; }
 
     /// <summary>
@@ -112,12 +111,11 @@ public record Booking
     public bool? AllDay { get; init; }
 
     /// <summary>
-    /// The type of location where the booking is held.
-    /// Access to this field requires seller-level permissions.
+    /// Supported types of location where service is provided.
     /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("location_type")]
-    public string? LocationType { get; init; }
+    public BusinessAppointmentSettingsBookingLocationType? LocationType { get; init; }
 
     /// <summary>
     /// Information about a booking creator.
@@ -127,12 +125,19 @@ public record Booking
     public BookingCreatorDetails? CreatorDetails { get; init; }
 
     /// <summary>
-    /// The source of the booking.
-    /// Access to this field requires seller-level permissions.
+    /// Supported sources a booking was created from.
     /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("source")]
-    public string? Source { get; init; }
+    public BookingBookingSource? Source { get; init; }
+
+    /// <summary>
+    /// Represents a postal address in a country.
+    /// For more information, see <see href="https://developer.squareup.com/docs/build-basics/working-with-addresses">Working with Addresses</see>.
+    /// </summary>
+    [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
+    [JsonPropertyName("address")]
+    public Address? Address { get; init; }
 
     [JsonExtensionData]
     public AdditionalProperties AdditionalProperties { get; init; } = [];

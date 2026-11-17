@@ -6,7 +6,7 @@ namespace Square.Requests.CustomerCustomAttributes;
 public sealed record RetrieveCustomerCustomAttributeOperationRequest
 {
     /// <summary>
-    /// The ID of the target <see href="https://developer.squareup.com/reference/square_2024-08-21/objects/Customer">customer profile</see>.
+    /// The ID of the target <see href="entity:Customer">customer profile</see>.
     /// </summary>
     public required string CustomerId { get; init; }
 
@@ -18,11 +18,11 @@ public sealed record RetrieveCustomerCustomAttributeOperationRequest
     public required string Key { get; init; }
 
     /// <summary>
-    /// Indicates whether to return the <see href="https://developer.squareup.com/reference/square_2024-08-21/objects/CustomAttributeDefinition">custom attribute definition</see> in the <c>definition</c> field of
+    /// Indicates whether to return the <see href="entity:CustomAttributeDefinition">custom attribute definition</see> in the <c>definition</c> field of
     /// the custom attribute. Set this parameter to <c>true</c> to get the name and description of the custom
     /// attribute, information about the data type, or other definition details. The default value is <c>false</c>.
     /// </summary>
-    public bool? WithDefinition { get; init; }
+    public bool WithDefinition { get; init; } = false;
 
     /// <summary>
     /// The current version of the custom attribute, which is used for strongly consistent reads to

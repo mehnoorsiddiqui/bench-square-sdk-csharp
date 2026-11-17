@@ -1,6 +1,7 @@
 using System.ComponentModel.DataAnnotations;
 using System.Text.Json.Serialization;
 using Square.Core.Models;
+using Square.Models.Enums;
 
 namespace Square.Models;
 
@@ -17,12 +18,11 @@ public record FulfillmentDeliveryDetails
     public FulfillmentRecipient? Recipient { get; init; }
 
     /// <summary>
-    /// Indicates the fulfillment delivery schedule type. If <c>SCHEDULED</c>, then
-    /// <c>deliver_at</c> is required. If <c>ASAP</c>, then <c>prep_time_duration</c> is required. The default is <c>SCHEDULED</c>.
+    /// The schedule type of the delivery fulfillment.
     /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("schedule_type")]
-    public string? ScheduleType { get; init; }
+    public FulfillmentDeliveryDetailsOrderFulfillmentDeliveryDetailsScheduleType? ScheduleType { get; init; }
 
     /// <summary>
     /// The <see href="https://developer.squareup.com/docs/build-basics/working-with-dates">timestamp</see>

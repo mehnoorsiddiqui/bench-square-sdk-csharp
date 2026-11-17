@@ -6,7 +6,7 @@ namespace Square.Models;
 
 /// <summary>
 /// Defines the fields that are included in the response body of
-/// a request to the <see href="https://developer.squareup.com/reference/square_2024-08-21/events-api/list-event-types">ListEventTypes</see> endpoint.
+/// a request to the <see href="$e/Events/ListEventTypes">ListEventTypes</see> endpoint.
 /// <para>
 /// Note: if there are errors processing the request, the event types field will not be
 /// present.
@@ -29,7 +29,7 @@ public record ListEventTypesResponse
     public IReadOnlyList<string>? EventTypes { get; init; }
 
     /// <summary>
-    /// Contains the metadata of an event type. For more information, see <see href="https://developer.squareup.com/reference/square_2024-08-21/objects/EventTypeMetadata">EventTypeMetadata</see>.
+    /// Contains the metadata of an event type. For more information, see <see href="entity:EventTypeMetadata">EventTypeMetadata</see>.
     /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("metadata")]

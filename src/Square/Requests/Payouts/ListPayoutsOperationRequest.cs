@@ -1,3 +1,5 @@
+using Square.Models.Enums;
+
 namespace Square.Requests.Payouts;
 
 /// <summary>
@@ -14,7 +16,7 @@ public sealed record ListPayoutsOperationRequest
     /// <summary>
     /// If provided, only payouts with the given status are returned.
     /// </summary>
-    public string? Status { get; init; }
+    public PayoutStatus? Status { get; init; }
 
     /// <summary>
     /// The timestamp for the beginning of the payout creation time, in RFC 3339 format.
@@ -31,7 +33,7 @@ public sealed record ListPayoutsOperationRequest
     /// <summary>
     /// The order in which payouts are listed.
     /// </summary>
-    public string? SortOrder { get; init; }
+    public SortOrder? SortOrder { get; init; }
 
     /// <summary>
     /// A pagination cursor returned by a previous call to this endpoint.

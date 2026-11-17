@@ -1,3 +1,5 @@
+using Square.Models.Enums;
+
 namespace Square.Requests.Devices;
 
 /// <summary>
@@ -24,11 +26,11 @@ public sealed record ListDeviceCodesOperationRequest
     /// If specified, only returns DeviceCodes targeting the specified product type.
     /// Returns DeviceCodes of all product types if empty.
     /// </summary>
-    public string? ProductType { get; init; }
+    public ProductType? ProductType { get; init; }
 
     /// <summary>
     /// If specified, returns DeviceCodes with the specified statuses.
     /// Returns DeviceCodes of status <c>PAIRED</c> and <c>UNPAIRED</c> if empty.
     /// </summary>
-    public string? Status { get; init; }
+    public DeviceCodeStatus? Status { get; init; }
 }

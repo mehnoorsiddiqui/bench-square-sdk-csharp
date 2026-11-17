@@ -1,6 +1,7 @@
 using System.ComponentModel.DataAnnotations;
 using System.Text.Json.Serialization;
 using Square.Core.Models;
+using Square.Models.Enums;
 
 namespace Square.Models;
 
@@ -22,10 +23,10 @@ public record DataCollectionOptions
     public required string Body { get; init; }
 
     /// <summary>
-    /// Represents the type of the input text.
+    /// Describes the input type of the data.
     /// </summary>
     [JsonPropertyName("input_type")]
-    public required string InputType { get; init; }
+    public required DataCollectionOptionsInputType InputType { get; init; }
 
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("collected_data")]

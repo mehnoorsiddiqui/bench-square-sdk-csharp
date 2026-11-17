@@ -1,5 +1,6 @@
 using System.Text.Json.Serialization;
 using Square.Core.Models;
+using Square.Models.Enums;
 
 namespace Square.Models;
 
@@ -9,15 +10,15 @@ namespace Square.Models;
 public record SourceApplication
 {
     /// <summary>
-    /// __Read only__ The <see href="https://developer.squareup.com/reference/square_2024-08-21/enums/Product">product</see> type of the application.
+    /// Indicates the Square product used to generate a change.
     /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("product")]
-    public string? Product { get; init; }
+    public Product? Product { get; init; }
 
     /// <summary>
     /// __Read only__ The Square-assigned ID of the application. This field is used only if the
-    /// <see href="https://developer.squareup.com/reference/square_2024-08-21/enums/Product">product</see> type is <c>EXTERNAL_API</c>.
+    /// <see href="entity:Product">product</see> type is <c>EXTERNAL_API</c>.
     /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("application_id")]

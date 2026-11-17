@@ -2,6 +2,7 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Text.Json.Serialization;
 using Square.Core.Models;
+using Square.Models.Enums;
 
 namespace Square.Models;
 
@@ -12,17 +13,18 @@ public record BusinessAppointmentSettings
 {
     /// <summary>
     /// Types of the location allowed for bookings.
+    /// See <see href="#type-businessappointmentsettingsbookinglocationtype">BusinessAppointmentSettingsBookingLocationType</see> for possible values
     /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("location_types")]
-    public IReadOnlyList<string>? LocationTypes { get; init; }
+    public IReadOnlyList<BusinessAppointmentSettingsBookingLocationType>? LocationTypes { get; init; }
 
     /// <summary>
-    /// The time unit of the service duration for bookings.
+    /// Time units of a service duration for bookings.
     /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("alignment_time")]
-    public string? AlignmentTime { get; init; }
+    public BusinessAppointmentSettingsAlignmentTime? AlignmentTime { get; init; }
 
     /// <summary>
     /// The minimum lead time in seconds before a service can be booked. A booking must be created at least this amount of time before its starting time.
@@ -54,12 +56,11 @@ public record BusinessAppointmentSettings
     public bool? MultipleServiceBookingEnabled { get; init; }
 
     /// <summary>
-    /// Indicates whether the daily appointment limit applies to team members or to
-    /// business locations.
+    /// Types of daily appointment limits.
     /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("max_appointments_per_day_limit_type")]
-    public string? MaxAppointmentsPerDayLimitType { get; init; }
+    public BusinessAppointmentSettingsMaxAppointmentsPerDayLimitType? MaxAppointmentsPerDayLimitType { get; init; }
 
     /// <summary>
     /// The maximum number of daily appointments per team member or per location.
@@ -88,18 +89,18 @@ public record BusinessAppointmentSettings
     public Money? CancellationFeeMoney { get; init; }
 
     /// <summary>
-    /// The cancellation policy adopted by the seller.
+    /// The category of the seller’s cancellation policy.
     /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("cancellation_policy")]
-    public string? CancellationPolicy { get; init; }
+    public BusinessAppointmentSettingsCancellationPolicy? CancellationPolicy { get; init; }
 
     /// <summary>
     /// The free-form text of the seller's cancellation policy.
     /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("cancellation_policy_text")]
-    [StringLength(65536, MinimumLength = 0)]
+    [MaxLength(65536)]
     public string? CancellationPolicyText { get; init; }
 
     /// <summary>

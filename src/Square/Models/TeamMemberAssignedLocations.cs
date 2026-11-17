@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using System.Text.Json.Serialization;
 using Square.Core.Models;
+using Square.Models.Enums;
 
 namespace Square.Models;
 
@@ -10,11 +11,11 @@ namespace Square.Models;
 public record TeamMemberAssignedLocations
 {
     /// <summary>
-    /// The current assignment type of the team member.
+    /// Enumerates the possible assignment types that the team member can have.
     /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("assignment_type")]
-    public string? AssignmentType { get; init; }
+    public TeamMemberAssignedLocationsAssignmentType? AssignmentType { get; init; }
 
     /// <summary>
     /// The explicit locations that the team member is assigned to.

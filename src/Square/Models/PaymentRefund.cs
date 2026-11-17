@@ -142,6 +142,13 @@ public record PaymentRefund
     [MaxLength(192)]
     public string? TeamMemberId { get; init; }
 
+    /// <summary>
+    /// An optional ID for a Terminal refund.
+    /// </summary>
+    [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
+    [JsonPropertyName("terminal_refund_id")]
+    public string? TerminalRefundId { get; init; }
+
     [JsonExtensionData]
     public AdditionalProperties AdditionalProperties { get; init; } = [];
 }

@@ -11,23 +11,20 @@ public sealed record ServerEnvironment : ClosedStringEnum<ServerEnvironment>
     {
     }
 
-    /// <summary>
-    /// Production
-    /// </summary>
     public static readonly ServerEnvironment Production = new("production");
 
-    /// <summary>
-    /// Sandbox
-    /// </summary>
-    public static readonly ServerEnvironment Environment2 = new("environment2");
+    public static readonly ServerEnvironment Sandbox = new("sandbox");
+
+    public static readonly ServerEnvironment Custom = new("custom");
 
     public static ServerEnvironment Default() => Production;
 
-    internal TResult Match<TResult>(Func<TResult> onProduction, Func<TResult> onEnvironment2) =>
+    internal TResult Match<TResult>(Func<TResult> onProduction, Func<TResult> onSandbox, Func<TResult> onCustom) =>
         this switch
         {
             _ when this == Production => onProduction(),
-            _ when this == Environment2 => onEnvironment2(),
+            _ when this == Sandbox => onSandbox(),
+            _ when this == Custom => onCustom(),
             _ => throw new InvalidOperationException($"{nameof(ServerEnvironment)} holds no known value.")
         };
 }

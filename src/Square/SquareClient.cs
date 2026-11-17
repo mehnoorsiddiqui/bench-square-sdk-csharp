@@ -8,7 +8,7 @@ using Square.Core.Models;
 namespace Square;
 
 /// <summary>
-/// Client library for accessing the Square Connect APIs
+/// Use Square APIs to manage and run business including payment, customer, product, inventory, and employee management.
 /// </summary>
 public sealed class SquareClient
 {
@@ -24,9 +24,9 @@ public sealed class SquareClient
         var urlFactory = new UriFactory(queryParameterFactory, templateParamsFactory);
         var httpStatusPolicy = new HttpStatusPolicy([]);
         var headersFactory = new HeadersFactory([
-            new HeaderParam("User-Agent", "SquareClient/1.2.0 CSharp"),
+            new HeaderParam("User-Agent", "SquareClient/2.0.0 CSharp"),
             new HeaderParam("X-APIMatic-Lang", "CSharp"),
-            new HeaderParam("X-APIMatic-Package-Version", "1.2.0"),
+            new HeaderParam("X-APIMatic-Package-Version", "2.0.0"),
             new HeaderParam("X-APIMatic-Gen-Version", "4.0.0"),
             new HeaderParam("X-APIMatic-OS", RuntimeEnvironment.Os),
             new HeaderParam("X-APIMatic-Runtime", RuntimeEnvironment.Runtime),

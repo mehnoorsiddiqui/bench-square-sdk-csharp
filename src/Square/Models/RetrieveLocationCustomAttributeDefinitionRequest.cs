@@ -4,7 +4,7 @@ using Square.Core.Models;
 namespace Square.Models;
 
 /// <summary>
-/// Represents a <see href="https://developer.squareup.com/reference/square_2024-08-21/location-custom-attributes-api/retrieve-location-custom-attributeDefinition">RetrieveLocationCustomAttributeDefinition</see> request.
+/// Represents a <see href="$e/LocationCustomAttributes/RetrieveLocationCustomAttributeDefinition">RetrieveLocationCustomAttributeDefinition</see> request.
 /// </summary>
 public record RetrieveLocationCustomAttributeDefinitionRequest
 {

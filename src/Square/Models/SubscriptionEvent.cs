@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using System.Text.Json.Serialization;
 using Square.Core.Models;
+using Square.Models.Enums;
 
 namespace Square.Models;
 
@@ -16,10 +17,10 @@ public record SubscriptionEvent
     public required string Id { get; init; }
 
     /// <summary>
-    /// Type of the subscription event.
+    /// Supported types of an event occurred to a subscription.
     /// </summary>
     [JsonPropertyName("subscription_event_type")]
-    public required string SubscriptionEventType { get; init; }
+    public required SubscriptionEventSubscriptionEventType SubscriptionEventType { get; init; }
 
     /// <summary>
     /// The <c>YYYY-MM-DD</c>-formatted date (for example, 2013-01-15) when the subscription event occurred.

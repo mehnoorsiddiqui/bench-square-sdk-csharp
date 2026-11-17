@@ -5,7 +5,7 @@ using Square.Core.Models;
 namespace Square.Models;
 
 /// <summary>
-/// The response object returned by the <see href="https://developer.squareup.com/reference/square_2024-08-21/merchants-api/retrieve-merchant">RetrieveMerchant</see> endpoint.
+/// The response object returned by the <see href="$e/Merchants/RetrieveMerchant">RetrieveMerchant</see> endpoint.
 /// </summary>
 public record RetrieveMerchantResponse
 {

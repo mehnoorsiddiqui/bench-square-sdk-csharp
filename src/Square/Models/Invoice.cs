@@ -2,6 +2,7 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Text.Json.Serialization;
 using Square.Core.Models;
+using Square.Models.Enums;
 
 namespace Square.Models;
 
@@ -37,11 +38,11 @@ public record Invoice
     public string? LocationId { get; init; }
 
     /// <summary>
-    /// The ID of the <see href="https://developer.squareup.com/reference/square_2024-08-21/objects/Order">order</see> for which the invoice is created.
+    /// The ID of the <see href="entity:Order">order</see> for which the invoice is created.
     /// This field is required when creating an invoice, and the order must be in the <c>OPEN</c> state.
     /// <para>
     /// To view the line items and other information for the associated order, call the
-    /// <see href="https://developer.squareup.com/reference/square_2024-08-21/orders-api/retrieve-order">RetrieveOrder</see> endpoint using the order ID.
+    /// <see href="api-endpoint:Orders-RetrieveOrder">RetrieveOrder</see> endpoint using the order ID.
     /// </para>
     /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
@@ -84,22 +85,11 @@ public record Invoice
     public IReadOnlyList<InvoicePaymentRequest>? PaymentRequests { get; init; }
 
     /// <summary>
-    /// The delivery method that Square uses to send the invoice, reminders, and receipts to
-    /// the customer. After the invoice is published, Square processes the invoice based on the delivery
-    /// method and payment request settings, either immediately or on the <c>scheduled_at</c> date, if specified.
-    /// For example, Square might send the invoice or receipt for an automatic payment. For invoices with
-    /// automatic payments, this field must be set to <c>EMAIL</c>.
-    /// <para>
-    /// One of the following is required when creating an invoice:
-    /// - (Recommended) This <c>delivery_method</c> field. To configure an automatic payment, the
-    /// <c>automatic_payment_source</c> field of the payment request is also required.
-    /// - The deprecated <c>request_method</c> field of the payment request. Note that <c>invoice</c>
-    /// objects returned in responses do not include <c>request_method</c>.
-    /// </para>
+    /// Indicates how Square delivers the <see href="$m/Invoice">invoice</see> to the customer.
     /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("delivery_method")]
-    public string? DeliveryMethod { get; init; }
+    public InvoiceDeliveryMethod? DeliveryMethod { get; init; }
 
     /// <summary>
     /// A user-friendly invoice number that is displayed on the invoice. The value is unique within a location.
@@ -162,11 +152,11 @@ public record Invoice
     public Money? NextPaymentAmountMoney { get; init; }
 
     /// <summary>
-    /// The status of the invoice.
+    /// Indicates the status of an invoice.
     /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("status")]
-    public string? Status { get; init; }
+    public InvoiceStatus? Status { get; init; }
 
     /// <summary>
     /// The time zone used to interpret calendar dates on the invoice, such as <c>due_date</c>.
@@ -197,7 +187,7 @@ public record Invoice
     public string? UpdatedAt { get; init; }
 
     /// <summary>
-    /// The payment methods that customers can use to pay an <see href="https://developer.squareup.com/reference/square_2024-08-21/objects/Invoice">invoice</see> on the Square-hosted invoice payment page.
+    /// The payment methods that customers can use to pay an <see href="$m/Invoice">invoice</see> on the Square-hosted invoice payment page.
     /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("accepted_payment_methods")]
@@ -219,7 +209,7 @@ public record Invoice
     public IReadOnlyList<InvoiceCustomField>? CustomFields { get; init; }
 
     /// <summary>
-    /// The ID of the <see href="https://developer.squareup.com/reference/square_2024-08-21/objects/Subscription">subscription</see> associated with the invoice.
+    /// The ID of the <see href="entity:Subscription">subscription</see> associated with the invoice.
     /// This field is present only on subscription billing invoices.
     /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
@@ -258,7 +248,7 @@ public record Invoice
 
     /// <summary>
     /// Metadata about the attachments on the invoice. Invoice attachments are managed using the
-    /// <see href="https://developer.squareup.com/reference/square_2024-08-21/invoices-api/create-invoice-attachment">CreateInvoiceAttachment</see> and <see href="https://developer.squareup.com/reference/square_2024-08-21/invoices-api/delete-invoice-attachment">DeleteInvoiceAttachment</see> endpoints.
+    /// <see href="api-endpoint:Invoices-CreateInvoiceAttachment">CreateInvoiceAttachment</see> and <see href="api-endpoint:Invoices-DeleteInvoiceAttachment">DeleteInvoiceAttachment</see> endpoints.
     /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("attachments")]

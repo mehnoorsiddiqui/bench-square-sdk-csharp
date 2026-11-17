@@ -1,26 +1,27 @@
 using System.Text.Json.Serialization;
 using Square.Core.Models;
+using Square.Models.Enums;
 
 namespace Square.Models;
 
 /// <summary>
-/// Defines a sorter used to sort results from <see href="https://developer.squareup.com/reference/square_2024-08-21/vendors-api/search-vendors">SearchVendors</see>.
+/// Defines a sorter used to sort results from <see href="$e/Vendors/SearchVendors">SearchVendors</see>.
 /// </summary>
 public record SearchVendorsRequestSort
 {
     /// <summary>
-    /// Specifies the sort key to sort the returned vendors.
+    /// The field to sort the returned <see href="$m/Vendor">Vendor</see> objects by.
     /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("field")]
-    public string? Field { get; init; }
+    public SearchVendorsRequestSortField? Field { get; init; }
 
     /// <summary>
-    /// Specifies the sort order for the returned vendors.
+    /// The order (e.g., chronological or alphabetical) in which results from a request are returned.
     /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("order")]
-    public string? Order { get; init; }
+    public SortOrder? Order { get; init; }
 
     [JsonExtensionData]
     public AdditionalProperties AdditionalProperties { get; init; } = [];

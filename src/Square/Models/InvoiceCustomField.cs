@@ -1,6 +1,7 @@
 using System.ComponentModel.DataAnnotations;
 using System.Text.Json.Serialization;
 using Square.Core.Models;
+using Square.Models.Enums;
 
 namespace Square.Models;
 
@@ -31,11 +32,12 @@ public record InvoiceCustomField
     public string? Value { get; init; }
 
     /// <summary>
-    /// The location of the custom field on the invoice. This field is required for a custom field.
+    /// Indicates where to render a custom field on the Square-hosted invoice page and in emailed or PDF
+    /// copies of the invoice.
     /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("placement")]
-    public string? Placement { get; init; }
+    public InvoiceCustomFieldPlacement? Placement { get; init; }
 
     [JsonExtensionData]
     public AdditionalProperties AdditionalProperties { get; init; } = [];

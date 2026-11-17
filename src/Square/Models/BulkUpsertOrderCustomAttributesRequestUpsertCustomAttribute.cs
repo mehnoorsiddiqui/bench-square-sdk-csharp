@@ -26,7 +26,7 @@ public record BulkUpsertOrderCustomAttributesRequestUpsertCustomAttribute
     public string? IdempotencyKey { get; init; }
 
     /// <summary>
-    /// The ID of the target <see href="https://developer.squareup.com/reference/square_2024-08-21/objects/Order">order</see>.
+    /// The ID of the target <see href="entity:Order">order</see>.
     /// </summary>
     [JsonPropertyName("order_id")]
     [StringLength(255, MinimumLength = 1)]

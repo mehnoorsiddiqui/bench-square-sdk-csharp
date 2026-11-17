@@ -31,6 +31,7 @@ Accessor: `client.Payouts` · Source: `src/Square/Api/Payouts.cs` · 3 operation
 | Type | Source |
 | --- | --- |
 | `ListPayoutEntriesOperationRequest` | `src/Square/Requests/Payouts/ListPayoutEntriesOperationRequest.cs` |
+| `SortOrder` | `src/Square/Models/Enums/SortOrder.cs` |
 | `ListPayoutEntriesResponse` | `src/Square/Models/ListPayoutEntriesResponse.cs` |
 
 ### ListPayouts
@@ -44,5 +45,7 @@ Accessor: `client.Payouts` · Source: `src/Square/Api/Payouts.cs` · 3 operation
 | Type | Source |
 | --- | --- |
 | `ListPayoutsOperationRequest` | `src/Square/Requests/Payouts/ListPayoutsOperationRequest.cs` |
+| `PayoutStatus` | `src/Square/Models/Enums/PayoutStatus.cs` |
+| `SortOrder` | `src/Square/Models/Enums/SortOrder.cs` |
 | `ListPayoutsResponse` | `src/Square/Models/ListPayoutsResponse.cs` |
 

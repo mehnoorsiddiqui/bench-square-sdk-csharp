@@ -6,7 +6,7 @@ namespace Square.Models;
 
 /// <summary>
 /// Defines input parameters in a request to the
-/// <see href="https://developer.squareup.com/reference/square_2024-08-21/subscriptions-api/change-billing-anchor-date">ChangeBillingAnchorDate</see> endpoint.
+/// <see href="$e/Subscriptions/ChangeBillingAnchorDate">ChangeBillingAnchorDate</see> endpoint.
 /// </summary>
 public record ChangeBillingAnchorDateRequest
 {

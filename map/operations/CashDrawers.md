@@ -32,6 +32,7 @@ Accessor: `client.CashDrawers` · Source: `src/Square/Api/CashDrawers.cs` · 3 o
 | Type | Source |
 | --- | --- |
 | `ListCashDrawerShiftsOperationRequest` | `src/Square/Requests/CashDrawers/ListCashDrawerShiftsOperationRequest.cs` |
+| `SortOrder` | `src/Square/Models/Enums/SortOrder.cs` |
 | `ListCashDrawerShiftsResponse` | `src/Square/Models/ListCashDrawerShiftsResponse.cs` |
 
 ### RetrieveCashDrawerShift

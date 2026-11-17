@@ -6,7 +6,7 @@ namespace Square.Models;
 
 /// <summary>
 /// Defines the response returned by
-/// <see href="https://developer.squareup.com/reference/square_2024-08-21/payments-api/cancel-payment-by-idempotency-key">CancelPaymentByIdempotencyKey</see>.
+/// <see href="$e/Payments/CancelPaymentByIdempotencyKey">CancelPaymentByIdempotencyKey</see>.
 /// On success, <c>errors</c> is empty.
 /// </summary>
 public record CancelPaymentByIdempotencyKeyResponse

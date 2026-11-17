@@ -2,6 +2,7 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Text.Json.Serialization;
 using Square.Core.Models;
+using Square.Models.Enums;
 
 namespace Square.Models;
 
@@ -37,7 +38,7 @@ public record OrderReturnServiceCharge
     public string? Name { get; init; }
 
     /// <summary>
-    /// The catalog object ID of the associated <see href="https://developer.squareup.com/reference/square_2024-08-21/objects/OrderServiceCharge">OrderServiceCharge</see>.
+    /// The catalog object ID of the associated <see href="entity:OrderServiceCharge">OrderServiceCharge</see>.
     /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("catalog_object_id")]
@@ -113,11 +114,15 @@ public record OrderReturnServiceCharge
     public Money? TotalTaxMoney { get; init; }
 
     /// <summary>
-    /// The calculation phase after which to apply the service charge.
+    /// Represents a phase in the process of calculating order totals.
+    /// Service charges are applied after the indicated phase.
+    /// <para>
+    /// <see href="https://developer.squareup.com/docs/orders-api/how-it-works#how-totals-are-calculated">Read more about how order totals are calculated.</see>
+    /// </para>
     /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("calculation_phase")]
-    public string? CalculationPhase { get; init; }
+    public OrderServiceChargeCalculationPhase? CalculationPhase { get; init; }
 
     /// <summary>
     /// Indicates whether the surcharge can be taxed. Service charges
@@ -139,26 +144,20 @@ public record OrderReturnServiceCharge
     public IReadOnlyList<OrderLineItemAppliedTax>? AppliedTaxes { get; init; }
 
     /// <summary>
-    /// The treatment type of the service charge.
+    /// Indicates whether the service charge will be treated as a value-holding line item or
+    /// apportioned toward a line item.
     /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("treatment_type")]
-    public string? TreatmentType { get; init; }
+    public OrderServiceChargeTreatmentType? TreatmentType { get; init; }
 
     /// <summary>
-    /// Indicates the level at which the apportioned service charge applies. For <c>ORDER</c>
-    /// scoped service charges, Square generates references in <c>applied_service_charges</c> on
-    /// all order line items that do not have them. For <c>LINE_ITEM</c> scoped service charges,
-    /// the service charge only applies to line items with a service charge reference in their
-    /// <c>applied_service_charges</c> field.
-    /// <para>
-    /// This field is immutable. To change the scope of an apportioned service charge, you must delete
-    /// the apportioned service charge and re-add it as a new apportioned service charge.
-    /// </para>
+    /// Indicates whether this is a line-item or order-level apportioned
+    /// service charge.
     /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("scope")]
-    public string? Scope { get; init; }
+    public OrderServiceChargeScope? Scope { get; init; }
 
     [JsonExtensionData]
     public AdditionalProperties AdditionalProperties { get; init; } = [];

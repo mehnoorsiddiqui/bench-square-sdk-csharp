@@ -2,6 +2,7 @@ using System.ComponentModel.DataAnnotations;
 using System.Text.Json.Serialization;
 using Square.Core.Models;
 using Square.Core.Validation.Attributes;
+using Square.Models.Enums;
 
 namespace Square.Models;
 
@@ -15,12 +16,11 @@ public record ListCashDrawerShiftsRequest
     public required string LocationId { get; init; }
 
     /// <summary>
-    /// The order in which cash drawer shifts are listed in the response,
-    /// based on their opened_at field. Default value: ASC
+    /// The order (e.g., chronological or alphabetical) in which results from a request are returned.
     /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("sort_order")]
-    public string? SortOrder { get; init; }
+    public SortOrder? SortOrder { get; init; }
 
     /// <summary>
     /// The inclusive start time of the query on opened_at, in ISO 8601 format.

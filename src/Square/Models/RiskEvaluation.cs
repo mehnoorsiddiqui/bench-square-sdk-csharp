@@ -1,5 +1,6 @@
 using System.Text.Json.Serialization;
 using Square.Core.Models;
+using Square.Models.Enums;
 
 namespace Square.Models;
 
@@ -21,12 +22,9 @@ public record RiskEvaluation
     [JsonPropertyName("created_at")]
     public string? CreatedAt { get; init; }
 
-    /// <summary>
-    /// The risk level associated with the payment
-    /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("risk_level")]
-    public string? RiskLevel { get; init; }
+    public RiskEvaluationRiskLevel? RiskLevel { get; init; }
 
     [JsonExtensionData]
     public AdditionalProperties AdditionalProperties { get; init; } = [];

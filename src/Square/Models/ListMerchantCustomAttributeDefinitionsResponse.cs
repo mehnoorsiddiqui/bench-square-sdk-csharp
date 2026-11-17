@@ -5,7 +5,7 @@ using Square.Core.Models;
 namespace Square.Models;
 
 /// <summary>
-/// Represents a <see href="https://developer.squareup.com/reference/square_2024-08-21/merchant-custom-attributes-api/list-merchant-custom-attribute-definitions">ListMerchantCustomAttributeDefinitions</see> response.
+/// Represents a <see href="$e/MerchantCustomAttributes/ListMerchantCustomAttributeDefinitions">ListMerchantCustomAttributeDefinitions</see> response.
 /// Either <c>custom_attribute_definitions</c>, an empty object, or <c>errors</c> is present in the response.
 /// If additional results are available, the <c>cursor</c> field is also present along with <c>custom_attribute_definitions</c>.
 /// </summary>

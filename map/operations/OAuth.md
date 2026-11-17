@@ -32,7 +32,7 @@ Accessor: `client.OAuth` · Source: `src/Square/Api/OAuth.cs` · 3 operations
 
 ### RevokeToken
 
-- **Auth**: `options.Oauth2ClientSecret`
+- **Auth**: `options.BearerAuth`
 - **Signature**: `RevokeToken(RevokeTokenOperationRequest request, RequestOptions? requestOptions = null, CancellationToken cancellationToken = default)`
   - required: `Body`
 - **Returns**: `RevokeTokenResponse`

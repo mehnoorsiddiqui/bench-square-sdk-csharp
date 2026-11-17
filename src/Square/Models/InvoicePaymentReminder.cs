@@ -2,6 +2,7 @@ using System.ComponentModel.DataAnnotations;
 using System.Text.Json.Serialization;
 using Square.Core.Models;
 using Square.Core.Validation.Attributes;
+using Square.Models.Enums;
 
 namespace Square.Models;
 
@@ -40,11 +41,11 @@ public record InvoicePaymentReminder
     public string? Message { get; init; }
 
     /// <summary>
-    /// The status of the reminder.
+    /// The status of a payment request reminder.
     /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("status")]
-    public string? Status { get; init; }
+    public InvoicePaymentReminderStatus? Status { get; init; }
 
     /// <summary>
     /// If sent, the timestamp when the reminder was sent, in RFC 3339 format.

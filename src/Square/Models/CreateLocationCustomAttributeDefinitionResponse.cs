@@ -5,7 +5,7 @@ using Square.Core.Models;
 namespace Square.Models;
 
 /// <summary>
-/// Represents a <see href="https://developer.squareup.com/reference/square_2024-08-21/location-custom-attributes-api/create-location-custom-attribute-definition">CreateLocationCustomAttributeDefinition</see> response.
+/// Represents a <see href="$e/LocationCustomAttributes/CreateLocationCustomAttributeDefinition">CreateLocationCustomAttributeDefinition</see> response.
 /// Either <c>custom_attribute_definition</c> or <c>errors</c> is present in the response.
 /// </summary>
 public record CreateLocationCustomAttributeDefinitionResponse

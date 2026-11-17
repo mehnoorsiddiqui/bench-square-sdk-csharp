@@ -2,6 +2,7 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Text.Json.Serialization;
 using Square.Core.Models;
+using Square.Models.Enums;
 
 namespace Square.Models;
 
@@ -24,11 +25,11 @@ namespace Square.Models;
 public record CatalogObject
 {
     /// <summary>
-    /// The type of this object. Each object type has expected
-    /// properties expressed in a structured format within its corresponding <c>*_data</c> field below.
+    /// Possible types of CatalogObjects returned from the catalog, each
+    /// containing type-specific properties in the <c>*_data</c> field corresponding to the specified object type.
     /// </summary>
     [JsonPropertyName("type")]
-    public required string Type { get; init; }
+    public required CatalogObjectType Type { get; init; }
 
     /// <summary>
     /// An identifier to reference this object in the catalog. When a new <c>CatalogObject</c>
@@ -70,8 +71,8 @@ public record CatalogObject
 
     /// <summary>
     /// A map (key-value pairs) of application-defined custom attribute values. The value of a key-value pair
-    /// is a <see href="https://developer.squareup.com/reference/square_2024-08-21/objects/CatalogCustomAttributeValue">CatalogCustomAttributeValue</see> object. The key is the <c>key</c> attribute
-    /// value defined in the associated <see href="https://developer.squareup.com/reference/square_2024-08-21/objects/CatalogCustomAttributeDefinition">CatalogCustomAttributeDefinition</see>
+    /// is a <see href="entity:CatalogCustomAttributeValue">CatalogCustomAttributeValue</see> object. The key is the <c>key</c> attribute
+    /// value defined in the associated <see href="entity:CatalogCustomAttributeDefinition">CatalogCustomAttributeDefinition</see>
     /// object defined by the application making the request.
     /// <para>
     /// If the <c>CatalogCustomAttributeDefinition</c> object is
@@ -127,7 +128,7 @@ public record CatalogObject
     public IReadOnlyList<string>? AbsentAtLocationIds { get; init; }
 
     /// <summary>
-    /// A <see href="https://developer.squareup.com/reference/square_2024-08-21/objects/CatalogObject">CatalogObject</see> instance of the <c>ITEM</c> type, also referred to as an item, in the catalog.
+    /// A <see href="$m/CatalogObject">CatalogObject</see> instance of the <c>ITEM</c> type, also referred to as an item, in the catalog.
     /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("item_data")]
@@ -141,7 +142,7 @@ public record CatalogObject
     public CatalogCategory? CategoryData { get; init; }
 
     /// <summary>
-    /// An item variation, representing a product for sale, in the Catalog object model. Each <see href="https://developer.squareup.com/reference/square_2024-08-21/objects/CatalogItem">item</see> must have at least one
+    /// An item variation, representing a product for sale, in the Catalog object model. Each <see href="$m/CatalogItem">item</see> must have at least one
     /// item variation and can have at most 250 item variations.
     /// <para>
     /// An item variation can be sellable, stockable, or both if it has a unit of measure for its count for the sold number of the variation, the stocked

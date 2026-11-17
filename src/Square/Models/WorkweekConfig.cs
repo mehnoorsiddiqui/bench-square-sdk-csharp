@@ -1,6 +1,7 @@
 using System.ComponentModel.DataAnnotations;
 using System.Text.Json.Serialization;
 using Square.Core.Models;
+using Square.Models.Enums;
 
 namespace Square.Models;
 
@@ -18,11 +19,10 @@ public record WorkweekConfig
     public string? Id { get; init; }
 
     /// <summary>
-    /// The day of the week on which a business week starts for
-    /// compensation purposes.
+    /// The days of the week.
     /// </summary>
     [JsonPropertyName("start_of_week")]
-    public required string StartOfWeek { get; init; }
+    public required Weekday StartOfWeek { get; init; }
 
     /// <summary>
     /// The local time at which a business week starts. Represented as a

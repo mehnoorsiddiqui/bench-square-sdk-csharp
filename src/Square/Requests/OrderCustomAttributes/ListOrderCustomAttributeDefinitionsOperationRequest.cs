@@ -1,3 +1,5 @@
+using Square.Models.Enums;
+
 namespace Square.Requests.OrderCustomAttributes;
 
 /// <summary>
@@ -8,7 +10,7 @@ public sealed record ListOrderCustomAttributeDefinitionsOperationRequest
     /// <summary>
     /// Requests that all of the custom attributes be returned, or only those that are read-only or read-write.
     /// </summary>
-    public string? VisibilityFilter { get; init; }
+    public VisibilityFilter? VisibilityFilter { get; init; }
 
     /// <summary>
     /// The cursor returned in the paged response from the previous call to this endpoint.

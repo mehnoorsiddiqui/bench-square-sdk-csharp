@@ -2,6 +2,7 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Text.Json.Serialization;
 using Square.Core.Models;
+using Square.Models.Enums;
 
 namespace Square.Models;
 
@@ -40,15 +41,11 @@ public record CatalogModifierList
     public int? Ordinal { get; init; }
 
     /// <summary>
-    /// Indicates whether a single (<c>SINGLE</c>) or multiple (<c>MULTIPLE</c>) modifiers from the list
-    /// can be applied to a single <c>CatalogItem</c>.
-    /// <para>
-    /// For text-based modifiers, the <c>selection_type</c> attribute is always <c>SINGLE</c>. The other value is ignored.
-    /// </para>
+    /// Indicates whether a CatalogModifierList supports multiple selections.
     /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("selection_type")]
-    public string? SelectionType { get; init; }
+    public CatalogModifierListSelectionType? SelectionType { get; init; }
 
     /// <summary>
     /// A non-empty list of <c>CatalogModifier</c> objects to be included in the <c>CatalogModifierList</c>,
@@ -75,15 +72,11 @@ public record CatalogModifierList
     public IReadOnlyList<string>? ImageIds { get; init; }
 
     /// <summary>
-    /// The type of the modifier.
-    /// <para>
-    /// When this <c>modifier_type</c> value is <c>TEXT</c>,  the <c>CatalogModifierList</c> represents a text-based modifier.
-    /// When this <c>modifier_type</c> value is <c>LIST</c>, the <c>CatalogModifierList</c> contains a list of <c>CatalogModifier</c> objects.
-    /// </para>
+    /// Defines the type of <c>CatalogModifierList</c>.
     /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("modifier_type")]
-    public string? ModifierType { get; init; }
+    public CatalogModifierListModifierType? ModifierType { get; init; }
 
     /// <summary>
     /// The maximum length, in Unicode points, of the text string of the text-based modifier as represented by

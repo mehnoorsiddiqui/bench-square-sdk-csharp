@@ -17,7 +17,7 @@ public record CreateMobileAuthorizationCodeResponse
     /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("authorization_code")]
-    [StringLength(191, MinimumLength = 0)]
+    [MaxLength(191)]
     public string? AuthorizationCode { get; init; }
 
     /// <summary>

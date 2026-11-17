@@ -2,6 +2,7 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Text.Json.Serialization;
 using Square.Core.Models;
+using Square.Models.Enums;
 
 namespace Square.Models;
 
@@ -96,10 +97,10 @@ public record Tender
     public string? CustomerId { get; init; }
 
     /// <summary>
-    /// The type of tender, such as <c>CARD</c> or <c>CASH</c>.
+    /// Indicates a tender's type.
     /// </summary>
     [JsonPropertyName("type")]
-    public required string Type { get; init; }
+    public required TenderType Type { get; init; }
 
     /// <summary>
     /// Represents additional details of a tender with <c>type</c> <c>CARD</c> or <c>SQUARE_GIFT_CARD</c>
@@ -118,7 +119,7 @@ public record Tender
     /// <summary>
     /// Represents the details of a tender with <c>type</c> <c>BANK_ACCOUNT</c>.
     /// <para>
-    /// See <see href="https://developer.squareup.com/reference/square_2024-08-21/objects/BankAccountPaymentDetails">BankAccountPaymentDetails</see>
+    /// See <see href="$m/BankAccountPaymentDetails">BankAccountPaymentDetails</see>
     /// for more exposed details of a bank account payment.
     /// </para>
     /// </summary>
@@ -149,7 +150,7 @@ public record Tender
     public IReadOnlyList<AdditionalRecipient>? AdditionalRecipients { get; init; }
 
     /// <summary>
-    /// The ID of the <see href="https://developer.squareup.com/reference/square_2024-08-21/objects/Payment">Payment</see> that corresponds to this tender.
+    /// The ID of the <see href="entity:Payment">Payment</see> that corresponds to this tender.
     /// This value is only present for payments created with the v2 Payments API.
     /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]

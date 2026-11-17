@@ -6,7 +6,7 @@ namespace Square.Models;
 
 /// <summary>
 /// Defines the body parameters that can be included in requests to the
-/// <see href="https://developer.squareup.com/reference/square_2024-08-21/customers-api/bulk-update-customers">BulkUpdateCustomers</see> endpoint.
+/// <see href="$e/Customers/BulkUpdateCustomers">BulkUpdateCustomers</see> endpoint.
 /// </summary>
 public record BulkUpdateCustomersRequest
 {
@@ -14,7 +14,7 @@ public record BulkUpdateCustomersRequest
     /// A map of 1 to 100 individual update requests, represented by <c>customer ID: { customer data }</c>
     /// key-value pairs.
     /// <para>
-    /// Each key is the ID of the <see href="https://developer.squareup.com/reference/square_2024-08-21/objects/Customer">customer profile</see> to update. To update a customer profile
+    /// Each key is the ID of the <see href="entity:Customer">customer profile</see> to update. To update a customer profile
     /// that was created by merging existing profiles, provide the ID of the newly created profile.
     /// </para>
     /// <para>

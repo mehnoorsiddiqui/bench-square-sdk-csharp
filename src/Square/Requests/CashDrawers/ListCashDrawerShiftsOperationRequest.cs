@@ -1,3 +1,5 @@
+using Square.Models.Enums;
+
 namespace Square.Requests.CashDrawers;
 
 /// <summary>
@@ -14,7 +16,7 @@ public sealed record ListCashDrawerShiftsOperationRequest
     /// The order in which cash drawer shifts are listed in the response,
     /// based on their opened_at field. Default value: ASC
     /// </summary>
-    public string? SortOrder { get; init; }
+    public SortOrder? SortOrder { get; init; }
 
     /// <summary>
     /// The inclusive start time of the query on opened_at, in ISO 8601 format.

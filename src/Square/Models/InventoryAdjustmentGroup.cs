@@ -1,6 +1,7 @@
 using System.ComponentModel.DataAnnotations;
 using System.Text.Json.Serialization;
 using Square.Core.Models;
+using Square.Models.Enums;
 
 namespace Square.Models;
 
@@ -24,22 +25,18 @@ public record InventoryAdjustmentGroup
     public string? RootAdjustmentId { get; init; }
 
     /// <summary>
-    /// Representative <c>from_state</c> for adjustments within the group. For example, for a group adjustment from <c>IN_STOCK</c> to <c>SOLD</c>,
-    /// there can be two component adjustments in the group: one from <c>IN_STOCK</c>to <c>COMPOSED</c> and the other one from <c>COMPOSED</c> to <c>SOLD</c>.
-    /// Here, the representative <c>from_state</c> for the <c>InventoryAdjustmentGroup</c> is <c>IN_STOCK</c>.
+    /// Indicates the state of a tracked item quantity in the lifecycle of goods.
     /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("from_state")]
-    public string? FromState { get; init; }
+    public InventoryState? FromState { get; init; }
 
     /// <summary>
-    /// Representative <c>to_state</c> for adjustments within group. For example, for a group adjustment from <c>IN_STOCK</c> to <c>SOLD</c>,
-    /// the two component adjustments in the group can be from <c>IN_STOCK</c> to <c>COMPOSED</c> and from <c>COMPOSED</c> to <c>SOLD</c>.
-    /// Here, the representative <c>to_state</c> of the <c>InventoryAdjustmentGroup</c> is <c>SOLD</c>.
+    /// Indicates the state of a tracked item quantity in the lifecycle of goods.
     /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("to_state")]
-    public string? ToState { get; init; }
+    public InventoryState? ToState { get; init; }
 
     [JsonExtensionData]
     public AdditionalProperties AdditionalProperties { get; init; } = [];

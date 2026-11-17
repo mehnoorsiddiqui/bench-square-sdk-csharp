@@ -1,5 +1,6 @@
 using System.Text.Json.Serialization;
 using Square.Core.Models;
+using Square.Models.Enums;
 
 namespace Square.Models;
 
@@ -19,11 +20,11 @@ public record CashDrawerShiftSummary
     public string? Id { get; init; }
 
     /// <summary>
-    /// The shift current state.
+    /// The current state of a cash drawer shift.
     /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("state")]
-    public string? State { get; init; }
+    public CashDrawerShiftState? State { get; init; }
 
     /// <summary>
     /// The shift start time in ISO 8601 format.

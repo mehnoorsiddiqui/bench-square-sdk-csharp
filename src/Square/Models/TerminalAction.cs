@@ -1,6 +1,7 @@
 using System.ComponentModel.DataAnnotations;
 using System.Text.Json.Serialization;
 using Square.Core.Models;
+using Square.Models.Enums;
 
 namespace Square.Models;
 
@@ -48,12 +49,9 @@ public record TerminalAction
     [JsonPropertyName("status")]
     public string? Status { get; init; }
 
-    /// <summary>
-    /// The reason why <c>TerminalAction</c> is canceled. Present if the status is <c>CANCELED</c>.
-    /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("cancel_reason")]
-    public string? CancelReason { get; init; }
+    public ActionCancelReason? CancelReason { get; init; }
 
     /// <summary>
     /// The time when the <c>TerminalAction</c> was created as an RFC 3339 timestamp.
@@ -85,11 +83,11 @@ public record TerminalAction
     public string? LocationId { get; init; }
 
     /// <summary>
-    /// Represents the type of the action.
+    /// Describes the type of this unit and indicates which field contains the unit information. This is an ‘open’ enum.
     /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("type")]
-    public string? Type { get; init; }
+    public TerminalActionActionType? Type { get; init; }
 
     /// <summary>
     /// Fields to describe the action that displays QR-Codes.

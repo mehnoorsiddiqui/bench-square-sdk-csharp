@@ -5,7 +5,7 @@ using Square.Core.Enum;
 namespace Square.Models.Enums;
 
 /// <summary>
-/// Indicates the status of a <see href="https://developer.squareup.com/reference/square_2024-08-21/objects/LoyaltyPromotion">loyalty promotion</see>.
+/// Indicates the status of a <see href="$m/LoyaltyPromotion">loyalty promotion</see>.
 /// </summary>
 [JsonConverter(typeof(StringEnumConverter<LoyaltyPromotionStatus>))]
 public sealed record LoyaltyPromotionStatus : OpenStringEnum<LoyaltyPromotionStatus>

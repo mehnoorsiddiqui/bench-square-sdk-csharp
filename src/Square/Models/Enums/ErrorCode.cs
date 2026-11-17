@@ -575,10 +575,14 @@ public sealed record ErrorCode : OpenStringEnum<ErrorCode>
     public static readonly ErrorCode RefundAlreadyPending = new("REFUND_ALREADY_PENDING");
 
     /// <summary>
-    /// The payment is not refundable. For example, the payment has been disputed and is no longer eligible for
-    /// refunds.
+    /// The payment is not refundable. For example, the payment is too old to be refunded.
     /// </summary>
     public static readonly ErrorCode PaymentNotRefundable = new("PAYMENT_NOT_REFUNDABLE");
+
+    /// <summary>
+    /// The payment is not refundable because it has been disputed.
+    /// </summary>
+    public static readonly ErrorCode PaymentNotRefundableDueToDispute = new("PAYMENT_NOT_REFUNDABLE_DUE_TO_DISPUTE");
 
     /// <summary>
     /// Request failed - The card issuer declined the refund.
@@ -932,6 +936,7 @@ public sealed record ErrorCode : OpenStringEnum<ErrorCode>
         Func<TResult> onRefundAmountInvalid,
         Func<TResult> onRefundAlreadyPending,
         Func<TResult> onPaymentNotRefundable,
+        Func<TResult> onPaymentNotRefundableDueToDispute,
         Func<TResult> onRefundDeclined,
         Func<TResult> onInsufficientPermissionsForRefund,
         Func<TResult> onInvalidCardData,
@@ -1084,6 +1089,7 @@ public sealed record ErrorCode : OpenStringEnum<ErrorCode>
             _ when this == RefundAmountInvalid => onRefundAmountInvalid(),
             _ when this == RefundAlreadyPending => onRefundAlreadyPending(),
             _ when this == PaymentNotRefundable => onPaymentNotRefundable(),
+            _ when this == PaymentNotRefundableDueToDispute => onPaymentNotRefundableDueToDispute(),
             _ when this == RefundDeclined => onRefundDeclined(),
             _ when this == InsufficientPermissionsForRefund => onInsufficientPermissionsForRefund(),
             _ when this == InvalidCardData => onInvalidCardData(),
@@ -1237,6 +1243,7 @@ public sealed record ErrorCode : OpenStringEnum<ErrorCode>
         Action onRefundAmountInvalid,
         Action onRefundAlreadyPending,
         Action onPaymentNotRefundable,
+        Action onPaymentNotRefundableDueToDispute,
         Action onRefundDeclined,
         Action onInsufficientPermissionsForRefund,
         Action onInvalidCardData,
@@ -1388,6 +1395,7 @@ public sealed record ErrorCode : OpenStringEnum<ErrorCode>
         else if (this == RefundAmountInvalid) onRefundAmountInvalid();
         else if (this == RefundAlreadyPending) onRefundAlreadyPending();
         else if (this == PaymentNotRefundable) onPaymentNotRefundable();
+        else if (this == PaymentNotRefundableDueToDispute) onPaymentNotRefundableDueToDispute();
         else if (this == RefundDeclined) onRefundDeclined();
         else if (this == InsufficientPermissionsForRefund) onInsufficientPermissionsForRefund();
         else if (this == InvalidCardData) onInvalidCardData();

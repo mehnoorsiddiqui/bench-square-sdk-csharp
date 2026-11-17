@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using System.Text.Json.Serialization;
 using Square.Core.Models;
+using Square.Models.Enums;
 
 namespace Square.Models;
 
@@ -12,8 +13,8 @@ public record Customer
     /// <summary>
     /// A unique Square-assigned ID for the customer profile.
     /// <para>
-    /// If you need this ID for an API request, use the ID returned when you created the customer profile or call the <see href="https://developer.squareup.com/reference/square_2024-08-21/customers-api/search-customers">SearchCustomers</see>
-    /// or <see href="https://developer.squareup.com/reference/square_2024-08-21/customers-api/list-customers">ListCustomers</see> endpoint.
+    /// If you need this ID for an API request, use the ID returned when you created the customer profile or call the <see href="api-endpoint:Customers-SearchCustomers">SearchCustomers</see>
+    /// or <see href="api-endpoint:Customers-ListCustomers">ListCustomers</see> endpoint.
     /// </para>
     /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
@@ -37,8 +38,8 @@ public record Customer
     /// <summary>
     /// Payment details of the credit, debit, and gift cards stored on file for the customer profile.
     /// <para>
-    /// DEPRECATED at version 2021-06-16. Replaced by calling <see href="https://developer.squareup.com/reference/square_2024-08-21/cards-api/list-cards">ListCards</see> (for credit and debit cards on file)
-    /// or <see href="https://developer.squareup.com/reference/square_2024-08-21/gift-cards-api/list-gift-cards">ListGiftCards</see> (for gift cards on file) and including the <c>customer_id</c> query parameter.
+    /// DEPRECATED at version 2021-06-16 and will be RETIRED at version 2024-12-18. Replaced by calling <see href="api-endpoint:Cards-ListCards">ListCards</see> (for credit and debit cards on file)
+    /// or <see href="api-endpoint:GiftCards-ListGiftCards">ListGiftCards</see> (for gift cards on file) and including the <c>customer_id</c> query parameter.
     /// For more information, see <see href="https://developer.squareup.com/docs/customers-api/what-it-does#migrate-customer-cards">Migration notes</see>.
     /// </para>
     /// </summary>
@@ -127,21 +128,21 @@ public record Customer
     public CustomerPreferences? Preferences { get; init; }
 
     /// <summary>
-    /// The method used to create the customer profile.
+    /// Indicates the method used to create the customer profile.
     /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("creation_source")]
-    public string? CreationSource { get; init; }
+    public CustomerCreationSource? CreationSource { get; init; }
 
     /// <summary>
-    /// The IDs of <see href="https://developer.squareup.com/reference/square_2024-08-21/objects/CustomerGroup">customer groups</see> the customer belongs to.
+    /// The IDs of <see href="entity:CustomerGroup">customer groups</see> the customer belongs to.
     /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("group_ids")]
     public IReadOnlyList<string>? GroupIds { get; init; }
 
     /// <summary>
-    /// The IDs of <see href="https://developer.squareup.com/reference/square_2024-08-21/objects/CustomerSegment">customer segments</see> the customer belongs to.
+    /// The IDs of <see href="entity:CustomerSegment">customer segments</see> the customer belongs to.
     /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("segment_ids")]
@@ -155,11 +156,12 @@ public record Customer
     public long? Version { get; init; }
 
     /// <summary>
-    /// Identifiers for the location used by various governments for tax purposes.
+    /// Represents the tax ID associated with a <see href="$m/Customer">customer profile</see>. The corresponding <c>tax_ids</c> field is available only for customers of sellers in EU countries or the United Kingdom.
+    /// For more information, see <see href="https://developer.squareup.com/docs/customers-api/what-it-does#customer-tax-ids">Customer tax IDs</see>.
     /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("tax_ids")]
-    public TaxIds? TaxIds { get; init; }
+    public CustomerTaxIds? TaxIds { get; init; }
 
     [JsonExtensionData]
     public AdditionalProperties AdditionalProperties { get; init; } = [];

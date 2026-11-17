@@ -10,11 +10,11 @@ namespace Square.Models;
 public record TeamMemberBookingProfile
 {
     /// <summary>
-    /// The ID of the <see href="https://developer.squareup.com/reference/square_2024-08-21/objects/TeamMember">TeamMember</see> object for the team member associated with the booking profile.
+    /// The ID of the <see href="entity:TeamMember">TeamMember</see> object for the team member associated with the booking profile.
     /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("team_member_id")]
-    [StringLength(32, MinimumLength = 0)]
+    [MaxLength(32)]
     public string? TeamMemberId { get; init; }
 
     /// <summary>
@@ -22,7 +22,7 @@ public record TeamMemberBookingProfile
     /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("description")]
-    [StringLength(65536, MinimumLength = 0)]
+    [MaxLength(65536)]
     public string? Description { get; init; }
 
     /// <summary>
@@ -30,7 +30,7 @@ public record TeamMemberBookingProfile
     /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("display_name")]
-    [StringLength(512, MinimumLength = 0)]
+    [MaxLength(512)]
     public string? DisplayName { get; init; }
 
     /// <summary>
@@ -45,7 +45,7 @@ public record TeamMemberBookingProfile
     /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("profile_image_url")]
-    [StringLength(2048, MinimumLength = 0)]
+    [MaxLength(2048)]
     public string? ProfileImageUrl { get; init; }
 
     [JsonExtensionData]

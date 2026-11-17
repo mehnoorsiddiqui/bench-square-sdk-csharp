@@ -2,6 +2,7 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Text.Json.Serialization;
 using Square.Core.Models;
+using Square.Models.Enums;
 
 namespace Square.Models;
 
@@ -21,10 +22,11 @@ public record ListDisputesRequest
 
     /// <summary>
     /// The dispute states used to filter the result. If not specified, the endpoint returns all disputes.
+    /// See <see href="#type-disputestate">DisputeState</see> for possible values
     /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("states")]
-    public IReadOnlyList<string>? States { get; init; }
+    public IReadOnlyList<DisputeState>? States { get; init; }
 
     /// <summary>
     /// The ID of the location for which to return a list of disputes.

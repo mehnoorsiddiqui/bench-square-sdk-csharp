@@ -17,6 +17,7 @@ Accessor: `client.Employees` · Source: `src/Square/Api/Employees.cs` · 2 opera
 | Type | Source |
 | --- | --- |
 | `ListEmployeesOperationRequest` | `src/Square/Requests/Employees/ListEmployeesOperationRequest.cs` |
+| `EmployeeStatus` | `src/Square/Models/Enums/EmployeeStatus.cs` |
 | `ListEmployeesResponse` | `src/Square/Models/ListEmployeesResponse.cs` |
 
 ### RetrieveEmployee

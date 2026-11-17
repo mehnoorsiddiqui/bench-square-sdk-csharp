@@ -2,11 +2,12 @@ using System.Collections.Generic;
 using System.Text.Json.Serialization;
 using Square.Core.Models;
 using Square.Core.Validation.Attributes;
+using Square.Models.Enums;
 
 namespace Square.Models;
 
 /// <summary>
-/// Defines the request body for the <see href="https://developer.squareup.com/reference/square_2024-08-21/catalog-api/search-catalog-items">SearchCatalogItems</see> endpoint.
+/// Defines the request body for the <see href="$e/Catalog/SearchCatalogItems">SearchCatalogItems</see> endpoint.
 /// </summary>
 public record SearchCatalogItemsRequest
 {
@@ -28,10 +29,11 @@ public record SearchCatalogItemsRequest
 
     /// <summary>
     /// The stock-level query expression to return item variations with the specified stock levels.
+    /// See <see href="#type-searchcatalogitemsrequeststocklevel">SearchCatalogItemsRequestStockLevel</see> for possible values
     /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("stock_levels")]
-    public IReadOnlyList<string>? StockLevels { get; init; }
+    public IReadOnlyList<SearchCatalogItemsRequestStockLevel>? StockLevels { get; init; }
 
     /// <summary>
     /// The enabled-location query expression to return items and item variations having specified enabled locations.
@@ -56,34 +58,36 @@ public record SearchCatalogItemsRequest
     public int? Limit { get; init; }
 
     /// <summary>
-    /// The order to sort the results by item names. The default sort order is ascending (<c>ASC</c>).
+    /// The order (e.g., chronological or alphabetical) in which results from a request are returned.
     /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("sort_order")]
-    public string? SortOrder { get; init; }
+    public SortOrder? SortOrder { get; init; }
 
     /// <summary>
     /// The product types query expression to return items or item variations having the specified product types.
     /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("product_types")]
-    public IReadOnlyList<string>? ProductTypes { get; init; }
+    public IReadOnlyList<CatalogItemProductType>? ProductTypes { get; init; }
 
     /// <summary>
     /// The customer-attribute filter to return items or item variations matching the specified
     /// custom attribute expressions. A maximum number of 10 custom attribute expressions are supported in
-    /// a single call to the <see href="https://developer.squareup.com/reference/square_2024-08-21/catalog-api/search-catalog-items">SearchCatalogItems</see> endpoint.
+    /// a single call to the <see href="api-endpoint:Catalog-SearchCatalogItems">SearchCatalogItems</see> endpoint.
     /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("custom_attribute_filters")]
     public IReadOnlyList<CustomAttributeFilter>? CustomAttributeFilters { get; init; }
 
     /// <summary>
-    /// The query filter to return not archived (<c>ARCHIVED_STATE_NOT_ARCHIVED</c>), archived (<c>ARCHIVED_STATE_ARCHIVED</c>), or either type (<c>ARCHIVED_STATE_ALL</c>) of items.
+    /// Defines the values for the <c>archived_state</c> query expression
+    /// used in <see href="$e/Catalog/SearchCatalogItems">SearchCatalogItems</see>
+    /// to return the archived, not archived or either type of catalog items.
     /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("archived_state")]
-    public string? ArchivedState { get; init; }
+    public ArchivedState? ArchivedState { get; init; }
 
     [JsonExtensionData]
     public AdditionalProperties AdditionalProperties { get; init; } = [];

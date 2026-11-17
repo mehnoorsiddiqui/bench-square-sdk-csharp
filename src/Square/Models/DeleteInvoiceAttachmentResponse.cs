@@ -5,7 +5,7 @@ using Square.Core.Models;
 namespace Square.Models;
 
 /// <summary>
-/// Represents a <see href="https://developer.squareup.com/reference/square_2024-08-21/invoices-api/delete-invoice-attachment">DeleteInvoiceAttachment</see> response.
+/// Represents a <see href="$e/Invoices/DeleteInvoiceAttachment">DeleteInvoiceAttachment</see> response.
 /// </summary>
 public record DeleteInvoiceAttachmentResponse
 {

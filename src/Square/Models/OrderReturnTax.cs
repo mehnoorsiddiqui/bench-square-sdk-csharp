@@ -1,6 +1,7 @@
 using System.ComponentModel.DataAnnotations;
 using System.Text.Json.Serialization;
 using Square.Core.Models;
+using Square.Models.Enums;
 
 namespace Square.Models;
 
@@ -31,7 +32,7 @@ public record OrderReturnTax
     public string? SourceTaxUid { get; init; }
 
     /// <summary>
-    /// The catalog object ID referencing <see href="https://developer.squareup.com/reference/square_2024-08-21/objects/CatalogTax">CatalogTax</see>.
+    /// The catalog object ID referencing <see href="entity:CatalogTax">CatalogTax</see>.
     /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("catalog_object_id")]
@@ -54,11 +55,11 @@ public record OrderReturnTax
     public string? Name { get; init; }
 
     /// <summary>
-    /// Indicates the calculation method used to apply the tax.
+    /// Indicates how the tax is applied to the associated line item or order.
     /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("type")]
-    public string? Type { get; init; }
+    public OrderLineItemTaxType? Type { get; init; }
 
     /// <summary>
     /// The percentage of the tax, as a string representation of a decimal number.
@@ -82,14 +83,11 @@ public record OrderReturnTax
     public Money? AppliedMoney { get; init; }
 
     /// <summary>
-    /// Indicates the level at which the <c>OrderReturnTax</c> applies. For <c>ORDER</c> scoped
-    /// taxes, Square generates references in <c>applied_taxes</c> on all
-    /// <c>OrderReturnLineItem</c>s. For <c>LINE_ITEM</c> scoped taxes, the tax is only applied to
-    /// <c>OrderReturnLineItem</c>s with references in their <c>applied_discounts</c> field.
+    /// Indicates whether this is a line-item or order-level tax.
     /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("scope")]
-    public string? Scope { get; init; }
+    public OrderLineItemTaxScope? Scope { get; init; }
 
     [JsonExtensionData]
     public AdditionalProperties AdditionalProperties { get; init; } = [];

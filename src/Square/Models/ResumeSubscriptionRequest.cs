@@ -1,11 +1,12 @@
 using System.Text.Json.Serialization;
 using Square.Core.Models;
+using Square.Models.Enums;
 
 namespace Square.Models;
 
 /// <summary>
 /// Defines input parameters in a request to the
-/// <see href="https://developer.squareup.com/reference/square_2024-08-21/subscriptions-api/resume-subscription">ResumeSubscription</see> endpoint.
+/// <see href="$e/Subscriptions/ResumeSubscription">ResumeSubscription</see> endpoint.
 /// </summary>
 public record ResumeSubscriptionRequest
 {
@@ -17,12 +18,11 @@ public record ResumeSubscriptionRequest
     public string? ResumeEffectiveDate { get; init; }
 
     /// <summary>
-    /// The timing to resume a subscription, relative to the specified
-    /// <c>resume_effective_date</c> attribute value.
+    /// Supported timings when a pending change, as an action, takes place to a subscription.
     /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("resume_change_timing")]
-    public string? ResumeChangeTiming { get; init; }
+    public ChangeTiming? ResumeChangeTiming { get; init; }
 
     [JsonExtensionData]
     public AdditionalProperties AdditionalProperties { get; init; } = [];

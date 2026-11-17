@@ -57,6 +57,7 @@ Accessor: `client.WebhookSubscriptions` · Source: `src/Square/Api/WebhookSubscr
 | Type | Source |
 | --- | --- |
 | `ListWebhookSubscriptionsOperationRequest` | `src/Square/Requests/WebhookSubscriptions/ListWebhookSubscriptionsOperationRequest.cs` |
+| `SortOrder` | `src/Square/Models/Enums/SortOrder.cs` |
 | `ListWebhookSubscriptionsResponse` | `src/Square/Models/ListWebhookSubscriptionsResponse.cs` |
 
 ### RetrieveWebhookSubscription

@@ -1,5 +1,6 @@
 using System.Text.Json.Serialization;
 using Square.Core.Models;
+using Square.Models.Enums;
 
 namespace Square.Models;
 
@@ -8,14 +9,9 @@ namespace Square.Models;
 /// </summary>
 public record TenderSquareAccountDetails
 {
-    /// <summary>
-    /// The Square Account payment's current state (such as <c>AUTHORIZED</c> or
-    /// <c>CAPTURED</c>). See <see href="https://developer.squareup.com/reference/square_2024-08-21/enums/TenderSquareAccountDetailsStatus">TenderSquareAccountDetailsStatus</see>
-    /// for possible values.
-    /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("status")]
-    public string? Status { get; init; }
+    public TenderSquareAccountDetailsStatus? Status { get; init; }
 
     [JsonExtensionData]
     public AdditionalProperties AdditionalProperties { get; init; } = [];

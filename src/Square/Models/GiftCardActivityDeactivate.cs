@@ -1,18 +1,19 @@
 using System.Text.Json.Serialization;
 using Square.Core.Models;
+using Square.Models.Enums;
 
 namespace Square.Models;
 
 /// <summary>
-/// Represents details about a <c>DEACTIVATE</c> <see href="https://developer.squareup.com/reference/square_2024-08-21/objects/GiftCardActivityType">gift card activity type</see>.
+/// Represents details about a <c>DEACTIVATE</c> <see href="$m/GiftCardActivityType">gift card activity type</see>.
 /// </summary>
 public record GiftCardActivityDeactivate
 {
     /// <summary>
-    /// The reason the gift card was deactivated.
+    /// Indicates the reason for deactivating a <see href="$m/GiftCard">gift card</see>.
     /// </summary>
     [JsonPropertyName("reason")]
-    public required string Reason { get; init; }
+    public required GiftCardActivityDeactivateReason Reason { get; init; }
 
     [JsonExtensionData]
     public AdditionalProperties AdditionalProperties { get; init; } = [];

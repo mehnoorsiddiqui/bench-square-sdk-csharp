@@ -21,7 +21,6 @@ public record CatalogCustomAttributeDefinitionNumberConfig
     /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("precision")]
-    [Minimum(0)]
     [Maximum(5)]
     public int? Precision { get; init; }
 

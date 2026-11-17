@@ -1,6 +1,7 @@
 using System.ComponentModel.DataAnnotations;
 using System.Text.Json.Serialization;
 using Square.Core.Models;
+using Square.Models.Enums;
 
 namespace Square.Models;
 
@@ -14,7 +15,7 @@ public record BusinessBookingProfile
     /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("seller_id")]
-    [StringLength(32, MinimumLength = 0)]
+    [MaxLength(32)]
     public string? SellerId { get; init; }
 
     /// <summary>
@@ -32,20 +33,18 @@ public record BusinessBookingProfile
     public bool? BookingEnabled { get; init; }
 
     /// <summary>
-    /// The choice of customer's time zone information of a booking.
-    /// The Square online booking site and all notifications to customers uses either the seller location’s time zone
-    /// or the time zone the customer chooses at booking.
+    /// Choices of customer-facing time zone used for bookings.
     /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("customer_timezone_choice")]
-    public string? CustomerTimezoneChoice { get; init; }
+    public BusinessBookingProfileCustomerTimezoneChoice? CustomerTimezoneChoice { get; init; }
 
     /// <summary>
-    /// The policy for the seller to automatically accept booking requests (<c>ACCEPT_ALL</c>) or not (<c>REQUIRES_ACCEPTANCE</c>).
+    /// Policies for accepting bookings.
     /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("booking_policy")]
-    public string? BookingPolicy { get; init; }
+    public BusinessBookingProfileBookingPolicy? BookingPolicy { get; init; }
 
     /// <summary>
     /// Indicates whether customers can cancel or reschedule their own bookings (<c>true</c>) or not (<c>false</c>).

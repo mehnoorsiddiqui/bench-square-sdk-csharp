@@ -1,6 +1,7 @@
 using System.Text.Json.Serialization;
 using Square.Core.Models;
 using Square.Core.Validation.Attributes;
+using Square.Models.Enums;
 
 namespace Square.Models;
 
@@ -16,13 +17,11 @@ public record ListDevicesRequest
     public string? Cursor { get; init; }
 
     /// <summary>
-    /// The order in which results are listed.
-    /// - <c>ASC</c> - Oldest to newest.
-    /// - <c>DESC</c> - Newest to oldest (default).
+    /// The order (e.g., chronological or alphabetical) in which results from a request are returned.
     /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("sort_order")]
-    public string? SortOrder { get; init; }
+    public SortOrder? SortOrder { get; init; }
 
     /// <summary>
     /// The number of results to return in a single page.

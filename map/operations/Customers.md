@@ -141,6 +141,8 @@ Accessor: `client.Customers` · Source: `src/Square/Api/Customers.cs` · 14 oper
 | Type | Source |
 | --- | --- |
 | `ListCustomersOperationRequest` | `src/Square/Requests/Customers/ListCustomersOperationRequest.cs` |
+| `CustomerSortField` | `src/Square/Models/Enums/CustomerSortField.cs` |
+| `SortOrder` | `src/Square/Models/Enums/SortOrder.cs` |
 | `ListCustomersResponse` | `src/Square/Models/ListCustomersResponse.cs` |
 
 ### RemoveGroupFromCustomer

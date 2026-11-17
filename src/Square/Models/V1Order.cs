@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using System.Text.Json.Serialization;
 using Square.Core.Models;
+using Square.Models.Enums;
 
 namespace Square.Models;
 
@@ -44,12 +45,9 @@ public record V1Order
     [JsonPropertyName("recipient_phone_number")]
     public string? RecipientPhoneNumber { get; init; }
 
-    /// <summary>
-    /// Whether the tax is an ADDITIVE tax or an INCLUSIVE tax.
-    /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("state")]
-    public string? State { get; init; }
+    public V1OrderState? State { get; init; }
 
     /// <summary>
     /// Represents a postal address in a country.

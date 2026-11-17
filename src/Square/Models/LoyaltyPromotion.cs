@@ -2,11 +2,12 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Text.Json.Serialization;
 using Square.Core.Models;
+using Square.Models.Enums;
 
 namespace Square.Models;
 
 /// <summary>
-/// Represents a promotion for a <see href="https://developer.squareup.com/reference/square_2024-08-21/objects/LoyaltyProgram">loyalty program</see>. Loyalty promotions enable buyers
+/// Represents a promotion for a <see href="$m/LoyaltyProgram">loyalty program</see>. Loyalty promotions enable buyers
 /// to earn extra points on top of those earned from the base program.
 /// <para>
 /// A loyalty program can have a maximum of 10 loyalty promotions with an <c>ACTIVE</c> or <c>SCHEDULED</c> status.
@@ -30,7 +31,7 @@ public record LoyaltyPromotion
     public required string Name { get; init; }
 
     /// <summary>
-    /// Represents how points for a <see href="https://developer.squareup.com/reference/square_2024-08-21/objects/LoyaltyPromotion">loyalty promotion</see> are calculated,
+    /// Represents how points for a <see href="$m/LoyaltyPromotion">loyalty promotion</see> are calculated,
     /// either by multiplying the points earned from the base program or by adding a specified number
     /// of points to the points earned from the base program.
     /// </summary>
@@ -39,13 +40,13 @@ public record LoyaltyPromotion
 
     /// <summary>
     /// Represents scheduling information that determines when purchases can qualify to earn points
-    /// from a <see href="https://developer.squareup.com/reference/square_2024-08-21/objects/LoyaltyPromotion">loyalty promotion</see>.
+    /// from a <see href="$m/LoyaltyPromotion">loyalty promotion</see>.
     /// </summary>
     [JsonPropertyName("available_time")]
     public required LoyaltyPromotionAvailableTimeData AvailableTime { get; init; }
 
     /// <summary>
-    /// Represents the number of times a buyer can earn points during a <see href="https://developer.squareup.com/reference/square_2024-08-21/objects/LoyaltyPromotion">loyalty promotion</see>.
+    /// Represents the number of times a buyer can earn points during a <see href="$m/LoyaltyPromotion">loyalty promotion</see>.
     /// If this field is not set, buyers can trigger the promotion an unlimited number of times to earn points during
     /// the time that the promotion is available.
     /// <para>
@@ -57,11 +58,11 @@ public record LoyaltyPromotion
     public LoyaltyPromotionTriggerLimit? TriggerLimit { get; init; }
 
     /// <summary>
-    /// The current status of the promotion.
+    /// Indicates the status of a <see href="$m/LoyaltyPromotion">loyalty promotion</see>.
     /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("status")]
-    public string? Status { get; init; }
+    public LoyaltyPromotionStatus? Status { get; init; }
 
     /// <summary>
     /// The timestamp of when the promotion was created, in RFC 3339 format.
@@ -85,7 +86,7 @@ public record LoyaltyPromotion
     public string? UpdatedAt { get; init; }
 
     /// <summary>
-    /// The ID of the <see href="https://developer.squareup.com/reference/square_2024-08-21/objects/LoyaltyProgram">loyalty program</see> associated with the promotion.
+    /// The ID of the <see href="entity:LoyaltyProgram">loyalty program</see> associated with the promotion.
     /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("loyalty_program_id")]
@@ -104,7 +105,7 @@ public record LoyaltyPromotion
     public Money? MinimumSpendAmountMoney { get; init; }
 
     /// <summary>
-    /// The IDs of any qualifying <c>ITEM_VARIATION</c> <see href="https://developer.squareup.com/reference/square_2024-08-21/objects/CatalogObject">catalog objects</see>. If specified,
+    /// The IDs of any qualifying <c>ITEM_VARIATION</c> <see href="entity:CatalogObject">catalog objects</see>. If specified,
     /// the purchase must include at least one of these items to qualify for the promotion.
     /// <para>
     /// This option is valid only if the base loyalty program uses a <c>VISIT</c> or <c>SPEND</c> accrual rule.
@@ -114,11 +115,12 @@ public record LoyaltyPromotion
     /// You can specify <c>qualifying_item_variation_ids</c> or <c>qualifying_category_ids</c> for a given promotion, but not both.
     /// </para>
     /// </summary>
+    [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("qualifying_item_variation_ids")]
-    public required IReadOnlyList<string> QualifyingItemVariationIds { get; init; }
+    public IReadOnlyList<string>? QualifyingItemVariationIds { get; init; }
 
     /// <summary>
-    /// The IDs of any qualifying <c>CATEGORY</c> <see href="https://developer.squareup.com/reference/square_2024-08-21/objects/CatalogObject">catalog objects</see>. If specified,
+    /// The IDs of any qualifying <c>CATEGORY</c> <see href="entity:CatalogObject">catalog objects</see>. If specified,
     /// the purchase must include at least one item from one of these categories to qualify for the promotion.
     /// <para>
     /// This option is valid only if the base loyalty program uses a <c>VISIT</c> or <c>SPEND</c> accrual rule.
@@ -128,8 +130,9 @@ public record LoyaltyPromotion
     /// You can specify <c>qualifying_category_ids</c> or <c>qualifying_item_variation_ids</c> for a promotion, but not both.
     /// </para>
     /// </summary>
+    [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("qualifying_category_ids")]
-    public required IReadOnlyList<string> QualifyingCategoryIds { get; init; }
+    public IReadOnlyList<string>? QualifyingCategoryIds { get; init; }
 
     [JsonExtensionData]
     public AdditionalProperties AdditionalProperties { get; init; } = [];

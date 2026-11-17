@@ -21,7 +21,7 @@ public record ListLocationBookingProfilesRequest
     /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("cursor")]
-    [StringLength(65536, MinimumLength = 0)]
+    [MaxLength(65536)]
     public string? Cursor { get; init; }
 
     [JsonExtensionData]

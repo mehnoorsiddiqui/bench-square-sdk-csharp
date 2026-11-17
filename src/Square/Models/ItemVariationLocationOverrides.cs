@@ -1,5 +1,6 @@
 using System.Text.Json.Serialization;
 using Square.Core.Models;
+using Square.Models.Enums;
 
 namespace Square.Models;
 
@@ -28,11 +29,11 @@ public record ItemVariationLocationOverrides
     public Money? PriceMoney { get; init; }
 
     /// <summary>
-    /// The pricing type (fixed or variable) for the <c>CatalogItemVariation</c> at the given <c>Location</c>.
+    /// Indicates whether the price of a CatalogItemVariation should be entered manually at the time of sale.
     /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("pricing_type")]
-    public string? PricingType { get; init; }
+    public CatalogPricingType? PricingType { get; init; }
 
     /// <summary>
     /// If <c>true</c>, inventory tracking is active for the <c>CatalogItemVariation</c> at this <c>Location</c>.
@@ -42,12 +43,11 @@ public record ItemVariationLocationOverrides
     public bool? TrackInventory { get; init; }
 
     /// <summary>
-    /// Indicates whether the <c>CatalogItemVariation</c> displays an alert when its inventory
-    /// quantity is less than or equal to its <c>inventory_alert_threshold</c>.
+    /// Indicates whether Square should alert the merchant when the inventory quantity of a CatalogItemVariation is low.
     /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("inventory_alert_type")]
-    public string? InventoryAlertType { get; init; }
+    public InventoryAlertType? InventoryAlertType { get; init; }
 
     /// <summary>
     /// If the inventory quantity for the variation is less than or equal to this value and <c>inventory_alert_type</c>

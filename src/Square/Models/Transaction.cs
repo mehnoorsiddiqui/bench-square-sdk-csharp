@@ -2,6 +2,7 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Text.Json.Serialization;
 using Square.Core.Models;
+using Square.Models.Enums;
 
 namespace Square.Models;
 
@@ -54,7 +55,7 @@ public record Transaction
     public IReadOnlyList<Refund>? Refunds { get; init; }
 
     /// <summary>
-    /// If the transaction was created with the <see href="https://developer.squareup.com/reference/square_2024-08-21/transactions-api/charge">Charge</see>
+    /// If the transaction was created with the <see href="api-endpoint:Transactions-Charge">Charge</see>
     /// endpoint, this value is the same as the value provided for the <c>reference_id</c>
     /// parameter in the request to that endpoint. Otherwise, it is not set.
     /// </summary>
@@ -64,11 +65,11 @@ public record Transaction
     public string? ReferenceId { get; init; }
 
     /// <summary>
-    /// The Square product that processed the transaction.
+    /// Indicates the Square product used to process a transaction.
     /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("product")]
-    public string? Product { get; init; }
+    public TransactionProduct? Product { get; init; }
 
     /// <summary>
     /// If the transaction was created in the Square Point of Sale app, this value

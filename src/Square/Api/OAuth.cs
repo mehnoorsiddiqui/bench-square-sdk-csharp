@@ -152,7 +152,7 @@ public sealed class OAuth
             JsonRequest.Create(request.Body),
             JsonResponse.Create<RevokeTokenResponse>(),
             RawErrorResponse.Instance,
-            _auth.Oauth2ClientSecret,
+            _auth.BearerAuth,
             requestOptions,
             cancellationToken);
 }

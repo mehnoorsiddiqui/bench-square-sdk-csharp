@@ -5,12 +5,12 @@ using Square.Core.Models;
 namespace Square.Models;
 
 /// <summary>
-/// Creates a <see href="https://developer.squareup.com/reference/square_2024-08-21/objects/WebhookSubscription">Subscription</see>.
+/// Creates a <see href="$m/WebhookSubscription">Subscription</see>.
 /// </summary>
 public record CreateWebhookSubscriptionRequest
 {
     /// <summary>
-    /// A unique string that identifies the <see href="https://developer.squareup.com/reference/square_2024-08-21/webhook-subscriptions-api/create-webhook-subscription">CreateWebhookSubscription</see> request.
+    /// A unique string that identifies the <see href="api-endpoint:WebhookSubscriptions-CreateWebhookSubscription">CreateWebhookSubscription</see> request.
     /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("idempotency_key")]

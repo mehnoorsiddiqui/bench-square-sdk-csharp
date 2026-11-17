@@ -139,6 +139,7 @@ Accessor: `client.Loyalty` · Source: `src/Square/Api/Loyalty.cs` · 18 operatio
 | Type | Source |
 | --- | --- |
 | `ListLoyaltyPromotionsOperationRequest` | `src/Square/Requests/Loyalty/ListLoyaltyPromotionsOperationRequest.cs` |
+| `LoyaltyPromotionStatus` | `src/Square/Models/Enums/LoyaltyPromotionStatus.cs` |
 | `ListLoyaltyPromotionsResponse` | `src/Square/Models/ListLoyaltyPromotionsResponse.cs` |
 
 ### RedeemLoyaltyReward

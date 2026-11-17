@@ -290,7 +290,7 @@ public record Payment
     public string? EmployeeId { get; init; }
 
     /// <summary>
-    /// An optional ID of the <see href="https://developer.squareup.com/reference/square_2024-08-21/objects/TeamMember">TeamMember</see> associated with taking the payment.
+    /// An optional ID of the <see href="entity:TeamMember">TeamMember</see> associated with taking the payment.
     /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("team_member_id")]
@@ -427,6 +427,13 @@ public record Payment
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("offline_payment_details")]
     public OfflinePaymentDetails? OfflinePaymentDetails { get; init; }
+
+    /// <summary>
+    /// An optional ID for a Terminal checkout that is associated with the payment.
+    /// </summary>
+    [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
+    [JsonPropertyName("terminal_checkout_id")]
+    public string? TerminalCheckoutId { get; init; }
 
     [JsonExtensionData]
     public AdditionalProperties AdditionalProperties { get; init; } = [];

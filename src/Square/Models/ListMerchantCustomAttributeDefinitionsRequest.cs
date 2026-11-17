@@ -1,20 +1,21 @@
 using System.Text.Json.Serialization;
 using Square.Core.Models;
 using Square.Core.Validation.Attributes;
+using Square.Models.Enums;
 
 namespace Square.Models;
 
 /// <summary>
-/// Represents a <see href="https://developer.squareup.com/reference/square_2024-08-21/merchant-custom-attributes-api/list-merchant-custom-attribute-definitions">ListMerchantCustomAttributeDefinitions</see> request.
+/// Represents a <see href="$e/MerchantCustomAttributes/ListMerchantCustomAttributeDefinitions">ListMerchantCustomAttributeDefinitions</see> request.
 /// </summary>
 public record ListMerchantCustomAttributeDefinitionsRequest
 {
     /// <summary>
-    /// Filters the <c>CustomAttributeDefinition</c> results by their <c>visibility</c> values.
+    /// Enumeration of visibility-filter values used to set the ability to view custom attributes or custom attribute definitions.
     /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("visibility_filter")]
-    public string? VisibilityFilter { get; init; }
+    public VisibilityFilter? VisibilityFilter { get; init; }
 
     /// <summary>
     /// The maximum number of results to return in a single paged response. This limit is advisory.

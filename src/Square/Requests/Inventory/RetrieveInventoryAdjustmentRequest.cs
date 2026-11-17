@@ -6,7 +6,7 @@ namespace Square.Requests.Inventory;
 public sealed record RetrieveInventoryAdjustmentRequest
 {
     /// <summary>
-    /// ID of the <see href="https://developer.squareup.com/reference/square_2024-08-21/objects/InventoryAdjustment">InventoryAdjustment</see> to retrieve.
+    /// ID of the <see href="entity:InventoryAdjustment">InventoryAdjustment</see> to retrieve.
     /// </summary>
     public required string AdjustmentId { get; init; }
 }

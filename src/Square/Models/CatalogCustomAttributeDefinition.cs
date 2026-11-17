@@ -2,6 +2,7 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Text.Json.Serialization;
 using Square.Core.Models;
+using Square.Models.Enums;
 
 namespace Square.Models;
 
@@ -15,11 +16,10 @@ namespace Square.Models;
 public record CatalogCustomAttributeDefinition
 {
     /// <summary>
-    /// The type of this custom attribute. Cannot be modified after creation.
-    /// Required.
+    /// Defines the possible types for a custom attribute.
     /// </summary>
     [JsonPropertyName("type")]
-    public required string Type { get; init; }
+    public required CatalogCustomAttributeDefinitionType Type { get; init; }
 
     /// <summary>
     /// The name of this definition for API and seller-facing UI purposes.
@@ -49,25 +49,27 @@ public record CatalogCustomAttributeDefinition
     /// <summary>
     /// The set of <c>CatalogObject</c> types that this custom atttribute may be applied to.
     /// Currently, only <c>ITEM</c>, <c>ITEM_VARIATION</c>, <c>MODIFIER</c>, <c>MODIFIER_LIST</c>, and <c>CATEGORY</c> are allowed. At least one type must be included.
+    /// See <see href="#type-catalogobjecttype">CatalogObjectType</see> for possible values
     /// </summary>
     [JsonPropertyName("allowed_object_types")]
-    public required IReadOnlyList<string> AllowedObjectTypes { get; init; }
+    public required IReadOnlyList<CatalogObjectType> AllowedObjectTypes { get; init; }
 
     /// <summary>
-    /// The visibility of a custom attribute in seller-facing UIs (including Square Point
-    /// of Sale applications and Square Dashboard). May be modified.
+    /// Defines the visibility of a custom attribute to sellers in Square
+    /// client applications, Square APIs or in Square UIs (including Square Point
+    /// of Sale applications and Square Dashboard).
     /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("seller_visibility")]
-    public string? SellerVisibility { get; init; }
+    public CatalogCustomAttributeDefinitionSellerVisibility? SellerVisibility { get; init; }
 
     /// <summary>
-    /// The visibility of a custom attribute to applications other than the application
-    /// that created the attribute.
+    /// Defines the visibility of a custom attribute to applications other than their
+    /// creating application.
     /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("app_visibility")]
-    public string? AppVisibility { get; init; }
+    public CatalogCustomAttributeDefinitionAppVisibility? AppVisibility { get; init; }
 
     /// <summary>
     /// Configuration associated with Custom Attribute Definitions of type <c>STRING</c>.

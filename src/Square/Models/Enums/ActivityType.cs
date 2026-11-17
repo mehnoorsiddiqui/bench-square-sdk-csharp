@@ -42,9 +42,14 @@ public sealed record ActivityType : OpenStringEnum<ActivityType>
     public static readonly ActivityType Charge = new("CHARGE");
 
     /// <summary>
-    /// Any fees involved with deposits such as instant deposits.
+    /// A fee assessed because of a deposit, such as an instant deposit.
     /// </summary>
     public static readonly ActivityType DepositFee = new("DEPOSIT_FEE");
+
+    /// <summary>
+    /// Indicates that Square returned a fee that was previously assessed because of a deposit, such as an instant deposit, back to the seller's account.
+    /// </summary>
+    public static readonly ActivityType DepositFeeReversed = new("DEPOSIT_FEE_REVERSED");
 
     /// <summary>
     /// The balance change due to a dispute event.
@@ -185,7 +190,7 @@ public sealed record ActivityType : OpenStringEnum<ActivityType>
     public static readonly ActivityType ThirdPartyFeeRefund = new("THIRD_PARTY_FEE_REFUND");
 
     /// <summary>
-    /// The balance change due to money transfer.
+    /// The balance change due to a money transfer. Note that this type is never returned by the Payouts API.
     /// </summary>
     public static readonly ActivityType Payout = new("PAYOUT");
 
@@ -291,6 +296,16 @@ public sealed record ActivityType : OpenStringEnum<ActivityType>
     /// </summary>
     public static readonly ActivityType GiftCardPoolTransferReversed = new("GIFT_CARD_POOL_TRANSFER_REVERSED");
 
+    /// <summary>
+    /// A payroll payment that was transferred to a team member’s bank account.
+    /// </summary>
+    public static readonly ActivityType SquarePayrollTransfer = new("SQUARE_PAYROLL_TRANSFER");
+
+    /// <summary>
+    /// A payroll payment to a team member’s bank account that was deposited back to the seller’s account by Square.
+    /// </summary>
+    public static readonly ActivityType SquarePayrollTransferReversed = new("SQUARE_PAYROLL_TRANSFER_REVERSED");
+
     public TResult Match<TResult>(Func<TResult> onAdjustment,
         Func<TResult> onAppFeeRefund,
         Func<TResult> onAppFeeRevenue,
@@ -298,6 +313,7 @@ public sealed record ActivityType : OpenStringEnum<ActivityType>
         Func<TResult> onAutomaticSavingsReversed,
         Func<TResult> onCharge,
         Func<TResult> onDepositFee,
+        Func<TResult> onDepositFeeReversed,
         Func<TResult> onDispute,
         Func<TResult> onEscheatment,
         Func<TResult> onFee,
@@ -346,6 +362,8 @@ public sealed record ActivityType : OpenStringEnum<ActivityType>
         Func<TResult> onBalanceFoldersTransferReversed,
         Func<TResult> onGiftCardPoolTransfer,
         Func<TResult> onGiftCardPoolTransferReversed,
+        Func<TResult> onSquarePayrollTransfer,
+        Func<TResult> onSquarePayrollTransferReversed,
         Func<string, TResult> otherwise) =>
         this switch
         {
@@ -356,6 +374,7 @@ public sealed record ActivityType : OpenStringEnum<ActivityType>
             _ when this == AutomaticSavingsReversed => onAutomaticSavingsReversed(),
             _ when this == Charge => onCharge(),
             _ when this == DepositFee => onDepositFee(),
+            _ when this == DepositFeeReversed => onDepositFeeReversed(),
             _ when this == Dispute => onDispute(),
             _ when this == Escheatment => onEscheatment(),
             _ when this == Fee => onFee(),
@@ -404,6 +423,8 @@ public sealed record ActivityType : OpenStringEnum<ActivityType>
             _ when this == BalanceFoldersTransferReversed => onBalanceFoldersTransferReversed(),
             _ when this == GiftCardPoolTransfer => onGiftCardPoolTransfer(),
             _ when this == GiftCardPoolTransferReversed => onGiftCardPoolTransferReversed(),
+            _ when this == SquarePayrollTransfer => onSquarePayrollTransfer(),
+            _ when this == SquarePayrollTransferReversed => onSquarePayrollTransferReversed(),
             _ => otherwise(Value)
         };
 
@@ -414,6 +435,7 @@ public sealed record ActivityType : OpenStringEnum<ActivityType>
         Action onAutomaticSavingsReversed,
         Action onCharge,
         Action onDepositFee,
+        Action onDepositFeeReversed,
         Action onDispute,
         Action onEscheatment,
         Action onFee,
@@ -462,6 +484,8 @@ public sealed record ActivityType : OpenStringEnum<ActivityType>
         Action onBalanceFoldersTransferReversed,
         Action onGiftCardPoolTransfer,
         Action onGiftCardPoolTransferReversed,
+        Action onSquarePayrollTransfer,
+        Action onSquarePayrollTransferReversed,
         Action<string> otherwise)
     {
         if (this == Adjustment) onAdjustment();
@@ -471,6 +495,7 @@ public sealed record ActivityType : OpenStringEnum<ActivityType>
         else if (this == AutomaticSavingsReversed) onAutomaticSavingsReversed();
         else if (this == Charge) onCharge();
         else if (this == DepositFee) onDepositFee();
+        else if (this == DepositFeeReversed) onDepositFeeReversed();
         else if (this == Dispute) onDispute();
         else if (this == Escheatment) onEscheatment();
         else if (this == Fee) onFee();
@@ -519,6 +544,8 @@ public sealed record ActivityType : OpenStringEnum<ActivityType>
         else if (this == BalanceFoldersTransferReversed) onBalanceFoldersTransferReversed();
         else if (this == GiftCardPoolTransfer) onGiftCardPoolTransfer();
         else if (this == GiftCardPoolTransferReversed) onGiftCardPoolTransferReversed();
+        else if (this == SquarePayrollTransfer) onSquarePayrollTransfer();
+        else if (this == SquarePayrollTransferReversed) onSquarePayrollTransferReversed();
         else otherwise(Value);
     }
 }

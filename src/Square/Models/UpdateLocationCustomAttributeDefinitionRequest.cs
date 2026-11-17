@@ -5,7 +5,7 @@ using Square.Core.Models;
 namespace Square.Models;
 
 /// <summary>
-/// Represents an <see href="https://developer.squareup.com/reference/square_2024-08-21/location-custom-attributes-api/update-location-custom-attribute-definition">UpdateLocationCustomAttributeDefinition</see> request.
+/// Represents an <see href="$e/LocationCustomAttributes/UpdateLocationCustomAttributeDefinition">UpdateLocationCustomAttributeDefinition</see> request.
 /// </summary>
 public record UpdateLocationCustomAttributeDefinitionRequest
 {

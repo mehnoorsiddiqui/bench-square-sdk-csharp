@@ -1,12 +1,13 @@
 using System.ComponentModel.DataAnnotations;
 using System.Text.Json.Serialization;
 using Square.Core.Models;
+using Square.Models.Enums;
 
 namespace Square.Models;
 
 /// <summary>
 /// Defines input parameters in a request to the
-/// <see href="https://developer.squareup.com/reference/square_2024-08-21/subscriptions-api/pause-subscription">PauseSubscription</see> endpoint.
+/// <see href="$e/Subscriptions/PauseSubscription">PauseSubscription</see> endpoint.
 /// </summary>
 public record PauseSubscriptionRequest
 {
@@ -42,12 +43,11 @@ public record PauseSubscriptionRequest
     public string? ResumeEffectiveDate { get; init; }
 
     /// <summary>
-    /// The timing whether the subscription is reactivated immediately or at the end of the billing cycle, relative to
-    /// <c>resume_effective_date</c>.
+    /// Supported timings when a pending change, as an action, takes place to a subscription.
     /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("resume_change_timing")]
-    public string? ResumeChangeTiming { get; init; }
+    public ChangeTiming? ResumeChangeTiming { get; init; }
 
     /// <summary>
     /// The user-provided reason to pause the subscription.

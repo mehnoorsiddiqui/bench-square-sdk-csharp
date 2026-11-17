@@ -1,5 +1,6 @@
 using System.Text.Json.Serialization;
 using Square.Core.Models;
+using Square.Models.Enums;
 
 namespace Square.Models;
 
@@ -28,11 +29,11 @@ public record PayoutFee
     public string? EffectiveAt { get; init; }
 
     /// <summary>
-    /// The type of fee assessed as part of the payout.
+    /// Represents the type of payout fee that can incur as part of a payout.
     /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("type")]
-    public string? Type { get; init; }
+    public PayoutFeeType? Type { get; init; }
 
     [JsonExtensionData]
     public AdditionalProperties AdditionalProperties { get; init; } = [];

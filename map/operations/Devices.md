@@ -57,6 +57,8 @@ Accessor: `client.Devices` · Source: `src/Square/Api/Devices.cs` · 5 operation
 | Type | Source |
 | --- | --- |
 | `ListDeviceCodesOperationRequest` | `src/Square/Requests/Devices/ListDeviceCodesOperationRequest.cs` |
+| `ProductType` | `src/Square/Models/Enums/ProductType.cs` |
+| `DeviceCodeStatus` | `src/Square/Models/Enums/DeviceCodeStatus.cs` |
 | `ListDeviceCodesResponse` | `src/Square/Models/ListDeviceCodesResponse.cs` |
 
 ### ListDevices
@@ -70,5 +72,6 @@ Accessor: `client.Devices` · Source: `src/Square/Api/Devices.cs` · 5 operation
 | Type | Source |
 | --- | --- |
 | `ListDevicesOperationRequest` | `src/Square/Requests/Devices/ListDevicesOperationRequest.cs` |
+| `SortOrder` | `src/Square/Models/Enums/SortOrder.cs` |
 | `ListDevicesResponse` | `src/Square/Models/ListDevicesResponse.cs` |
 

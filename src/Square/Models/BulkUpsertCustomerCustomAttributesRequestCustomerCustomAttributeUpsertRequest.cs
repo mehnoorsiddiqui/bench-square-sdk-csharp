@@ -5,14 +5,14 @@ using Square.Core.Models;
 namespace Square.Models;
 
 /// <summary>
-/// Represents an individual upsert request in a <see href="https://developer.squareup.com/reference/square_2024-08-21/customer-custom-attributes-api/bulk-upsert-customer-custom-attributes">BulkUpsertCustomerCustomAttributes</see>
+/// Represents an individual upsert request in a <see href="$e/CustomerCustomAttributes/BulkUpsertCustomerCustomAttributes">BulkUpsertCustomerCustomAttributes</see>
 /// request. An individual request contains a customer ID, the custom attribute to create or update,
 /// and an optional idempotency key.
 /// </summary>
 public record BulkUpsertCustomerCustomAttributesRequestCustomerCustomAttributeUpsertRequest
 {
     /// <summary>
-    /// The ID of the target <see href="https://developer.squareup.com/reference/square_2024-08-21/objects/Customer">customer profile</see>.
+    /// The ID of the target <see href="entity:Customer">customer profile</see>.
     /// </summary>
     [JsonPropertyName("customer_id")]
     [MinLength(1)]

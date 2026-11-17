@@ -6,7 +6,7 @@ namespace Square.Models;
 /// <summary>
 /// Pricing options for an order. The options affect how the order's price is calculated.
 /// They can be used, for example, to apply automatic price adjustments that are based on preconfigured
-/// <see href="https://developer.squareup.com/reference/square_2024-08-21/objects/CatalogPricingRule">pricing rules</see>.
+/// <see href="$m/CatalogPricingRule">pricing rules</see>.
 /// </summary>
 public record OrderPricingOptions
 {

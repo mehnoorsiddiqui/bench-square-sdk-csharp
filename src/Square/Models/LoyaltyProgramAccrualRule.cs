@@ -1,11 +1,12 @@
 using System.Text.Json.Serialization;
 using Square.Core.Models;
 using Square.Core.Validation.Attributes;
+using Square.Models.Enums;
 
 namespace Square.Models;
 
 /// <summary>
-/// Represents an accrual rule, which defines how buyers can earn points from the base <see href="https://developer.squareup.com/reference/square_2024-08-21/objects/LoyaltyProgram">loyalty program</see>.
+/// Represents an accrual rule, which defines how buyers can earn points from the base <see href="$m/LoyaltyProgram">loyalty program</see>.
 /// </summary>
 public record LoyaltyProgramAccrualRule
 {
@@ -13,7 +14,7 @@ public record LoyaltyProgramAccrualRule
     /// The type of the accrual rule that defines how buyers can earn points.
     /// </summary>
     [JsonPropertyName("accrual_type")]
-    public required string AccrualType { get; init; }
+    public required LoyaltyProgramAccrualRuleType AccrualType { get; init; }
 
     /// <summary>
     /// The number of points that

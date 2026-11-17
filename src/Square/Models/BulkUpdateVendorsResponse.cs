@@ -5,7 +5,7 @@ using Square.Core.Models;
 namespace Square.Models;
 
 /// <summary>
-/// Represents an output from a call to <see href="https://developer.squareup.com/reference/square_2024-08-21/vendors-api/bulk-update-vendors">BulkUpdateVendors</see>.
+/// Represents an output from a call to <see href="$e/Vendors/BulkUpdateVendors">BulkUpdateVendors</see>.
 /// </summary>
 public record BulkUpdateVendorsResponse
 {
@@ -17,7 +17,7 @@ public record BulkUpdateVendorsResponse
     public IReadOnlyList<Error>? Errors { get; init; }
 
     /// <summary>
-    /// A set of <see href="https://developer.squareup.com/reference/square_2024-08-21/objects/UpdateVendorResponse">UpdateVendorResponse</see> objects encapsulating successfully created <see href="https://developer.squareup.com/reference/square_2024-08-21/objects/Vendor">Vendor</see>
+    /// A set of <see href="entity:UpdateVendorResponse">UpdateVendorResponse</see> objects encapsulating successfully created <see href="entity:Vendor">Vendor</see>
     /// objects or error responses for failed attempts. The set is represented by a collection of <c>Vendor</c>-ID/<c>UpdateVendorResponse</c>-object or
     /// <c>Vendor</c>-ID/error-object pairs.
     /// </summary>

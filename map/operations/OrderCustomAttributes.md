@@ -85,6 +85,7 @@ Accessor: `client.OrderCustomAttributes` · Source: `src/Square/Api/OrderCustomA
 | Type | Source |
 | --- | --- |
 | `ListOrderCustomAttributeDefinitionsOperationRequest` | `src/Square/Requests/OrderCustomAttributes/ListOrderCustomAttributeDefinitionsOperationRequest.cs` |
+| `VisibilityFilter` | `src/Square/Models/Enums/VisibilityFilter.cs` |
 | `ListOrderCustomAttributeDefinitionsResponse` | `src/Square/Models/ListOrderCustomAttributeDefinitionsResponse.cs` |
 
 ### ListOrderCustomAttributes
@@ -99,6 +100,7 @@ Accessor: `client.OrderCustomAttributes` · Source: `src/Square/Api/OrderCustomA
 | Type | Source |
 | --- | --- |
 | `ListOrderCustomAttributesOperationRequest` | `src/Square/Requests/OrderCustomAttributes/ListOrderCustomAttributesOperationRequest.cs` |
+| `VisibilityFilter` | `src/Square/Models/Enums/VisibilityFilter.cs` |
 | `ListOrderCustomAttributesResponse` | `src/Square/Models/ListOrderCustomAttributesResponse.cs` |
 
 ### RetrieveOrderCustomAttribute

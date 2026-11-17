@@ -1,6 +1,7 @@
 using System.ComponentModel.DataAnnotations;
 using System.Text.Json.Serialization;
 using Square.Core.Models;
+using Square.Models.Enums;
 
 namespace Square.Models;
 
@@ -31,12 +32,9 @@ public record PayoutEntry
     [JsonPropertyName("effective_at")]
     public string? EffectiveAt { get; init; }
 
-    /// <summary>
-    /// The type of activity associated with this payout entry.
-    /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("type")]
-    public string? Type { get; init; }
+    public ActivityType? Type { get; init; }
 
     /// <summary>
     /// Represents an amount of money. <c>Money</c> fields can be signed or unsigned.
@@ -161,6 +159,18 @@ public record PayoutEntry
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("type_third_party_fee_refund_details")]
     public PaymentBalanceActivityThirdPartyFeeRefundDetail? TypeThirdPartyFeeRefundDetails { get; init; }
+
+    [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
+    [JsonPropertyName("type_deposit_fee_reversed_details")]
+    public PaymentBalanceActivityDepositFeeReversedDetail? TypeDepositFeeReversedDetails { get; init; }
+
+    [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
+    [JsonPropertyName("type_square_payroll_transfer_details")]
+    public PaymentBalanceActivitySquarePayrollTransferDetail? TypeSquarePayrollTransferDetails { get; init; }
+
+    [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
+    [JsonPropertyName("type_square_payroll_transfer_reversed_details")]
+    public PaymentBalanceActivitySquarePayrollTransferReversedDetail? TypeSquarePayrollTransferReversedDetails { get; init; }
 
     [JsonExtensionData]
     public AdditionalProperties AdditionalProperties { get; init; } = [];

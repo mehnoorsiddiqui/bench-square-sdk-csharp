@@ -16,12 +16,12 @@ public sealed record LoyaltyEventType : OpenStringEnum<LoyaltyEventType>
 
     /// <summary>
     /// Points are added to a loyalty account for a purchase that
-    /// qualified for points based on an <see href="https://developer.squareup.com/reference/square_2024-08-21/objects/LoyaltyProgramAccrualRule">accrual rule</see>.
+    /// qualified for points based on an <see href="$m/LoyaltyProgramAccrualRule">accrual rule</see>.
     /// </summary>
     public static readonly LoyaltyEventType AccumulatePoints = new("ACCUMULATE_POINTS");
 
     /// <summary>
-    /// A <see href="https://developer.squareup.com/reference/square_2024-08-21/objects/LoyaltyReward">loyalty reward</see> is created.
+    /// A <see href="$m/LoyaltyReward">loyalty reward</see> is created.
     /// </summary>
     public static readonly LoyaltyEventType CreateReward = new("CREATE_REWARD");
 
@@ -53,7 +53,7 @@ public sealed record LoyaltyEventType : OpenStringEnum<LoyaltyEventType>
 
     /// <summary>
     /// Points are added to a loyalty account for a purchase that
-    /// qualified for a <see href="https://developer.squareup.com/reference/square_2024-08-21/objects/LoyaltyPromotion">loyalty promotion</see>.
+    /// qualified for a <see href="$m/LoyaltyPromotion">loyalty promotion</see>.
     /// </summary>
     public static readonly LoyaltyEventType AccumulatePromotionPoints = new("ACCUMULATE_PROMOTION_POINTS");
 

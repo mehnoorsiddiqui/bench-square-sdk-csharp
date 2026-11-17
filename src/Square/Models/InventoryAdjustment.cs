@@ -1,6 +1,7 @@
 using System.ComponentModel.DataAnnotations;
 using System.Text.Json.Serialization;
 using Square.Core.Models;
+using Square.Models.Enums;
 
 namespace Square.Models;
 
@@ -30,23 +31,21 @@ public record InventoryAdjustment
     public string? ReferenceId { get; init; }
 
     /// <summary>
-    /// The <see href="https://developer.squareup.com/reference/square_2024-08-21/enums/InventoryState">inventory state</see> of the related quantity
-    /// of items before the adjustment.
+    /// Indicates the state of a tracked item quantity in the lifecycle of goods.
     /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("from_state")]
-    public string? FromState { get; init; }
+    public InventoryState? FromState { get; init; }
 
     /// <summary>
-    /// The <see href="https://developer.squareup.com/reference/square_2024-08-21/enums/InventoryState">inventory state</see> of the related quantity
-    /// of items after the adjustment.
+    /// Indicates the state of a tracked item quantity in the lifecycle of goods.
     /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("to_state")]
-    public string? ToState { get; init; }
+    public InventoryState? ToState { get; init; }
 
     /// <summary>
-    /// The Square-generated ID of the <see href="https://developer.squareup.com/reference/square_2024-08-21/objects/Location">Location</see> where the related
+    /// The Square-generated ID of the <see href="entity:Location">Location</see> where the related
     /// quantity of items is being tracked.
     /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
@@ -56,7 +55,7 @@ public record InventoryAdjustment
 
     /// <summary>
     /// The Square-generated ID of the
-    /// <see href="https://developer.squareup.com/reference/square_2024-08-21/objects/CatalogObject">CatalogObject</see> being tracked.
+    /// <see href="entity:CatalogObject">CatalogObject</see> being tracked.
     /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("catalog_object_id")]
@@ -64,7 +63,7 @@ public record InventoryAdjustment
     public string? CatalogObjectId { get; init; }
 
     /// <summary>
-    /// The <see href="https://developer.squareup.com/reference/square_2024-08-21/enums/CatalogObjectType">type</see> of the <see href="https://developer.squareup.com/reference/square_2024-08-21/objects/CatalogObject">CatalogObject</see> being tracked.
+    /// The <see href="entity:CatalogObjectType">type</see> of the <see href="entity:CatalogObject">CatalogObject</see> being tracked.
     /// <para>
     /// The Inventory API supports setting and reading the <c>"catalog_object_type": "ITEM_VARIATION"</c> field value.
     /// In addition, it can also read the <c>"catalog_object_type": "ITEM"</c> field value that is set by the Square Restaurants app.
@@ -123,7 +122,7 @@ public record InventoryAdjustment
     public SourceApplication? Source { get; init; }
 
     /// <summary>
-    /// The Square-generated ID of the <see href="https://developer.squareup.com/reference/square_2024-08-21/objects/Employee">Employee</see> responsible for the
+    /// The Square-generated ID of the <see href="entity:Employee">Employee</see> responsible for the
     /// inventory adjustment.
     /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
@@ -132,7 +131,7 @@ public record InventoryAdjustment
     public string? EmployeeId { get; init; }
 
     /// <summary>
-    /// The Square-generated ID of the <see href="https://developer.squareup.com/reference/square_2024-08-21/objects/TeamMember">Team Member</see> responsible for the
+    /// The Square-generated ID of the <see href="entity:TeamMember">Team Member</see> responsible for the
     /// inventory adjustment.
     /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
@@ -141,7 +140,7 @@ public record InventoryAdjustment
     public string? TeamMemberId { get; init; }
 
     /// <summary>
-    /// The Square-generated ID of the <see href="https://developer.squareup.com/reference/square_2024-08-21/objects/Transaction">Transaction</see> that
+    /// The Square-generated ID of the <see href="entity:Transaction">Transaction</see> that
     /// caused the adjustment. Only relevant for payment-related state
     /// transitions.
     /// </summary>
@@ -151,7 +150,7 @@ public record InventoryAdjustment
     public string? TransactionId { get; init; }
 
     /// <summary>
-    /// The Square-generated ID of the <see href="https://developer.squareup.com/reference/square_2024-08-21/objects/Refund">Refund</see> that
+    /// The Square-generated ID of the <see href="entity:Refund">Refund</see> that
     /// caused the adjustment. Only relevant for refund-related state
     /// transitions.
     /// </summary>

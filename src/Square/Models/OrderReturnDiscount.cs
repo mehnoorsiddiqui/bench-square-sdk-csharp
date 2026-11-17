@@ -1,6 +1,7 @@
 using System.ComponentModel.DataAnnotations;
 using System.Text.Json.Serialization;
 using Square.Core.Models;
+using Square.Models.Enums;
 
 namespace Square.Models;
 
@@ -32,7 +33,7 @@ public record OrderReturnDiscount
     public string? SourceDiscountUid { get; init; }
 
     /// <summary>
-    /// The catalog object ID referencing <see href="https://developer.squareup.com/reference/square_2024-08-21/objects/CatalogDiscount">CatalogDiscount</see>.
+    /// The catalog object ID referencing <see href="entity:CatalogDiscount">CatalogDiscount</see>.
     /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("catalog_object_id")]
@@ -55,15 +56,11 @@ public record OrderReturnDiscount
     public string? Name { get; init; }
 
     /// <summary>
-    /// The type of the discount. If it is created by the API, it is <c>FIXED_PERCENTAGE</c> or <c>FIXED_AMOUNT</c>.
-    /// <para>
-    /// Discounts that do not reference a catalog object ID must have a type of
-    /// <c>FIXED_PERCENTAGE</c> or <c>FIXED_AMOUNT</c>.
-    /// </para>
+    /// Indicates how the discount is applied to the associated line item or order.
     /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("type")]
-    public string? Type { get; init; }
+    public OrderLineItemDiscountType? Type { get; init; }
 
     /// <summary>
     /// The percentage of the tax, as a string representation of a decimal number.
@@ -102,14 +99,11 @@ public record OrderReturnDiscount
     public Money? AppliedMoney { get; init; }
 
     /// <summary>
-    /// Indicates the level at which the <c>OrderReturnDiscount</c> applies. For <c>ORDER</c> scoped
-    /// discounts, the server generates references in <c>applied_discounts</c> on all
-    /// <c>OrderReturnLineItem</c>s. For <c>LINE_ITEM</c> scoped discounts, the discount is only applied to
-    /// <c>OrderReturnLineItem</c>s with references in their <c>applied_discounts</c> field.
+    /// Indicates whether this is a line-item or order-level discount.
     /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("scope")]
-    public string? Scope { get; init; }
+    public OrderLineItemDiscountScope? Scope { get; init; }
 
     [JsonExtensionData]
     public AdditionalProperties AdditionalProperties { get; init; } = [];

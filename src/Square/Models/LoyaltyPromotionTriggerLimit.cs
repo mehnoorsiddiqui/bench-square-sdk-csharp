@@ -1,11 +1,12 @@
 using System.Text.Json.Serialization;
 using Square.Core.Models;
 using Square.Core.Validation.Attributes;
+using Square.Models.Enums;
 
 namespace Square.Models;
 
 /// <summary>
-/// Represents the number of times a buyer can earn points during a <see href="https://developer.squareup.com/reference/square_2024-08-21/objects/LoyaltyPromotion">loyalty promotion</see>.
+/// Represents the number of times a buyer can earn points during a <see href="$m/LoyaltyPromotion">loyalty promotion</see>.
 /// If this field is not set, buyers can trigger the promotion an unlimited number of times to earn points during
 /// the time that the promotion is available.
 /// <para>
@@ -23,11 +24,12 @@ public record LoyaltyPromotionTriggerLimit
     public required int Times { get; init; }
 
     /// <summary>
-    /// The time period the limit applies to.
+    /// Indicates the time period that the <see href="$m/LoyaltyPromotionTriggerLimit">trigger limit</see> applies to,
+    /// which is used to determine the number of times a buyer can earn points for a <see href="$m/LoyaltyPromotion">loyalty promotion</see>.
     /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("interval")]
-    public string? Interval { get; init; }
+    public LoyaltyPromotionTriggerLimitInterval? Interval { get; init; }
 
     [JsonExtensionData]
     public AdditionalProperties AdditionalProperties { get; init; } = [];

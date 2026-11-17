@@ -1,12 +1,11 @@
 using System.Collections.Generic;
 using System.Text.Json.Serialization;
 using Square.Core.Models;
-using Square.Core.Validation.Attributes;
 
 namespace Square.Models;
 
 /// <summary>
-/// Represents a <see href="https://developer.squareup.com/reference/square_2024-08-21/loyalty-api/calculate-loyalty-points">CalculateLoyaltyPoints</see> response.
+/// Represents a <see href="$e/Loyalty/CalculateLoyaltyPoints">CalculateLoyaltyPoints</see> response.
 /// </summary>
 public record CalculateLoyaltyPointsResponse
 {
@@ -22,7 +21,6 @@ public record CalculateLoyaltyPointsResponse
     /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("points")]
-    [Minimum(0)]
     public int? Points { get; init; }
 
     /// <summary>
@@ -32,7 +30,6 @@ public record CalculateLoyaltyPointsResponse
     /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("promotion_points")]
-    [Minimum(0)]
     public int? PromotionPoints { get; init; }
 
     [JsonExtensionData]

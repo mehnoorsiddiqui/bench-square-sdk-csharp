@@ -1,3 +1,5 @@
+using Square.Models.Enums;
+
 namespace Square.Requests.Devices;
 
 /// <summary>
@@ -17,7 +19,7 @@ public sealed record ListDevicesOperationRequest
     /// - <c>ASC</c> - Oldest to newest.
     /// - <c>DESC</c> - Newest to oldest (default).
     /// </summary>
-    public string? SortOrder { get; init; }
+    public SortOrder? SortOrder { get; init; }
 
     /// <summary>
     /// The number of results to return in a single page.

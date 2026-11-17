@@ -5,7 +5,7 @@ using Square.Core.Enum;
 namespace Square.Models.Enums;
 
 /// <summary>
-/// Indicates the status of a <see href="https://developer.squareup.com/reference/square_2024-08-21/objects/GiftCard">gift card</see> redemption. This status is relevant only for
+/// Indicates the status of a <see href="$m/GiftCard">gift card</see> redemption. This status is relevant only for
 /// redemptions made from Square products (such as Square Point of Sale) because Square products use a
 /// two-state process. Gift cards redeemed using the Gift Card Activities API always have a <c>COMPLETED</c> status.
 /// </summary>

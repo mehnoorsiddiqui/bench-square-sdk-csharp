@@ -2,6 +2,7 @@ using System.ComponentModel.DataAnnotations;
 using System.Text.Json.Serialization;
 using Square.Core.Models;
 using Square.Core.Validation.Attributes;
+using Square.Models.Enums;
 
 namespace Square.Models;
 
@@ -11,11 +12,11 @@ namespace Square.Models;
 public record ListOrderCustomAttributeDefinitionsRequest
 {
     /// <summary>
-    /// Requests that all of the custom attributes be returned, or only those that are read-only or read-write.
+    /// Enumeration of visibility-filter values used to set the ability to view custom attributes or custom attribute definitions.
     /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("visibility_filter")]
-    public string? VisibilityFilter { get; init; }
+    public VisibilityFilter? VisibilityFilter { get; init; }
 
     /// <summary>
     /// The cursor returned in the paged response from the previous call to this endpoint.

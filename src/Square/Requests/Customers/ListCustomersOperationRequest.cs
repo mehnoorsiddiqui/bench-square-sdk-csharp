@@ -1,3 +1,5 @@
+using Square.Models.Enums;
+
 namespace Square.Requests.Customers;
 
 /// <summary>
@@ -29,7 +31,7 @@ public sealed record ListCustomersOperationRequest
     /// The default value is <c>DEFAULT</c>.
     /// </para>
     /// </summary>
-    public string? SortField { get; init; }
+    public CustomerSortField? SortField { get; init; }
 
     /// <summary>
     /// Indicates whether customers should be sorted in ascending (<c>ASC</c>) or
@@ -38,7 +40,7 @@ public sealed record ListCustomersOperationRequest
     /// The default value is <c>ASC</c>.
     /// </para>
     /// </summary>
-    public string? SortOrder { get; init; }
+    public SortOrder? SortOrder { get; init; }
 
     /// <summary>
     /// Indicates whether to return the total count of customers in the <c>count</c> field of the response.
@@ -46,5 +48,5 @@ public sealed record ListCustomersOperationRequest
     /// The default value is <c>false</c>.
     /// </para>
     /// </summary>
-    public bool? Count { get; init; }
+    public bool Count { get; init; } = false;
 }

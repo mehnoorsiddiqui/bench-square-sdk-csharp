@@ -1,5 +1,6 @@
 using System.Text.Json.Serialization;
 using Square.Core.Models;
+using Square.Models.Enums;
 
 namespace Square.Models;
 
@@ -8,11 +9,8 @@ namespace Square.Models;
 /// </summary>
 public record V1UpdateOrderRequest
 {
-    /// <summary>
-    /// The action to perform on the order (COMPLETE, CANCEL, or REFUND).
-    /// </summary>
     [JsonPropertyName("action")]
-    public required string Action { get; init; }
+    public required V1UpdateOrderRequestAction Action { get; init; }
 
     /// <summary>
     /// The tracking number of the shipment associated with the order. Only valid if action is COMPLETE.

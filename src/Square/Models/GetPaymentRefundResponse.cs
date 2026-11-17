@@ -5,7 +5,7 @@ using Square.Core.Models;
 namespace Square.Models;
 
 /// <summary>
-/// Defines the response returned by <see href="https://developer.squareup.com/reference/square_2024-08-21/refunds-api/get-payment-refund">GetRefund</see>.
+/// Defines the response returned by <see href="$e/Refunds/GetPaymentRefund">GetRefund</see>.
 /// <para>
 /// Note: If there are errors processing the request, the refund field might not be
 /// present or it might be present in a FAILED state.

@@ -1,3 +1,5 @@
+using Square.Models.Enums;
+
 namespace Square.Requests.Transactions;
 
 /// <summary>
@@ -39,7 +41,7 @@ public sealed record ListTransactionsOperationRequest
     /// Default value: <c>DESC</c>
     /// </para>
     /// </summary>
-    public string? SortOrder { get; init; }
+    public SortOrder? SortOrder { get; init; }
 
     /// <summary>
     /// A pagination cursor returned by a previous call to this endpoint.

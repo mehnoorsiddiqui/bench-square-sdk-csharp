@@ -1,5 +1,6 @@
 using System.Text.Json.Serialization;
 using Square.Core.Models;
+using Square.Models.Enums;
 
 namespace Square.Models;
 
@@ -12,16 +13,18 @@ namespace Square.Models;
 public record Error
 {
     /// <summary>
-    /// The high-level category for the error.
+    /// Indicates which high-level category of error has occurred during a
+    /// request to the Connect API.
     /// </summary>
     [JsonPropertyName("category")]
-    public required string Category { get; init; }
+    public required ErrorCategory Category { get; init; }
 
     /// <summary>
-    /// The specific code of the error.
+    /// Indicates the specific error that occurred during a request to a
+    /// Square API.
     /// </summary>
     [JsonPropertyName("code")]
-    public required string Code { get; init; }
+    public required ErrorCode Code { get; init; }
 
     /// <summary>
     /// A human-readable description of the error for debugging purposes.

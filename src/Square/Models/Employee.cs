@@ -1,13 +1,14 @@
 using System.Collections.Generic;
 using System.Text.Json.Serialization;
 using Square.Core.Models;
+using Square.Models.Enums;
 
 namespace Square.Models;
 
 /// <summary>
 /// An employee object that is used by the external API.
 /// <para>
-/// DEPRECATED at version 2020-08-26. Replaced by <see href="https://developer.squareup.com/reference/square_2024-08-21/objects/TeamMember">TeamMember</see>.
+/// DEPRECATED at version 2020-08-26. Replaced by <see href="entity:TeamMember">TeamMember</see>.
 /// </para>
 /// </summary>
 public record Employee
@@ -55,11 +56,14 @@ public record Employee
     public IReadOnlyList<string>? LocationIds { get; init; }
 
     /// <summary>
-    /// Specifies the status of the employees being fetched.
+    /// The status of the Employee being retrieved.
+    /// <para>
+    /// DEPRECATED at version 2020-08-26. Replaced by <see href="entity:TeamMemberStatus">TeamMemberStatus</see>.
+    /// </para>
     /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("status")]
-    public string? Status { get; init; }
+    public EmployeeStatus? Status { get; init; }
 
     /// <summary>
     /// Whether this employee is the owner of the merchant. Each merchant

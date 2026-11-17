@@ -5,7 +5,7 @@ using Square.Core.Models;
 namespace Square.Models;
 
 /// <summary>
-/// Defines the response returned by<see href="https://developer.squareup.com/reference/square_2024-08-21/payments-api/complete-payment">CompletePayment</see>.
+/// Defines the response returned by<see href="$e/Payments/CompletePayment">CompletePayment</see>.
 /// </summary>
 public record CompletePaymentResponse
 {

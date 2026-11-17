@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using System.Text.Json.Serialization;
 using Square.Core.Models;
+using Square.Models.Enums;
 
 namespace Square.Models;
 
@@ -10,11 +11,11 @@ namespace Square.Models;
 public record SubscriptionPricing
 {
     /// <summary>
-    /// RELATIVE or STATIC
+    /// Determines the pricing of a <see href="$m/Subscription">Subscription</see>
     /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("type")]
-    public string? Type { get; init; }
+    public SubscriptionPricingType? Type { get; init; }
 
     /// <summary>
     /// The ids of the discount catalog objects

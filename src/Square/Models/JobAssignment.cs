@@ -1,6 +1,7 @@
 using System.ComponentModel.DataAnnotations;
 using System.Text.Json.Serialization;
 using Square.Core.Models;
+using Square.Models.Enums;
 
 namespace Square.Models;
 
@@ -17,11 +18,10 @@ public record JobAssignment
     public required string JobTitle { get; init; }
 
     /// <summary>
-    /// The current pay type for the job assignment used to
-    /// calculate the pay amount in a pay period.
+    /// Enumerates the possible pay types that a job can be assigned.
     /// </summary>
     [JsonPropertyName("pay_type")]
-    public required string PayType { get; init; }
+    public required JobAssignmentPayType PayType { get; init; }
 
     /// <summary>
     /// Represents an amount of money. <c>Money</c> fields can be signed or unsigned.

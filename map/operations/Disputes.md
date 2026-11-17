@@ -2,7 +2,7 @@
 
 # Disputes — operations
 
-Accessor: `client.Disputes` · Source: `src/Square/Api/Disputes.cs` · 8 operations
+Accessor: `client.Disputes` · Source: `src/Square/Api/Disputes.cs` · 9 operations
 
 **Type sources**: the file declaring each type an operation names (`RawError` excluded — see sdk-map.md).
 
@@ -18,6 +18,20 @@ Accessor: `client.Disputes` · Source: `src/Square/Api/Disputes.cs` · 8 operati
 | --- | --- |
 | `AcceptDisputeRequest` | `src/Square/Requests/Disputes/AcceptDisputeRequest.cs` |
 | `AcceptDisputeResponse` | `src/Square/Models/AcceptDisputeResponse.cs` |
+
+### CreateDisputeEvidenceFile
+
+- **Auth**: `options.BearerAuth`
+- **Signature**: `CreateDisputeEvidenceFile(CreateDisputeEvidenceFileOperationRequest request, RequestOptions? requestOptions = null, CancellationToken cancellationToken = default)`
+  - required: `DisputeId`
+- **Returns**: `CreateDisputeEvidenceFileResponse`
+- **Error**: `ApiException<RawError>` — **Case B**
+
+| Type | Source |
+| --- | --- |
+| `CreateDisputeEvidenceFileOperationRequest` | `src/Square/Requests/Disputes/CreateDisputeEvidenceFileOperationRequest.cs` |
+| `CreateDisputeEvidenceFileRequest` | `src/Square/Models/CreateDisputeEvidenceFileRequest.cs` |
+| `CreateDisputeEvidenceFileResponse` | `src/Square/Models/CreateDisputeEvidenceFileResponse.cs` |
 
 ### CreateDisputeEvidenceText
 
@@ -71,6 +85,7 @@ Accessor: `client.Disputes` · Source: `src/Square/Api/Disputes.cs` · 8 operati
 | Type | Source |
 | --- | --- |
 | `ListDisputesOperationRequest` | `src/Square/Requests/Disputes/ListDisputesOperationRequest.cs` |
+| `DisputeState` | `src/Square/Models/Enums/DisputeState.cs` |
 | `ListDisputesResponse` | `src/Square/Models/ListDisputesResponse.cs` |
 
 ### RetrieveDispute

@@ -112,7 +112,7 @@ public record CreateCustomerRequest
     public string? Birthday { get; init; }
 
     /// <summary>
-    /// Represents the tax ID associated with a <see href="https://developer.squareup.com/reference/square_2024-08-21/objects/Customer">customer profile</see>. The corresponding <c>tax_ids</c> field is available only for customers of sellers in EU countries or the United Kingdom.
+    /// Represents the tax ID associated with a <see href="$m/Customer">customer profile</see>. The corresponding <c>tax_ids</c> field is available only for customers of sellers in EU countries or the United Kingdom.
     /// For more information, see <see href="https://developer.squareup.com/docs/customers-api/what-it-does#customer-tax-ids">Customer tax IDs</see>.
     /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]

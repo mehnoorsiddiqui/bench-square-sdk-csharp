@@ -1,5 +1,6 @@
 using System.Text.Json.Serialization;
 using Square.Core.Models;
+using Square.Models.Enums;
 
 namespace Square.Models;
 
@@ -13,11 +14,13 @@ public record CashDrawerShiftEvent
     public string? Id { get; init; }
 
     /// <summary>
-    /// The type of cash drawer shift event.
+    /// The types of events on a CashDrawerShift.
+    /// Each event type represents an employee action on the actual cash drawer
+    /// represented by a CashDrawerShift.
     /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("event_type")]
-    public string? EventType { get; init; }
+    public CashDrawerEventType? EventType { get; init; }
 
     /// <summary>
     /// Represents an amount of money. <c>Money</c> fields can be signed or unsigned.

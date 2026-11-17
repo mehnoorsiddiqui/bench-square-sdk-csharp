@@ -2,6 +2,7 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Text.Json.Serialization;
 using Square.Core.Models;
+using Square.Models.Enums;
 
 namespace Square.Models;
 
@@ -22,11 +23,11 @@ public record LoyaltyProgram
     public string? Id { get; init; }
 
     /// <summary>
-    /// Whether the program is currently active.
+    /// Indicates whether the program is currently active.
     /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("status")]
-    public string? Status { get; init; }
+    public LoyaltyProgramStatus? Status { get; init; }
 
     /// <summary>
     /// The list of rewards for buyers, sorted by ascending points.
@@ -50,10 +51,11 @@ public record LoyaltyProgram
     public LoyaltyProgramTerminology? Terminology { get; init; }
 
     /// <summary>
-    /// The <see href="https://developer.squareup.com/reference/square_2024-08-21/objects/Location">locations</see> at which the program is active.
+    /// The <see href="entity:Location">locations</see> at which the program is active.
     /// </summary>
+    [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("location_ids")]
-    public required IReadOnlyList<string> LocationIds { get; init; }
+    public IReadOnlyList<string>? LocationIds { get; init; }
 
     /// <summary>
     /// The timestamp when the program was created, in RFC 3339 format.
@@ -71,8 +73,8 @@ public record LoyaltyProgram
 
     /// <summary>
     /// Defines how buyers can earn loyalty points from the base loyalty program.
-    /// To check for associated <see href="https://developer.squareup.com/reference/square_2024-08-21/objects/LoyaltyPromotion">loyalty promotions</see> that enable
-    /// buyers to earn extra points, call <see href="https://developer.squareup.com/reference/square_2024-08-21/loyalty-api/list-loyalty-promotions">ListLoyaltyPromotions</see>.
+    /// To check for associated <see href="entity:LoyaltyPromotion">loyalty promotions</see> that enable
+    /// buyers to earn extra points, call <see href="api-endpoint:Loyalty-ListLoyaltyPromotions">ListLoyaltyPromotions</see>.
     /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("accrual_rules")]

@@ -1,5 +1,6 @@
 using System.Text.Json.Serialization;
 using Square.Core.Models;
+using Square.Models.Enums;
 
 namespace Square.Models;
 
@@ -18,53 +19,50 @@ public record MeasurementUnit
     public MeasurementUnitCustom? CustomUnit { get; init; }
 
     /// <summary>
-    /// Represents a standard area unit.
+    /// Unit of area used to measure a quantity.
     /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("area_unit")]
-    public string? AreaUnit { get; init; }
+    public MeasurementUnitArea? AreaUnit { get; init; }
 
     /// <summary>
-    /// Represents a standard length unit.
+    /// The unit of length used to measure a quantity.
     /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("length_unit")]
-    public string? LengthUnit { get; init; }
+    public MeasurementUnitLength? LengthUnit { get; init; }
 
     /// <summary>
-    /// Represents a standard volume unit.
+    /// The unit of volume used to measure a quantity.
     /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("volume_unit")]
-    public string? VolumeUnit { get; init; }
+    public MeasurementUnitVolume? VolumeUnit { get; init; }
 
     /// <summary>
-    /// Represents a standard unit of weight or mass.
+    /// Unit of weight used to measure a quantity.
     /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("weight_unit")]
-    public string? WeightUnit { get; init; }
+    public MeasurementUnitWeight? WeightUnit { get; init; }
 
-    /// <summary>
-    /// Reserved for API integrations that lack the ability to specify a real measurement unit
-    /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("generic_unit")]
-    public string? GenericUnit { get; init; }
+    public MeasurementUnitGeneric? GenericUnit { get; init; }
 
     /// <summary>
-    /// Represents a standard unit of time.
+    /// Unit of time used to measure a quantity (a duration).
     /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("time_unit")]
-    public string? TimeUnit { get; init; }
+    public MeasurementUnitTime? TimeUnit { get; init; }
 
     /// <summary>
-    /// Represents the type of the measurement unit.
+    /// Describes the type of this unit and indicates which field contains the unit information. This is an ‘open’ enum.
     /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("type")]
-    public string? Type { get; init; }
+    public MeasurementUnitUnitType? Type { get; init; }
 
     [JsonExtensionData]
     public AdditionalProperties AdditionalProperties { get; init; } = [];

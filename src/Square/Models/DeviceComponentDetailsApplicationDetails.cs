@@ -1,16 +1,14 @@
 using System.Text.Json.Serialization;
 using Square.Core.Models;
+using Square.Models.Enums;
 
 namespace Square.Models;
 
 public record DeviceComponentDetailsApplicationDetails
 {
-    /// <summary>
-    /// The type of application.
-    /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("application_type")]
-    public string? ApplicationType { get; init; }
+    public ApplicationType? ApplicationType { get; init; }
 
     /// <summary>
     /// The version of the application.

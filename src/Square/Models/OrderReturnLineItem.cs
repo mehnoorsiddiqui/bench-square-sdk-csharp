@@ -2,6 +2,7 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Text.Json.Serialization;
 using Square.Core.Models;
+using Square.Models.Enums;
 
 namespace Square.Models;
 
@@ -63,7 +64,7 @@ public record OrderReturnLineItem
     public string? Note { get; init; }
 
     /// <summary>
-    /// The <see href="https://developer.squareup.com/reference/square_2024-08-21/objects/CatalogItemVariation">CatalogItemVariation</see> ID applied to this return line item.
+    /// The <see href="entity:CatalogItemVariation">CatalogItemVariation</see> ID applied to this return line item.
     /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("catalog_object_id")]
@@ -86,15 +87,14 @@ public record OrderReturnLineItem
     public string? VariationName { get; init; }
 
     /// <summary>
-    /// The type of line item: an itemized return, a non-itemized return (custom amount),
-    /// or the return of an unactivated gift card sale.
+    /// Represents the line item type.
     /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("item_type")]
-    public string? ItemType { get; init; }
+    public OrderLineItemItemType? ItemType { get; init; }
 
     /// <summary>
-    /// The <see href="https://developer.squareup.com/reference/square_2024-08-21/objects/CatalogModifier">CatalogModifier</see>s applied to this line item.
+    /// The <see href="entity:CatalogModifier">CatalogModifier</see>s applied to this line item.
     /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("return_modifiers")]

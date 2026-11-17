@@ -1,10 +1,11 @@
 using System.Text.Json.Serialization;
 using Square.Core.Models;
+using Square.Models.Enums;
 
 namespace Square.Models;
 
 /// <summary>
-/// Represents details about an <c>ADJUST_INCREMENT</c> <see href="https://developer.squareup.com/reference/square_2024-08-21/objects/GiftCardActivityType">gift card activity type</see>.
+/// Represents details about an <c>ADJUST_INCREMENT</c> <see href="$m/GiftCardActivityType">gift card activity type</see>.
 /// </summary>
 public record GiftCardActivityAdjustIncrement
 {
@@ -20,10 +21,10 @@ public record GiftCardActivityAdjustIncrement
     public required Money AmountMoney { get; init; }
 
     /// <summary>
-    /// The reason the gift card balance was adjusted.
+    /// Indicates the reason for adding money to a <see href="$m/GiftCard">gift card</see>.
     /// </summary>
     [JsonPropertyName("reason")]
-    public required string Reason { get; init; }
+    public required GiftCardActivityAdjustIncrementReason Reason { get; init; }
 
     [JsonExtensionData]
     public AdditionalProperties AdditionalProperties { get; init; } = [];

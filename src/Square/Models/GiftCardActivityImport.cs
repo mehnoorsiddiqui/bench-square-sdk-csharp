@@ -4,7 +4,7 @@ using Square.Core.Models;
 namespace Square.Models;
 
 /// <summary>
-/// Represents details about an <c>IMPORT</c> <see href="https://developer.squareup.com/reference/square_2024-08-21/objects/GiftCardActivityType">gift card activity type</see>.
+/// Represents details about an <c>IMPORT</c> <see href="$m/GiftCardActivityType">gift card activity type</see>.
 /// This activity type is used when Square imports a third-party gift card, in which case the
 /// <c>gan_source</c> of the gift card is set to <c>OTHER</c>.
 /// </summary>

@@ -5,7 +5,7 @@ using Square.Core.Models;
 namespace Square.Models;
 
 /// <summary>
-/// Represents an individual delete request in a <see href="https://developer.squareup.com/reference/square_2024-08-21/location-custom-attributes-api/bulk-delete-location-custom-attributes">BulkDeleteLocationCustomAttributes</see>
+/// Represents an individual delete request in a <see href="$e/LocationCustomAttributes/BulkDeleteLocationCustomAttributes">BulkDeleteLocationCustomAttributes</see>
 /// request. An individual request contains an optional ID of the associated custom attribute definition
 /// and optional key of the associated custom attribute definition.
 /// </summary>

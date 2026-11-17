@@ -1,6 +1,7 @@
 using System.ComponentModel.DataAnnotations;
 using System.Text.Json.Serialization;
 using Square.Core.Models;
+using Square.Models.Enums;
 
 namespace Square.Models;
 
@@ -54,11 +55,11 @@ public record DisputeEvidence
     public string? UploadedAt { get; init; }
 
     /// <summary>
-    /// The type of the evidence.
+    /// The type of the dispute evidence.
     /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("evidence_type")]
-    public string? EvidenceType { get; init; }
+    public DisputeEvidenceType? EvidenceType { get; init; }
 
     [JsonExtensionData]
     public AdditionalProperties AdditionalProperties { get; init; } = [];

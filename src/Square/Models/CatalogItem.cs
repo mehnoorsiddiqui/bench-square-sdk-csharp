@@ -2,11 +2,12 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Text.Json.Serialization;
 using Square.Core.Models;
+using Square.Models.Enums;
 
 namespace Square.Models;
 
 /// <summary>
-/// A <see href="https://developer.squareup.com/reference/square_2024-08-21/objects/CatalogObject">CatalogObject</see> instance of the <c>ITEM</c> type, also referred to as an item, in the catalog.
+/// A <see href="$m/CatalogObject">CatalogObject</see> instance of the <c>ITEM</c> type, also referred to as an item, in the catalog.
 /// </summary>
 public record CatalogItem
 {
@@ -22,7 +23,7 @@ public record CatalogItem
     /// The item's description. This is a searchable attribute for use in applicable query filters, and its value length is of Unicode code points.
     /// <para>
     /// Deprecated at 2022-07-20, this field is planned to retire in 6 months. You should migrate to use <c>description_html</c> to set the description
-    /// of the <see href="https://developer.squareup.com/reference/square_2024-08-21/objects/CatalogItem">CatalogItem</see> instance.  The <c>description</c> and <c>description_html</c> field values are kept in sync. If you try to
+    /// of the <see href="entity:CatalogItem">CatalogItem</see> instance.  The <c>description</c> and <c>description_html</c> field values are kept in sync. If you try to
     /// set the both fields, the <c>description_html</c> text value overwrites the <c>description</c> value. Updates in one field are also reflected in the other,
     /// except for when you use an early version before Square API 2022-07-20 and <c>description_html</c> is set to blank, setting the <c>description</c> value to null
     /// does not nullify <c>description_html</c>.
@@ -97,7 +98,7 @@ public record CatalogItem
     public IReadOnlyList<CatalogItemModifierListInfo>? ModifierListInfo { get; init; }
 
     /// <summary>
-    /// A list of <see href="https://developer.squareup.com/reference/square_2024-08-21/objects/CatalogItemVariation">CatalogItemVariation</see> objects for this item. An item must have
+    /// A list of <see href="entity:CatalogItemVariation">CatalogItemVariation</see> objects for this item. An item must have
     /// at least one variation.
     /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
@@ -105,15 +106,11 @@ public record CatalogItem
     public IReadOnlyList<CatalogObject>? Variations { get; init; }
 
     /// <summary>
-    /// The product type of the item. Once set, the <c>product_type</c> value cannot be modified.
-    /// <para>
-    /// Items of the <c>LEGACY_SQUARE_ONLINE_SERVICE</c> and <c>LEGACY_SQUARE_ONLINE_MEMBERSHIP</c> product types can be updated
-    /// but cannot be created using the API.
-    /// </para>
+    /// The type of a CatalogItem. Connect V2 only allows the creation of <c>REGULAR</c> or <c>APPOINTMENTS_SERVICE</c> items.
     /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("product_type")]
-    public string? ProductType { get; init; }
+    public CatalogItemProductType? ProductType { get; init; }
 
     /// <summary>
     /// If <c>false</c>, the Square Point of Sale app will present the <c>CatalogItem</c>'s

@@ -7,7 +7,7 @@
     <PropertyGroup>
         <PackageId>ApimaticBench.Square</PackageId>
         <AssemblyName>ApimaticBench.Square</AssemblyName>
-        <Description>Client library for accessing the Square Connect APIs</Description>
+        <Description>Use Square APIs to manage and run business including payment, customer, product, inventory, and employee management.</Description>
         <RepositoryUrl>https://github.com/mehnoorsiddiqui/bench-square-sdk-csharp.git</RepositoryUrl>
         <PackageReadmeFile>README.md</PackageReadmeFile>
         <PackageLicenseExpression>MIT</PackageLicenseExpression>

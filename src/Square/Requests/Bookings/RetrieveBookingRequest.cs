@@ -6,7 +6,7 @@ namespace Square.Requests.Bookings;
 public sealed record RetrieveBookingRequest
 {
     /// <summary>
-    /// The ID of the <see href="https://developer.squareup.com/reference/square_2024-08-21/objects/Booking">Booking</see> object representing the to-be-retrieved booking.
+    /// The ID of the <see href="entity:Booking">Booking</see> object representing the to-be-retrieved booking.
     /// </summary>
     public required string BookingId { get; init; }
 }

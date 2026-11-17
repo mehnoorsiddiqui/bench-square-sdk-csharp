@@ -5,7 +5,7 @@ using Square.Core.Enum;
 namespace Square.Models.Enums;
 
 /// <summary>
-/// Indicates the type of <see href="https://developer.squareup.com/reference/square_2024-08-21/objects/GiftCardActivity">gift card activity</see>.
+/// Indicates the type of <see href="$m/GiftCardActivity">gift card activity</see>.
 /// </summary>
 [JsonConverter(typeof(StringEnumConverter<GiftCardActivityType>))]
 public sealed record GiftCardActivityType : OpenStringEnum<GiftCardActivityType>

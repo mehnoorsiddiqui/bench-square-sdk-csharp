@@ -1,10 +1,11 @@
 using System.Text.Json.Serialization;
 using Square.Core.Models;
+using Square.Models.Enums;
 
 namespace Square.Models;
 
 /// <summary>
-/// Represents details about a <c>REDEEM</c> <see href="https://developer.squareup.com/reference/square_2024-08-21/objects/GiftCardActivityType">gift card activity type</see>.
+/// Represents details about a <c>REDEEM</c> <see href="$m/GiftCardActivityType">gift card activity type</see>.
 /// </summary>
 public record GiftCardActivityRedeem
 {
@@ -39,14 +40,13 @@ public record GiftCardActivityRedeem
     public string? ReferenceId { get; init; }
 
     /// <summary>
-    /// The status of the gift card redemption. Gift cards redeemed from Square Point of Sale or the
-    /// Square Seller Dashboard use a two-state process: <c>PENDING</c>
-    /// to <c>COMPLETED</c> or <c>PENDING</c> to  <c>CANCELED</c>. Gift cards redeemed using the Gift Card Activities API
-    /// always have a <c>COMPLETED</c> status.
+    /// Indicates the status of a <see href="$m/GiftCard">gift card</see> redemption. This status is relevant only for
+    /// redemptions made from Square products (such as Square Point of Sale) because Square products use a
+    /// two-state process. Gift cards redeemed using the Gift Card Activities API always have a <c>COMPLETED</c> status.
     /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("status")]
-    public string? Status { get; init; }
+    public GiftCardActivityRedeemStatus? Status { get; init; }
 
     [JsonExtensionData]
     public AdditionalProperties AdditionalProperties { get; init; } = [];

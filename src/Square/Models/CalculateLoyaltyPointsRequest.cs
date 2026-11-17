@@ -5,12 +5,12 @@ using Square.Core.Models;
 namespace Square.Models;
 
 /// <summary>
-/// Represents a <see href="https://developer.squareup.com/reference/square_2024-08-21/loyalty-api/calculate-loyalty-points">CalculateLoyaltyPoints</see> request.
+/// Represents a <see href="$e/Loyalty/CalculateLoyaltyPoints">CalculateLoyaltyPoints</see> request.
 /// </summary>
 public record CalculateLoyaltyPointsRequest
 {
     /// <summary>
-    /// The <see href="https://developer.squareup.com/reference/square_2024-08-21/objects/Order">order</see> ID for which to calculate the points.
+    /// The <see href="entity:Order">order</see> ID for which to calculate the points.
     /// Specify this field if your application uses the Orders API to process orders.
     /// Otherwise, specify the <c>transaction_amount_money</c>.
     /// </summary>
@@ -31,7 +31,7 @@ public record CalculateLoyaltyPointsRequest
     public Money? TransactionAmountMoney { get; init; }
 
     /// <summary>
-    /// The ID of the target <see href="https://developer.squareup.com/reference/square_2024-08-21/objects/LoyaltyAccount">loyalty account</see>. Optionally specify this field
+    /// The ID of the target <see href="entity:LoyaltyAccount">loyalty account</see>. Optionally specify this field
     /// if your application uses the Orders API to process orders.
     /// <para>
     /// If specified, the <c>promotion_points</c> field in the response shows the number of points the buyer would

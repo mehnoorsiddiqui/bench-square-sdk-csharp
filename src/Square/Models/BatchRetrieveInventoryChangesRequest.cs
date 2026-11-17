@@ -2,6 +2,7 @@ using System.Collections.Generic;
 using System.Text.Json.Serialization;
 using Square.Core.Models;
 using Square.Core.Validation.Attributes;
+using Square.Models.Enums;
 
 namespace Square.Models;
 
@@ -29,7 +30,7 @@ public record BatchRetrieveInventoryChangesRequest
     /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("types")]
-    public IReadOnlyList<string>? Types { get; init; }
+    public IReadOnlyList<InventoryChangeType>? Types { get; init; }
 
     /// <summary>
     /// The filter to return <c>ADJUSTMENT</c> query results by
@@ -38,7 +39,7 @@ public record BatchRetrieveInventoryChangesRequest
     /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("states")]
-    public IReadOnlyList<string>? States { get; init; }
+    public IReadOnlyList<InventoryState>? States { get; init; }
 
     /// <summary>
     /// The filter to return results with their <c>calculated_at</c> value
@@ -70,7 +71,7 @@ public record BatchRetrieveInventoryChangesRequest
     public string? Cursor { get; init; }
 
     /// <summary>
-    /// The number of <see href="https://developer.squareup.com/reference/square_2024-08-21/objects/InventoryChange">records</see> to return.
+    /// The number of <see href="entity:InventoryChange">records</see> to return.
     /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("limit")]

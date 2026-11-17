@@ -1,13 +1,14 @@
 using System.Text.Json.Serialization;
 using Square.Core.Models;
+using Square.Models.Enums;
 
 namespace Square.Models;
 
 /// <summary>
 /// Defines the query parameters that can be included in
-/// a request to the <see href="https://developer.squareup.com/reference/square_2024-08-21/transactions-api/list-refunds">ListRefunds</see> endpoint.
+/// a request to the <see href="api-endpoint:Transactions-ListRefunds">ListRefunds</see> endpoint.
 /// <para>
-/// Deprecated - recommend using <see href="https://developer.squareup.com/reference/square_2024-08-21/orders-api/search-orders">SearchOrders</see>
+/// Deprecated - recommend using <see href="api-endpoint:Orders-SearchOrders">SearchOrders</see>
 /// </para>
 /// </summary>
 public record ListRefundsRequest
@@ -39,15 +40,11 @@ public record ListRefundsRequest
     public string? EndTime { get; init; }
 
     /// <summary>
-    /// The order in which results are listed in the response (<c>ASC</c> for
-    /// oldest first, <c>DESC</c> for newest first).
-    /// <para>
-    /// Default value: <c>DESC</c>
-    /// </para>
+    /// The order (e.g., chronological or alphabetical) in which results from a request are returned.
     /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("sort_order")]
-    public string? SortOrder { get; init; }
+    public SortOrder? SortOrder { get; init; }
 
     /// <summary>
     /// A pagination cursor returned by a previous call to this endpoint.

@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using System.Text.Json.Serialization;
 using Square.Core.Models;
+using Square.Models.Enums;
 
 namespace Square.Models;
 
@@ -15,21 +16,19 @@ public record CustomerCreationSourceFilter
 {
     /// <summary>
     /// The list of creation sources used as filtering criteria.
+    /// See <see href="#type-customercreationsource">CustomerCreationSource</see> for possible values
     /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("values")]
-    public IReadOnlyList<string>? Values { get; init; }
+    public IReadOnlyList<CustomerCreationSource>? Values { get; init; }
 
     /// <summary>
-    /// Indicates whether a customer profile matching the filter criteria
-    /// should be included in the result or excluded from the result.
-    /// <para>
-    /// Default: <c>INCLUDE</c>.
-    /// </para>
+    /// Indicates whether customers should be included in, or excluded from,
+    /// the result set when they match the filtering criteria.
     /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("rule")]
-    public string? Rule { get; init; }
+    public CustomerInclusionExclusion? Rule { get; init; }
 
     [JsonExtensionData]
     public AdditionalProperties AdditionalProperties { get; init; } = [];

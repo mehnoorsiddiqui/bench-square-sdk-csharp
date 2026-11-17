@@ -21,15 +21,15 @@ public record ListBookingsRequest
     /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("cursor")]
-    [StringLength(65536, MinimumLength = 0)]
+    [MaxLength(65536)]
     public string? Cursor { get; init; }
 
     /// <summary>
-    /// The <see href="https://developer.squareup.com/reference/square_2024-08-21/objects/Customer">customer</see> for whom to retrieve bookings. If this is not set, bookings for all customers are retrieved.
+    /// The <see href="entity:Customer">customer</see> for whom to retrieve bookings. If this is not set, bookings for all customers are retrieved.
     /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("customer_id")]
-    [StringLength(192, MinimumLength = 0)]
+    [MaxLength(192)]
     public string? CustomerId { get; init; }
 
     /// <summary>
@@ -37,7 +37,7 @@ public record ListBookingsRequest
     /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("team_member_id")]
-    [StringLength(32, MinimumLength = 0)]
+    [MaxLength(32)]
     public string? TeamMemberId { get; init; }
 
     /// <summary>
@@ -45,7 +45,7 @@ public record ListBookingsRequest
     /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("location_id")]
-    [StringLength(32, MinimumLength = 0)]
+    [MaxLength(32)]
     public string? LocationId { get; init; }
 
     /// <summary>

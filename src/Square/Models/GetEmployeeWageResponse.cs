@@ -12,7 +12,7 @@ namespace Square.Models;
 public record GetEmployeeWageResponse
 {
     /// <summary>
-    /// The hourly wage rate that an employee earns on a <c>Shift</c> for doing the job specified by the <c>title</c> property of this object. Deprecated at version 2020-08-26. Use <see href="https://developer.squareup.com/reference/square_2024-08-21/objects/TeamMemberWage">TeamMemberWage</see>.
+    /// The hourly wage rate that an employee earns on a <c>Shift</c> for doing the job specified by the <c>title</c> property of this object. Deprecated at version 2020-08-26. Use <see href="entity:TeamMemberWage">TeamMemberWage</see>.
     /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("employee_wage")]

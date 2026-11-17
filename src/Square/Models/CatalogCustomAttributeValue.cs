@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using System.Text.Json.Serialization;
 using Square.Core.Models;
+using Square.Models.Enums;
 
 namespace Square.Models;
 
@@ -26,18 +27,18 @@ public record CatalogCustomAttributeValue
     public string? StringValue { get; init; }
 
     /// <summary>
-    /// The id of the <see href="https://developer.squareup.com/reference/square_2024-08-21/objects/CatalogCustomAttributeDefinition">CatalogCustomAttributeDefinition</see> this value belongs to.
+    /// The id of the <see href="entity:CatalogCustomAttributeDefinition">CatalogCustomAttributeDefinition</see> this value belongs to.
     /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("custom_attribute_definition_id")]
     public string? CustomAttributeDefinitionId { get; init; }
 
     /// <summary>
-    /// A copy of type from the associated <c>CatalogCustomAttributeDefinition</c>.
+    /// Defines the possible types for a custom attribute.
     /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("type")]
-    public string? Type { get; init; }
+    public CatalogCustomAttributeDefinitionType? Type { get; init; }
 
     /// <summary>
     /// Populated if <c>type</c> = <c>NUMBER</c>. Contains a string

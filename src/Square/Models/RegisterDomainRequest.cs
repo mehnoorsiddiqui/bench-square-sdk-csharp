@@ -6,7 +6,7 @@ namespace Square.Models;
 
 /// <summary>
 /// Defines the parameters that can be included in the body of
-/// a request to the <see href="https://developer.squareup.com/reference/square_2024-08-21/apple-pay-api/register-domain">RegisterDomain</see> endpoint.
+/// a request to the <see href="$e/ApplePay/RegisterDomain">RegisterDomain</see> endpoint.
 /// </summary>
 public record RegisterDomainRequest
 {

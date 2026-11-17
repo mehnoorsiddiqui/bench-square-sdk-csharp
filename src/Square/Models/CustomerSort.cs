@@ -1,35 +1,28 @@
 using System.Text.Json.Serialization;
 using Square.Core.Models;
+using Square.Models.Enums;
 
 namespace Square.Models;
 
 /// <summary>
-/// Represents the sorting criteria in a <see href="https://developer.squareup.com/reference/square_2024-08-21/objects/CustomerQuery">search query</see> that defines how to sort
-/// customer profiles returned in <see href="https://developer.squareup.com/reference/square_2024-08-21/customers-api/search-customers">SearchCustomers</see> results.
+/// Represents the sorting criteria in a <see href="$m/CustomerQuery">search query</see> that defines how to sort
+/// customer profiles returned in <see href="$e/Customers/SearchCustomers">SearchCustomers</see> results.
 /// </summary>
 public record CustomerSort
 {
     /// <summary>
-    /// Indicates the fields to use as the sort key, which is either the default set of fields or <c>created_at</c>.
-    /// <para>
-    /// The default value is <c>DEFAULT</c>.
-    /// </para>
+    /// Specifies customer attributes as the sort key to customer profiles returned from a search.
     /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("field")]
-    public string? Field { get; init; }
+    public CustomerSortField? Field { get; init; }
 
     /// <summary>
-    /// Indicates the order in which results should be sorted based on the
-    /// sort field value. Strings use standard alphabetic comparison
-    /// to determine order. Strings representing numbers are sorted as strings.
-    /// <para>
-    /// The default value is <c>ASC</c>.
-    /// </para>
+    /// The order (e.g., chronological or alphabetical) in which results from a request are returned.
     /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("order")]
-    public string? Order { get; init; }
+    public SortOrder? Order { get; init; }
 
     [JsonExtensionData]
     public AdditionalProperties AdditionalProperties { get; init; } = [];

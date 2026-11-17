@@ -2,7 +2,7 @@
 
 # Catalog — operations
 
-Accessor: `client.Catalog` · Source: `src/Square/Api/Catalog.cs` · 12 operations
+Accessor: `client.Catalog` · Source: `src/Square/Api/Catalog.cs` · 14 operations
 
 **Type sources**: the file declaring each type an operation names (`RawError` excluded — see sdk-map.md).
 
@@ -58,6 +58,19 @@ Accessor: `client.Catalog` · Source: `src/Square/Api/Catalog.cs` · 12 operatio
 | Type | Source |
 | --- | --- |
 | `CatalogInfoResponse` | `src/Square/Models/CatalogInfoResponse.cs` |
+
+### CreateCatalogImage
+
+- **Auth**: `options.BearerAuth`
+- **Signature**: `CreateCatalogImage(CreateCatalogImageOperationRequest request, RequestOptions? requestOptions = null, CancellationToken cancellationToken = default)`
+- **Returns**: `CreateCatalogImageResponse`
+- **Error**: `ApiException<RawError>` — **Case B**
+
+| Type | Source |
+| --- | --- |
+| `CreateCatalogImageOperationRequest` | `src/Square/Requests/Catalog/CreateCatalogImageOperationRequest.cs` |
+| `CreateCatalogImageRequest` | `src/Square/Models/CreateCatalogImageRequest.cs` |
+| `CreateCatalogImageResponse` | `src/Square/Models/CreateCatalogImageResponse.cs` |
 
 ### DeleteCatalogObject
 
@@ -126,6 +139,20 @@ Accessor: `client.Catalog` · Source: `src/Square/Api/Catalog.cs` · 12 operatio
 | `SearchCatalogObjectsOperationRequest` | `src/Square/Requests/Catalog/SearchCatalogObjectsOperationRequest.cs` |
 | `SearchCatalogObjectsRequest` | `src/Square/Models/SearchCatalogObjectsRequest.cs` |
 | `SearchCatalogObjectsResponse` | `src/Square/Models/SearchCatalogObjectsResponse.cs` |
+
+### UpdateCatalogImage
+
+- **Auth**: `options.BearerAuth`
+- **Signature**: `UpdateCatalogImage(UpdateCatalogImageOperationRequest request, RequestOptions? requestOptions = null, CancellationToken cancellationToken = default)`
+  - required: `ImageId`
+- **Returns**: `UpdateCatalogImageResponse`
+- **Error**: `ApiException<RawError>` — **Case B**
+
+| Type | Source |
+| --- | --- |
+| `UpdateCatalogImageOperationRequest` | `src/Square/Requests/Catalog/UpdateCatalogImageOperationRequest.cs` |
+| `UpdateCatalogImageRequest` | `src/Square/Models/UpdateCatalogImageRequest.cs` |
+| `UpdateCatalogImageResponse` | `src/Square/Models/UpdateCatalogImageResponse.cs` |
 
 ### UpdateItemModifierLists
 

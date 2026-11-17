@@ -2,11 +2,12 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Text.Json.Serialization;
 using Square.Core.Models;
+using Square.Models.Enums;
 
 namespace Square.Models;
 
 /// <summary>
-/// Represents a payment request for an <see href="https://developer.squareup.com/reference/square_2024-08-21/objects/Invoice">invoice</see>. Invoices can specify a maximum
+/// Represents a payment request for an <see href="$m/Invoice">invoice</see>. Invoices can specify a maximum
 /// of 13 payment requests, with up to 12 <c>INSTALLMENT</c> request types. For more information,
 /// see <see href="https://developer.squareup.com/docs/invoices-api/create-publish-invoices#payment-requests">Configuring payment requests</see>.
 /// <para>
@@ -17,7 +18,7 @@ namespace Square.Models;
 public record InvoicePaymentRequest
 {
     /// <summary>
-    /// The Square-generated ID of the payment request in an <see href="https://developer.squareup.com/reference/square_2024-08-21/objects/Invoice">invoice</see>.
+    /// The Square-generated ID of the payment request in an <see href="entity:Invoice">invoice</see>.
     /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("uid")]
@@ -25,26 +26,22 @@ public record InvoicePaymentRequest
     public string? Uid { get; init; }
 
     /// <summary>
-    /// Indicates how Square processes the payment request. DEPRECATED at version 2021-01-21. Replaced by the
+    /// Specifies the action for Square to take for processing the invoice. For example,
+    /// email the invoice, charge a customer's card on file, or do nothing. DEPRECATED at
+    /// version 2021-01-21. The corresponding <c>request_method</c> field is replaced by the
     /// <c>Invoice.delivery_method</c> and <c>InvoicePaymentRequest.automatic_payment_source</c> fields.
-    /// <para>
-    /// One of the following is required when creating an invoice:
-    /// - (Recommended) The <c>delivery_method</c> field of the invoice. To configure an automatic payment, the
-    /// <c>automatic_payment_source</c> field of the payment request is also required.
-    /// - This <c>request_method</c> field. Note that <c>invoice</c> objects returned in responses do not include <c>request_method</c>.
-    /// </para>
     /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("request_method")]
-    public string? RequestMethod { get; init; }
+    public InvoiceRequestMethod? RequestMethod { get; init; }
 
     /// <summary>
-    /// Identifies the payment request type. This type defines how the payment request amount is determined.
-    /// This field is required to create a payment request.
+    /// Indicates the type of the payment request. For more information, see
+    /// <see href="https://developer.squareup.com/docs/invoices-api/create-publish-invoices#payment-requests">Configuring payment requests</see>.
     /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("request_type")]
-    public string? RequestType { get; init; }
+    public InvoiceRequestType? RequestType { get; init; }
 
     /// <summary>
     /// The due date (in the invoice's time zone) for the payment request, in <c>YYYY-MM-DD</c> format. This field
@@ -102,18 +99,15 @@ public record InvoicePaymentRequest
     public bool? TippingEnabled { get; init; }
 
     /// <summary>
-    /// The payment method for an automatic payment.
-    /// <para>
-    /// The default value is <c>NONE</c>.
-    /// </para>
+    /// Indicates the automatic payment method for an <see href="$m/InvoicePaymentRequest">invoice payment request</see>.
     /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("automatic_payment_source")]
-    public string? AutomaticPaymentSource { get; init; }
+    public InvoiceAutomaticPaymentSource? AutomaticPaymentSource { get; init; }
 
     /// <summary>
     /// The ID of the credit or debit card on file to charge for the payment request. To get the cards on file for a customer,
-    /// call <see href="https://developer.squareup.com/reference/square_2024-08-21/cards-api/list-cards">ListCards</see> and include the <c>customer_id</c> of the invoice recipient.
+    /// call <see href="api-endpoint:Cards-ListCards">ListCards</see> and include the <c>customer_id</c> of the invoice recipient.
     /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("card_id")]

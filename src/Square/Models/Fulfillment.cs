@@ -2,6 +2,7 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Text.Json.Serialization;
 using Square.Core.Models;
+using Square.Models.Enums;
 
 namespace Square.Models;
 
@@ -21,26 +22,26 @@ public record Fulfillment
     public string? Uid { get; init; }
 
     /// <summary>
-    /// The type of the fulfillment.
+    /// The type of fulfillment.
     /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("type")]
-    public string? Type { get; init; }
+    public FulfillmentType? Type { get; init; }
 
     /// <summary>
-    /// The state of the fulfillment.
+    /// The current state of this fulfillment.
     /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("state")]
-    public string? State { get; init; }
+    public FulfillmentState? State { get; init; }
 
     /// <summary>
-    /// Describes what order line items this fulfillment applies to.
-    /// It can be <c>ALL</c> or <c>ENTRY_LIST</c> with a supplied list of fulfillment entries.
+    /// The <c>line_item_application</c> describes what order line items this fulfillment applies
+    /// to. It can be <c>ALL</c> or <c>ENTRY_LIST</c> with a supplied list of fulfillment entries.
     /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("line_item_application")]
-    public string? LineItemApplication { get; init; }
+    public FulfillmentFulfillmentLineItemApplication? LineItemApplication { get; init; }
 
     /// <summary>
     /// A list of entries pertaining to the fulfillment of an order. Each entry must reference

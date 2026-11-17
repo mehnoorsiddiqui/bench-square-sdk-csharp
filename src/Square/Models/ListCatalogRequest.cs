@@ -17,7 +17,7 @@ public record ListCatalogRequest
     /// <summary>
     /// An optional case-insensitive, comma-separated list of object types to retrieve.
     /// <para>
-    /// The valid values are defined in the <see href="https://developer.squareup.com/reference/square_2024-08-21/enums/CatalogObjectType">CatalogObjectType</see> enum, for example,
+    /// The valid values are defined in the <see href="entity:CatalogObjectType">CatalogObjectType</see> enum, for example,
     /// <c>ITEM</c>, <c>ITEM_VARIATION</c>, <c>CATEGORY</c>, <c>DISCOUNT</c>, <c>TAX</c>,
     /// <c>MODIFIER</c>, <c>MODIFIER_LIST</c>, <c>IMAGE</c>, etc.
     /// </para>
@@ -40,7 +40,7 @@ public record ListCatalogRequest
     /// <summary>
     /// The specific version of the catalog objects to be included in the response.
     /// This allows you to retrieve historical versions of objects. The specified version value is matched against
-    /// the <see href="https://developer.squareup.com/reference/square_2024-08-21/objects/CatalogObject">CatalogObject</see>s' <c>version</c> attribute.  If not included, results will be from the
+    /// the <see href="$m/CatalogObject">CatalogObject</see>s' <c>version</c> attribute.  If not included, results will be from the
     /// current version of the catalog.
     /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]

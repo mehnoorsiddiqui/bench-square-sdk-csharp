@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using System.Text.Json.Serialization;
 using Square.Core.Models;
+using Square.Models.Enums;
 
 namespace Square.Models;
 
@@ -25,21 +26,18 @@ public record ListDeviceCodesRequest
     [JsonPropertyName("location_id")]
     public string? LocationId { get; init; }
 
-    /// <summary>
-    /// If specified, only returns DeviceCodes targeting the specified product type.
-    /// Returns DeviceCodes of all product types if empty.
-    /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("product_type")]
-    public string? ProductType { get; init; }
+    public ProductType? ProductType { get; init; }
 
     /// <summary>
     /// If specified, returns DeviceCodes with the specified statuses.
     /// Returns DeviceCodes of status <c>PAIRED</c> and <c>UNPAIRED</c> if empty.
+    /// See <see href="#type-devicecodestatus">DeviceCodeStatus</see> for possible values
     /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("status")]
-    public IReadOnlyList<string>? Status { get; init; }
+    public IReadOnlyList<DeviceCodeStatus>? Status { get; init; }
 
     [JsonExtensionData]
     public AdditionalProperties AdditionalProperties { get; init; } = [];

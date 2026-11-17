@@ -85,6 +85,7 @@ Accessor: `client.MerchantCustomAttributes` · Source: `src/Square/Api/MerchantC
 | Type | Source |
 | --- | --- |
 | `ListMerchantCustomAttributeDefinitionsOperationRequest` | `src/Square/Requests/MerchantCustomAttributes/ListMerchantCustomAttributeDefinitionsOperationRequest.cs` |
+| `VisibilityFilter` | `src/Square/Models/Enums/VisibilityFilter.cs` |
 | `ListMerchantCustomAttributeDefinitionsResponse` | `src/Square/Models/ListMerchantCustomAttributeDefinitionsResponse.cs` |
 
 ### ListMerchantCustomAttributes
@@ -99,6 +100,7 @@ Accessor: `client.MerchantCustomAttributes` · Source: `src/Square/Api/MerchantC
 | Type | Source |
 | --- | --- |
 | `ListMerchantCustomAttributesOperationRequest` | `src/Square/Requests/MerchantCustomAttributes/ListMerchantCustomAttributesOperationRequest.cs` |
+| `VisibilityFilter` | `src/Square/Models/Enums/VisibilityFilter.cs` |
 | `ListMerchantCustomAttributesResponse` | `src/Square/Models/ListMerchantCustomAttributesResponse.cs` |
 
 ### RetrieveMerchantCustomAttribute

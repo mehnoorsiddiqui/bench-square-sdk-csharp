@@ -2,6 +2,7 @@ using System.ComponentModel.DataAnnotations;
 using System.Text.Json.Serialization;
 using Square.Core.Models;
 using Square.Core.Validation.Attributes;
+using Square.Models.Enums;
 
 namespace Square.Models;
 
@@ -11,11 +12,11 @@ namespace Square.Models;
 public record ListOrderCustomAttributesRequest
 {
     /// <summary>
-    /// Requests that all of the custom attributes be returned, or only those that are read-only or read-write.
+    /// Enumeration of visibility-filter values used to set the ability to view custom attributes or custom attribute definitions.
     /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("visibility_filter")]
-    public string? VisibilityFilter { get; init; }
+    public VisibilityFilter? VisibilityFilter { get; init; }
 
     /// <summary>
     /// The cursor returned in the paged response from the previous call to this endpoint.
@@ -40,7 +41,7 @@ public record ListOrderCustomAttributesRequest
     public int? Limit { get; init; }
 
     /// <summary>
-    /// Indicates whether to return the <see href="https://developer.squareup.com/reference/square_2024-08-21/objects/CustomAttributeDefinition">custom attribute definition</see> in the <c>definition</c> field of each
+    /// Indicates whether to return the <see href="entity:CustomAttributeDefinition">custom attribute definition</see> in the <c>definition</c> field of each
     /// custom attribute. Set this parameter to <c>true</c> to get the name and description of each custom attribute,
     /// information about the data type, or other definition details. The default value is <c>false</c>.
     /// </summary>

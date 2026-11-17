@@ -1,5 +1,6 @@
 using System.Text.Json.Serialization;
 using Square.Core.Models;
+using Square.Models.Enums;
 
 namespace Square.Models;
 
@@ -56,15 +57,12 @@ public record PaymentOptions
     public bool? AcceptPartialAuthorization { get; init; }
 
     /// <summary>
-    /// The action to be applied to the payment when the delay_duration has elapsed.
-    /// The action must be CANCEL or COMPLETE.
-    /// <para>
-    /// This parameter can only be set for a delayed capture payment (when <c>autocomplete</c> is <c>false</c>).
-    /// </para>
+    /// Describes the action to be applied to a delayed capture payment when the delay_duration
+    /// has elapsed.
     /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("delay_action")]
-    public string? DelayAction { get; init; }
+    public PaymentOptionsDelayAction? DelayAction { get; init; }
 
     [JsonExtensionData]
     public AdditionalProperties AdditionalProperties { get; init; } = [];

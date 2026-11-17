@@ -1,5 +1,6 @@
 using System.Text.Json.Serialization;
 using Square.Core.Models;
+using Square.Models.Enums;
 
 namespace Square.Models;
 
@@ -9,18 +10,18 @@ namespace Square.Models;
 public record SearchEventsSort
 {
     /// <summary>
-    /// Sort events by event types.
+    /// Specifies the sort key for events returned from a search.
     /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("field")]
-    public string? Field { get; init; }
+    public SearchEventsSortField? Field { get; init; }
 
     /// <summary>
-    /// The order to use for sorting the events.
+    /// The order (e.g., chronological or alphabetical) in which results from a request are returned.
     /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("order")]
-    public string? Order { get; init; }
+    public SortOrder? Order { get; init; }
 
     [JsonExtensionData]
     public AdditionalProperties AdditionalProperties { get; init; } = [];

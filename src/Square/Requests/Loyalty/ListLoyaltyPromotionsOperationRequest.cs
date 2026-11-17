@@ -1,3 +1,5 @@
+using Square.Models.Enums;
+
 namespace Square.Requests.Loyalty;
 
 /// <summary>
@@ -6,8 +8,8 @@ namespace Square.Requests.Loyalty;
 public sealed record ListLoyaltyPromotionsOperationRequest
 {
     /// <summary>
-    /// The ID of the base <see href="https://developer.squareup.com/reference/square_2024-08-21/objects/LoyaltyProgram">loyalty program</see>. To get the program ID,
-    /// call <see href="https://developer.squareup.com/reference/square_2024-08-21/loyalty-api/retrieve-loyalty-program">RetrieveLoyaltyProgram</see> using the <c>main</c> keyword.
+    /// The ID of the base <see href="entity:LoyaltyProgram">loyalty program</see>. To get the program ID,
+    /// call <see href="api-endpoint:Loyalty-RetrieveLoyaltyProgram">RetrieveLoyaltyProgram</see> using the <c>main</c> keyword.
     /// </summary>
     public required string ProgramId { get; init; }
 
@@ -16,7 +18,7 @@ public sealed record ListLoyaltyPromotionsOperationRequest
     /// with the specified status are returned. Otherwise, all loyalty promotions associated with
     /// the loyalty program are returned.
     /// </summary>
-    public string? Status { get; init; }
+    public LoyaltyPromotionStatus? Status { get; init; }
 
     /// <summary>
     /// The cursor returned in the paged response from the previous call to this endpoint.

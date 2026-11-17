@@ -1,3 +1,5 @@
+using Square.Models.Enums;
+
 namespace Square.Requests.Cards;
 
 /// <summary>
@@ -24,7 +26,7 @@ public sealed record ListCardsOperationRequest
     /// Includes disabled cards.
     /// By default, all enabled cards owned by the merchant are returned.
     /// </summary>
-    public bool? IncludeDisabled { get; init; }
+    public bool IncludeDisabled { get; init; } = false;
 
     /// <summary>
     /// Limit results to cards associated with the reference_id supplied.
@@ -35,5 +37,5 @@ public sealed record ListCardsOperationRequest
     /// Sorts the returned list by when the card was created with the specified order.
     /// This field defaults to ASC.
     /// </summary>
-    public string? SortOrder { get; init; }
+    public SortOrder? SortOrder { get; init; }
 }

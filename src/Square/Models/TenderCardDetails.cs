@@ -1,5 +1,6 @@
 using System.Text.Json.Serialization;
 using Square.Core.Models;
+using Square.Models.Enums;
 
 namespace Square.Models;
 
@@ -9,13 +10,11 @@ namespace Square.Models;
 public record TenderCardDetails
 {
     /// <summary>
-    /// The credit card payment's current state (such as <c>AUTHORIZED</c> or
-    /// <c>CAPTURED</c>). See <see href="https://developer.squareup.com/reference/square_2024-08-21/enums/TenderCardDetailsStatus">TenderCardDetailsStatus</see>
-    /// for possible values.
+    /// Indicates the card transaction's current status.
     /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("status")]
-    public string? Status { get; init; }
+    public TenderCardDetailsStatus? Status { get; init; }
 
     /// <summary>
     /// Represents the payment details of a card to be used for payments. These
@@ -26,11 +25,11 @@ public record TenderCardDetails
     public Card? Card { get; init; }
 
     /// <summary>
-    /// The method used to enter the card's details for the transaction.
+    /// Indicates the method used to enter the card's details.
     /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("entry_method")]
-    public string? EntryMethod { get; init; }
+    public TenderCardDetailsEntryMethod? EntryMethod { get; init; }
 
     [JsonExtensionData]
     public AdditionalProperties AdditionalProperties { get; init; } = [];

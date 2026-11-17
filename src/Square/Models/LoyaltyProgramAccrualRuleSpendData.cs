@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using System.Text.Json.Serialization;
 using Square.Core.Models;
+using Square.Models.Enums;
 
 namespace Square.Models;
 
@@ -23,7 +24,7 @@ public record LoyaltyProgramAccrualRuleSpendData
     /// <summary>
     /// The IDs of any <c>CATEGORY</c> catalog objects that are excluded from points accrual.
     /// <para>
-    /// You can use the <see href="https://developer.squareup.com/reference/square_2024-08-21/catalog-api/batch-retrieve-catalog-objects">BatchRetrieveCatalogObjects</see>
+    /// You can use the <see href="api-endpoint:Catalog-BatchRetrieveCatalogObjects">BatchRetrieveCatalogObjects</see>
     /// endpoint to retrieve information about the excluded categories.
     /// </para>
     /// </summary>
@@ -34,7 +35,7 @@ public record LoyaltyProgramAccrualRuleSpendData
     /// <summary>
     /// The IDs of any <c>ITEM_VARIATION</c> catalog objects that are excluded from points accrual.
     /// <para>
-    /// You can use the <see href="https://developer.squareup.com/reference/square_2024-08-21/catalog-api/batch-retrieve-catalog-objects">BatchRetrieveCatalogObjects</see>
+    /// You can use the <see href="api-endpoint:Catalog-BatchRetrieveCatalogObjects">BatchRetrieveCatalogObjects</see>
     /// endpoint to retrieve information about the excluded item variations.
     /// </para>
     /// </summary>
@@ -43,10 +44,11 @@ public record LoyaltyProgramAccrualRuleSpendData
     public IReadOnlyList<string>? ExcludedItemVariationIds { get; init; }
 
     /// <summary>
-    /// Indicates how taxes should be treated when calculating the purchase amount used for points accrual.
+    /// Indicates how taxes should be treated when calculating the purchase amount used for loyalty points accrual.
+    /// This setting applies only to <c>SPEND</c> accrual rules or <c>VISIT</c> accrual rules that have a minimum spend requirement.
     /// </summary>
     [JsonPropertyName("tax_mode")]
-    public required string TaxMode { get; init; }
+    public required LoyaltyProgramAccrualRuleTaxMode TaxMode { get; init; }
 
     [JsonExtensionData]
     public AdditionalProperties AdditionalProperties { get; init; } = [];

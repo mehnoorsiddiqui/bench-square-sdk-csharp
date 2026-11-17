@@ -15,7 +15,7 @@ public sealed record FulfillmentType : OpenStringEnum<FulfillmentType>
     }
 
     /// <summary>
-    /// A recipient to pick up the fulfillment from a physical <see href="https://developer.squareup.com/reference/square_2024-08-21/objects/Location">location</see>.
+    /// A recipient to pick up the fulfillment from a physical <see href="$m/Location">location</see>.
     /// </summary>
     public static readonly FulfillmentType Pickup = new("PICKUP");
 

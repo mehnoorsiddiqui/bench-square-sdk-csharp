@@ -5,7 +5,7 @@ using Square.Core.Models;
 namespace Square.Models;
 
 /// <summary>
-/// Represents a <see href="https://developer.squareup.com/reference/square_2024-08-21/gift-cards-api/create-gift-card">CreateGiftCard</see> request.
+/// Represents a <see href="$e/GiftCards/CreateGiftCard">CreateGiftCard</see> request.
 /// </summary>
 public record CreateGiftCardRequest
 {
@@ -18,7 +18,7 @@ public record CreateGiftCardRequest
     public required string IdempotencyKey { get; init; }
 
     /// <summary>
-    /// The ID of the <see href="https://developer.squareup.com/reference/square_2024-08-21/objects/Location">location</see> where the gift card should be registered for
+    /// The ID of the <see href="entity:Location">location</see> where the gift card should be registered for
     /// reporting purposes. Gift cards can be redeemed at any of the seller's locations.
     /// </summary>
     [JsonPropertyName("location_id")]

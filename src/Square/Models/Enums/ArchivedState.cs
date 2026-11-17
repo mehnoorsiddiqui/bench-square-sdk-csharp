@@ -6,7 +6,7 @@ namespace Square.Models.Enums;
 
 /// <summary>
 /// Defines the values for the <c>archived_state</c> query expression
-/// used in <see href="https://developer.squareup.com/reference/square_2024-08-21/catalog-api/search-catalog-items">SearchCatalogItems</see>
+/// used in <see href="$e/Catalog/SearchCatalogItems">SearchCatalogItems</see>
 /// to return the archived, not archived or either type of catalog items.
 /// </summary>
 [JsonConverter(typeof(StringEnumConverter<ArchivedState>))]

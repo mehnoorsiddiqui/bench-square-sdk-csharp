@@ -1,7 +1,6 @@
 using System.ComponentModel.DataAnnotations;
 using System.Text.Json.Serialization;
 using Square.Core.Models;
-using Square.Core.Validation.Attributes;
 
 namespace Square.Models;
 
@@ -12,7 +11,7 @@ public record CancelBookingRequest
     /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("idempotency_key")]
-    [StringLength(255, MinimumLength = 0)]
+    [MaxLength(255)]
     public string? IdempotencyKey { get; init; }
 
     /// <summary>
@@ -20,7 +19,6 @@ public record CancelBookingRequest
     /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("booking_version")]
-    [Minimum(0)]
     public int? BookingVersion { get; init; }
 
     [JsonExtensionData]

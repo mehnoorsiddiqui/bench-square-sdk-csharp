@@ -4,7 +4,7 @@ using Square.Core.Models;
 namespace Square.Models;
 
 /// <summary>
-/// Contains metadata about a particular <see href="https://developer.squareup.com/reference/square_2024-08-21/objects/Event">Event</see>.
+/// Contains metadata about a particular <see href="$m/Event">Event</see>.
 /// </summary>
 public record EventMetadata
 {

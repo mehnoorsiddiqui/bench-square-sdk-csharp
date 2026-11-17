@@ -5,7 +5,7 @@ using Square.Core.Models;
 namespace Square.Models;
 
 /// <summary>
-/// Represents a response for an individual upsert request in a <see href="https://developer.squareup.com/reference/square_2024-08-21/location-custom-attributes-api/bulk-upsert-location-custom-attributes">BulkUpsertLocationCustomAttributes</see> operation.
+/// Represents a response for an individual upsert request in a <see href="$e/LocationCustomAttributes/BulkUpsertLocationCustomAttributes">BulkUpsertLocationCustomAttributes</see> operation.
 /// </summary>
 public record BulkUpsertLocationCustomAttributesResponseLocationCustomAttributeUpsertResponse
 {

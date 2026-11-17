@@ -4,13 +4,13 @@ using Square.Core.Models;
 namespace Square.Models;
 
 /// <summary>
-/// Represents details about a <c>REFUND</c> <see href="https://developer.squareup.com/reference/square_2024-08-21/objects/GiftCardActivityType">gift card activity type</see>.
+/// Represents details about a <c>REFUND</c> <see href="$m/GiftCardActivityType">gift card activity type</see>.
 /// </summary>
 public record GiftCardActivityRefund
 {
     /// <summary>
     /// The ID of the refunded <c>REDEEM</c> gift card activity. Square populates this field if the
-    /// <c>payment_id</c> in the corresponding <see href="https://developer.squareup.com/reference/square_2024-08-21/refunds-api/refund-payment">RefundPayment</see> request
+    /// <c>payment_id</c> in the corresponding <see href="api-endpoint:Refunds-RefundPayment">RefundPayment</see> request
     /// represents a gift card redemption.
     /// <para>
     /// For applications that use a custom payment processing system, this field is required when creating
@@ -43,7 +43,7 @@ public record GiftCardActivityRefund
     /// <summary>
     /// The ID of the refunded payment. Square populates this field if the refund is for a
     /// payment processed by Square. This field matches the <c>payment_id</c> in the corresponding
-    /// <see href="https://developer.squareup.com/reference/square_2024-08-21/refunds-api/refund-payment">RefundPayment</see> request.
+    /// <see href="api-endpoint:Refunds-RefundPayment">RefundPayment</see> request.
     /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("payment_id")]

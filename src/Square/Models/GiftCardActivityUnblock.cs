@@ -4,15 +4,15 @@ using Square.Core.Models;
 namespace Square.Models;
 
 /// <summary>
-/// Represents details about an <c>UNBLOCK</c> <see href="https://developer.squareup.com/reference/square_2024-08-21/objects/GiftCardActivityType">gift card activity type</see>.
+/// Represents details about an <c>UNBLOCK</c> <see href="$m/GiftCardActivityType">gift card activity type</see>.
 /// </summary>
 public record GiftCardActivityUnblock
 {
     /// <summary>
-    /// The reason the gift card was unblocked.
+    /// Indicates the reason for unblocking a <see href="$m/GiftCard">gift card</see>.
     /// </summary>
     [JsonPropertyName("reason")]
-    public required string Reason { get; init; }
+    public string Reason { get; } = "CHARGEBACK_UNBLOCK";
 
     [JsonExtensionData]
     public AdditionalProperties AdditionalProperties { get; init; } = [];
