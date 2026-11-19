@@ -188,7 +188,7 @@ public sealed class Subscriptions
     /// <remarks>
     /// Lists all <see href="https://developer.squareup.com/docs/subscriptions-api/actions-events">events</see> for a specific subscription.
     /// </remarks>
-    public Task<ListSubscriptionEventsResponse> ListSubscriptionEvents(ListSubscriptionEventsOperationRequest request,
+    public Task<ListSubscriptionEventsResponse> ListSubscriptionEvents(ListSubscriptionEventsRequest request,
         RequestOptions? requestOptions = null,
         CancellationToken cancellationToken = default) =>
         _rawClient.Execute(
@@ -269,7 +269,7 @@ public sealed class Subscriptions
     /// <remarks>
     /// Retrieves a specific subscription.
     /// </remarks>
-    public Task<RetrieveSubscriptionResponse> RetrieveSubscription(RetrieveSubscriptionOperationRequest request,
+    public Task<RetrieveSubscriptionResponse> RetrieveSubscription(RetrieveSubscriptionRequest request,
         RequestOptions? requestOptions = null,
         CancellationToken cancellationToken = default) =>
         _rawClient.Execute(

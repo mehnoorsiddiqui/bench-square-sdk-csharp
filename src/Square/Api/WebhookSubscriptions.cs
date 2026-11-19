@@ -91,7 +91,7 @@ public sealed class WebhookSubscriptions
     /// <remarks>
     /// Lists all webhook event types that can be subscribed to.
     /// </remarks>
-    public Task<ListWebhookEventTypesResponse> ListWebhookEventTypes(ListWebhookEventTypesOperationRequest request,
+    public Task<ListWebhookEventTypesResponse> ListWebhookEventTypes(ListWebhookEventTypesRequest request,
         RequestOptions? requestOptions = null,
         CancellationToken cancellationToken = default) =>
         _rawClient.Execute(
@@ -118,7 +118,7 @@ public sealed class WebhookSubscriptions
     /// <remarks>
     /// Lists all webhook subscriptions owned by your application.
     /// </remarks>
-    public Task<ListWebhookSubscriptionsResponse> ListWebhookSubscriptions(ListWebhookSubscriptionsOperationRequest request,
+    public Task<ListWebhookSubscriptionsResponse> ListWebhookSubscriptions(ListWebhookSubscriptionsRequest request,
         RequestOptions? requestOptions = null,
         CancellationToken cancellationToken = default) =>
         _rawClient.Execute(

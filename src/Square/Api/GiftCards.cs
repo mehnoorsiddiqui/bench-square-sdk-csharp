@@ -96,7 +96,7 @@ public sealed class GiftCards
     /// Lists all gift cards. You can specify optional filters to retrieve
     /// a subset of the gift cards. Results are sorted by <c>created_at</c> in ascending order.
     /// </remarks>
-    public Task<ListGiftCardsResponse> ListGiftCards(ListGiftCardsOperationRequest request,
+    public Task<ListGiftCardsResponse> ListGiftCards(ListGiftCardsRequest request,
         RequestOptions? requestOptions = null,
         CancellationToken cancellationToken = default) =>
         _rawClient.Execute(

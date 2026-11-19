@@ -204,7 +204,7 @@ public sealed class Payments
     /// The maximum results per page is 100.
     /// </para>
     /// </remarks>
-    public Task<ListPaymentsResponse> ListPayments(ListPaymentsOperationRequest request,
+    public Task<ListPaymentsResponse> ListPayments(ListPaymentsRequest request,
         RequestOptions? requestOptions = null,
         CancellationToken cancellationToken = default) =>
         _rawClient.Execute(

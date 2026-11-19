@@ -1,6 +1,7 @@
 using System.ComponentModel.DataAnnotations;
 using System.Text.Json.Serialization;
 using Square.Core.Models;
+using Square.Models.Enums;
 
 namespace Square.Models;
 
@@ -17,11 +18,25 @@ public record CatalogModifierOverride
     public required string ModifierId { get; init; }
 
     /// <summary>
-    /// If <c>true</c>, this <c>CatalogModifier</c> should be selected by default for this <c>CatalogItem</c>.
+    /// __Deprecated__: Use <c>on_by_default_override</c> instead.
     /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("on_by_default")]
     public bool? OnByDefault { get; init; }
+
+    /// <summary>
+    /// Item level overrides for bool attributes
+    /// </summary>
+    [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
+    [JsonPropertyName("hidden_online_override")]
+    public CatalogModifierToggleOverrideType? HiddenOnlineOverride { get; init; }
+
+    /// <summary>
+    /// Item level overrides for bool attributes
+    /// </summary>
+    [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
+    [JsonPropertyName("on_by_default_override")]
+    public CatalogModifierToggleOverrideType? OnByDefaultOverride { get; init; }
 
     [JsonExtensionData]
     public AdditionalProperties AdditionalProperties { get; init; } = [];

@@ -23,13 +23,13 @@ Accessor: `client.GiftCardActivities` · Source: `src/Square/Api/GiftCardActivit
 ### ListGiftCardActivities
 
 - **Auth**: `options.BearerAuth`
-- **Signature**: `ListGiftCardActivities(ListGiftCardActivitiesOperationRequest request, RequestOptions? requestOptions = null, CancellationToken cancellationToken = default)`
+- **Signature**: `ListGiftCardActivities(ListGiftCardActivitiesRequest request, RequestOptions? requestOptions = null, CancellationToken cancellationToken = default)`
 - **Query params (wire ← C#)**: `gift_card_id` ← `GiftCardId`, `type` ← `Type`, `location_id` ← `LocationId`, `begin_time` ← `BeginTime`, `end_time` ← `EndTime`, `limit` ← `Limit`, `cursor` ← `Cursor`, `sort_order` ← `SortOrder`
 - **Returns**: `ListGiftCardActivitiesResponse`
 - **Error**: `ApiException<RawError>` — **Case B**
 
 | Type | Source |
 | --- | --- |
-| `ListGiftCardActivitiesOperationRequest` | `src/Square/Requests/GiftCardActivities/ListGiftCardActivitiesOperationRequest.cs` |
+| `ListGiftCardActivitiesRequest` | `src/Square/Requests/GiftCardActivities/ListGiftCardActivitiesRequest.cs` |
 | `ListGiftCardActivitiesResponse` | `src/Square/Models/ListGiftCardActivitiesResponse.cs` |
 

@@ -6,6 +6,9 @@ namespace Square.Models.Enums;
 
 /// <summary>
 /// Specifies the <c>status</c> of <c>Shift</c> records to be returned.
+/// <para>
+/// Deprecated at Square API version 2025-05-21. See the <see href="https://developer.squareup.com/docs/labor-api/what-it-does#migration-notes">migration notes</see>.
+/// </para>
 /// </summary>
 [JsonConverter(typeof(StringEnumConverter<ShiftFilterStatus>))]
 public sealed record ShiftFilterStatus : OpenStringEnum<ShiftFilterStatus>

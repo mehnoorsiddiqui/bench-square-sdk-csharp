@@ -132,7 +132,7 @@ Accessor: `client.Inventory` · Source: `src/Square/Api/Inventory.cs` · 13 oper
 ### RetrieveInventoryChanges
 
 - **Auth**: `options.BearerAuth`
-- **Signature**: `RetrieveInventoryChanges(RetrieveInventoryChangesOperationRequest request, RequestOptions? requestOptions = null, CancellationToken cancellationToken = default)`
+- **Signature**: `RetrieveInventoryChanges(RetrieveInventoryChangesRequest request, RequestOptions? requestOptions = null, CancellationToken cancellationToken = default)`
   - required: `CatalogObjectId`
 - **Query params (wire ← C#)**: `location_ids` ← `LocationIds`, `cursor` ← `Cursor`
 - **Returns**: `RetrieveInventoryChangesResponse`
@@ -140,13 +140,13 @@ Accessor: `client.Inventory` · Source: `src/Square/Api/Inventory.cs` · 13 oper
 
 | Type | Source |
 | --- | --- |
-| `RetrieveInventoryChangesOperationRequest` | `src/Square/Requests/Inventory/RetrieveInventoryChangesOperationRequest.cs` |
+| `RetrieveInventoryChangesRequest` | `src/Square/Requests/Inventory/RetrieveInventoryChangesRequest.cs` |
 | `RetrieveInventoryChangesResponse` | `src/Square/Models/RetrieveInventoryChangesResponse.cs` |
 
 ### RetrieveInventoryCount
 
 - **Auth**: `options.BearerAuth`
-- **Signature**: `RetrieveInventoryCount(RetrieveInventoryCountOperationRequest request, RequestOptions? requestOptions = null, CancellationToken cancellationToken = default)`
+- **Signature**: `RetrieveInventoryCount(RetrieveInventoryCountRequest request, RequestOptions? requestOptions = null, CancellationToken cancellationToken = default)`
   - required: `CatalogObjectId`
 - **Query params (wire ← C#)**: `location_ids` ← `LocationIds`, `cursor` ← `Cursor`
 - **Returns**: `RetrieveInventoryCountResponse`
@@ -154,7 +154,7 @@ Accessor: `client.Inventory` · Source: `src/Square/Api/Inventory.cs` · 13 oper
 
 | Type | Source |
 | --- | --- |
-| `RetrieveInventoryCountOperationRequest` | `src/Square/Requests/Inventory/RetrieveInventoryCountOperationRequest.cs` |
+| `RetrieveInventoryCountRequest` | `src/Square/Requests/Inventory/RetrieveInventoryCountRequest.cs` |
 | `RetrieveInventoryCountResponse` | `src/Square/Models/RetrieveInventoryCountResponse.cs` |
 
 ### RetrieveInventoryPhysicalCount

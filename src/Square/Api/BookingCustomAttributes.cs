@@ -216,7 +216,7 @@ public sealed class BookingCustomAttributes
     /// To call this endpoint with seller-level permissions, set <c>APPOINTMENTS_ALL_READ</c> and <c>APPOINTMENTS_READ</c> for the OAuth scope.
     /// </para>
     /// </remarks>
-    public Task<ListBookingCustomAttributeDefinitionsResponse> ListBookingCustomAttributeDefinitions(ListBookingCustomAttributeDefinitionsOperationRequest request,
+    public Task<ListBookingCustomAttributeDefinitionsResponse> ListBookingCustomAttributeDefinitions(ListBookingCustomAttributeDefinitionsRequest request,
         RequestOptions? requestOptions = null,
         CancellationToken cancellationToken = default) =>
         _rawClient.Execute(
@@ -247,7 +247,7 @@ public sealed class BookingCustomAttributes
     /// To call this endpoint with seller-level permissions, set <c>APPOINTMENTS_ALL_READ</c> and <c>APPOINTMENTS_READ</c> for the OAuth scope.
     /// </para>
     /// </remarks>
-    public Task<ListBookingCustomAttributesResponse> ListBookingCustomAttributes(ListBookingCustomAttributesOperationRequest request,
+    public Task<ListBookingCustomAttributesResponse> ListBookingCustomAttributes(ListBookingCustomAttributesRequest request,
         RequestOptions? requestOptions = null,
         CancellationToken cancellationToken = default) =>
         _rawClient.Execute(
@@ -282,7 +282,7 @@ public sealed class BookingCustomAttributes
     /// To call this endpoint with seller-level permissions, set <c>APPOINTMENTS_ALL_READ</c> and <c>APPOINTMENTS_READ</c> for the OAuth scope.
     /// </para>
     /// </remarks>
-    public Task<RetrieveBookingCustomAttributeResponse> RetrieveBookingCustomAttribute(RetrieveBookingCustomAttributeOperationRequest request,
+    public Task<RetrieveBookingCustomAttributeResponse> RetrieveBookingCustomAttribute(RetrieveBookingCustomAttributeRequest request,
         RequestOptions? requestOptions = null,
         CancellationToken cancellationToken = default) =>
         _rawClient.Execute(
@@ -313,7 +313,7 @@ public sealed class BookingCustomAttributes
     /// To call this endpoint with seller-level permissions, set <c>APPOINTMENTS_ALL_READ</c> and <c>APPOINTMENTS_READ</c> for the OAuth scope.
     /// </para>
     /// </remarks>
-    public Task<RetrieveBookingCustomAttributeDefinitionResponse> RetrieveBookingCustomAttributeDefinition(RetrieveBookingCustomAttributeDefinitionOperationRequest request,
+    public Task<RetrieveBookingCustomAttributeDefinitionResponse> RetrieveBookingCustomAttributeDefinition(RetrieveBookingCustomAttributeDefinitionRequest request,
         RequestOptions? requestOptions = null,
         CancellationToken cancellationToken = default) =>
         _rawClient.Execute(

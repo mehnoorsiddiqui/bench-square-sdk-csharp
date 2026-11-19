@@ -62,7 +62,7 @@ public record CreateSubscriptionRequest
     /// </para>
     /// <para>
     /// When the subscription plan of the newly created subscription has a fixed number of cycles and the <c>canceled_date</c>
-    /// occurs before the subscription plan expires, the specified <c>canceled_date</c> sets the date when the subscription
+    /// occurs before the subscription plan completes, the specified <c>canceled_date</c> sets the date when the subscription
     /// stops through the end of the last cycle.
     /// </para>
     /// </summary>

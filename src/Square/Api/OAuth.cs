@@ -36,24 +36,29 @@ public sealed class OAuth
     /// <returns>A <see cref="Task{TResult}"/> of <see cref="ObtainTokenResponse"/> instance.</returns>
     /// <exception cref="ApiException{TError}"> of <see cref="RawError"/> when the server returns an error response.</exception>
     /// <remarks>
-    /// Returns an OAuth access token and a refresh token unless the
-    /// <c>short_lived</c> parameter is set to <c>true</c>, in which case the endpoint
-    /// returns only an access token.
+    /// Returns an OAuth access token and refresh token using the <c>authorization_code</c>
+    /// or <c>refresh_token</c> grant type.
     /// <para>
-    /// The <c>grant_type</c> parameter specifies the type of OAuth request. If
-    /// <c>grant_type</c> is <c>authorization_code</c>, you must include the authorization
-    /// code you received when a seller granted you authorization. If <c>grant_type</c>
-    /// is <c>refresh_token</c>, you must provide a valid refresh token. If you're using
-    /// an old version of the Square APIs (prior to March 13, 2019), <c>grant_type</c>
-    /// can be <c>migration_token</c> and you must provide a valid migration token.
+    /// When <c>grant_type</c> is <c>authorization_code</c>:
+    /// - With the <see href="https://developer.squareup.com/docs/oauth-api/overview#code-flow">code flow</see>,
+    /// provide <c>code</c>, <c>client_id</c>, and <c>client_secret</c>.
+    /// - With the <see href="https://developer.squareup.com/docs/oauth-api/overview#pkce-flow">PKCE flow</see>,
+    /// provide <c>code</c>, <c>client_id</c>, and <c>code_verifier</c>.
     /// </para>
     /// <para>
-    /// You can use the <c>scopes</c> parameter to limit the set of permissions granted
-    /// to the access token and refresh token. You can use the <c>short_lived</c> parameter
-    /// to create an access token that expires in 24 hours.
+    /// When <c>grant_type</c> is <c>refresh_token</c>:
+    /// - With the code flow, provide <c>refresh_token</c>, <c>client_id</c>, and <c>client_secret</c>.
+    /// The response returns the same refresh token provided in the request.
+    /// - With the PKCE flow, provide <c>refresh_token</c> and <c>client_id</c>. The response returns
+    /// a new refresh token.
     /// </para>
     /// <para>
-    /// __Note:__ OAuth tokens should be encrypted and stored on a secure server.
+    /// You can use the <c>scopes</c> parameter to limit the set of permissions authorized by the
+    /// access token. You can use the <c>short_lived</c> parameter to create an access token that
+    /// expires in 24 hours.
+    /// </para>
+    /// <para>
+    /// __Important:__ OAuth tokens should be encrypted and stored on a secure server.
     /// Application clients should never interact directly with OAuth tokens.
     /// </para>
     /// </remarks>

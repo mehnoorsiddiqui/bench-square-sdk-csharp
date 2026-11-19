@@ -77,20 +77,20 @@ Accessor: `client.BookingCustomAttributes` · Source: `src/Square/Api/BookingCus
 ### ListBookingCustomAttributeDefinitions
 
 - **Auth**: `options.BearerAuth`
-- **Signature**: `ListBookingCustomAttributeDefinitions(ListBookingCustomAttributeDefinitionsOperationRequest request, RequestOptions? requestOptions = null, CancellationToken cancellationToken = default)`
+- **Signature**: `ListBookingCustomAttributeDefinitions(ListBookingCustomAttributeDefinitionsRequest request, RequestOptions? requestOptions = null, CancellationToken cancellationToken = default)`
 - **Query params (wire ← C#)**: `limit` ← `Limit`, `cursor` ← `Cursor`
 - **Returns**: `ListBookingCustomAttributeDefinitionsResponse`
 - **Error**: `ApiException<RawError>` — **Case B**
 
 | Type | Source |
 | --- | --- |
-| `ListBookingCustomAttributeDefinitionsOperationRequest` | `src/Square/Requests/BookingCustomAttributes/ListBookingCustomAttributeDefinitionsOperationRequest.cs` |
+| `ListBookingCustomAttributeDefinitionsRequest` | `src/Square/Requests/BookingCustomAttributes/ListBookingCustomAttributeDefinitionsRequest.cs` |
 | `ListBookingCustomAttributeDefinitionsResponse` | `src/Square/Models/ListBookingCustomAttributeDefinitionsResponse.cs` |
 
 ### ListBookingCustomAttributes
 
 - **Auth**: `options.BearerAuth`
-- **Signature**: `ListBookingCustomAttributes(ListBookingCustomAttributesOperationRequest request, RequestOptions? requestOptions = null, CancellationToken cancellationToken = default)`
+- **Signature**: `ListBookingCustomAttributes(ListBookingCustomAttributesRequest request, RequestOptions? requestOptions = null, CancellationToken cancellationToken = default)`
   - required: `BookingId`
 - **Query params (wire ← C#)**: `limit` ← `Limit`, `cursor` ← `Cursor`, `with_definitions` ← `WithDefinitions`
 - **Returns**: `ListBookingCustomAttributesResponse`
@@ -98,13 +98,13 @@ Accessor: `client.BookingCustomAttributes` · Source: `src/Square/Api/BookingCus
 
 | Type | Source |
 | --- | --- |
-| `ListBookingCustomAttributesOperationRequest` | `src/Square/Requests/BookingCustomAttributes/ListBookingCustomAttributesOperationRequest.cs` |
+| `ListBookingCustomAttributesRequest` | `src/Square/Requests/BookingCustomAttributes/ListBookingCustomAttributesRequest.cs` |
 | `ListBookingCustomAttributesResponse` | `src/Square/Models/ListBookingCustomAttributesResponse.cs` |
 
 ### RetrieveBookingCustomAttribute
 
 - **Auth**: `options.BearerAuth`
-- **Signature**: `RetrieveBookingCustomAttribute(RetrieveBookingCustomAttributeOperationRequest request, RequestOptions? requestOptions = null, CancellationToken cancellationToken = default)`
+- **Signature**: `RetrieveBookingCustomAttribute(RetrieveBookingCustomAttributeRequest request, RequestOptions? requestOptions = null, CancellationToken cancellationToken = default)`
   - required: `BookingId`, `Key`
 - **Query params (wire ← C#)**: `with_definition` ← `WithDefinition`, `version` ← `Version`
 - **Returns**: `RetrieveBookingCustomAttributeResponse`
@@ -112,13 +112,13 @@ Accessor: `client.BookingCustomAttributes` · Source: `src/Square/Api/BookingCus
 
 | Type | Source |
 | --- | --- |
-| `RetrieveBookingCustomAttributeOperationRequest` | `src/Square/Requests/BookingCustomAttributes/RetrieveBookingCustomAttributeOperationRequest.cs` |
+| `RetrieveBookingCustomAttributeRequest` | `src/Square/Requests/BookingCustomAttributes/RetrieveBookingCustomAttributeRequest.cs` |
 | `RetrieveBookingCustomAttributeResponse` | `src/Square/Models/RetrieveBookingCustomAttributeResponse.cs` |
 
 ### RetrieveBookingCustomAttributeDefinition
 
 - **Auth**: `options.BearerAuth`
-- **Signature**: `RetrieveBookingCustomAttributeDefinition(RetrieveBookingCustomAttributeDefinitionOperationRequest request, RequestOptions? requestOptions = null, CancellationToken cancellationToken = default)`
+- **Signature**: `RetrieveBookingCustomAttributeDefinition(RetrieveBookingCustomAttributeDefinitionRequest request, RequestOptions? requestOptions = null, CancellationToken cancellationToken = default)`
   - required: `Key`
 - **Query params (wire ← C#)**: `version` ← `Version`
 - **Returns**: `RetrieveBookingCustomAttributeDefinitionResponse`
@@ -126,7 +126,7 @@ Accessor: `client.BookingCustomAttributes` · Source: `src/Square/Api/BookingCus
 
 | Type | Source |
 | --- | --- |
-| `RetrieveBookingCustomAttributeDefinitionOperationRequest` | `src/Square/Requests/BookingCustomAttributes/RetrieveBookingCustomAttributeDefinitionOperationRequest.cs` |
+| `RetrieveBookingCustomAttributeDefinitionRequest` | `src/Square/Requests/BookingCustomAttributes/RetrieveBookingCustomAttributeDefinitionRequest.cs` |
 | `RetrieveBookingCustomAttributeDefinitionResponse` | `src/Square/Models/RetrieveBookingCustomAttributeDefinitionResponse.cs` |
 
 ### UpdateBookingCustomAttributeDefinition

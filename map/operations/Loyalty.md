@@ -130,7 +130,7 @@ Accessor: `client.Loyalty` · Source: `src/Square/Api/Loyalty.cs` · 18 operatio
 ### ListLoyaltyPromotions
 
 - **Auth**: `options.BearerAuth`
-- **Signature**: `ListLoyaltyPromotions(ListLoyaltyPromotionsOperationRequest request, RequestOptions? requestOptions = null, CancellationToken cancellationToken = default)`
+- **Signature**: `ListLoyaltyPromotions(ListLoyaltyPromotionsRequest request, RequestOptions? requestOptions = null, CancellationToken cancellationToken = default)`
   - required: `ProgramId`
 - **Query params (wire ← C#)**: `status` ← `Status`, `cursor` ← `Cursor`, `limit` ← `Limit`
 - **Returns**: `ListLoyaltyPromotionsResponse`
@@ -138,7 +138,7 @@ Accessor: `client.Loyalty` · Source: `src/Square/Api/Loyalty.cs` · 18 operatio
 
 | Type | Source |
 | --- | --- |
-| `ListLoyaltyPromotionsOperationRequest` | `src/Square/Requests/Loyalty/ListLoyaltyPromotionsOperationRequest.cs` |
+| `ListLoyaltyPromotionsRequest` | `src/Square/Requests/Loyalty/ListLoyaltyPromotionsRequest.cs` |
 | `LoyaltyPromotionStatus` | `src/Square/Models/Enums/LoyaltyPromotionStatus.cs` |
 | `ListLoyaltyPromotionsResponse` | `src/Square/Models/ListLoyaltyPromotionsResponse.cs` |
 

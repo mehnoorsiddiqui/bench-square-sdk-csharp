@@ -39,11 +39,17 @@ public sealed record SubscriptionActionType : OpenStringEnum<SubscriptionActionT
     /// </summary>
     public static readonly SubscriptionActionType ChangeBillingAnchorDate = new("CHANGE_BILLING_ANCHOR_DATE");
 
+    /// <summary>
+    /// The action marking when a subscription completes a fixed number of phases.
+    /// </summary>
+    public static readonly SubscriptionActionType Complete = new("COMPLETE");
+
     public TResult Match<TResult>(Func<TResult> onCancel,
         Func<TResult> onPause,
         Func<TResult> onResume,
         Func<TResult> onSwapPlan,
         Func<TResult> onChangeBillingAnchorDate,
+        Func<TResult> onComplete,
         Func<string, TResult> otherwise) =>
         this switch
         {
@@ -52,6 +58,7 @@ public sealed record SubscriptionActionType : OpenStringEnum<SubscriptionActionT
             _ when this == Resume => onResume(),
             _ when this == SwapPlan => onSwapPlan(),
             _ when this == ChangeBillingAnchorDate => onChangeBillingAnchorDate(),
+            _ when this == Complete => onComplete(),
             _ => otherwise(Value)
         };
 
@@ -60,6 +67,7 @@ public sealed record SubscriptionActionType : OpenStringEnum<SubscriptionActionT
         Action onResume,
         Action onSwapPlan,
         Action onChangeBillingAnchorDate,
+        Action onComplete,
         Action<string> otherwise)
     {
         if (this == Cancel) onCancel();
@@ -67,6 +75,7 @@ public sealed record SubscriptionActionType : OpenStringEnum<SubscriptionActionT
         else if (this == Resume) onResume();
         else if (this == SwapPlan) onSwapPlan();
         else if (this == ChangeBillingAnchorDate) onChangeBillingAnchorDate();
+        else if (this == Complete) onComplete();
         else otherwise(Value);
     }
 }

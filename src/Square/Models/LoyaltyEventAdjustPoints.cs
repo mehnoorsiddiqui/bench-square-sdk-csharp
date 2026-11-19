@@ -28,6 +28,7 @@ public record LoyaltyEventAdjustPoints
     /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("reason")]
+    [MaxLength(3500)]
     public string? Reason { get; init; }
 
     [JsonExtensionData]

@@ -125,7 +125,7 @@ public sealed class CheckoutApi
     /// <remarks>
     /// Lists all payment links.
     /// </remarks>
-    public Task<ListPaymentLinksResponse> ListPaymentLinks(ListPaymentLinksOperationRequest request,
+    public Task<ListPaymentLinksResponse> ListPaymentLinks(ListPaymentLinksRequest request,
         RequestOptions? requestOptions = null,
         CancellationToken cancellationToken = default) =>
         _rawClient.Execute(

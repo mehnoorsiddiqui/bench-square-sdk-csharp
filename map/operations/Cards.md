@@ -36,14 +36,14 @@ Accessor: `client.Cards` · Source: `src/Square/Api/Cards.cs` · 4 operations
 ### ListCards
 
 - **Auth**: `options.BearerAuth`
-- **Signature**: `ListCards(ListCardsOperationRequest request, RequestOptions? requestOptions = null, CancellationToken cancellationToken = default)`
+- **Signature**: `ListCards(ListCardsRequest request, RequestOptions? requestOptions = null, CancellationToken cancellationToken = default)`
 - **Query params (wire ← C#)**: `cursor` ← `Cursor`, `customer_id` ← `CustomerId`, `include_disabled` ← `IncludeDisabled`, `reference_id` ← `ReferenceId`, `sort_order` ← `SortOrder`
 - **Returns**: `ListCardsResponse`
 - **Error**: `ApiException<RawError>` — **Case B**
 
 | Type | Source |
 | --- | --- |
-| `ListCardsOperationRequest` | `src/Square/Requests/Cards/ListCardsOperationRequest.cs` |
+| `ListCardsRequest` | `src/Square/Requests/Cards/ListCardsRequest.cs` |
 | `SortOrder` | `src/Square/Models/Enums/SortOrder.cs` |
 | `ListCardsResponse` | `src/Square/Models/ListCardsResponse.cs` |
 

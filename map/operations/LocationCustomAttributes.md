@@ -77,21 +77,21 @@ Accessor: `client.LocationCustomAttributes` · Source: `src/Square/Api/LocationC
 ### ListLocationCustomAttributeDefinitions
 
 - **Auth**: `options.BearerAuth`
-- **Signature**: `ListLocationCustomAttributeDefinitions(ListLocationCustomAttributeDefinitionsOperationRequest request, RequestOptions? requestOptions = null, CancellationToken cancellationToken = default)`
+- **Signature**: `ListLocationCustomAttributeDefinitions(ListLocationCustomAttributeDefinitionsRequest request, RequestOptions? requestOptions = null, CancellationToken cancellationToken = default)`
 - **Query params (wire ← C#)**: `visibility_filter` ← `VisibilityFilter`, `limit` ← `Limit`, `cursor` ← `Cursor`
 - **Returns**: `ListLocationCustomAttributeDefinitionsResponse`
 - **Error**: `ApiException<RawError>` — **Case B**
 
 | Type | Source |
 | --- | --- |
-| `ListLocationCustomAttributeDefinitionsOperationRequest` | `src/Square/Requests/LocationCustomAttributes/ListLocationCustomAttributeDefinitionsOperationRequest.cs` |
+| `ListLocationCustomAttributeDefinitionsRequest` | `src/Square/Requests/LocationCustomAttributes/ListLocationCustomAttributeDefinitionsRequest.cs` |
 | `VisibilityFilter` | `src/Square/Models/Enums/VisibilityFilter.cs` |
 | `ListLocationCustomAttributeDefinitionsResponse` | `src/Square/Models/ListLocationCustomAttributeDefinitionsResponse.cs` |
 
 ### ListLocationCustomAttributes
 
 - **Auth**: `options.BearerAuth`
-- **Signature**: `ListLocationCustomAttributes(ListLocationCustomAttributesOperationRequest request, RequestOptions? requestOptions = null, CancellationToken cancellationToken = default)`
+- **Signature**: `ListLocationCustomAttributes(ListLocationCustomAttributesRequest request, RequestOptions? requestOptions = null, CancellationToken cancellationToken = default)`
   - required: `LocationId`
 - **Query params (wire ← C#)**: `visibility_filter` ← `VisibilityFilter`, `limit` ← `Limit`, `cursor` ← `Cursor`, `with_definitions` ← `WithDefinitions`
 - **Returns**: `ListLocationCustomAttributesResponse`
@@ -99,14 +99,14 @@ Accessor: `client.LocationCustomAttributes` · Source: `src/Square/Api/LocationC
 
 | Type | Source |
 | --- | --- |
-| `ListLocationCustomAttributesOperationRequest` | `src/Square/Requests/LocationCustomAttributes/ListLocationCustomAttributesOperationRequest.cs` |
+| `ListLocationCustomAttributesRequest` | `src/Square/Requests/LocationCustomAttributes/ListLocationCustomAttributesRequest.cs` |
 | `VisibilityFilter` | `src/Square/Models/Enums/VisibilityFilter.cs` |
 | `ListLocationCustomAttributesResponse` | `src/Square/Models/ListLocationCustomAttributesResponse.cs` |
 
 ### RetrieveLocationCustomAttribute
 
 - **Auth**: `options.BearerAuth`
-- **Signature**: `RetrieveLocationCustomAttribute(RetrieveLocationCustomAttributeOperationRequest request, RequestOptions? requestOptions = null, CancellationToken cancellationToken = default)`
+- **Signature**: `RetrieveLocationCustomAttribute(RetrieveLocationCustomAttributeRequest request, RequestOptions? requestOptions = null, CancellationToken cancellationToken = default)`
   - required: `LocationId`, `Key`
 - **Query params (wire ← C#)**: `with_definition` ← `WithDefinition`, `version` ← `Version`
 - **Returns**: `RetrieveLocationCustomAttributeResponse`
@@ -114,13 +114,13 @@ Accessor: `client.LocationCustomAttributes` · Source: `src/Square/Api/LocationC
 
 | Type | Source |
 | --- | --- |
-| `RetrieveLocationCustomAttributeOperationRequest` | `src/Square/Requests/LocationCustomAttributes/RetrieveLocationCustomAttributeOperationRequest.cs` |
+| `RetrieveLocationCustomAttributeRequest` | `src/Square/Requests/LocationCustomAttributes/RetrieveLocationCustomAttributeRequest.cs` |
 | `RetrieveLocationCustomAttributeResponse` | `src/Square/Models/RetrieveLocationCustomAttributeResponse.cs` |
 
 ### RetrieveLocationCustomAttributeDefinition
 
 - **Auth**: `options.BearerAuth`
-- **Signature**: `RetrieveLocationCustomAttributeDefinition(RetrieveLocationCustomAttributeDefinitionOperationRequest request, RequestOptions? requestOptions = null, CancellationToken cancellationToken = default)`
+- **Signature**: `RetrieveLocationCustomAttributeDefinition(RetrieveLocationCustomAttributeDefinitionRequest request, RequestOptions? requestOptions = null, CancellationToken cancellationToken = default)`
   - required: `Key`
 - **Query params (wire ← C#)**: `version` ← `Version`
 - **Returns**: `RetrieveLocationCustomAttributeDefinitionResponse`
@@ -128,7 +128,7 @@ Accessor: `client.LocationCustomAttributes` · Source: `src/Square/Api/LocationC
 
 | Type | Source |
 | --- | --- |
-| `RetrieveLocationCustomAttributeDefinitionOperationRequest` | `src/Square/Requests/LocationCustomAttributes/RetrieveLocationCustomAttributeDefinitionOperationRequest.cs` |
+| `RetrieveLocationCustomAttributeDefinitionRequest` | `src/Square/Requests/LocationCustomAttributes/RetrieveLocationCustomAttributeDefinitionRequest.cs` |
 | `RetrieveLocationCustomAttributeDefinitionResponse` | `src/Square/Models/RetrieveLocationCustomAttributeDefinitionResponse.cs` |
 
 ### UpdateLocationCustomAttributeDefinition

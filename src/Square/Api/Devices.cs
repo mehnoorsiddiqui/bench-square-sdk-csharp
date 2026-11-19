@@ -119,7 +119,7 @@ public sealed class Devices
     /// <remarks>
     /// Lists all DeviceCodes associated with the merchant.
     /// </remarks>
-    public Task<ListDeviceCodesResponse> ListDeviceCodes(ListDeviceCodesOperationRequest request,
+    public Task<ListDeviceCodesResponse> ListDeviceCodes(ListDeviceCodesRequest request,
         RequestOptions? requestOptions = null,
         CancellationToken cancellationToken = default) =>
         _rawClient.Execute(
@@ -152,7 +152,7 @@ public sealed class Devices
     /// List devices associated with the merchant. Currently, only Terminal API
     /// devices are supported.
     /// </remarks>
-    public Task<ListDevicesResponse> ListDevices(ListDevicesOperationRequest request,
+    public Task<ListDevicesResponse> ListDevices(ListDevicesRequest request,
         RequestOptions? requestOptions = null,
         CancellationToken cancellationToken = default) =>
         _rawClient.Execute(

@@ -7,8 +7,8 @@ namespace Square.Models;
 public record PaymentOptions
 {
     /// <summary>
-    /// Indicates whether the <c>Payment</c> objects created from this <c>TerminalCheckout</c> are automatically
-    /// <c>COMPLETED</c> or left in an <c>APPROVED</c> state for later modification.
+    /// Indicates whether the <c>Payment</c> objects created from this <c>TerminalCheckout</c> are
+    /// automatically <c>COMPLETED</c> or left in an <c>APPROVED</c> state for later modification.
     /// <para>
     /// Default: true
     /// </para>

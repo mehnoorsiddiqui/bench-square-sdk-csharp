@@ -22,7 +22,7 @@ Accessor: `client.Transactions` · Source: `src/Square/Api/Transactions.cs` · 4
 ### ListTransactions
 
 - **Auth**: `options.BearerAuth`
-- **Signature**: `ListTransactions(ListTransactionsOperationRequest request, RequestOptions? requestOptions = null, CancellationToken cancellationToken = default)`
+- **Signature**: `ListTransactions(ListTransactionsRequest request, RequestOptions? requestOptions = null, CancellationToken cancellationToken = default)`
   - required: `LocationId`
 - **Query params (wire ← C#)**: `begin_time` ← `BeginTime`, `end_time` ← `EndTime`, `sort_order` ← `SortOrder`, `cursor` ← `Cursor`
 - **Returns**: `ListTransactionsResponse`
@@ -30,7 +30,7 @@ Accessor: `client.Transactions` · Source: `src/Square/Api/Transactions.cs` · 4
 
 | Type | Source |
 | --- | --- |
-| `ListTransactionsOperationRequest` | `src/Square/Requests/Transactions/ListTransactionsOperationRequest.cs` |
+| `ListTransactionsRequest` | `src/Square/Requests/Transactions/ListTransactionsRequest.cs` |
 | `SortOrder` | `src/Square/Models/Enums/SortOrder.cs` |
 | `ListTransactionsResponse` | `src/Square/Models/ListTransactionsResponse.cs` |
 

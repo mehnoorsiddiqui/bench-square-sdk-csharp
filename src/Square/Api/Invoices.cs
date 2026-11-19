@@ -105,6 +105,9 @@ public sealed class Invoices
     /// Invoices can have up to 10 attachments with a total file size of 25 MB. Attachments can be added only to invoices
     /// in the <c>DRAFT</c>, <c>SCHEDULED</c>, <c>UNPAID</c>, or <c>PARTIALLY_PAID</c> state.
     /// </para>
+    /// <para>
+    /// __NOTE:__ When testing in the Sandbox environment, the total file size is limited to 1 KB.
+    /// </para>
     /// </remarks>
     public Task<CreateInvoiceAttachmentResponse> CreateInvoiceAttachment(CreateInvoiceAttachmentOperationRequest request,
         RequestOptions? requestOptions = null,
@@ -137,7 +140,7 @@ public sealed class Invoices
     /// associated order status changes to CANCELED. You can only delete a draft
     /// invoice (you cannot delete a published invoice, including one that is scheduled for processing).
     /// </remarks>
-    public Task<DeleteInvoiceResponse> DeleteInvoice(DeleteInvoiceOperationRequest request,
+    public Task<DeleteInvoiceResponse> DeleteInvoice(DeleteInvoiceRequest request,
         RequestOptions? requestOptions = null,
         CancellationToken cancellationToken = default) =>
         _rawClient.Execute(
@@ -224,7 +227,7 @@ public sealed class Invoices
     /// is paginated. If truncated, the response includes a <c>cursor</c> that you
     /// use in a subsequent request to retrieve the next set of invoices.
     /// </remarks>
-    public Task<ListInvoicesResponse> ListInvoices(ListInvoicesOperationRequest request,
+    public Task<ListInvoicesResponse> ListInvoices(ListInvoicesRequest request,
         RequestOptions? requestOptions = null,
         CancellationToken cancellationToken = default) =>
         _rawClient.Execute(

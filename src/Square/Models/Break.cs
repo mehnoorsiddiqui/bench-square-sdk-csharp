@@ -5,7 +5,7 @@ using Square.Core.Models;
 namespace Square.Models;
 
 /// <summary>
-/// A record of an employee's break during a shift.
+/// A record of a team member's break on a <see href="entity:Timecard">timecard</see>.
 /// </summary>
 public record Break
 {
@@ -17,7 +17,7 @@ public record Break
     public string? Id { get; init; }
 
     /// <summary>
-    /// RFC 3339; follows the same timezone information as <c>Shift</c>. Precision up to
+    /// RFC 3339; follows the same timezone information as the <see href="entity:Timecard">timecard</see>. Precision up to
     /// the minute is respected; seconds are truncated.
     /// </summary>
     [JsonPropertyName("start_at")]
@@ -25,7 +25,7 @@ public record Break
     public required string StartAt { get; init; }
 
     /// <summary>
-    /// RFC 3339; follows the same timezone information as <c>Shift</c>. Precision up to
+    /// RFC 3339; follows the same timezone information as the <see href="entity:Timecard">timecard</see>. Precision up to
     /// the minute is respected; seconds are truncated.
     /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
@@ -33,7 +33,7 @@ public record Break
     public string? EndAt { get; init; }
 
     /// <summary>
-    /// The <c>BreakType</c> that this <c>Break</c> was templated on.
+    /// The <see href="entity:BreakType">BreakType</see> that this break was templated on.
     /// </summary>
     [JsonPropertyName("break_type_id")]
     [MinLength(1)]
@@ -49,6 +49,9 @@ public record Break
     /// <summary>
     /// Format: RFC-3339 P[n]Y[n]M[n]DT[n]H[n]M[n]S. The expected length of
     /// the break.
+    /// <para>
+    /// Example for break expected duration of 15 minutes: PT15M
+    /// </para>
     /// </summary>
     [JsonPropertyName("expected_duration")]
     [MinLength(1)]

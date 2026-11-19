@@ -12,8 +12,8 @@ namespace Square.Models;
 public record CreateBreakTypeResponse
 {
     /// <summary>
-    /// A defined break template that sets an expectation for possible <c>Break</c>
-    /// instances on a <c>Shift</c>.
+    /// A template for a type of <see href="entity:Break">break</see> that can be added to a
+    /// <see href="entity:Timecard">timecard</see>, including the expected duration and paid status.
     /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("break_type")]

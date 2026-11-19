@@ -49,14 +49,14 @@ Accessor: `client.Devices` · Source: `src/Square/Api/Devices.cs` · 5 operation
 ### ListDeviceCodes
 
 - **Auth**: `options.BearerAuth`
-- **Signature**: `ListDeviceCodes(ListDeviceCodesOperationRequest request, RequestOptions? requestOptions = null, CancellationToken cancellationToken = default)`
+- **Signature**: `ListDeviceCodes(ListDeviceCodesRequest request, RequestOptions? requestOptions = null, CancellationToken cancellationToken = default)`
 - **Query params (wire ← C#)**: `cursor` ← `Cursor`, `location_id` ← `LocationId`, `product_type` ← `ProductType`, `status` ← `Status`
 - **Returns**: `ListDeviceCodesResponse`
 - **Error**: `ApiException<RawError>` — **Case B**
 
 | Type | Source |
 | --- | --- |
-| `ListDeviceCodesOperationRequest` | `src/Square/Requests/Devices/ListDeviceCodesOperationRequest.cs` |
+| `ListDeviceCodesRequest` | `src/Square/Requests/Devices/ListDeviceCodesRequest.cs` |
 | `ProductType` | `src/Square/Models/Enums/ProductType.cs` |
 | `DeviceCodeStatus` | `src/Square/Models/Enums/DeviceCodeStatus.cs` |
 | `ListDeviceCodesResponse` | `src/Square/Models/ListDeviceCodesResponse.cs` |
@@ -64,14 +64,14 @@ Accessor: `client.Devices` · Source: `src/Square/Api/Devices.cs` · 5 operation
 ### ListDevices
 
 - **Auth**: `options.BearerAuth`
-- **Signature**: `ListDevices(ListDevicesOperationRequest request, RequestOptions? requestOptions = null, CancellationToken cancellationToken = default)`
+- **Signature**: `ListDevices(ListDevicesRequest request, RequestOptions? requestOptions = null, CancellationToken cancellationToken = default)`
 - **Query params (wire ← C#)**: `cursor` ← `Cursor`, `sort_order` ← `SortOrder`, `limit` ← `Limit`, `location_id` ← `LocationId`
 - **Returns**: `ListDevicesResponse`
 - **Error**: `ApiException<RawError>` — **Case B**
 
 | Type | Source |
 | --- | --- |
-| `ListDevicesOperationRequest` | `src/Square/Requests/Devices/ListDevicesOperationRequest.cs` |
+| `ListDevicesRequest` | `src/Square/Requests/Devices/ListDevicesRequest.cs` |
 | `SortOrder` | `src/Square/Models/Enums/SortOrder.cs` |
 | `ListDevicesResponse` | `src/Square/Models/ListDevicesResponse.cs` |
 

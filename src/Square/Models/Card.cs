@@ -75,7 +75,7 @@ public record Card
     public string? Fingerprint { get; init; }
 
     /// <summary>
-    /// <b>Required</b> The ID of a customer created using the Customers API to be associated with the card.
+    /// <b>Required</b> The ID of a <see href="entity:Customer">customer</see> to be associated with the card.
     /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("customer_id")]
@@ -143,6 +143,32 @@ public record Card
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("card_co_brand")]
     public CardCoBrand? CardCoBrand { get; init; }
+
+    /// <summary>
+    /// Indicates the type of issuer alert for a <see href="entity:Card">card on file</see>.
+    /// </summary>
+    [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
+    [JsonPropertyName("issuer_alert")]
+    public CardIssuerAlert? IssuerAlert { get; init; }
+
+    /// <summary>
+    /// The timestamp of when the current issuer alert was received and processed, in
+    /// RFC 3339 format.
+    /// <para>
+    /// This field is present only if there's an active issuer alert.
+    /// </para>
+    /// </summary>
+    [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
+    [JsonPropertyName("issuer_alert_at")]
+    public string? IssuerAlertAt { get; init; }
+
+    /// <summary>
+    /// Indicates whether the card is linked to a Health Savings Account (HSA) or Flexible
+    /// Spending Account (FSA), based on the card BIN.
+    /// </summary>
+    [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
+    [JsonPropertyName("hsa_fsa")]
+    public bool? HsaFsa { get; init; }
 
     [JsonExtensionData]
     public AdditionalProperties AdditionalProperties { get; init; } = [];

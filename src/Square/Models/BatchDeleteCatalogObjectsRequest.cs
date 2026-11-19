@@ -11,9 +11,8 @@ public record BatchDeleteCatalogObjectsRequest
     /// in the graph that depend on that object will be deleted as well (for example, deleting a
     /// CatalogItem will delete its CatalogItemVariation.
     /// </summary>
-    [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("object_ids")]
-    public IReadOnlyList<string>? ObjectIds { get; init; }
+    public required IReadOnlyList<string> ObjectIds { get; init; }
 
     [JsonExtensionData]
     public AdditionalProperties AdditionalProperties { get; init; } = [];

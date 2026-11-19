@@ -71,7 +71,7 @@ public sealed class Refunds
     /// The maximum results per page is 100.
     /// </para>
     /// </remarks>
-    public Task<ListPaymentRefundsResponse> ListPaymentRefunds(ListPaymentRefundsOperationRequest request,
+    public Task<ListPaymentRefundsResponse> ListPaymentRefunds(ListPaymentRefundsRequest request,
         RequestOptions? requestOptions = null,
         CancellationToken cancellationToken = default) =>
         _rawClient.Execute(
@@ -86,6 +86,9 @@ public sealed class Refunds
                 new Param("status", request.Status),
                 new Param("source_type", request.SourceType),
                 new Param("limit", request.Limit),
+                new Param("updated_at_begin_time", request.UpdatedAtBeginTime),
+                new Param("updated_at_end_time", request.UpdatedAtEndTime),
+                new Param("sort_field", request.SortField),
             ],
             [],
             HttpMethod.Get,

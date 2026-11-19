@@ -7,20 +7,11 @@ using Square.Models.Enums;
 namespace Square.Models;
 
 /// <summary>
-/// For a text-based modifier, this encapsulates the modifier's text when its <c>modifier_type</c> is <c>TEXT</c>.
-/// For example, to sell T-shirts with custom prints, a text-based modifier can be used to capture the buyer-supplied
-/// text string to be selected for the T-shirt at the time of sale.
-/// <para>
-/// For non text-based modifiers, this encapsulates a non-empty list of modifiers applicable to items
-/// at the time of sale. Each element of the modifier list is a <c>CatalogObject</c> instance of the <c>MODIFIER</c> type.
-/// For example, a "Condiments" modifier list applicable to a "Hot Dog" item
-/// may contain "Ketchup", "Mustard", and "Relish" modifiers.
-/// </para>
-/// <para>
-/// A non text-based modifier can be applied to the modified item once or multiple times, if the <c>selection_type</c> field
-/// is set to <c>SINGLE</c> or <c>MULTIPLE</c>, respectively. On the other hand, a text-based modifier can be applied to the item
-/// only once and the <c>selection_type</c> field is always set to <c>SINGLE</c>.
-/// </para>
+/// A container for a list of modifiers, or a text-based modifier.
+/// For text-based modifiers, this represents text configuration for an item. (For example, custom text to print on a t-shirt).
+/// For non text-based modifiers, this represents a list of modifiers that can be applied to items at the time of sale.
+/// (For example, a list of condiments for a hot dog, or a list of ice cream flavors).
+/// Each element of the modifier list is a <c>CatalogObject</c> instance of the <c>MODIFIER</c> type.
 /// </summary>
 public record CatalogModifierList
 {
@@ -110,6 +101,60 @@ public record CatalogModifierList
     [JsonPropertyName("internal_name")]
     [MaxLength(512)]
     public string? InternalName { get; init; }
+
+    /// <summary>
+    /// When <c>true</c>, allows multiple quantities of the same modifier to be selected.
+    /// </summary>
+    [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
+    [JsonPropertyName("allow_quantities")]
+    public bool? AllowQuantities { get; init; }
+
+    /// <summary>
+    /// True if modifiers belonging to this list can be used conversationally.
+    /// </summary>
+    [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
+    [JsonPropertyName("is_conversational")]
+    public bool? IsConversational { get; init; }
+
+    /// <summary>
+    /// The minimum number of modifiers that must be selected from this list. The value can be overridden with <c>CatalogItemModifierListInfo</c>.
+    /// <para>
+    /// Values:
+    /// </para>
+    /// <list type="bullet">
+    ///   <item><description>0: No selection is required.</description></item>
+    ///   <item><description>-1: Default value, the attribute was not set by the client. Treated as no selection required.</description></item>
+    ///   <item><description>&amp;gt;0: The required minimum modifier selections. This can be larger than the total <c>CatalogModifiers</c> when <c>allow_quantities</c> is enabled.</description></item>
+    ///   <item><description>&amp;lt; -1: Invalid. Treated as no selection required.</description></item>
+    /// </list>
+    /// </summary>
+    [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
+    [JsonPropertyName("min_selected_modifiers")]
+    public long? MinSelectedModifiers { get; init; }
+
+    /// <summary>
+    /// The maximum number of modifiers that must be selected from this list. The value can be overridden with <c>CatalogItemModifierListInfo</c>.
+    /// <para>
+    /// Values:
+    /// </para>
+    /// <list type="bullet">
+    ///   <item><description>0: No maximum limit.</description></item>
+    ///   <item><description>-1: Default value, the attribute was not set by the client. Treated as no maximum limit.</description></item>
+    ///   <item><description>&amp;gt;0: The maximum total modifier selections. This can be larger than the total <c>CatalogModifiers</c> when <c>allow_quantities</c> is enabled.</description></item>
+    ///   <item><description>&amp;lt; -1: Invalid. Treated as no maximum limit.</description></item>
+    /// </list>
+    /// </summary>
+    [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
+    [JsonPropertyName("max_selected_modifiers")]
+    public long? MaxSelectedModifiers { get; init; }
+
+    /// <summary>
+    /// If <c>true</c>, modifiers from this list are hidden from customer receipts. The default value is <c>false</c>.
+    /// This setting can be overridden with <c>CatalogItemModifierListInfo.hidden_from_customer_override</c>.
+    /// </summary>
+    [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
+    [JsonPropertyName("hidden_from_customer")]
+    public bool? HiddenFromCustomer { get; init; }
 
     [JsonExtensionData]
     public AdditionalProperties AdditionalProperties { get; init; } = [];

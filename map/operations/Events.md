@@ -31,14 +31,14 @@ Accessor: `client.Events` · Source: `src/Square/Api/Events.cs` · 4 operations
 ### ListEventTypes
 
 - **Auth**: `options.BearerAuth`
-- **Signature**: `ListEventTypes(ListEventTypesOperationRequest request, RequestOptions? requestOptions = null, CancellationToken cancellationToken = default)`
+- **Signature**: `ListEventTypes(ListEventTypesRequest request, RequestOptions? requestOptions = null, CancellationToken cancellationToken = default)`
 - **Query params (wire ← C#)**: `api_version` ← `ApiVersion`
 - **Returns**: `ListEventTypesResponse`
 - **Error**: `ApiException<RawError>` — **Case B**
 
 | Type | Source |
 | --- | --- |
-| `ListEventTypesOperationRequest` | `src/Square/Requests/Events/ListEventTypesOperationRequest.cs` |
+| `ListEventTypesRequest` | `src/Square/Requests/Events/ListEventTypesRequest.cs` |
 | `ListEventTypesResponse` | `src/Square/Models/ListEventTypesResponse.cs` |
 
 ### SearchEvents

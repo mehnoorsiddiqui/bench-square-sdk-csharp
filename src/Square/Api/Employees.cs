@@ -33,7 +33,7 @@ public sealed class Employees
     /// <param name="cancellationToken">Cancellation token</param>
     /// <returns>A <see cref="Task{TResult}"/> of <see cref="ListEmployeesResponse"/> instance.</returns>
     /// <exception cref="ApiException{TError}"> of <see cref="RawError"/> when the server returns an error response.</exception>
-    public Task<ListEmployeesResponse> ListEmployees(ListEmployeesOperationRequest request,
+    public Task<ListEmployeesResponse> ListEmployees(ListEmployeesRequest request,
         RequestOptions? requestOptions = null,
         CancellationToken cancellationToken = default) =>
         _rawClient.Execute(

@@ -36,7 +36,7 @@ public sealed class CustomerSegments
     /// <remarks>
     /// Retrieves the list of customer segments of a business.
     /// </remarks>
-    public Task<ListCustomerSegmentsResponse> ListCustomerSegments(ListCustomerSegmentsOperationRequest request,
+    public Task<ListCustomerSegmentsResponse> ListCustomerSegments(ListCustomerSegmentsRequest request,
         RequestOptions? requestOptions = null,
         CancellationToken cancellationToken = default) =>
         _rawClient.Execute(

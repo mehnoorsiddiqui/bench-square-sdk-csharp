@@ -5,23 +5,29 @@ using Square.Core.Models;
 
 namespace Square.Models;
 
+/// <summary>
+/// Represents an <see href="api-endpoint:OAuth-ObtainToken">ObtainToken</see> request.
+/// </summary>
 public record ObtainTokenRequest
 {
     /// <summary>
-    /// The Square-issued ID of your application, which is available on the <b>OAuth</b> page in the
-    /// <see href="https://developer.squareup.com/apps">Developer Dashboard</see>.
+    /// The Square-issued ID of your application, which is available as the <b>Application ID</b>
+    /// on the <b>OAuth</b> page in the <see href="https://developer.squareup.com/apps">Developer Console</see>.
+    /// <para>
+    /// Required for the code flow and PKCE flow for any grant type.
+    /// </para>
     /// </summary>
     [JsonPropertyName("client_id")]
     [MaxLength(191)]
     public required string ClientId { get; init; }
 
     /// <summary>
-    /// The Square-issued application secret for your application, which is available on the <b>OAuth</b> page
-    /// in the <see href="https://developer.squareup.com/apps">Developer Dashboard</see>. This parameter is only required when
-    /// you're not using the <see href="https://developer.squareup.com/docs/oauth-api/overview#pkce-flow">OAuth PKCE (Proof Key for Code Exchange) flow</see>.
-    /// The PKCE flow requires a <c>code_verifier</c> instead of a <c>client_secret</c> when <c>grant_type</c> is set to <c>authorization_code</c>.
-    /// If <c>grant_type</c> is set to <c>refresh_token</c> and the <c>refresh_token</c> is obtained uaing PKCE, the PKCE flow only requires <c>client_id</c>,
-    /// <c>grant_type</c>, and <c>refresh_token</c>.
+    /// The secret key for your application, which is available as the <b>Application secret</b>
+    /// on the <b>OAuth</b> page in the <see href="https://developer.squareup.com/apps">Developer Console</see>.
+    /// <para>
+    /// Required for the code flow for any grant type. Don't confuse your client secret with your
+    /// personal access token.
+    /// </para>
     /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("client_secret")]
@@ -29,9 +35,11 @@ public record ObtainTokenRequest
     public string? ClientSecret { get; init; }
 
     /// <summary>
-    /// The authorization code to exchange.
-    /// This code is required if <c>grant_type</c> is set to <c>authorization_code</c> to indicate that
-    /// the application wants to exchange an authorization code for an OAuth access token.
+    /// The authorization code to exchange for an OAuth access token. This is the <c>code</c>
+    /// value that Square sent to your redirect URL in the authorization response.
+    /// <para>
+    /// Required for the code flow and PKCE flow if <c>grant_type</c> is <c>authorization_code</c>.
+    /// </para>
     /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("code")]
@@ -39,7 +47,12 @@ public record ObtainTokenRequest
     public string? Code { get; init; }
 
     /// <summary>
-    /// The redirect URL assigned on the <b>OAuth</b> page for your application in the <see href="https://developer.squareup.com/apps">Developer Dashboard</see>.
+    /// The redirect URL for your application, which you registered as the <b>Redirect URL</b>
+    /// on the <b>OAuth</b> page in the <see href="https://developer.squareup.com/apps">Developer Console</see>.
+    /// <para>
+    /// Required for the code flow and PKCE flow if <c>grant_type</c> is <c>authorization_code</c> and
+    /// you provided the <c>redirect_uri</c> parameter in your authorization URL.
+    /// </para>
     /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("redirect_uri")]
@@ -47,18 +60,22 @@ public record ObtainTokenRequest
     public string? RedirectUri { get; init; }
 
     /// <summary>
-    /// Specifies the method to request an OAuth access token.
-    /// Valid values are <c>authorization_code</c>, <c>refresh_token</c>, and <c>migration_token</c>.
+    /// The method used to obtain an OAuth access token. The request must include the
+    /// credential that corresponds to the specified grant type. Valid values are:
+    /// - <c>authorization_code</c> - Requires the <c>code</c> field.
+    /// - <c>refresh_token</c> - Requires the <c>refresh_token</c> field.
+    /// - <c>migration_token</c> - LEGACY for access tokens obtained using a Square API version prior
+    /// to 2019-03-13. Requires the <c>migration_token</c> field.
     /// </summary>
     [JsonPropertyName("grant_type")]
     [StringLength(20, MinimumLength = 10)]
     public required string GrantType { get; init; }
 
     /// <summary>
-    /// A valid refresh token for generating a new OAuth access token.
+    /// A valid refresh token used to generate a new OAuth access token. This is a
+    /// refresh token that was returned in a previous <c>ObtainToken</c> response.
     /// <para>
-    /// A valid refresh token is required if <c>grant_type</c> is set to <c>refresh_token</c>
-    /// to indicate that the application wants a replacement for an expired OAuth access token.
+    /// Required for the code flow and PKCE flow if <c>grant_type</c> is <c>refresh_token</c>.
     /// </para>
     /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
@@ -67,11 +84,12 @@ public record ObtainTokenRequest
     public string? RefreshToken { get; init; }
 
     /// <summary>
-    /// A legacy OAuth access token obtained using a Connect API version prior
-    /// to 2019-03-13. This parameter is required if <c>grant_type</c> is set to
-    /// <c>migration_token</c> to indicate that the application wants to get a replacement
-    /// OAuth access token. The response also returns a refresh token.
-    /// For more information, see <see href="https://developer.squareup.com/docs/oauth-api/migrate-to-refresh-tokens">Migrate to Using Refresh Tokens</see>.
+    /// __LEGACY__ A valid access token (obtained using a Square API version prior to 2019-03-13)
+    /// used to generate a new OAuth access token.
+    /// <para>
+    /// Required if <c>grant_type</c> is <c>migration_token</c>. For more information, see
+    /// <see href="https://developer.squareup.com/docs/oauth-api/migrate-to-refresh-tokens">Migrate to Using Refresh Tokens</see>.
+    /// </para>
     /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("migration_token")]
@@ -79,12 +97,14 @@ public record ObtainTokenRequest
     public string? MigrationToken { get; init; }
 
     /// <summary>
-    /// A JSON list of strings representing the permissions that the application is requesting.
-    /// For example, "<c>["MERCHANT_PROFILE_READ","PAYMENTS_READ","BANK_ACCOUNTS_READ"]</c>".
+    /// The list of permissions that are explicitly requested for the access token.
+    /// For example, ["MERCHANT_PROFILE_READ","PAYMENTS_READ","BANK_ACCOUNTS_READ"].
     /// <para>
-    /// The access token returned in the response is granted the permissions
-    /// that comprise the intersection between the requested list of permissions and those
-    /// that belong to the provided refresh token.
+    /// The returned access token is limited to the permissions that are the intersection
+    /// of these requested permissions and those authorized by the provided <c>refresh_token</c>.
+    /// </para>
+    /// <para>
+    /// Optional for the code flow and PKCE flow if <c>grant_type</c> is <c>refresh_token</c>.
     /// </para>
     /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
@@ -92,9 +112,9 @@ public record ObtainTokenRequest
     public IReadOnlyList<string>? Scopes { get; init; }
 
     /// <summary>
-    /// A Boolean indicating a request for a short-lived access token.
+    /// Indicates whether the returned access token should expire in 24 hours.
     /// <para>
-    /// The short-lived access token returned in the response expires in 24 hours.
+    /// Optional for the code flow and PKCE flow for any grant type. The default value is <c>false</c>.
     /// </para>
     /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
@@ -102,8 +122,12 @@ public record ObtainTokenRequest
     public bool? ShortLived { get; init; }
 
     /// <summary>
-    /// Must be provided when using the PKCE OAuth flow if <c>grant_type</c> is set to <c>authorization_code</c>. The <c>code_verifier</c> is used to verify against the
-    /// <c>code_challenge</c> associated with the <c>authorization_code</c>.
+    /// The secret your application generated for the authorization request used to
+    /// obtain the authorization code. This is the source of the <c>code_challenge</c> hash you
+    /// provided in your authorization URL.
+    /// <para>
+    /// Required for the PKCE flow if <c>grant_type</c> is <c>authorization_code</c>.
+    /// </para>
     /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("code_verifier")]

@@ -63,20 +63,20 @@ Accessor: `client.CustomerCustomAttributes` · Source: `src/Square/Api/CustomerC
 ### ListCustomerCustomAttributeDefinitions
 
 - **Auth**: `options.BearerAuth`
-- **Signature**: `ListCustomerCustomAttributeDefinitions(ListCustomerCustomAttributeDefinitionsOperationRequest request, RequestOptions? requestOptions = null, CancellationToken cancellationToken = default)`
+- **Signature**: `ListCustomerCustomAttributeDefinitions(ListCustomerCustomAttributeDefinitionsRequest request, RequestOptions? requestOptions = null, CancellationToken cancellationToken = default)`
 - **Query params (wire ← C#)**: `limit` ← `Limit`, `cursor` ← `Cursor`
 - **Returns**: `ListCustomerCustomAttributeDefinitionsResponse`
 - **Error**: `ApiException<RawError>` — **Case B**
 
 | Type | Source |
 | --- | --- |
-| `ListCustomerCustomAttributeDefinitionsOperationRequest` | `src/Square/Requests/CustomerCustomAttributes/ListCustomerCustomAttributeDefinitionsOperationRequest.cs` |
+| `ListCustomerCustomAttributeDefinitionsRequest` | `src/Square/Requests/CustomerCustomAttributes/ListCustomerCustomAttributeDefinitionsRequest.cs` |
 | `ListCustomerCustomAttributeDefinitionsResponse` | `src/Square/Models/ListCustomerCustomAttributeDefinitionsResponse.cs` |
 
 ### ListCustomerCustomAttributes
 
 - **Auth**: `options.BearerAuth`
-- **Signature**: `ListCustomerCustomAttributes(ListCustomerCustomAttributesOperationRequest request, RequestOptions? requestOptions = null, CancellationToken cancellationToken = default)`
+- **Signature**: `ListCustomerCustomAttributes(ListCustomerCustomAttributesRequest request, RequestOptions? requestOptions = null, CancellationToken cancellationToken = default)`
   - required: `CustomerId`
 - **Query params (wire ← C#)**: `limit` ← `Limit`, `cursor` ← `Cursor`, `with_definitions` ← `WithDefinitions`
 - **Returns**: `ListCustomerCustomAttributesResponse`
@@ -84,13 +84,13 @@ Accessor: `client.CustomerCustomAttributes` · Source: `src/Square/Api/CustomerC
 
 | Type | Source |
 | --- | --- |
-| `ListCustomerCustomAttributesOperationRequest` | `src/Square/Requests/CustomerCustomAttributes/ListCustomerCustomAttributesOperationRequest.cs` |
+| `ListCustomerCustomAttributesRequest` | `src/Square/Requests/CustomerCustomAttributes/ListCustomerCustomAttributesRequest.cs` |
 | `ListCustomerCustomAttributesResponse` | `src/Square/Models/ListCustomerCustomAttributesResponse.cs` |
 
 ### RetrieveCustomerCustomAttribute
 
 - **Auth**: `options.BearerAuth`
-- **Signature**: `RetrieveCustomerCustomAttribute(RetrieveCustomerCustomAttributeOperationRequest request, RequestOptions? requestOptions = null, CancellationToken cancellationToken = default)`
+- **Signature**: `RetrieveCustomerCustomAttribute(RetrieveCustomerCustomAttributeRequest request, RequestOptions? requestOptions = null, CancellationToken cancellationToken = default)`
   - required: `CustomerId`, `Key`
 - **Query params (wire ← C#)**: `with_definition` ← `WithDefinition`, `version` ← `Version`
 - **Returns**: `RetrieveCustomerCustomAttributeResponse`
@@ -98,13 +98,13 @@ Accessor: `client.CustomerCustomAttributes` · Source: `src/Square/Api/CustomerC
 
 | Type | Source |
 | --- | --- |
-| `RetrieveCustomerCustomAttributeOperationRequest` | `src/Square/Requests/CustomerCustomAttributes/RetrieveCustomerCustomAttributeOperationRequest.cs` |
+| `RetrieveCustomerCustomAttributeRequest` | `src/Square/Requests/CustomerCustomAttributes/RetrieveCustomerCustomAttributeRequest.cs` |
 | `RetrieveCustomerCustomAttributeResponse` | `src/Square/Models/RetrieveCustomerCustomAttributeResponse.cs` |
 
 ### RetrieveCustomerCustomAttributeDefinition
 
 - **Auth**: `options.BearerAuth`
-- **Signature**: `RetrieveCustomerCustomAttributeDefinition(RetrieveCustomerCustomAttributeDefinitionOperationRequest request, RequestOptions? requestOptions = null, CancellationToken cancellationToken = default)`
+- **Signature**: `RetrieveCustomerCustomAttributeDefinition(RetrieveCustomerCustomAttributeDefinitionRequest request, RequestOptions? requestOptions = null, CancellationToken cancellationToken = default)`
   - required: `Key`
 - **Query params (wire ← C#)**: `version` ← `Version`
 - **Returns**: `RetrieveCustomerCustomAttributeDefinitionResponse`
@@ -112,7 +112,7 @@ Accessor: `client.CustomerCustomAttributes` · Source: `src/Square/Api/CustomerC
 
 | Type | Source |
 | --- | --- |
-| `RetrieveCustomerCustomAttributeDefinitionOperationRequest` | `src/Square/Requests/CustomerCustomAttributes/RetrieveCustomerCustomAttributeDefinitionOperationRequest.cs` |
+| `RetrieveCustomerCustomAttributeDefinitionRequest` | `src/Square/Requests/CustomerCustomAttributes/RetrieveCustomerCustomAttributeDefinitionRequest.cs` |
 | `RetrieveCustomerCustomAttributeDefinitionResponse` | `src/Square/Models/RetrieveCustomerCustomAttributeDefinitionResponse.cs` |
 
 ### UpdateCustomerCustomAttributeDefinition

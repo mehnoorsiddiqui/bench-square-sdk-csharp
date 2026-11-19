@@ -9,7 +9,7 @@ Accessor: `client.V1Transactions` · Source: `src/Square/Api/V1Transactions.cs` 
 ### V1ListOrders
 
 - **Auth**: `options.BearerAuth`
-- **Signature**: `V1ListOrders(V1ListOrdersOperationRequest request, RequestOptions? requestOptions = null, CancellationToken cancellationToken = default)`
+- **Signature**: `V1ListOrders(V1ListOrdersRequest request, RequestOptions? requestOptions = null, CancellationToken cancellationToken = default)`
   - required: `LocationId`
 - **Query params (wire ← C#)**: `order` ← `Order`, `limit` ← `Limit`, `batch_token` ← `BatchToken`
 - **Returns**: `IReadOnlyList<V1Order>`
@@ -17,7 +17,7 @@ Accessor: `client.V1Transactions` · Source: `src/Square/Api/V1Transactions.cs` 
 
 | Type | Source |
 | --- | --- |
-| `V1ListOrdersOperationRequest` | `src/Square/Requests/V1Transactions/V1ListOrdersOperationRequest.cs` |
+| `V1ListOrdersRequest` | `src/Square/Requests/V1Transactions/V1ListOrdersRequest.cs` |
 | `SortOrder` | `src/Square/Models/Enums/SortOrder.cs` |
 | `V1Order` | `src/Square/Models/V1Order.cs` |
 

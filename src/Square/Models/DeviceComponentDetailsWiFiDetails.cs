@@ -41,6 +41,13 @@ public record DeviceComponentDetailsWiFiDetails
     [JsonPropertyName("signal_strength")]
     public DeviceComponentDetailsMeasurement? SignalStrength { get; init; }
 
+    /// <summary>
+    /// The mac address of the device in this network.
+    /// </summary>
+    [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
+    [JsonPropertyName("mac_address")]
+    public string? MacAddress { get; init; }
+
     [JsonExtensionData]
     public AdditionalProperties AdditionalProperties { get; init; } = [];
 }

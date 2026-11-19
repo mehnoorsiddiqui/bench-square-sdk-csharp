@@ -37,14 +37,14 @@ Accessor: `client.GiftCards` · Source: `src/Square/Api/GiftCards.cs` · 7 opera
 ### ListGiftCards
 
 - **Auth**: `options.BearerAuth`
-- **Signature**: `ListGiftCards(ListGiftCardsOperationRequest request, RequestOptions? requestOptions = null, CancellationToken cancellationToken = default)`
+- **Signature**: `ListGiftCards(ListGiftCardsRequest request, RequestOptions? requestOptions = null, CancellationToken cancellationToken = default)`
 - **Query params (wire ← C#)**: `type` ← `Type`, `state` ← `State`, `limit` ← `Limit`, `cursor` ← `Cursor`, `customer_id` ← `CustomerId`
 - **Returns**: `ListGiftCardsResponse`
 - **Error**: `ApiException<RawError>` — **Case B**
 
 | Type | Source |
 | --- | --- |
-| `ListGiftCardsOperationRequest` | `src/Square/Requests/GiftCards/ListGiftCardsOperationRequest.cs` |
+| `ListGiftCardsRequest` | `src/Square/Requests/GiftCards/ListGiftCardsRequest.cs` |
 | `ListGiftCardsResponse` | `src/Square/Models/ListGiftCardsResponse.cs` |
 
 ### RetrieveGiftCard

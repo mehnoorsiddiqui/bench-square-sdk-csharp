@@ -91,7 +91,7 @@ public sealed class BankAccounts
     /// <remarks>
     /// Returns a list of <see href="entity:BankAccount">BankAccount</see> objects linked to a Square account.
     /// </remarks>
-    public Task<ListBankAccountsResponse> ListBankAccounts(ListBankAccountsOperationRequest request,
+    public Task<ListBankAccountsResponse> ListBankAccounts(ListBankAccountsRequest request,
         RequestOptions? requestOptions = null,
         CancellationToken cancellationToken = default) =>
         _rawClient.Execute(

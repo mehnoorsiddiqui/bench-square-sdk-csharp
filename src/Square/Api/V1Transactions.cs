@@ -38,7 +38,7 @@ public sealed class V1Transactions
     /// <remarks>
     /// Provides summary information for a merchant's online store orders.
     /// </remarks>
-    public Task<IReadOnlyList<V1Order>> V1ListOrders(V1ListOrdersOperationRequest request,
+    public Task<IReadOnlyList<V1Order>> V1ListOrders(V1ListOrdersRequest request,
         RequestOptions? requestOptions = null,
         CancellationToken cancellationToken = default) =>
         _rawClient.Execute(

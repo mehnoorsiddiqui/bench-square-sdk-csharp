@@ -173,27 +173,18 @@ public record CatalogObject
     public CatalogDiscount? DiscountData { get; init; }
 
     /// <summary>
-    /// For a text-based modifier, this encapsulates the modifier's text when its <c>modifier_type</c> is <c>TEXT</c>.
-    /// For example, to sell T-shirts with custom prints, a text-based modifier can be used to capture the buyer-supplied
-    /// text string to be selected for the T-shirt at the time of sale.
-    /// <para>
-    /// For non text-based modifiers, this encapsulates a non-empty list of modifiers applicable to items
-    /// at the time of sale. Each element of the modifier list is a <c>CatalogObject</c> instance of the <c>MODIFIER</c> type.
-    /// For example, a "Condiments" modifier list applicable to a "Hot Dog" item
-    /// may contain "Ketchup", "Mustard", and "Relish" modifiers.
-    /// </para>
-    /// <para>
-    /// A non text-based modifier can be applied to the modified item once or multiple times, if the <c>selection_type</c> field
-    /// is set to <c>SINGLE</c> or <c>MULTIPLE</c>, respectively. On the other hand, a text-based modifier can be applied to the item
-    /// only once and the <c>selection_type</c> field is always set to <c>SINGLE</c>.
-    /// </para>
+    /// A container for a list of modifiers, or a text-based modifier.
+    /// For text-based modifiers, this represents text configuration for an item. (For example, custom text to print on a t-shirt).
+    /// For non text-based modifiers, this represents a list of modifiers that can be applied to items at the time of sale.
+    /// (For example, a list of condiments for a hot dog, or a list of ice cream flavors).
+    /// Each element of the modifier list is a <c>CatalogObject</c> instance of the <c>MODIFIER</c> type.
     /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("modifier_list_data")]
     public CatalogModifierList? ModifierListData { get; init; }
 
     /// <summary>
-    /// A modifier applicable to items at the time of sale. An example of a modifier is a Cheese add-on to a Burger item.
+    /// A modifier that can be applied to items at the time of sale. For example, a cheese modifier for a burger, or a flavor modifier for a serving of ice cream.
     /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("modifier_data")]

@@ -197,7 +197,7 @@ public sealed class MerchantCustomAttributes
     /// that are visible to the requesting application, including those that are created by other
     /// applications and set to <c>VISIBILITY_READ_ONLY</c> or <c>VISIBILITY_READ_WRITE_VALUES</c>.
     /// </remarks>
-    public Task<ListMerchantCustomAttributeDefinitionsResponse> ListMerchantCustomAttributeDefinitions(ListMerchantCustomAttributeDefinitionsOperationRequest request,
+    public Task<ListMerchantCustomAttributeDefinitionsResponse> ListMerchantCustomAttributeDefinitions(ListMerchantCustomAttributeDefinitionsRequest request,
         RequestOptions? requestOptions = null,
         CancellationToken cancellationToken = default) =>
         _rawClient.Execute(
@@ -233,7 +233,7 @@ public sealed class MerchantCustomAttributes
     /// visible to the requesting application, including those that are owned by other applications
     /// and set to <c>VISIBILITY_READ_ONLY</c> or <c>VISIBILITY_READ_WRITE_VALUES</c>.
     /// </remarks>
-    public Task<ListMerchantCustomAttributesResponse> ListMerchantCustomAttributes(ListMerchantCustomAttributesOperationRequest request,
+    public Task<ListMerchantCustomAttributesResponse> ListMerchantCustomAttributes(ListMerchantCustomAttributesRequest request,
         RequestOptions? requestOptions = null,
         CancellationToken cancellationToken = default) =>
         _rawClient.Execute(
@@ -269,7 +269,7 @@ public sealed class MerchantCustomAttributes
     /// To retrieve a custom attribute owned by another application, the <c>visibility</c> setting must be
     /// <c>VISIBILITY_READ_ONLY</c> or <c>VISIBILITY_READ_WRITE_VALUES</c>.
     /// </remarks>
-    public Task<RetrieveMerchantCustomAttributeResponse> RetrieveMerchantCustomAttribute(RetrieveMerchantCustomAttributeOperationRequest request,
+    public Task<RetrieveMerchantCustomAttributeResponse> RetrieveMerchantCustomAttribute(RetrieveMerchantCustomAttributeRequest request,
         RequestOptions? requestOptions = null,
         CancellationToken cancellationToken = default) =>
         _rawClient.Execute(
@@ -298,7 +298,7 @@ public sealed class MerchantCustomAttributes
     /// To retrieve a custom attribute definition created by another application, the <c>visibility</c>
     /// setting must be <c>VISIBILITY_READ_ONLY</c> or <c>VISIBILITY_READ_WRITE_VALUES</c>.
     /// </remarks>
-    public Task<RetrieveMerchantCustomAttributeDefinitionResponse> RetrieveMerchantCustomAttributeDefinition(RetrieveMerchantCustomAttributeDefinitionOperationRequest request,
+    public Task<RetrieveMerchantCustomAttributeDefinitionResponse> RetrieveMerchantCustomAttributeDefinition(RetrieveMerchantCustomAttributeDefinitionRequest request,
         RequestOptions? requestOptions = null,
         CancellationToken cancellationToken = default) =>
         _rawClient.Execute(

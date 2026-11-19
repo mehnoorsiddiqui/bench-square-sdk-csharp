@@ -47,7 +47,7 @@ public sealed class Merchants
     /// endpoint to retrieve the merchant information.
     /// </para>
     /// </remarks>
-    public Task<ListMerchantsResponse> ListMerchants(ListMerchantsOperationRequest request,
+    public Task<ListMerchantsResponse> ListMerchants(ListMerchantsRequest request,
         RequestOptions? requestOptions = null,
         CancellationToken cancellationToken = default) =>
         _rawClient.Execute(

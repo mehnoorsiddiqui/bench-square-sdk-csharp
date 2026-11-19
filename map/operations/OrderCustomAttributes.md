@@ -77,21 +77,21 @@ Accessor: `client.OrderCustomAttributes` · Source: `src/Square/Api/OrderCustomA
 ### ListOrderCustomAttributeDefinitions
 
 - **Auth**: `options.BearerAuth`
-- **Signature**: `ListOrderCustomAttributeDefinitions(ListOrderCustomAttributeDefinitionsOperationRequest request, RequestOptions? requestOptions = null, CancellationToken cancellationToken = default)`
+- **Signature**: `ListOrderCustomAttributeDefinitions(ListOrderCustomAttributeDefinitionsRequest request, RequestOptions? requestOptions = null, CancellationToken cancellationToken = default)`
 - **Query params (wire ← C#)**: `visibility_filter` ← `VisibilityFilter`, `cursor` ← `Cursor`, `limit` ← `Limit`
 - **Returns**: `ListOrderCustomAttributeDefinitionsResponse`
 - **Error**: `ApiException<RawError>` — **Case B**
 
 | Type | Source |
 | --- | --- |
-| `ListOrderCustomAttributeDefinitionsOperationRequest` | `src/Square/Requests/OrderCustomAttributes/ListOrderCustomAttributeDefinitionsOperationRequest.cs` |
+| `ListOrderCustomAttributeDefinitionsRequest` | `src/Square/Requests/OrderCustomAttributes/ListOrderCustomAttributeDefinitionsRequest.cs` |
 | `VisibilityFilter` | `src/Square/Models/Enums/VisibilityFilter.cs` |
 | `ListOrderCustomAttributeDefinitionsResponse` | `src/Square/Models/ListOrderCustomAttributeDefinitionsResponse.cs` |
 
 ### ListOrderCustomAttributes
 
 - **Auth**: `options.BearerAuth`
-- **Signature**: `ListOrderCustomAttributes(ListOrderCustomAttributesOperationRequest request, RequestOptions? requestOptions = null, CancellationToken cancellationToken = default)`
+- **Signature**: `ListOrderCustomAttributes(ListOrderCustomAttributesRequest request, RequestOptions? requestOptions = null, CancellationToken cancellationToken = default)`
   - required: `OrderId`
 - **Query params (wire ← C#)**: `visibility_filter` ← `VisibilityFilter`, `cursor` ← `Cursor`, `limit` ← `Limit`, `with_definitions` ← `WithDefinitions`
 - **Returns**: `ListOrderCustomAttributesResponse`
@@ -99,14 +99,14 @@ Accessor: `client.OrderCustomAttributes` · Source: `src/Square/Api/OrderCustomA
 
 | Type | Source |
 | --- | --- |
-| `ListOrderCustomAttributesOperationRequest` | `src/Square/Requests/OrderCustomAttributes/ListOrderCustomAttributesOperationRequest.cs` |
+| `ListOrderCustomAttributesRequest` | `src/Square/Requests/OrderCustomAttributes/ListOrderCustomAttributesRequest.cs` |
 | `VisibilityFilter` | `src/Square/Models/Enums/VisibilityFilter.cs` |
 | `ListOrderCustomAttributesResponse` | `src/Square/Models/ListOrderCustomAttributesResponse.cs` |
 
 ### RetrieveOrderCustomAttribute
 
 - **Auth**: `options.BearerAuth`
-- **Signature**: `RetrieveOrderCustomAttribute(RetrieveOrderCustomAttributeOperationRequest request, RequestOptions? requestOptions = null, CancellationToken cancellationToken = default)`
+- **Signature**: `RetrieveOrderCustomAttribute(RetrieveOrderCustomAttributeRequest request, RequestOptions? requestOptions = null, CancellationToken cancellationToken = default)`
   - required: `OrderId`, `CustomAttributeKey`
 - **Query params (wire ← C#)**: `version` ← `Version`, `with_definition` ← `WithDefinition`
 - **Returns**: `RetrieveOrderCustomAttributeResponse`
@@ -114,13 +114,13 @@ Accessor: `client.OrderCustomAttributes` · Source: `src/Square/Api/OrderCustomA
 
 | Type | Source |
 | --- | --- |
-| `RetrieveOrderCustomAttributeOperationRequest` | `src/Square/Requests/OrderCustomAttributes/RetrieveOrderCustomAttributeOperationRequest.cs` |
+| `RetrieveOrderCustomAttributeRequest` | `src/Square/Requests/OrderCustomAttributes/RetrieveOrderCustomAttributeRequest.cs` |
 | `RetrieveOrderCustomAttributeResponse` | `src/Square/Models/RetrieveOrderCustomAttributeResponse.cs` |
 
 ### RetrieveOrderCustomAttributeDefinition
 
 - **Auth**: `options.BearerAuth`
-- **Signature**: `RetrieveOrderCustomAttributeDefinition(RetrieveOrderCustomAttributeDefinitionOperationRequest request, RequestOptions? requestOptions = null, CancellationToken cancellationToken = default)`
+- **Signature**: `RetrieveOrderCustomAttributeDefinition(RetrieveOrderCustomAttributeDefinitionRequest request, RequestOptions? requestOptions = null, CancellationToken cancellationToken = default)`
   - required: `Key`
 - **Query params (wire ← C#)**: `version` ← `Version`
 - **Returns**: `RetrieveOrderCustomAttributeDefinitionResponse`
@@ -128,7 +128,7 @@ Accessor: `client.OrderCustomAttributes` · Source: `src/Square/Api/OrderCustomA
 
 | Type | Source |
 | --- | --- |
-| `RetrieveOrderCustomAttributeDefinitionOperationRequest` | `src/Square/Requests/OrderCustomAttributes/RetrieveOrderCustomAttributeDefinitionOperationRequest.cs` |
+| `RetrieveOrderCustomAttributeDefinitionRequest` | `src/Square/Requests/OrderCustomAttributes/RetrieveOrderCustomAttributeDefinitionRequest.cs` |
 | `RetrieveOrderCustomAttributeDefinitionResponse` | `src/Square/Models/RetrieveOrderCustomAttributeDefinitionResponse.cs` |
 
 ### UpdateOrderCustomAttributeDefinition

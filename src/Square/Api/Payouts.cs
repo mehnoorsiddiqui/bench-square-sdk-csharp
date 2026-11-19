@@ -65,7 +65,7 @@ public sealed class Payouts
     /// Retrieves a list of all payout entries for a specific payout.
     /// To call this endpoint, set <c>PAYOUTS_READ</c> for the OAuth scope.
     /// </remarks>
-    public Task<ListPayoutEntriesResponse> ListPayoutEntries(ListPayoutEntriesOperationRequest request,
+    public Task<ListPayoutEntriesResponse> ListPayoutEntries(ListPayoutEntriesRequest request,
         RequestOptions? requestOptions = null,
         CancellationToken cancellationToken = default) =>
         _rawClient.Execute(
@@ -98,7 +98,7 @@ public sealed class Payouts
     /// You can filter payouts by location ID, status, time range, and order them in ascending or descending order.
     /// To call this endpoint, set <c>PAYOUTS_READ</c> for the OAuth scope.
     /// </remarks>
-    public Task<ListPayoutsResponse> ListPayouts(ListPayoutsOperationRequest request,
+    public Task<ListPayoutsResponse> ListPayouts(ListPayoutsRequest request,
         RequestOptions? requestOptions = null,
         CancellationToken cancellationToken = default) =>
         _rawClient.Execute(

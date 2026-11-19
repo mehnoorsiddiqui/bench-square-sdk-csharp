@@ -9,14 +9,14 @@ Accessor: `client.Merchants` · Source: `src/Square/Api/Merchants.cs` · 2 opera
 ### ListMerchants
 
 - **Auth**: `options.BearerAuth`
-- **Signature**: `ListMerchants(ListMerchantsOperationRequest request, RequestOptions? requestOptions = null, CancellationToken cancellationToken = default)`
+- **Signature**: `ListMerchants(ListMerchantsRequest request, RequestOptions? requestOptions = null, CancellationToken cancellationToken = default)`
 - **Query params (wire ← C#)**: `cursor` ← `Cursor`
 - **Returns**: `ListMerchantsResponse`
 - **Error**: `ApiException<RawError>` — **Case B**
 
 | Type | Source |
 | --- | --- |
-| `ListMerchantsOperationRequest` | `src/Square/Requests/Merchants/ListMerchantsOperationRequest.cs` |
+| `ListMerchantsRequest` | `src/Square/Requests/Merchants/ListMerchantsRequest.cs` |
 | `ListMerchantsResponse` | `src/Square/Models/ListMerchantsResponse.cs` |
 
 ### RetrieveMerchant

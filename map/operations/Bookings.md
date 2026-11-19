@@ -65,40 +65,40 @@ Accessor: `client.Bookings` · Source: `src/Square/Api/Bookings.cs` · 13 operat
 ### ListBookings
 
 - **Auth**: `options.BearerAuth`
-- **Signature**: `ListBookings(ListBookingsOperationRequest request, RequestOptions? requestOptions = null, CancellationToken cancellationToken = default)`
+- **Signature**: `ListBookings(ListBookingsRequest request, RequestOptions? requestOptions = null, CancellationToken cancellationToken = default)`
 - **Query params (wire ← C#)**: `limit` ← `Limit`, `cursor` ← `Cursor`, `customer_id` ← `CustomerId`, `team_member_id` ← `TeamMemberId`, `location_id` ← `LocationId`, `start_at_min` ← `StartAtMin`, `start_at_max` ← `StartAtMax`
 - **Returns**: `ListBookingsResponse`
 - **Error**: `ApiException<RawError>` — **Case B**
 
 | Type | Source |
 | --- | --- |
-| `ListBookingsOperationRequest` | `src/Square/Requests/Bookings/ListBookingsOperationRequest.cs` |
+| `ListBookingsRequest` | `src/Square/Requests/Bookings/ListBookingsRequest.cs` |
 | `ListBookingsResponse` | `src/Square/Models/ListBookingsResponse.cs` |
 
 ### ListLocationBookingProfiles
 
 - **Auth**: `options.BearerAuth`
-- **Signature**: `ListLocationBookingProfiles(ListLocationBookingProfilesOperationRequest request, RequestOptions? requestOptions = null, CancellationToken cancellationToken = default)`
+- **Signature**: `ListLocationBookingProfiles(ListLocationBookingProfilesRequest request, RequestOptions? requestOptions = null, CancellationToken cancellationToken = default)`
 - **Query params (wire ← C#)**: `limit` ← `Limit`, `cursor` ← `Cursor`
 - **Returns**: `ListLocationBookingProfilesResponse`
 - **Error**: `ApiException<RawError>` — **Case B**
 
 | Type | Source |
 | --- | --- |
-| `ListLocationBookingProfilesOperationRequest` | `src/Square/Requests/Bookings/ListLocationBookingProfilesOperationRequest.cs` |
+| `ListLocationBookingProfilesRequest` | `src/Square/Requests/Bookings/ListLocationBookingProfilesRequest.cs` |
 | `ListLocationBookingProfilesResponse` | `src/Square/Models/ListLocationBookingProfilesResponse.cs` |
 
 ### ListTeamMemberBookingProfiles
 
 - **Auth**: `options.BearerAuth`
-- **Signature**: `ListTeamMemberBookingProfiles(ListTeamMemberBookingProfilesOperationRequest request, RequestOptions? requestOptions = null, CancellationToken cancellationToken = default)`
+- **Signature**: `ListTeamMemberBookingProfiles(ListTeamMemberBookingProfilesRequest request, RequestOptions? requestOptions = null, CancellationToken cancellationToken = default)`
 - **Query params (wire ← C#)**: `bookable_only` ← `BookableOnly`, `limit` ← `Limit`, `cursor` ← `Cursor`, `location_id` ← `LocationId`
 - **Returns**: `ListTeamMemberBookingProfilesResponse`
 - **Error**: `ApiException<RawError>` — **Case B**
 
 | Type | Source |
 | --- | --- |
-| `ListTeamMemberBookingProfilesOperationRequest` | `src/Square/Requests/Bookings/ListTeamMemberBookingProfilesOperationRequest.cs` |
+| `ListTeamMemberBookingProfilesRequest` | `src/Square/Requests/Bookings/ListTeamMemberBookingProfilesRequest.cs` |
 | `ListTeamMemberBookingProfilesResponse` | `src/Square/Models/ListTeamMemberBookingProfilesResponse.cs` |
 
 ### RetrieveBooking

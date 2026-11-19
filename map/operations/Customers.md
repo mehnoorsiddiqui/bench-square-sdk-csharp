@@ -106,7 +106,7 @@ Accessor: `client.Customers` · Source: `src/Square/Api/Customers.cs` · 14 oper
 ### DeleteCustomer
 
 - **Auth**: `options.BearerAuth`
-- **Signature**: `DeleteCustomer(DeleteCustomerOperationRequest request, RequestOptions? requestOptions = null, CancellationToken cancellationToken = default)`
+- **Signature**: `DeleteCustomer(DeleteCustomerRequest request, RequestOptions? requestOptions = null, CancellationToken cancellationToken = default)`
   - required: `CustomerId`
 - **Query params (wire ← C#)**: `version` ← `Version`
 - **Returns**: `DeleteCustomerResponse`
@@ -114,7 +114,7 @@ Accessor: `client.Customers` · Source: `src/Square/Api/Customers.cs` · 14 oper
 
 | Type | Source |
 | --- | --- |
-| `DeleteCustomerOperationRequest` | `src/Square/Requests/Customers/DeleteCustomerOperationRequest.cs` |
+| `DeleteCustomerRequest` | `src/Square/Requests/Customers/DeleteCustomerRequest.cs` |
 | `DeleteCustomerResponse` | `src/Square/Models/DeleteCustomerResponse.cs` |
 
 ### DeleteCustomerCard
@@ -133,14 +133,14 @@ Accessor: `client.Customers` · Source: `src/Square/Api/Customers.cs` · 14 oper
 ### ListCustomers
 
 - **Auth**: `options.BearerAuth`
-- **Signature**: `ListCustomers(ListCustomersOperationRequest request, RequestOptions? requestOptions = null, CancellationToken cancellationToken = default)`
+- **Signature**: `ListCustomers(ListCustomersRequest request, RequestOptions? requestOptions = null, CancellationToken cancellationToken = default)`
 - **Query params (wire ← C#)**: `cursor` ← `Cursor`, `limit` ← `Limit`, `sort_field` ← `SortField`, `sort_order` ← `SortOrder`, `count` ← `Count`
 - **Returns**: `ListCustomersResponse`
 - **Error**: `ApiException<RawError>` — **Case B**
 
 | Type | Source |
 | --- | --- |
-| `ListCustomersOperationRequest` | `src/Square/Requests/Customers/ListCustomersOperationRequest.cs` |
+| `ListCustomersRequest` | `src/Square/Requests/Customers/ListCustomersRequest.cs` |
 | `CustomerSortField` | `src/Square/Models/Enums/CustomerSortField.cs` |
 | `SortOrder` | `src/Square/Models/Enums/SortOrder.cs` |
 | `ListCustomersResponse` | `src/Square/Models/ListCustomersResponse.cs` |

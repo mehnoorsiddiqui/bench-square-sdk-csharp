@@ -77,21 +77,21 @@ Accessor: `client.MerchantCustomAttributes` · Source: `src/Square/Api/MerchantC
 ### ListMerchantCustomAttributeDefinitions
 
 - **Auth**: `options.BearerAuth`
-- **Signature**: `ListMerchantCustomAttributeDefinitions(ListMerchantCustomAttributeDefinitionsOperationRequest request, RequestOptions? requestOptions = null, CancellationToken cancellationToken = default)`
+- **Signature**: `ListMerchantCustomAttributeDefinitions(ListMerchantCustomAttributeDefinitionsRequest request, RequestOptions? requestOptions = null, CancellationToken cancellationToken = default)`
 - **Query params (wire ← C#)**: `visibility_filter` ← `VisibilityFilter`, `limit` ← `Limit`, `cursor` ← `Cursor`
 - **Returns**: `ListMerchantCustomAttributeDefinitionsResponse`
 - **Error**: `ApiException<RawError>` — **Case B**
 
 | Type | Source |
 | --- | --- |
-| `ListMerchantCustomAttributeDefinitionsOperationRequest` | `src/Square/Requests/MerchantCustomAttributes/ListMerchantCustomAttributeDefinitionsOperationRequest.cs` |
+| `ListMerchantCustomAttributeDefinitionsRequest` | `src/Square/Requests/MerchantCustomAttributes/ListMerchantCustomAttributeDefinitionsRequest.cs` |
 | `VisibilityFilter` | `src/Square/Models/Enums/VisibilityFilter.cs` |
 | `ListMerchantCustomAttributeDefinitionsResponse` | `src/Square/Models/ListMerchantCustomAttributeDefinitionsResponse.cs` |
 
 ### ListMerchantCustomAttributes
 
 - **Auth**: `options.BearerAuth`
-- **Signature**: `ListMerchantCustomAttributes(ListMerchantCustomAttributesOperationRequest request, RequestOptions? requestOptions = null, CancellationToken cancellationToken = default)`
+- **Signature**: `ListMerchantCustomAttributes(ListMerchantCustomAttributesRequest request, RequestOptions? requestOptions = null, CancellationToken cancellationToken = default)`
   - required: `MerchantId`
 - **Query params (wire ← C#)**: `visibility_filter` ← `VisibilityFilter`, `limit` ← `Limit`, `cursor` ← `Cursor`, `with_definitions` ← `WithDefinitions`
 - **Returns**: `ListMerchantCustomAttributesResponse`
@@ -99,14 +99,14 @@ Accessor: `client.MerchantCustomAttributes` · Source: `src/Square/Api/MerchantC
 
 | Type | Source |
 | --- | --- |
-| `ListMerchantCustomAttributesOperationRequest` | `src/Square/Requests/MerchantCustomAttributes/ListMerchantCustomAttributesOperationRequest.cs` |
+| `ListMerchantCustomAttributesRequest` | `src/Square/Requests/MerchantCustomAttributes/ListMerchantCustomAttributesRequest.cs` |
 | `VisibilityFilter` | `src/Square/Models/Enums/VisibilityFilter.cs` |
 | `ListMerchantCustomAttributesResponse` | `src/Square/Models/ListMerchantCustomAttributesResponse.cs` |
 
 ### RetrieveMerchantCustomAttribute
 
 - **Auth**: `options.BearerAuth`
-- **Signature**: `RetrieveMerchantCustomAttribute(RetrieveMerchantCustomAttributeOperationRequest request, RequestOptions? requestOptions = null, CancellationToken cancellationToken = default)`
+- **Signature**: `RetrieveMerchantCustomAttribute(RetrieveMerchantCustomAttributeRequest request, RequestOptions? requestOptions = null, CancellationToken cancellationToken = default)`
   - required: `MerchantId`, `Key`
 - **Query params (wire ← C#)**: `with_definition` ← `WithDefinition`, `version` ← `Version`
 - **Returns**: `RetrieveMerchantCustomAttributeResponse`
@@ -114,13 +114,13 @@ Accessor: `client.MerchantCustomAttributes` · Source: `src/Square/Api/MerchantC
 
 | Type | Source |
 | --- | --- |
-| `RetrieveMerchantCustomAttributeOperationRequest` | `src/Square/Requests/MerchantCustomAttributes/RetrieveMerchantCustomAttributeOperationRequest.cs` |
+| `RetrieveMerchantCustomAttributeRequest` | `src/Square/Requests/MerchantCustomAttributes/RetrieveMerchantCustomAttributeRequest.cs` |
 | `RetrieveMerchantCustomAttributeResponse` | `src/Square/Models/RetrieveMerchantCustomAttributeResponse.cs` |
 
 ### RetrieveMerchantCustomAttributeDefinition
 
 - **Auth**: `options.BearerAuth`
-- **Signature**: `RetrieveMerchantCustomAttributeDefinition(RetrieveMerchantCustomAttributeDefinitionOperationRequest request, RequestOptions? requestOptions = null, CancellationToken cancellationToken = default)`
+- **Signature**: `RetrieveMerchantCustomAttributeDefinition(RetrieveMerchantCustomAttributeDefinitionRequest request, RequestOptions? requestOptions = null, CancellationToken cancellationToken = default)`
   - required: `Key`
 - **Query params (wire ← C#)**: `version` ← `Version`
 - **Returns**: `RetrieveMerchantCustomAttributeDefinitionResponse`
@@ -128,7 +128,7 @@ Accessor: `client.MerchantCustomAttributes` · Source: `src/Square/Api/MerchantC
 
 | Type | Source |
 | --- | --- |
-| `RetrieveMerchantCustomAttributeDefinitionOperationRequest` | `src/Square/Requests/MerchantCustomAttributes/RetrieveMerchantCustomAttributeDefinitionOperationRequest.cs` |
+| `RetrieveMerchantCustomAttributeDefinitionRequest` | `src/Square/Requests/MerchantCustomAttributes/RetrieveMerchantCustomAttributeDefinitionRequest.cs` |
 | `RetrieveMerchantCustomAttributeDefinitionResponse` | `src/Square/Models/RetrieveMerchantCustomAttributeDefinitionResponse.cs` |
 
 ### UpdateMerchantCustomAttributeDefinition

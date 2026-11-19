@@ -22,7 +22,7 @@ Accessor: `client.Payouts` · Source: `src/Square/Api/Payouts.cs` · 3 operation
 ### ListPayoutEntries
 
 - **Auth**: `options.BearerAuth`
-- **Signature**: `ListPayoutEntries(ListPayoutEntriesOperationRequest request, RequestOptions? requestOptions = null, CancellationToken cancellationToken = default)`
+- **Signature**: `ListPayoutEntries(ListPayoutEntriesRequest request, RequestOptions? requestOptions = null, CancellationToken cancellationToken = default)`
   - required: `PayoutId`
 - **Query params (wire ← C#)**: `sort_order` ← `SortOrder`, `cursor` ← `Cursor`, `limit` ← `Limit`
 - **Returns**: `ListPayoutEntriesResponse`
@@ -30,21 +30,21 @@ Accessor: `client.Payouts` · Source: `src/Square/Api/Payouts.cs` · 3 operation
 
 | Type | Source |
 | --- | --- |
-| `ListPayoutEntriesOperationRequest` | `src/Square/Requests/Payouts/ListPayoutEntriesOperationRequest.cs` |
+| `ListPayoutEntriesRequest` | `src/Square/Requests/Payouts/ListPayoutEntriesRequest.cs` |
 | `SortOrder` | `src/Square/Models/Enums/SortOrder.cs` |
 | `ListPayoutEntriesResponse` | `src/Square/Models/ListPayoutEntriesResponse.cs` |
 
 ### ListPayouts
 
 - **Auth**: `options.BearerAuth`
-- **Signature**: `ListPayouts(ListPayoutsOperationRequest request, RequestOptions? requestOptions = null, CancellationToken cancellationToken = default)`
+- **Signature**: `ListPayouts(ListPayoutsRequest request, RequestOptions? requestOptions = null, CancellationToken cancellationToken = default)`
 - **Query params (wire ← C#)**: `location_id` ← `LocationId`, `status` ← `Status`, `begin_time` ← `BeginTime`, `end_time` ← `EndTime`, `sort_order` ← `SortOrder`, `cursor` ← `Cursor`, `limit` ← `Limit`
 - **Returns**: `ListPayoutsResponse`
 - **Error**: `ApiException<RawError>` — **Case B**
 
 | Type | Source |
 | --- | --- |
-| `ListPayoutsOperationRequest` | `src/Square/Requests/Payouts/ListPayoutsOperationRequest.cs` |
+| `ListPayoutsRequest` | `src/Square/Requests/Payouts/ListPayoutsRequest.cs` |
 | `PayoutStatus` | `src/Square/Models/Enums/PayoutStatus.cs` |
 | `SortOrder` | `src/Square/Models/Enums/SortOrder.cs` |
 | `ListPayoutsResponse` | `src/Square/Models/ListPayoutsResponse.cs` |

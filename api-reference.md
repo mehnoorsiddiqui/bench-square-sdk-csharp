@@ -225,7 +225,7 @@ catch (ApiException<RawError> ex)
 </details>
 
 <details>
-<summary><code>Task&lt;ListBankAccountsResponse&gt; ListBankAccounts(ListBankAccountsOperationRequest request, RequestOptions? requestOptions = null, CancellationToken cancellationToken = default);</code></summary>
+<summary><code>Task&lt;ListBankAccountsResponse&gt; ListBankAccounts(ListBankAccountsRequest request, RequestOptions? requestOptions = null, CancellationToken cancellationToken = default);</code></summary>
 
 <dl>
 <dd>
@@ -248,7 +248,7 @@ Returns a list of [BankAccount](entity:BankAccount) objects linked to a Square a
 ```csharp
 try
 {
-    var response = await client.BankAccounts.ListBankAccounts(new ListBankAccountsOperationRequest());
+    var response = await client.BankAccounts.ListBankAccounts(new ListBankAccountsRequest());
     // TODO: Handle 'response' of type ListBankAccountsResponse
 }
 catch (ApiException<RawError> ex)
@@ -265,7 +265,7 @@ catch (ApiException<RawError> ex)
 <dl>
 <dd>
 
-<code>[ListBankAccountsOperationRequest](src/Square/Requests/BankAccounts/ListBankAccountsOperationRequest.cs)</code>
+<code>[ListBankAccountsRequest](src/Square/Requests/BankAccounts/ListBankAccountsRequest.cs)</code>
 
 </dd>
 </dl>
@@ -674,7 +674,7 @@ catch (ApiException<RawError> ex)
 </details>
 
 <details>
-<summary><code>Task&lt;ListBookingCustomAttributeDefinitionsResponse&gt; ListBookingCustomAttributeDefinitions(ListBookingCustomAttributeDefinitionsOperationRequest request, RequestOptions? requestOptions = null, CancellationToken cancellationToken = default);</code></summary>
+<summary><code>Task&lt;ListBookingCustomAttributeDefinitionsResponse&gt; ListBookingCustomAttributeDefinitions(ListBookingCustomAttributeDefinitionsRequest request, RequestOptions? requestOptions = null, CancellationToken cancellationToken = default);</code></summary>
 
 <dl>
 <dd>
@@ -701,7 +701,7 @@ To call this endpoint with seller-level permissions, set `APPOINTMENTS_ALL_READ`
 try
 {
     var response = await client.BookingCustomAttributes.ListBookingCustomAttributeDefinitions(
-        new ListBookingCustomAttributeDefinitionsOperationRequest());
+        new ListBookingCustomAttributeDefinitionsRequest());
     // TODO: Handle 'response' of type ListBookingCustomAttributeDefinitionsResponse
 }
 catch (ApiException<RawError> ex)
@@ -718,7 +718,7 @@ catch (ApiException<RawError> ex)
 <dl>
 <dd>
 
-<code>[ListBookingCustomAttributeDefinitionsOperationRequest](src/Square/Requests/BookingCustomAttributes/ListBookingCustomAttributeDefinitionsOperationRequest.cs)</code>
+<code>[ListBookingCustomAttributeDefinitionsRequest](src/Square/Requests/BookingCustomAttributes/ListBookingCustomAttributeDefinitionsRequest.cs)</code>
 
 </dd>
 </dl>
@@ -741,7 +741,7 @@ catch (ApiException<RawError> ex)
 </details>
 
 <details>
-<summary><code>Task&lt;ListBookingCustomAttributesResponse&gt; ListBookingCustomAttributes(ListBookingCustomAttributesOperationRequest request, RequestOptions? requestOptions = null, CancellationToken cancellationToken = default);</code></summary>
+<summary><code>Task&lt;ListBookingCustomAttributesResponse&gt; ListBookingCustomAttributes(ListBookingCustomAttributesRequest request, RequestOptions? requestOptions = null, CancellationToken cancellationToken = default);</code></summary>
 
 <dl>
 <dd>
@@ -768,7 +768,7 @@ To call this endpoint with seller-level permissions, set `APPOINTMENTS_ALL_READ`
 try
 {
     var response = await client.BookingCustomAttributes.ListBookingCustomAttributes(
-        new ListBookingCustomAttributesOperationRequest { BookingId = "some example string" });
+        new ListBookingCustomAttributesRequest { BookingId = "some example string" });
     // TODO: Handle 'response' of type ListBookingCustomAttributesResponse
 }
 catch (ApiException<RawError> ex)
@@ -785,7 +785,7 @@ catch (ApiException<RawError> ex)
 <dl>
 <dd>
 
-<code>[ListBookingCustomAttributesOperationRequest](src/Square/Requests/BookingCustomAttributes/ListBookingCustomAttributesOperationRequest.cs)</code>
+<code>[ListBookingCustomAttributesRequest](src/Square/Requests/BookingCustomAttributes/ListBookingCustomAttributesRequest.cs)</code>
 
 </dd>
 </dl>
@@ -808,7 +808,7 @@ catch (ApiException<RawError> ex)
 </details>
 
 <details>
-<summary><code>Task&lt;RetrieveBookingCustomAttributeResponse&gt; RetrieveBookingCustomAttribute(RetrieveBookingCustomAttributeOperationRequest request, RequestOptions? requestOptions = null, CancellationToken cancellationToken = default);</code></summary>
+<summary><code>Task&lt;RetrieveBookingCustomAttributeResponse&gt; RetrieveBookingCustomAttribute(RetrieveBookingCustomAttributeRequest request, RequestOptions? requestOptions = null, CancellationToken cancellationToken = default);</code></summary>
 
 <dl>
 <dd>
@@ -835,11 +835,7 @@ To call this endpoint with seller-level permissions, set `APPOINTMENTS_ALL_READ`
 try
 {
     var response = await client.BookingCustomAttributes.RetrieveBookingCustomAttribute(
-        new RetrieveBookingCustomAttributeOperationRequest
-        {
-            BookingId = "some example string",
-            Key = "some example string",
-        });
+        new RetrieveBookingCustomAttributeRequest { BookingId = "some example string", Key = "some example string" });
     // TODO: Handle 'response' of type RetrieveBookingCustomAttributeResponse
 }
 catch (ApiException<RawError> ex)
@@ -856,7 +852,7 @@ catch (ApiException<RawError> ex)
 <dl>
 <dd>
 
-<code>[RetrieveBookingCustomAttributeOperationRequest](src/Square/Requests/BookingCustomAttributes/RetrieveBookingCustomAttributeOperationRequest.cs)</code>
+<code>[RetrieveBookingCustomAttributeRequest](src/Square/Requests/BookingCustomAttributes/RetrieveBookingCustomAttributeRequest.cs)</code>
 
 </dd>
 </dl>
@@ -879,7 +875,7 @@ catch (ApiException<RawError> ex)
 </details>
 
 <details>
-<summary><code>Task&lt;RetrieveBookingCustomAttributeDefinitionResponse&gt; RetrieveBookingCustomAttributeDefinition(RetrieveBookingCustomAttributeDefinitionOperationRequest request, RequestOptions? requestOptions = null, CancellationToken cancellationToken = default);</code></summary>
+<summary><code>Task&lt;RetrieveBookingCustomAttributeDefinitionResponse&gt; RetrieveBookingCustomAttributeDefinition(RetrieveBookingCustomAttributeDefinitionRequest request, RequestOptions? requestOptions = null, CancellationToken cancellationToken = default);</code></summary>
 
 <dl>
 <dd>
@@ -906,7 +902,7 @@ To call this endpoint with seller-level permissions, set `APPOINTMENTS_ALL_READ`
 try
 {
     var response = await client.BookingCustomAttributes.RetrieveBookingCustomAttributeDefinition(
-        new RetrieveBookingCustomAttributeDefinitionOperationRequest { Key = "some example string" });
+        new RetrieveBookingCustomAttributeDefinitionRequest { Key = "some example string" });
     // TODO: Handle 'response' of type RetrieveBookingCustomAttributeDefinitionResponse
 }
 catch (ApiException<RawError> ex)
@@ -923,7 +919,7 @@ catch (ApiException<RawError> ex)
 <dl>
 <dd>
 
-<code>[RetrieveBookingCustomAttributeDefinitionOperationRequest](src/Square/Requests/BookingCustomAttributes/RetrieveBookingCustomAttributeDefinitionOperationRequest.cs)</code>
+<code>[RetrieveBookingCustomAttributeDefinitionRequest](src/Square/Requests/BookingCustomAttributes/RetrieveBookingCustomAttributeDefinitionRequest.cs)</code>
 
 </dd>
 </dl>
@@ -1390,7 +1386,7 @@ catch (ApiException<RawError> ex)
 </details>
 
 <details>
-<summary><code>Task&lt;ListBookingsResponse&gt; ListBookings(ListBookingsOperationRequest request, RequestOptions? requestOptions = null, CancellationToken cancellationToken = default);</code></summary>
+<summary><code>Task&lt;ListBookingsResponse&gt; ListBookings(ListBookingsRequest request, RequestOptions? requestOptions = null, CancellationToken cancellationToken = default);</code></summary>
 
 <dl>
 <dd>
@@ -1416,7 +1412,7 @@ To call this endpoint with seller-level permissions, set `APPOINTMENTS_ALL_READ`
 ```csharp
 try
 {
-    var response = await client.Bookings.ListBookings(new ListBookingsOperationRequest());
+    var response = await client.Bookings.ListBookings(new ListBookingsRequest());
     // TODO: Handle 'response' of type ListBookingsResponse
 }
 catch (ApiException<RawError> ex)
@@ -1433,7 +1429,7 @@ catch (ApiException<RawError> ex)
 <dl>
 <dd>
 
-<code>[ListBookingsOperationRequest](src/Square/Requests/Bookings/ListBookingsOperationRequest.cs)</code>
+<code>[ListBookingsRequest](src/Square/Requests/Bookings/ListBookingsRequest.cs)</code>
 
 </dd>
 </dl>
@@ -1456,7 +1452,7 @@ catch (ApiException<RawError> ex)
 </details>
 
 <details>
-<summary><code>Task&lt;ListLocationBookingProfilesResponse&gt; ListLocationBookingProfiles(ListLocationBookingProfilesOperationRequest request, RequestOptions? requestOptions = null, CancellationToken cancellationToken = default);</code></summary>
+<summary><code>Task&lt;ListLocationBookingProfilesResponse&gt; ListLocationBookingProfiles(ListLocationBookingProfilesRequest request, RequestOptions? requestOptions = null, CancellationToken cancellationToken = default);</code></summary>
 
 <dl>
 <dd>
@@ -1479,7 +1475,7 @@ Lists location booking profiles of a seller.
 ```csharp
 try
 {
-    var response = await client.Bookings.ListLocationBookingProfiles(new ListLocationBookingProfilesOperationRequest());
+    var response = await client.Bookings.ListLocationBookingProfiles(new ListLocationBookingProfilesRequest());
     // TODO: Handle 'response' of type ListLocationBookingProfilesResponse
 }
 catch (ApiException<RawError> ex)
@@ -1496,7 +1492,7 @@ catch (ApiException<RawError> ex)
 <dl>
 <dd>
 
-<code>[ListLocationBookingProfilesOperationRequest](src/Square/Requests/Bookings/ListLocationBookingProfilesOperationRequest.cs)</code>
+<code>[ListLocationBookingProfilesRequest](src/Square/Requests/Bookings/ListLocationBookingProfilesRequest.cs)</code>
 
 </dd>
 </dl>
@@ -1519,7 +1515,7 @@ catch (ApiException<RawError> ex)
 </details>
 
 <details>
-<summary><code>Task&lt;ListTeamMemberBookingProfilesResponse&gt; ListTeamMemberBookingProfiles(ListTeamMemberBookingProfilesOperationRequest request, RequestOptions? requestOptions = null, CancellationToken cancellationToken = default);</code></summary>
+<summary><code>Task&lt;ListTeamMemberBookingProfilesResponse&gt; ListTeamMemberBookingProfiles(ListTeamMemberBookingProfilesRequest request, RequestOptions? requestOptions = null, CancellationToken cancellationToken = default);</code></summary>
 
 <dl>
 <dd>
@@ -1542,8 +1538,7 @@ Lists booking profiles for team members.
 ```csharp
 try
 {
-    var response = await client.Bookings.ListTeamMemberBookingProfiles(
-        new ListTeamMemberBookingProfilesOperationRequest());
+    var response = await client.Bookings.ListTeamMemberBookingProfiles(new ListTeamMemberBookingProfilesRequest());
     // TODO: Handle 'response' of type ListTeamMemberBookingProfilesResponse
 }
 catch (ApiException<RawError> ex)
@@ -1560,7 +1555,7 @@ catch (ApiException<RawError> ex)
 <dl>
 <dd>
 
-<code>[ListTeamMemberBookingProfilesOperationRequest](src/Square/Requests/Bookings/ListTeamMemberBookingProfilesOperationRequest.cs)</code>
+<code>[ListTeamMemberBookingProfilesRequest](src/Square/Requests/Bookings/ListTeamMemberBookingProfilesRequest.cs)</code>
 
 </dd>
 </dl>
@@ -2124,7 +2119,7 @@ catch (ApiException<RawError> ex)
 </details>
 
 <details>
-<summary><code>Task&lt;ListCardsResponse&gt; ListCards(ListCardsOperationRequest request, RequestOptions? requestOptions = null, CancellationToken cancellationToken = default);</code></summary>
+<summary><code>Task&lt;ListCardsResponse&gt; ListCards(ListCardsRequest request, RequestOptions? requestOptions = null, CancellationToken cancellationToken = default);</code></summary>
 
 <dl>
 <dd>
@@ -2148,7 +2143,7 @@ A max of 25 cards will be returned.
 ```csharp
 try
 {
-    var response = await client.Cards.ListCards(new ListCardsOperationRequest());
+    var response = await client.Cards.ListCards(new ListCardsRequest());
     // TODO: Handle 'response' of type ListCardsResponse
 }
 catch (ApiException<RawError> ex)
@@ -2165,7 +2160,7 @@ catch (ApiException<RawError> ex)
 <dl>
 <dd>
 
-<code>[ListCardsOperationRequest](src/Square/Requests/Cards/ListCardsOperationRequest.cs)</code>
+<code>[ListCardsRequest](src/Square/Requests/Cards/ListCardsRequest.cs)</code>
 
 </dd>
 </dl>
@@ -2255,7 +2250,7 @@ catch (ApiException<RawError> ex)
 > Source: [CashDrawers](src/Square/Api/CashDrawers.cs)
 
 <details>
-<summary><code>Task&lt;ListCashDrawerShiftEventsResponse&gt; ListCashDrawerShiftEvents(ListCashDrawerShiftEventsOperationRequest request, RequestOptions? requestOptions = null, CancellationToken cancellationToken = default);</code></summary>
+<summary><code>Task&lt;ListCashDrawerShiftEventsResponse&gt; ListCashDrawerShiftEvents(ListCashDrawerShiftEventsRequest request, RequestOptions? requestOptions = null, CancellationToken cancellationToken = default);</code></summary>
 
 <dl>
 <dd>
@@ -2278,7 +2273,7 @@ Provides a paginated list of events for a single cash drawer shift.
 ```csharp
 try
 {
-    var response = await client.CashDrawers.ListCashDrawerShiftEvents(new ListCashDrawerShiftEventsOperationRequest
+    var response = await client.CashDrawers.ListCashDrawerShiftEvents(new ListCashDrawerShiftEventsRequest
     {
         ShiftId = "some example string",
         LocationId = "some example string",
@@ -2299,7 +2294,7 @@ catch (ApiException<RawError> ex)
 <dl>
 <dd>
 
-<code>[ListCashDrawerShiftEventsOperationRequest](src/Square/Requests/CashDrawers/ListCashDrawerShiftEventsOperationRequest.cs)</code>
+<code>[ListCashDrawerShiftEventsRequest](src/Square/Requests/CashDrawers/ListCashDrawerShiftEventsRequest.cs)</code>
 
 </dd>
 </dl>
@@ -2322,7 +2317,7 @@ catch (ApiException<RawError> ex)
 </details>
 
 <details>
-<summary><code>Task&lt;ListCashDrawerShiftsResponse&gt; ListCashDrawerShifts(ListCashDrawerShiftsOperationRequest request, RequestOptions? requestOptions = null, CancellationToken cancellationToken = default);</code></summary>
+<summary><code>Task&lt;ListCashDrawerShiftsResponse&gt; ListCashDrawerShifts(ListCashDrawerShiftsRequest request, RequestOptions? requestOptions = null, CancellationToken cancellationToken = default);</code></summary>
 
 <dl>
 <dd>
@@ -2346,7 +2341,7 @@ in a date range.
 ```csharp
 try
 {
-    var response = await client.CashDrawers.ListCashDrawerShifts(new ListCashDrawerShiftsOperationRequest
+    var response = await client.CashDrawers.ListCashDrawerShifts(new ListCashDrawerShiftsRequest
     {
         LocationId = "some example string",
     });
@@ -2366,7 +2361,7 @@ catch (ApiException<RawError> ex)
 <dl>
 <dd>
 
-<code>[ListCashDrawerShiftsOperationRequest](src/Square/Requests/CashDrawers/ListCashDrawerShiftsOperationRequest.cs)</code>
+<code>[ListCashDrawerShiftsRequest](src/Square/Requests/CashDrawers/ListCashDrawerShiftsRequest.cs)</code>
 
 </dd>
 </dl>
@@ -2389,7 +2384,7 @@ catch (ApiException<RawError> ex)
 </details>
 
 <details>
-<summary><code>Task&lt;RetrieveCashDrawerShiftResponse&gt; RetrieveCashDrawerShift(RetrieveCashDrawerShiftOperationRequest request, RequestOptions? requestOptions = null, CancellationToken cancellationToken = default);</code></summary>
+<summary><code>Task&lt;RetrieveCashDrawerShiftResponse&gt; RetrieveCashDrawerShift(RetrieveCashDrawerShiftRequest request, RequestOptions? requestOptions = null, CancellationToken cancellationToken = default);</code></summary>
 
 <dl>
 <dd>
@@ -2413,7 +2408,7 @@ Provides the summary details for a single cash drawer shift. See
 ```csharp
 try
 {
-    var response = await client.CashDrawers.RetrieveCashDrawerShift(new RetrieveCashDrawerShiftOperationRequest
+    var response = await client.CashDrawers.RetrieveCashDrawerShift(new RetrieveCashDrawerShiftRequest
     {
         ShiftId = "some example string",
         LocationId = "some example string",
@@ -2434,7 +2429,7 @@ catch (ApiException<RawError> ex)
 <dl>
 <dd>
 
-<code>[RetrieveCashDrawerShiftOperationRequest](src/Square/Requests/CashDrawers/RetrieveCashDrawerShiftOperationRequest.cs)</code>
+<code>[RetrieveCashDrawerShiftRequest](src/Square/Requests/CashDrawers/RetrieveCashDrawerShiftRequest.cs)</code>
 
 </dd>
 </dl>
@@ -2499,7 +2494,7 @@ try
 {
     var response = await client.Catalog.BatchDeleteCatalogObjects(new BatchDeleteCatalogObjectsOperationRequest
     {
-        Body = new BatchDeleteCatalogObjectsRequest(),
+        Body = new BatchDeleteCatalogObjectsRequest { ObjectIds = ["some example string"] },
     });
     // TODO: Handle 'response' of type BatchDeleteCatalogObjectsResponse
 }
@@ -2895,7 +2890,7 @@ catch (ApiException<RawError> ex)
 </details>
 
 <details>
-<summary><code>Task&lt;ListCatalogResponse&gt; ListCatalog(ListCatalogOperationRequest request, RequestOptions? requestOptions = null, CancellationToken cancellationToken = default);</code></summary>
+<summary><code>Task&lt;ListCatalogResponse&gt; ListCatalog(ListCatalogRequest request, RequestOptions? requestOptions = null, CancellationToken cancellationToken = default);</code></summary>
 
 <dl>
 <dd>
@@ -2925,7 +2920,7 @@ and set the `include_deleted_objects` attribute value to `true`.
 ```csharp
 try
 {
-    var response = await client.Catalog.ListCatalog(new ListCatalogOperationRequest());
+    var response = await client.Catalog.ListCatalog(new ListCatalogRequest());
     // TODO: Handle 'response' of type ListCatalogResponse
 }
 catch (ApiException<RawError> ex)
@@ -2942,7 +2937,7 @@ catch (ApiException<RawError> ex)
 <dl>
 <dd>
 
-<code>[ListCatalogOperationRequest](src/Square/Requests/Catalog/ListCatalogOperationRequest.cs)</code>
+<code>[ListCatalogRequest](src/Square/Requests/Catalog/ListCatalogRequest.cs)</code>
 
 </dd>
 </dl>
@@ -2965,7 +2960,7 @@ catch (ApiException<RawError> ex)
 </details>
 
 <details>
-<summary><code>Task&lt;RetrieveCatalogObjectResponse&gt; RetrieveCatalogObject(RetrieveCatalogObjectOperationRequest request, RequestOptions? requestOptions = null, CancellationToken cancellationToken = default);</code></summary>
+<summary><code>Task&lt;RetrieveCatalogObjectResponse&gt; RetrieveCatalogObject(RetrieveCatalogObjectRequest request, RequestOptions? requestOptions = null, CancellationToken cancellationToken = default);</code></summary>
 
 <dl>
 <dd>
@@ -2994,7 +2989,7 @@ any [CatalogTax](entity:CatalogTax) objects that apply to it.
 ```csharp
 try
 {
-    var response = await client.Catalog.RetrieveCatalogObject(new RetrieveCatalogObjectOperationRequest
+    var response = await client.Catalog.RetrieveCatalogObject(new RetrieveCatalogObjectRequest
     {
         ObjectId = "some example string",
     });
@@ -3014,7 +3009,7 @@ catch (ApiException<RawError> ex)
 <dl>
 <dd>
 
-<code>[RetrieveCatalogObjectOperationRequest](src/Square/Requests/Catalog/RetrieveCatalogObjectOperationRequest.cs)</code>
+<code>[RetrieveCatalogObjectRequest](src/Square/Requests/Catalog/RetrieveCatalogObjectRequest.cs)</code>
 
 </dd>
 </dl>
@@ -3465,6 +3460,175 @@ catch (ApiException<RawError> ex)
 
 </details>
 
+## Channels
+
+> Source: [Channels](src/Square/Api/Channels.cs)
+
+<details>
+<summary><code>Task&lt;BulkRetrieveChannelsResponse&gt; BulkRetrieveChannels(BulkRetrieveChannelsOperationRequest request, RequestOptions? requestOptions = null, CancellationToken cancellationToken = default);</code></summary>
+
+<dl>
+<dd>
+
+### Usage
+
+<dl>
+<dd>
+
+```csharp
+try
+{
+    var response = await client.Channels.BulkRetrieveChannels(new BulkRetrieveChannelsOperationRequest
+    {
+        Body = new BulkRetrieveChannelsRequest { ChannelIds = ["some example string"] },
+    });
+    // TODO: Handle 'response' of type BulkRetrieveChannelsResponse
+}
+catch (ApiException<RawError> ex)
+{
+    // TODO: Handle 'ex.Error' of type RawError
+}
+```
+
+</dd>
+</dl>
+
+### Request
+
+<dl>
+<dd>
+
+<code>[BulkRetrieveChannelsOperationRequest](src/Square/Requests/Channels/BulkRetrieveChannelsOperationRequest.cs)</code>
+
+</dd>
+</dl>
+
+### Response
+
+<dl>
+<dd>
+
+**OnSuccess**: <code>[BulkRetrieveChannelsResponse](src/Square/Models/BulkRetrieveChannelsResponse.cs)</code>
+
+**OnError**: <code>[ApiException](src/Square/Core/Exceptions/ApiException.cs)&lt;[RawError](src/Square/Core/ErrorResponse/RawError.cs)&gt;</code>
+
+</dd>
+</dl>
+
+</dd>
+</dl>
+
+</details>
+
+<details>
+<summary><code>Task&lt;ListChannelsResponse&gt; ListChannels(ListChannelsRequest request, RequestOptions? requestOptions = null, CancellationToken cancellationToken = default);</code></summary>
+
+<dl>
+<dd>
+
+### Usage
+
+<dl>
+<dd>
+
+```csharp
+try
+{
+    var response = await client.Channels.ListChannels(new ListChannelsRequest());
+    // TODO: Handle 'response' of type ListChannelsResponse
+}
+catch (ApiException<RawError> ex)
+{
+    // TODO: Handle 'ex.Error' of type RawError
+}
+```
+
+</dd>
+</dl>
+
+### Request
+
+<dl>
+<dd>
+
+<code>[ListChannelsRequest](src/Square/Requests/Channels/ListChannelsRequest.cs)</code>
+
+</dd>
+</dl>
+
+### Response
+
+<dl>
+<dd>
+
+**OnSuccess**: <code>[ListChannelsResponse](src/Square/Models/ListChannelsResponse.cs)</code>
+
+**OnError**: <code>[ApiException](src/Square/Core/Exceptions/ApiException.cs)&lt;[RawError](src/Square/Core/ErrorResponse/RawError.cs)&gt;</code>
+
+</dd>
+</dl>
+
+</dd>
+</dl>
+
+</details>
+
+<details>
+<summary><code>Task&lt;RetrieveChannelResponse&gt; RetrieveChannel(RetrieveChannelRequest request, RequestOptions? requestOptions = null, CancellationToken cancellationToken = default);</code></summary>
+
+<dl>
+<dd>
+
+### Usage
+
+<dl>
+<dd>
+
+```csharp
+try
+{
+    var response = await client.Channels.RetrieveChannel(new RetrieveChannelRequest
+    {
+        ChannelId = "some example string",
+    });
+    // TODO: Handle 'response' of type RetrieveChannelResponse
+}
+catch (ApiException<RawError> ex)
+{
+    // TODO: Handle 'ex.Error' of type RawError
+}
+```
+
+</dd>
+</dl>
+
+### Request
+
+<dl>
+<dd>
+
+<code>[RetrieveChannelRequest](src/Square/Requests/Channels/RetrieveChannelRequest.cs)</code>
+
+</dd>
+</dl>
+
+### Response
+
+<dl>
+<dd>
+
+**OnSuccess**: <code>[RetrieveChannelResponse](src/Square/Models/RetrieveChannelResponse.cs)</code>
+
+**OnError**: <code>[ApiException](src/Square/Core/Exceptions/ApiException.cs)&lt;[RawError](src/Square/Core/ErrorResponse/RawError.cs)&gt;</code>
+
+</dd>
+</dl>
+
+</dd>
+</dl>
+
+</details>
+
 ## CheckoutApi
 
 > Source: [CheckoutApi](src/Square/Api/CheckoutApi.cs)
@@ -3675,7 +3839,7 @@ catch (ApiException<RawError> ex)
 </details>
 
 <details>
-<summary><code>Task&lt;ListPaymentLinksResponse&gt; ListPaymentLinks(ListPaymentLinksOperationRequest request, RequestOptions? requestOptions = null, CancellationToken cancellationToken = default);</code></summary>
+<summary><code>Task&lt;ListPaymentLinksResponse&gt; ListPaymentLinks(ListPaymentLinksRequest request, RequestOptions? requestOptions = null, CancellationToken cancellationToken = default);</code></summary>
 
 <dl>
 <dd>
@@ -3698,7 +3862,7 @@ Lists all payment links.
 ```csharp
 try
 {
-    var response = await client.CheckoutApi.ListPaymentLinks(new ListPaymentLinksOperationRequest());
+    var response = await client.CheckoutApi.ListPaymentLinks(new ListPaymentLinksRequest());
     // TODO: Handle 'response' of type ListPaymentLinksResponse
 }
 catch (ApiException<RawError> ex)
@@ -3715,7 +3879,7 @@ catch (ApiException<RawError> ex)
 <dl>
 <dd>
 
-<code>[ListPaymentLinksOperationRequest](src/Square/Requests/CheckoutApi/ListPaymentLinksOperationRequest.cs)</code>
+<code>[ListPaymentLinksRequest](src/Square/Requests/CheckoutApi/ListPaymentLinksRequest.cs)</code>
 
 </dd>
 </dl>
@@ -4436,7 +4600,7 @@ catch (ApiException<RawError> ex)
 </details>
 
 <details>
-<summary><code>Task&lt;ListCustomerCustomAttributeDefinitionsResponse&gt; ListCustomerCustomAttributeDefinitions(ListCustomerCustomAttributeDefinitionsOperationRequest request, RequestOptions? requestOptions = null, CancellationToken cancellationToken = default);</code></summary>
+<summary><code>Task&lt;ListCustomerCustomAttributeDefinitionsResponse&gt; ListCustomerCustomAttributeDefinitions(ListCustomerCustomAttributeDefinitionsRequest request, RequestOptions? requestOptions = null, CancellationToken cancellationToken = default);</code></summary>
 
 <dl>
 <dd>
@@ -4465,7 +4629,7 @@ seller-defined custom attributes (also known as custom fields) are always set to
 try
 {
     var response = await client.CustomerCustomAttributes.ListCustomerCustomAttributeDefinitions(
-        new ListCustomerCustomAttributeDefinitionsOperationRequest());
+        new ListCustomerCustomAttributeDefinitionsRequest());
     // TODO: Handle 'response' of type ListCustomerCustomAttributeDefinitionsResponse
 }
 catch (ApiException<RawError> ex)
@@ -4482,7 +4646,7 @@ catch (ApiException<RawError> ex)
 <dl>
 <dd>
 
-<code>[ListCustomerCustomAttributeDefinitionsOperationRequest](src/Square/Requests/CustomerCustomAttributes/ListCustomerCustomAttributeDefinitionsOperationRequest.cs)</code>
+<code>[ListCustomerCustomAttributeDefinitionsRequest](src/Square/Requests/CustomerCustomAttributes/ListCustomerCustomAttributeDefinitionsRequest.cs)</code>
 
 </dd>
 </dl>
@@ -4505,7 +4669,7 @@ catch (ApiException<RawError> ex)
 </details>
 
 <details>
-<summary><code>Task&lt;ListCustomerCustomAttributesResponse&gt; ListCustomerCustomAttributes(ListCustomerCustomAttributesOperationRequest request, RequestOptions? requestOptions = null, CancellationToken cancellationToken = default);</code></summary>
+<summary><code>Task&lt;ListCustomerCustomAttributesResponse&gt; ListCustomerCustomAttributes(ListCustomerCustomAttributesRequest request, RequestOptions? requestOptions = null, CancellationToken cancellationToken = default);</code></summary>
 
 <dl>
 <dd>
@@ -4536,7 +4700,7 @@ and set to `VISIBILITY_READ_ONLY` or `VISIBILITY_READ_WRITE_VALUES`.
 try
 {
     var response = await client.CustomerCustomAttributes.ListCustomerCustomAttributes(
-        new ListCustomerCustomAttributesOperationRequest { CustomerId = "some example string" });
+        new ListCustomerCustomAttributesRequest { CustomerId = "some example string" });
     // TODO: Handle 'response' of type ListCustomerCustomAttributesResponse
 }
 catch (ApiException<RawError> ex)
@@ -4553,7 +4717,7 @@ catch (ApiException<RawError> ex)
 <dl>
 <dd>
 
-<code>[ListCustomerCustomAttributesOperationRequest](src/Square/Requests/CustomerCustomAttributes/ListCustomerCustomAttributesOperationRequest.cs)</code>
+<code>[ListCustomerCustomAttributesRequest](src/Square/Requests/CustomerCustomAttributes/ListCustomerCustomAttributesRequest.cs)</code>
 
 </dd>
 </dl>
@@ -4576,7 +4740,7 @@ catch (ApiException<RawError> ex)
 </details>
 
 <details>
-<summary><code>Task&lt;RetrieveCustomerCustomAttributeResponse&gt; RetrieveCustomerCustomAttribute(RetrieveCustomerCustomAttributeOperationRequest request, RequestOptions? requestOptions = null, CancellationToken cancellationToken = default);</code></summary>
+<summary><code>Task&lt;RetrieveCustomerCustomAttributeResponse&gt; RetrieveCustomerCustomAttribute(RetrieveCustomerCustomAttributeRequest request, RequestOptions? requestOptions = null, CancellationToken cancellationToken = default);</code></summary>
 
 <dl>
 <dd>
@@ -4607,11 +4771,7 @@ To retrieve a custom attribute owned by another application, the `visibility` se
 try
 {
     var response = await client.CustomerCustomAttributes.RetrieveCustomerCustomAttribute(
-        new RetrieveCustomerCustomAttributeOperationRequest
-        {
-            CustomerId = "some example string",
-            Key = "some example string",
-        });
+        new RetrieveCustomerCustomAttributeRequest { CustomerId = "some example string", Key = "some example string" });
     // TODO: Handle 'response' of type RetrieveCustomerCustomAttributeResponse
 }
 catch (ApiException<RawError> ex)
@@ -4628,7 +4788,7 @@ catch (ApiException<RawError> ex)
 <dl>
 <dd>
 
-<code>[RetrieveCustomerCustomAttributeOperationRequest](src/Square/Requests/CustomerCustomAttributes/RetrieveCustomerCustomAttributeOperationRequest.cs)</code>
+<code>[RetrieveCustomerCustomAttributeRequest](src/Square/Requests/CustomerCustomAttributes/RetrieveCustomerCustomAttributeRequest.cs)</code>
 
 </dd>
 </dl>
@@ -4651,7 +4811,7 @@ catch (ApiException<RawError> ex)
 </details>
 
 <details>
-<summary><code>Task&lt;RetrieveCustomerCustomAttributeDefinitionResponse&gt; RetrieveCustomerCustomAttributeDefinition(RetrieveCustomerCustomAttributeDefinitionOperationRequest request, RequestOptions? requestOptions = null, CancellationToken cancellationToken = default);</code></summary>
+<summary><code>Task&lt;RetrieveCustomerCustomAttributeDefinitionResponse&gt; RetrieveCustomerCustomAttributeDefinition(RetrieveCustomerCustomAttributeDefinitionRequest request, RequestOptions? requestOptions = null, CancellationToken cancellationToken = default);</code></summary>
 
 <dl>
 <dd>
@@ -4679,7 +4839,7 @@ setting must be `VISIBILITY_READ_ONLY` or `VISIBILITY_READ_WRITE_VALUES`. Note t
 try
 {
     var response = await client.CustomerCustomAttributes.RetrieveCustomerCustomAttributeDefinition(
-        new RetrieveCustomerCustomAttributeDefinitionOperationRequest { Key = "some example string" });
+        new RetrieveCustomerCustomAttributeDefinitionRequest { Key = "some example string" });
     // TODO: Handle 'response' of type RetrieveCustomerCustomAttributeDefinitionResponse
 }
 catch (ApiException<RawError> ex)
@@ -4696,7 +4856,7 @@ catch (ApiException<RawError> ex)
 <dl>
 <dd>
 
-<code>[RetrieveCustomerCustomAttributeDefinitionOperationRequest](src/Square/Requests/CustomerCustomAttributes/RetrieveCustomerCustomAttributeDefinitionOperationRequest.cs)</code>
+<code>[RetrieveCustomerCustomAttributeDefinitionRequest](src/Square/Requests/CustomerCustomAttributes/RetrieveCustomerCustomAttributeDefinitionRequest.cs)</code>
 
 </dd>
 </dl>
@@ -5011,7 +5171,7 @@ catch (ApiException<RawError> ex)
 </details>
 
 <details>
-<summary><code>Task&lt;ListCustomerGroupsResponse&gt; ListCustomerGroups(ListCustomerGroupsOperationRequest request, RequestOptions? requestOptions = null, CancellationToken cancellationToken = default);</code></summary>
+<summary><code>Task&lt;ListCustomerGroupsResponse&gt; ListCustomerGroups(ListCustomerGroupsRequest request, RequestOptions? requestOptions = null, CancellationToken cancellationToken = default);</code></summary>
 
 <dl>
 <dd>
@@ -5034,7 +5194,7 @@ Retrieves the list of customer groups of a business.
 ```csharp
 try
 {
-    var response = await client.CustomerGroups.ListCustomerGroups(new ListCustomerGroupsOperationRequest());
+    var response = await client.CustomerGroups.ListCustomerGroups(new ListCustomerGroupsRequest());
     // TODO: Handle 'response' of type ListCustomerGroupsResponse
 }
 catch (ApiException<RawError> ex)
@@ -5051,7 +5211,7 @@ catch (ApiException<RawError> ex)
 <dl>
 <dd>
 
-<code>[ListCustomerGroupsOperationRequest](src/Square/Requests/CustomerGroups/ListCustomerGroupsOperationRequest.cs)</code>
+<code>[ListCustomerGroupsRequest](src/Square/Requests/CustomerGroups/ListCustomerGroupsRequest.cs)</code>
 
 </dd>
 </dl>
@@ -5211,7 +5371,7 @@ catch (ApiException<RawError> ex)
 > Source: [CustomerSegments](src/Square/Api/CustomerSegments.cs)
 
 <details>
-<summary><code>Task&lt;ListCustomerSegmentsResponse&gt; ListCustomerSegments(ListCustomerSegmentsOperationRequest request, RequestOptions? requestOptions = null, CancellationToken cancellationToken = default);</code></summary>
+<summary><code>Task&lt;ListCustomerSegmentsResponse&gt; ListCustomerSegments(ListCustomerSegmentsRequest request, RequestOptions? requestOptions = null, CancellationToken cancellationToken = default);</code></summary>
 
 <dl>
 <dd>
@@ -5234,7 +5394,7 @@ Retrieves the list of customer segments of a business.
 ```csharp
 try
 {
-    var response = await client.CustomerSegments.ListCustomerSegments(new ListCustomerSegmentsOperationRequest());
+    var response = await client.CustomerSegments.ListCustomerSegments(new ListCustomerSegmentsRequest());
     // TODO: Handle 'response' of type ListCustomerSegmentsResponse
 }
 catch (ApiException<RawError> ex)
@@ -5251,7 +5411,7 @@ catch (ApiException<RawError> ex)
 <dl>
 <dd>
 
-<code>[ListCustomerSegmentsOperationRequest](src/Square/Requests/CustomerSegments/ListCustomerSegmentsOperationRequest.cs)</code>
+<code>[ListCustomerSegmentsRequest](src/Square/Requests/CustomerSegments/ListCustomerSegmentsRequest.cs)</code>
 
 </dd>
 </dl>
@@ -5846,7 +6006,7 @@ catch (ApiException<RawError> ex)
 </details>
 
 <details>
-<summary><code>Task&lt;DeleteCustomerResponse&gt; DeleteCustomer(DeleteCustomerOperationRequest request, RequestOptions? requestOptions = null, CancellationToken cancellationToken = default);</code></summary>
+<summary><code>Task&lt;DeleteCustomerResponse&gt; DeleteCustomer(DeleteCustomerRequest request, RequestOptions? requestOptions = null, CancellationToken cancellationToken = default);</code></summary>
 
 <dl>
 <dd>
@@ -5871,7 +6031,7 @@ To delete a customer profile that was created by merging existing profiles, you 
 ```csharp
 try
 {
-    var response = await client.Customers.DeleteCustomer(new DeleteCustomerOperationRequest
+    var response = await client.Customers.DeleteCustomer(new DeleteCustomerRequest
     {
         CustomerId = "some example string",
     });
@@ -5891,7 +6051,7 @@ catch (ApiException<RawError> ex)
 <dl>
 <dd>
 
-<code>[DeleteCustomerOperationRequest](src/Square/Requests/Customers/DeleteCustomerOperationRequest.cs)</code>
+<code>[DeleteCustomerRequest](src/Square/Requests/Customers/DeleteCustomerRequest.cs)</code>
 
 </dd>
 </dl>
@@ -5981,7 +6141,7 @@ catch (ApiException<RawError> ex)
 </details>
 
 <details>
-<summary><code>Task&lt;ListCustomersResponse&gt; ListCustomers(ListCustomersOperationRequest request, RequestOptions? requestOptions = null, CancellationToken cancellationToken = default);</code></summary>
+<summary><code>Task&lt;ListCustomersResponse&gt; ListCustomers(ListCustomersRequest request, RequestOptions? requestOptions = null, CancellationToken cancellationToken = default);</code></summary>
 
 <dl>
 <dd>
@@ -6008,7 +6168,7 @@ profiles can take closer to one minute or longer, especially during network inci
 ```csharp
 try
 {
-    var response = await client.Customers.ListCustomers(new ListCustomersOperationRequest());
+    var response = await client.Customers.ListCustomers(new ListCustomersRequest());
     // TODO: Handle 'response' of type ListCustomersResponse
 }
 catch (ApiException<RawError> ex)
@@ -6025,7 +6185,7 @@ catch (ApiException<RawError> ex)
 <dl>
 <dd>
 
-<code>[ListCustomersOperationRequest](src/Square/Requests/Customers/ListCustomersOperationRequest.cs)</code>
+<code>[ListCustomersRequest](src/Square/Requests/Customers/ListCustomersRequest.cs)</code>
 
 </dd>
 </dl>
@@ -6525,7 +6685,7 @@ catch (ApiException<RawError> ex)
 </details>
 
 <details>
-<summary><code>Task&lt;ListDeviceCodesResponse&gt; ListDeviceCodes(ListDeviceCodesOperationRequest request, RequestOptions? requestOptions = null, CancellationToken cancellationToken = default);</code></summary>
+<summary><code>Task&lt;ListDeviceCodesResponse&gt; ListDeviceCodes(ListDeviceCodesRequest request, RequestOptions? requestOptions = null, CancellationToken cancellationToken = default);</code></summary>
 
 <dl>
 <dd>
@@ -6548,7 +6708,7 @@ Lists all DeviceCodes associated with the merchant.
 ```csharp
 try
 {
-    var response = await client.Devices.ListDeviceCodes(new ListDeviceCodesOperationRequest());
+    var response = await client.Devices.ListDeviceCodes(new ListDeviceCodesRequest());
     // TODO: Handle 'response' of type ListDeviceCodesResponse
 }
 catch (ApiException<RawError> ex)
@@ -6565,7 +6725,7 @@ catch (ApiException<RawError> ex)
 <dl>
 <dd>
 
-<code>[ListDeviceCodesOperationRequest](src/Square/Requests/Devices/ListDeviceCodesOperationRequest.cs)</code>
+<code>[ListDeviceCodesRequest](src/Square/Requests/Devices/ListDeviceCodesRequest.cs)</code>
 
 </dd>
 </dl>
@@ -6588,7 +6748,7 @@ catch (ApiException<RawError> ex)
 </details>
 
 <details>
-<summary><code>Task&lt;ListDevicesResponse&gt; ListDevices(ListDevicesOperationRequest request, RequestOptions? requestOptions = null, CancellationToken cancellationToken = default);</code></summary>
+<summary><code>Task&lt;ListDevicesResponse&gt; ListDevices(ListDevicesRequest request, RequestOptions? requestOptions = null, CancellationToken cancellationToken = default);</code></summary>
 
 <dl>
 <dd>
@@ -6612,7 +6772,7 @@ devices are supported.
 ```csharp
 try
 {
-    var response = await client.Devices.ListDevices(new ListDevicesOperationRequest());
+    var response = await client.Devices.ListDevices(new ListDevicesRequest());
     // TODO: Handle 'response' of type ListDevicesResponse
 }
 catch (ApiException<RawError> ex)
@@ -6629,7 +6789,7 @@ catch (ApiException<RawError> ex)
 <dl>
 <dd>
 
-<code>[ListDevicesOperationRequest](src/Square/Requests/Devices/ListDevicesOperationRequest.cs)</code>
+<code>[ListDevicesRequest](src/Square/Requests/Devices/ListDevicesRequest.cs)</code>
 
 </dd>
 </dl>
@@ -6929,7 +7089,7 @@ catch (ApiException<RawError> ex)
 </details>
 
 <details>
-<summary><code>Task&lt;ListDisputeEvidenceResponse&gt; ListDisputeEvidence(ListDisputeEvidenceOperationRequest request, RequestOptions? requestOptions = null, CancellationToken cancellationToken = default);</code></summary>
+<summary><code>Task&lt;ListDisputeEvidenceResponse&gt; ListDisputeEvidence(ListDisputeEvidenceRequest request, RequestOptions? requestOptions = null, CancellationToken cancellationToken = default);</code></summary>
 
 <dl>
 <dd>
@@ -6952,7 +7112,7 @@ Returns a list of evidence associated with a dispute.
 ```csharp
 try
 {
-    var response = await client.Disputes.ListDisputeEvidence(new ListDisputeEvidenceOperationRequest
+    var response = await client.Disputes.ListDisputeEvidence(new ListDisputeEvidenceRequest
     {
         DisputeId = "some example string",
     });
@@ -6972,7 +7132,7 @@ catch (ApiException<RawError> ex)
 <dl>
 <dd>
 
-<code>[ListDisputeEvidenceOperationRequest](src/Square/Requests/Disputes/ListDisputeEvidenceOperationRequest.cs)</code>
+<code>[ListDisputeEvidenceRequest](src/Square/Requests/Disputes/ListDisputeEvidenceRequest.cs)</code>
 
 </dd>
 </dl>
@@ -6995,7 +7155,7 @@ catch (ApiException<RawError> ex)
 </details>
 
 <details>
-<summary><code>Task&lt;ListDisputesResponse&gt; ListDisputes(ListDisputesOperationRequest request, RequestOptions? requestOptions = null, CancellationToken cancellationToken = default);</code></summary>
+<summary><code>Task&lt;ListDisputesResponse&gt; ListDisputes(ListDisputesRequest request, RequestOptions? requestOptions = null, CancellationToken cancellationToken = default);</code></summary>
 
 <dl>
 <dd>
@@ -7018,7 +7178,7 @@ Returns a list of disputes associated with a particular account.
 ```csharp
 try
 {
-    var response = await client.Disputes.ListDisputes(new ListDisputesOperationRequest());
+    var response = await client.Disputes.ListDisputes(new ListDisputesRequest());
     // TODO: Handle 'response' of type ListDisputesResponse
 }
 catch (ApiException<RawError> ex)
@@ -7035,7 +7195,7 @@ catch (ApiException<RawError> ex)
 <dl>
 <dd>
 
-<code>[ListDisputesOperationRequest](src/Square/Requests/Disputes/ListDisputesOperationRequest.cs)</code>
+<code>[ListDisputesRequest](src/Square/Requests/Disputes/ListDisputesRequest.cs)</code>
 
 </dd>
 </dl>
@@ -7269,7 +7429,7 @@ catch (ApiException<RawError> ex)
 > Source: [Employees](src/Square/Api/Employees.cs)
 
 <details>
-<summary><code>Task&lt;ListEmployeesResponse&gt; ListEmployees(ListEmployeesOperationRequest request, RequestOptions? requestOptions = null, CancellationToken cancellationToken = default);</code></summary>
+<summary><code>Task&lt;ListEmployeesResponse&gt; ListEmployees(ListEmployeesRequest request, RequestOptions? requestOptions = null, CancellationToken cancellationToken = default);</code></summary>
 
 <dl>
 <dd>
@@ -7282,7 +7442,7 @@ catch (ApiException<RawError> ex)
 ```csharp
 try
 {
-    var response = await client.Employees.ListEmployees(new ListEmployeesOperationRequest());
+    var response = await client.Employees.ListEmployees(new ListEmployeesRequest());
     // TODO: Handle 'response' of type ListEmployeesResponse
 }
 catch (ApiException<RawError> ex)
@@ -7299,7 +7459,7 @@ catch (ApiException<RawError> ex)
 <dl>
 <dd>
 
-<code>[ListEmployeesOperationRequest](src/Square/Requests/Employees/ListEmployeesOperationRequest.cs)</code>
+<code>[ListEmployeesRequest](src/Square/Requests/Employees/ListEmployeesRequest.cs)</code>
 
 </dd>
 </dl>
@@ -7487,7 +7647,7 @@ catch (ApiException<RawError> ex)
 </details>
 
 <details>
-<summary><code>Task&lt;ListEventTypesResponse&gt; ListEventTypes(ListEventTypesOperationRequest request, RequestOptions? requestOptions = null, CancellationToken cancellationToken = default);</code></summary>
+<summary><code>Task&lt;ListEventTypesResponse&gt; ListEventTypes(ListEventTypesRequest request, RequestOptions? requestOptions = null, CancellationToken cancellationToken = default);</code></summary>
 
 <dl>
 <dd>
@@ -7510,7 +7670,7 @@ Lists all event types that you can subscribe to as webhooks or query using the E
 ```csharp
 try
 {
-    var response = await client.Events.ListEventTypes(new ListEventTypesOperationRequest());
+    var response = await client.Events.ListEventTypes(new ListEventTypesRequest());
     // TODO: Handle 'response' of type ListEventTypesResponse
 }
 catch (ApiException<RawError> ex)
@@ -7527,7 +7687,7 @@ catch (ApiException<RawError> ex)
 <dl>
 <dd>
 
-<code>[ListEventTypesOperationRequest](src/Square/Requests/Events/ListEventTypesOperationRequest.cs)</code>
+<code>[ListEventTypesRequest](src/Square/Requests/Events/ListEventTypesRequest.cs)</code>
 
 </dd>
 </dl>
@@ -7695,7 +7855,7 @@ catch (ApiException<RawError> ex)
 </details>
 
 <details>
-<summary><code>Task&lt;ListGiftCardActivitiesResponse&gt; ListGiftCardActivities(ListGiftCardActivitiesOperationRequest request, RequestOptions? requestOptions = null, CancellationToken cancellationToken = default);</code></summary>
+<summary><code>Task&lt;ListGiftCardActivitiesResponse&gt; ListGiftCardActivities(ListGiftCardActivitiesRequest request, RequestOptions? requestOptions = null, CancellationToken cancellationToken = default);</code></summary>
 
 <dl>
 <dd>
@@ -7721,7 +7881,7 @@ for all gift cards in a specific region, or for activities within a time window.
 ```csharp
 try
 {
-    var response = await client.GiftCardActivities.ListGiftCardActivities(new ListGiftCardActivitiesOperationRequest());
+    var response = await client.GiftCardActivities.ListGiftCardActivities(new ListGiftCardActivitiesRequest());
     // TODO: Handle 'response' of type ListGiftCardActivitiesResponse
 }
 catch (ApiException<RawError> ex)
@@ -7738,7 +7898,7 @@ catch (ApiException<RawError> ex)
 <dl>
 <dd>
 
-<code>[ListGiftCardActivitiesOperationRequest](src/Square/Requests/GiftCardActivities/ListGiftCardActivitiesOperationRequest.cs)</code>
+<code>[ListGiftCardActivitiesRequest](src/Square/Requests/GiftCardActivities/ListGiftCardActivitiesRequest.cs)</code>
 
 </dd>
 </dl>
@@ -7907,7 +8067,7 @@ catch (ApiException<RawError> ex)
 </details>
 
 <details>
-<summary><code>Task&lt;ListGiftCardsResponse&gt; ListGiftCards(ListGiftCardsOperationRequest request, RequestOptions? requestOptions = null, CancellationToken cancellationToken = default);</code></summary>
+<summary><code>Task&lt;ListGiftCardsResponse&gt; ListGiftCards(ListGiftCardsRequest request, RequestOptions? requestOptions = null, CancellationToken cancellationToken = default);</code></summary>
 
 <dl>
 <dd>
@@ -7931,7 +8091,7 @@ a subset of the gift cards. Results are sorted by `created_at` in ascending orde
 ```csharp
 try
 {
-    var response = await client.GiftCards.ListGiftCards(new ListGiftCardsOperationRequest());
+    var response = await client.GiftCards.ListGiftCards(new ListGiftCardsRequest());
     // TODO: Handle 'response' of type ListGiftCardsResponse
 }
 catch (ApiException<RawError> ex)
@@ -7948,7 +8108,7 @@ catch (ApiException<RawError> ex)
 <dl>
 <dd>
 
-<code>[ListGiftCardsOperationRequest](src/Square/Requests/GiftCards/ListGiftCardsOperationRequest.cs)</code>
+<code>[ListGiftCardsRequest](src/Square/Requests/GiftCards/ListGiftCardsRequest.cs)</code>
 
 </dd>
 </dl>
@@ -8848,7 +9008,7 @@ catch (ApiException<RawError> ex)
 </details>
 
 <details>
-<summary><code>Task&lt;RetrieveInventoryChangesResponse&gt; RetrieveInventoryChanges(RetrieveInventoryChangesOperationRequest request, RequestOptions? requestOptions = null, CancellationToken cancellationToken = default);</code></summary>
+<summary><code>Task&lt;RetrieveInventoryChangesResponse&gt; RetrieveInventoryChanges(RetrieveInventoryChangesRequest request, RequestOptions? requestOptions = null, CancellationToken cancellationToken = default);</code></summary>
 
 <dl>
 <dd>
@@ -8883,7 +9043,7 @@ sophisticated queries, use a batch endpoint.
 ```csharp
 try
 {
-    var response = await client.Inventory.RetrieveInventoryChanges(new RetrieveInventoryChangesOperationRequest
+    var response = await client.Inventory.RetrieveInventoryChanges(new RetrieveInventoryChangesRequest
     {
         CatalogObjectId = "some example string",
     });
@@ -8903,7 +9063,7 @@ catch (ApiException<RawError> ex)
 <dl>
 <dd>
 
-<code>[RetrieveInventoryChangesOperationRequest](src/Square/Requests/Inventory/RetrieveInventoryChangesOperationRequest.cs)</code>
+<code>[RetrieveInventoryChangesRequest](src/Square/Requests/Inventory/RetrieveInventoryChangesRequest.cs)</code>
 
 </dd>
 </dl>
@@ -8926,7 +9086,7 @@ catch (ApiException<RawError> ex)
 </details>
 
 <details>
-<summary><code>Task&lt;RetrieveInventoryCountResponse&gt; RetrieveInventoryCount(RetrieveInventoryCountOperationRequest request, RequestOptions? requestOptions = null, CancellationToken cancellationToken = default);</code></summary>
+<summary><code>Task&lt;RetrieveInventoryCountResponse&gt; RetrieveInventoryCount(RetrieveInventoryCountRequest request, RequestOptions? requestOptions = null, CancellationToken cancellationToken = default);</code></summary>
 
 <dl>
 <dd>
@@ -8952,7 +9112,7 @@ For more sophisticated queries, use a batch endpoint.
 ```csharp
 try
 {
-    var response = await client.Inventory.RetrieveInventoryCount(new RetrieveInventoryCountOperationRequest
+    var response = await client.Inventory.RetrieveInventoryCount(new RetrieveInventoryCountRequest
     {
         CatalogObjectId = "some example string",
     });
@@ -8972,7 +9132,7 @@ catch (ApiException<RawError> ex)
 <dl>
 <dd>
 
-<code>[RetrieveInventoryCountOperationRequest](src/Square/Requests/Inventory/RetrieveInventoryCountOperationRequest.cs)</code>
+<code>[RetrieveInventoryCountRequest](src/Square/Requests/Inventory/RetrieveInventoryCountRequest.cs)</code>
 
 </dd>
 </dl>
@@ -9290,6 +9450,8 @@ in a supported format: GIF, JPEG, PNG, TIFF, BMP, or PDF.
 Invoices can have up to 10 attachments with a total file size of 25 MB. Attachments can be added only to invoices
 in the `DRAFT`, `SCHEDULED`, `UNPAID`, or `PARTIALLY_PAID` state.
 
+__NOTE:__ When testing in the Sandbox environment, the total file size is limited to 1 KB.
+
 </dd>
 </dl>
 
@@ -9344,7 +9506,7 @@ catch (ApiException<RawError> ex)
 </details>
 
 <details>
-<summary><code>Task&lt;DeleteInvoiceResponse&gt; DeleteInvoice(DeleteInvoiceOperationRequest request, RequestOptions? requestOptions = null, CancellationToken cancellationToken = default);</code></summary>
+<summary><code>Task&lt;DeleteInvoiceResponse&gt; DeleteInvoice(DeleteInvoiceRequest request, RequestOptions? requestOptions = null, CancellationToken cancellationToken = default);</code></summary>
 
 <dl>
 <dd>
@@ -9369,10 +9531,7 @@ invoice (you cannot delete a published invoice, including one that is scheduled 
 ```csharp
 try
 {
-    var response = await client.Invoices.DeleteInvoice(new DeleteInvoiceOperationRequest
-    {
-        InvoiceId = "some example string",
-    });
+    var response = await client.Invoices.DeleteInvoice(new DeleteInvoiceRequest { InvoiceId = "some example string" });
     // TODO: Handle 'response' of type DeleteInvoiceResponse
 }
 catch (ApiException<RawError> ex)
@@ -9389,7 +9548,7 @@ catch (ApiException<RawError> ex)
 <dl>
 <dd>
 
-<code>[DeleteInvoiceOperationRequest](src/Square/Requests/Invoices/DeleteInvoiceOperationRequest.cs)</code>
+<code>[DeleteInvoiceRequest](src/Square/Requests/Invoices/DeleteInvoiceRequest.cs)</code>
 
 </dd>
 </dl>
@@ -9543,7 +9702,7 @@ catch (ApiException<RawError> ex)
 </details>
 
 <details>
-<summary><code>Task&lt;ListInvoicesResponse&gt; ListInvoices(ListInvoicesOperationRequest request, RequestOptions? requestOptions = null, CancellationToken cancellationToken = default);</code></summary>
+<summary><code>Task&lt;ListInvoicesResponse&gt; ListInvoices(ListInvoicesRequest request, RequestOptions? requestOptions = null, CancellationToken cancellationToken = default);</code></summary>
 
 <dl>
 <dd>
@@ -9568,10 +9727,7 @@ use in a subsequent request to retrieve the next set of invoices.
 ```csharp
 try
 {
-    var response = await client.Invoices.ListInvoices(new ListInvoicesOperationRequest
-    {
-        LocationId = "some example string",
-    });
+    var response = await client.Invoices.ListInvoices(new ListInvoicesRequest { LocationId = "some example string" });
     // TODO: Handle 'response' of type ListInvoicesResponse
 }
 catch (ApiException<RawError> ex)
@@ -9588,7 +9744,7 @@ catch (ApiException<RawError> ex)
 <dl>
 <dd>
 
-<code>[ListInvoicesOperationRequest](src/Square/Requests/Invoices/ListInvoicesOperationRequest.cs)</code>
+<code>[ListInvoicesRequest](src/Square/Requests/Invoices/ListInvoicesRequest.cs)</code>
 
 </dd>
 </dl>
@@ -9840,6 +9996,83 @@ catch (ApiException<RawError> ex)
 > Source: [Labor](src/Square/Api/Labor.cs)
 
 <details>
+<summary><code>Task&lt;BulkPublishScheduledShiftsResponse&gt; BulkPublishScheduledShifts(BulkPublishScheduledShiftsOperationRequest request, RequestOptions? requestOptions = null, CancellationToken cancellationToken = default);</code></summary>
+
+<dl>
+<dd>
+
+### Description
+
+<dl>
+<dd>
+
+Publishes 1 - 100 scheduled shifts. This endpoint takes a map of individual publish
+requests and returns a map of responses. When a scheduled shift is published, Square keeps
+the `draft_shift_details` field as is and copies it to the `published_shift_details` field.
+
+The minimum `start_at` and maximum `end_at` timestamps of all shifts in a
+`BulkPublishScheduledShifts` request must fall within a two-week period.
+
+</dd>
+</dl>
+
+### Usage
+
+<dl>
+<dd>
+
+```csharp
+try
+{
+    var response = await client.Labor.BulkPublishScheduledShifts(new BulkPublishScheduledShiftsOperationRequest
+    {
+        Body = new BulkPublishScheduledShiftsRequest
+        {
+            ScheduledShifts = new Dictionary<string, BulkPublishScheduledShiftsData>
+            {
+                ["key"] = new BulkPublishScheduledShiftsData(),
+            },
+        },
+    });
+    // TODO: Handle 'response' of type BulkPublishScheduledShiftsResponse
+}
+catch (ApiException<RawError> ex)
+{
+    // TODO: Handle 'ex.Error' of type RawError
+}
+```
+
+</dd>
+</dl>
+
+### Request
+
+<dl>
+<dd>
+
+<code>[BulkPublishScheduledShiftsOperationRequest](src/Square/Requests/Labor/BulkPublishScheduledShiftsOperationRequest.cs)</code>
+
+</dd>
+</dl>
+
+### Response
+
+<dl>
+<dd>
+
+**OnSuccess**: <code>[BulkPublishScheduledShiftsResponse](src/Square/Models/BulkPublishScheduledShiftsResponse.cs)</code>
+
+**OnError**: <code>[ApiException](src/Square/Core/Exceptions/ApiException.cs)&lt;[RawError](src/Square/Core/ErrorResponse/RawError.cs)&gt;</code>
+
+</dd>
+</dl>
+
+</dd>
+</dl>
+
+</details>
+
+<details>
 <summary><code>Task&lt;CreateBreakTypeResponse&gt; CreateBreakType(CreateBreakTypeOperationRequest request, RequestOptions? requestOptions = null, CancellationToken cancellationToken = default);</code></summary>
 
 <dl>
@@ -9928,6 +10161,79 @@ catch (ApiException<RawError> ex)
 </details>
 
 <details>
+<summary><code>Task&lt;CreateScheduledShiftResponse&gt; CreateScheduledShift(CreateScheduledShiftOperationRequest request, RequestOptions? requestOptions = null, CancellationToken cancellationToken = default);</code></summary>
+
+<dl>
+<dd>
+
+### Description
+
+<dl>
+<dd>
+
+Creates a scheduled shift by providing draft shift details such as job ID,
+team member assignment, and start and end times.
+
+The following `draft_shift_details` fields are required:
+- `location_id`
+- `job_id`
+- `start_at`
+- `end_at`
+
+</dd>
+</dl>
+
+### Usage
+
+<dl>
+<dd>
+
+```csharp
+try
+{
+    var response = await client.Labor.CreateScheduledShift(new CreateScheduledShiftOperationRequest
+    {
+        Body = new CreateScheduledShiftRequest { ScheduledShift = new ScheduledShift() },
+    });
+    // TODO: Handle 'response' of type CreateScheduledShiftResponse
+}
+catch (ApiException<RawError> ex)
+{
+    // TODO: Handle 'ex.Error' of type RawError
+}
+```
+
+</dd>
+</dl>
+
+### Request
+
+<dl>
+<dd>
+
+<code>[CreateScheduledShiftOperationRequest](src/Square/Requests/Labor/CreateScheduledShiftOperationRequest.cs)</code>
+
+</dd>
+</dl>
+
+### Response
+
+<dl>
+<dd>
+
+**OnSuccess**: <code>[CreateScheduledShiftResponse](src/Square/Models/CreateScheduledShiftResponse.cs)</code>
+
+**OnError**: <code>[ApiException](src/Square/Core/Exceptions/ApiException.cs)&lt;[RawError](src/Square/Core/ErrorResponse/RawError.cs)&gt;</code>
+
+</dd>
+</dl>
+
+</dd>
+</dl>
+
+</details>
+
+<details>
 <summary><code>Task&lt;CreateShiftResponse&gt; CreateShift(CreateShiftOperationRequest request, RequestOptions? requestOptions = null, CancellationToken cancellationToken = default);</code></summary>
 
 <dl>
@@ -10002,6 +10308,97 @@ catch (ApiException<RawError> ex)
 <dd>
 
 **OnSuccess**: <code>[CreateShiftResponse](src/Square/Models/CreateShiftResponse.cs)</code>
+
+**OnError**: <code>[ApiException](src/Square/Core/Exceptions/ApiException.cs)&lt;[RawError](src/Square/Core/ErrorResponse/RawError.cs)&gt;</code>
+
+</dd>
+</dl>
+
+</dd>
+</dl>
+
+</details>
+
+<details>
+<summary><code>Task&lt;CreateTimecardResponse&gt; CreateTimecard(CreateTimecardOperationRequest request, RequestOptions? requestOptions = null, CancellationToken cancellationToken = default);</code></summary>
+
+<dl>
+<dd>
+
+### Description
+
+<dl>
+<dd>
+
+Creates a new `Timecard`.
+
+A `Timecard` represents a complete workday for a single team member.
+You must provide the following values in your request to this
+endpoint:
+
+- `location_id`
+- `team_member_id`
+- `start_at`
+
+An attempt to create a new `Timecard` can result in a `BAD_REQUEST` error when:
+- The `status` of the new `Timecard` is `OPEN` and the team member has another
+timecard with an `OPEN` status.
+- The `start_at` date is in the future.
+- The `start_at` or `end_at` date overlaps another timecard for the same team member.
+- The `Break` instances are set in the request and a break `start_at`
+is before the `Timecard.start_at`, a break `end_at` is after
+the `Timecard.end_at`, or both.
+
+</dd>
+</dl>
+
+### Usage
+
+<dl>
+<dd>
+
+```csharp
+try
+{
+    var response = await client.Labor.CreateTimecard(new CreateTimecardOperationRequest
+    {
+        Body = new CreateTimecardRequest
+        {
+            Timecard = new Timecard
+            {
+                LocationId = "some example string",
+                StartAt = "some example string",
+                TeamMemberId = "some example string",
+            },
+        },
+    });
+    // TODO: Handle 'response' of type CreateTimecardResponse
+}
+catch (ApiException<RawError> ex)
+{
+    // TODO: Handle 'ex.Error' of type RawError
+}
+```
+
+</dd>
+</dl>
+
+### Request
+
+<dl>
+<dd>
+
+<code>[CreateTimecardOperationRequest](src/Square/Requests/Labor/CreateTimecardOperationRequest.cs)</code>
+
+</dd>
+</dl>
+
+### Response
+
+<dl>
+<dd>
+
+**OnSuccess**: <code>[CreateTimecardResponse](src/Square/Models/CreateTimecardResponse.cs)</code>
 
 **OnError**: <code>[ApiException](src/Square/Core/Exceptions/ApiException.cs)&lt;[RawError](src/Square/Core/ErrorResponse/RawError.cs)&gt;</code>
 
@@ -10130,6 +10527,69 @@ catch (ApiException<RawError> ex)
 <dd>
 
 **OnSuccess**: <code>[DeleteShiftResponse](src/Square/Models/DeleteShiftResponse.cs)</code>
+
+**OnError**: <code>[ApiException](src/Square/Core/Exceptions/ApiException.cs)&lt;[RawError](src/Square/Core/ErrorResponse/RawError.cs)&gt;</code>
+
+</dd>
+</dl>
+
+</dd>
+</dl>
+
+</details>
+
+<details>
+<summary><code>Task&lt;DeleteTimecardResponse&gt; DeleteTimecard(DeleteTimecardRequest request, RequestOptions? requestOptions = null, CancellationToken cancellationToken = default);</code></summary>
+
+<dl>
+<dd>
+
+### Description
+
+<dl>
+<dd>
+
+Deletes a `Timecard`.
+
+</dd>
+</dl>
+
+### Usage
+
+<dl>
+<dd>
+
+```csharp
+try
+{
+    var response = await client.Labor.DeleteTimecard(new DeleteTimecardRequest { Id = "some example string" });
+    // TODO: Handle 'response' of type DeleteTimecardResponse
+}
+catch (ApiException<RawError> ex)
+{
+    // TODO: Handle 'ex.Error' of type RawError
+}
+```
+
+</dd>
+</dl>
+
+### Request
+
+<dl>
+<dd>
+
+<code>[DeleteTimecardRequest](src/Square/Requests/Labor/DeleteTimecardRequest.cs)</code>
+
+</dd>
+</dl>
+
+### Response
+
+<dl>
+<dd>
+
+**OnSuccess**: <code>[DeleteTimecardResponse](src/Square/Models/DeleteTimecardResponse.cs)</code>
 
 **OnError**: <code>[ApiException](src/Square/Core/Exceptions/ApiException.cs)&lt;[RawError](src/Square/Core/ErrorResponse/RawError.cs)&gt;</code>
 
@@ -10394,7 +10854,7 @@ catch (ApiException<RawError> ex)
 </details>
 
 <details>
-<summary><code>Task&lt;ListBreakTypesResponse&gt; ListBreakTypes(ListBreakTypesOperationRequest request, RequestOptions? requestOptions = null, CancellationToken cancellationToken = default);</code></summary>
+<summary><code>Task&lt;ListBreakTypesResponse&gt; ListBreakTypes(ListBreakTypesRequest request, RequestOptions? requestOptions = null, CancellationToken cancellationToken = default);</code></summary>
 
 <dl>
 <dd>
@@ -10417,7 +10877,7 @@ Returns a paginated list of `BreakType` instances for a business.
 ```csharp
 try
 {
-    var response = await client.Labor.ListBreakTypes(new ListBreakTypesOperationRequest());
+    var response = await client.Labor.ListBreakTypes(new ListBreakTypesRequest());
     // TODO: Handle 'response' of type ListBreakTypesResponse
 }
 catch (ApiException<RawError> ex)
@@ -10434,7 +10894,7 @@ catch (ApiException<RawError> ex)
 <dl>
 <dd>
 
-<code>[ListBreakTypesOperationRequest](src/Square/Requests/Labor/ListBreakTypesOperationRequest.cs)</code>
+<code>[ListBreakTypesRequest](src/Square/Requests/Labor/ListBreakTypesRequest.cs)</code>
 
 </dd>
 </dl>
@@ -10457,7 +10917,7 @@ catch (ApiException<RawError> ex)
 </details>
 
 <details>
-<summary><code>Task&lt;ListEmployeeWagesResponse&gt; ListEmployeeWages(ListEmployeeWagesOperationRequest request, RequestOptions? requestOptions = null, CancellationToken cancellationToken = default);</code></summary>
+<summary><code>Task&lt;ListEmployeeWagesResponse&gt; ListEmployeeWages(ListEmployeeWagesRequest request, RequestOptions? requestOptions = null, CancellationToken cancellationToken = default);</code></summary>
 
 <dl>
 <dd>
@@ -10480,7 +10940,7 @@ Returns a paginated list of `EmployeeWage` instances for a business.
 ```csharp
 try
 {
-    var response = await client.Labor.ListEmployeeWages(new ListEmployeeWagesOperationRequest());
+    var response = await client.Labor.ListEmployeeWages(new ListEmployeeWagesRequest());
     // TODO: Handle 'response' of type ListEmployeeWagesResponse
 }
 catch (ApiException<RawError> ex)
@@ -10497,7 +10957,7 @@ catch (ApiException<RawError> ex)
 <dl>
 <dd>
 
-<code>[ListEmployeeWagesOperationRequest](src/Square/Requests/Labor/ListEmployeeWagesOperationRequest.cs)</code>
+<code>[ListEmployeeWagesRequest](src/Square/Requests/Labor/ListEmployeeWagesRequest.cs)</code>
 
 </dd>
 </dl>
@@ -10520,7 +10980,7 @@ catch (ApiException<RawError> ex)
 </details>
 
 <details>
-<summary><code>Task&lt;ListTeamMemberWagesResponse&gt; ListTeamMemberWages(ListTeamMemberWagesOperationRequest request, RequestOptions? requestOptions = null, CancellationToken cancellationToken = default);</code></summary>
+<summary><code>Task&lt;ListTeamMemberWagesResponse&gt; ListTeamMemberWages(ListTeamMemberWagesRequest request, RequestOptions? requestOptions = null, CancellationToken cancellationToken = default);</code></summary>
 
 <dl>
 <dd>
@@ -10543,7 +11003,7 @@ Returns a paginated list of `TeamMemberWage` instances for a business.
 ```csharp
 try
 {
-    var response = await client.Labor.ListTeamMemberWages(new ListTeamMemberWagesOperationRequest());
+    var response = await client.Labor.ListTeamMemberWages(new ListTeamMemberWagesRequest());
     // TODO: Handle 'response' of type ListTeamMemberWagesResponse
 }
 catch (ApiException<RawError> ex)
@@ -10560,7 +11020,7 @@ catch (ApiException<RawError> ex)
 <dl>
 <dd>
 
-<code>[ListTeamMemberWagesOperationRequest](src/Square/Requests/Labor/ListTeamMemberWagesOperationRequest.cs)</code>
+<code>[ListTeamMemberWagesRequest](src/Square/Requests/Labor/ListTeamMemberWagesRequest.cs)</code>
 
 </dd>
 </dl>
@@ -10583,7 +11043,7 @@ catch (ApiException<RawError> ex)
 </details>
 
 <details>
-<summary><code>Task&lt;ListWorkweekConfigsResponse&gt; ListWorkweekConfigs(ListWorkweekConfigsOperationRequest request, RequestOptions? requestOptions = null, CancellationToken cancellationToken = default);</code></summary>
+<summary><code>Task&lt;ListWorkweekConfigsResponse&gt; ListWorkweekConfigs(ListWorkweekConfigsRequest request, RequestOptions? requestOptions = null, CancellationToken cancellationToken = default);</code></summary>
 
 <dl>
 <dd>
@@ -10606,7 +11066,7 @@ Returns a list of `WorkweekConfig` instances for a business.
 ```csharp
 try
 {
-    var response = await client.Labor.ListWorkweekConfigs(new ListWorkweekConfigsOperationRequest());
+    var response = await client.Labor.ListWorkweekConfigs(new ListWorkweekConfigsRequest());
     // TODO: Handle 'response' of type ListWorkweekConfigsResponse
 }
 catch (ApiException<RawError> ex)
@@ -10623,7 +11083,7 @@ catch (ApiException<RawError> ex)
 <dl>
 <dd>
 
-<code>[ListWorkweekConfigsOperationRequest](src/Square/Requests/Labor/ListWorkweekConfigsOperationRequest.cs)</code>
+<code>[ListWorkweekConfigsRequest](src/Square/Requests/Labor/ListWorkweekConfigsRequest.cs)</code>
 
 </dd>
 </dl>
@@ -10634,6 +11094,270 @@ catch (ApiException<RawError> ex)
 <dd>
 
 **OnSuccess**: <code>[ListWorkweekConfigsResponse](src/Square/Models/ListWorkweekConfigsResponse.cs)</code>
+
+**OnError**: <code>[ApiException](src/Square/Core/Exceptions/ApiException.cs)&lt;[RawError](src/Square/Core/ErrorResponse/RawError.cs)&gt;</code>
+
+</dd>
+</dl>
+
+</dd>
+</dl>
+
+</details>
+
+<details>
+<summary><code>Task&lt;PublishScheduledShiftResponse&gt; PublishScheduledShift(PublishScheduledShiftOperationRequest request, RequestOptions? requestOptions = null, CancellationToken cancellationToken = default);</code></summary>
+
+<dl>
+<dd>
+
+### Description
+
+<dl>
+<dd>
+
+Publishes a scheduled shift. When a scheduled shift is published, Square keeps the
+`draft_shift_details` field as is and copies it to the `published_shift_details` field.
+
+</dd>
+</dl>
+
+### Usage
+
+<dl>
+<dd>
+
+```csharp
+try
+{
+    var response = await client.Labor.PublishScheduledShift(new PublishScheduledShiftOperationRequest
+    {
+        Id = "some example string",
+        Body = new PublishScheduledShiftRequest { IdempotencyKey = "some example string" },
+    });
+    // TODO: Handle 'response' of type PublishScheduledShiftResponse
+}
+catch (ApiException<RawError> ex)
+{
+    // TODO: Handle 'ex.Error' of type RawError
+}
+```
+
+</dd>
+</dl>
+
+### Request
+
+<dl>
+<dd>
+
+<code>[PublishScheduledShiftOperationRequest](src/Square/Requests/Labor/PublishScheduledShiftOperationRequest.cs)</code>
+
+</dd>
+</dl>
+
+### Response
+
+<dl>
+<dd>
+
+**OnSuccess**: <code>[PublishScheduledShiftResponse](src/Square/Models/PublishScheduledShiftResponse.cs)</code>
+
+**OnError**: <code>[ApiException](src/Square/Core/Exceptions/ApiException.cs)&lt;[RawError](src/Square/Core/ErrorResponse/RawError.cs)&gt;</code>
+
+</dd>
+</dl>
+
+</dd>
+</dl>
+
+</details>
+
+<details>
+<summary><code>Task&lt;RetrieveScheduledShiftResponse&gt; RetrieveScheduledShift(RetrieveScheduledShiftRequest request, RequestOptions? requestOptions = null, CancellationToken cancellationToken = default);</code></summary>
+
+<dl>
+<dd>
+
+### Description
+
+<dl>
+<dd>
+
+Retrieves a scheduled shift by ID.
+
+</dd>
+</dl>
+
+### Usage
+
+<dl>
+<dd>
+
+```csharp
+try
+{
+    var response = await client.Labor.RetrieveScheduledShift(new RetrieveScheduledShiftRequest
+    {
+        Id = "some example string",
+    });
+    // TODO: Handle 'response' of type RetrieveScheduledShiftResponse
+}
+catch (ApiException<RawError> ex)
+{
+    // TODO: Handle 'ex.Error' of type RawError
+}
+```
+
+</dd>
+</dl>
+
+### Request
+
+<dl>
+<dd>
+
+<code>[RetrieveScheduledShiftRequest](src/Square/Requests/Labor/RetrieveScheduledShiftRequest.cs)</code>
+
+</dd>
+</dl>
+
+### Response
+
+<dl>
+<dd>
+
+**OnSuccess**: <code>[RetrieveScheduledShiftResponse](src/Square/Models/RetrieveScheduledShiftResponse.cs)</code>
+
+**OnError**: <code>[ApiException](src/Square/Core/Exceptions/ApiException.cs)&lt;[RawError](src/Square/Core/ErrorResponse/RawError.cs)&gt;</code>
+
+</dd>
+</dl>
+
+</dd>
+</dl>
+
+</details>
+
+<details>
+<summary><code>Task&lt;RetrieveTimecardResponse&gt; RetrieveTimecard(RetrieveTimecardRequest request, RequestOptions? requestOptions = null, CancellationToken cancellationToken = default);</code></summary>
+
+<dl>
+<dd>
+
+### Description
+
+<dl>
+<dd>
+
+Returns a single `Timecard` specified by `id`.
+
+</dd>
+</dl>
+
+### Usage
+
+<dl>
+<dd>
+
+```csharp
+try
+{
+    var response = await client.Labor.RetrieveTimecard(new RetrieveTimecardRequest { Id = "some example string" });
+    // TODO: Handle 'response' of type RetrieveTimecardResponse
+}
+catch (ApiException<RawError> ex)
+{
+    // TODO: Handle 'ex.Error' of type RawError
+}
+```
+
+</dd>
+</dl>
+
+### Request
+
+<dl>
+<dd>
+
+<code>[RetrieveTimecardRequest](src/Square/Requests/Labor/RetrieveTimecardRequest.cs)</code>
+
+</dd>
+</dl>
+
+### Response
+
+<dl>
+<dd>
+
+**OnSuccess**: <code>[RetrieveTimecardResponse](src/Square/Models/RetrieveTimecardResponse.cs)</code>
+
+**OnError**: <code>[ApiException](src/Square/Core/Exceptions/ApiException.cs)&lt;[RawError](src/Square/Core/ErrorResponse/RawError.cs)&gt;</code>
+
+</dd>
+</dl>
+
+</dd>
+</dl>
+
+</details>
+
+<details>
+<summary><code>Task&lt;SearchScheduledShiftsResponse&gt; SearchScheduledShifts(SearchScheduledShiftsOperationRequest request, RequestOptions? requestOptions = null, CancellationToken cancellationToken = default);</code></summary>
+
+<dl>
+<dd>
+
+### Description
+
+<dl>
+<dd>
+
+Returns a paginated list of scheduled shifts, with optional filter and sort settings.
+By default, results are sorted by `start_at` in ascending order.
+
+</dd>
+</dl>
+
+### Usage
+
+<dl>
+<dd>
+
+```csharp
+try
+{
+    var response = await client.Labor.SearchScheduledShifts(new SearchScheduledShiftsOperationRequest
+    {
+        Body = new SearchScheduledShiftsRequest(),
+    });
+    // TODO: Handle 'response' of type SearchScheduledShiftsResponse
+}
+catch (ApiException<RawError> ex)
+{
+    // TODO: Handle 'ex.Error' of type RawError
+}
+```
+
+</dd>
+</dl>
+
+### Request
+
+<dl>
+<dd>
+
+<code>[SearchScheduledShiftsOperationRequest](src/Square/Requests/Labor/SearchScheduledShiftsOperationRequest.cs)</code>
+
+</dd>
+</dl>
+
+### Response
+
+<dl>
+<dd>
+
+**OnSuccess**: <code>[SearchScheduledShiftsResponse](src/Square/Models/SearchScheduledShiftsResponse.cs)</code>
 
 **OnError**: <code>[ApiException](src/Square/Core/Exceptions/ApiException.cs)&lt;[RawError](src/Square/Core/ErrorResponse/RawError.cs)&gt;</code>
 
@@ -10725,6 +11449,85 @@ catch (ApiException<RawError> ex)
 </details>
 
 <details>
+<summary><code>Task&lt;SearchTimecardsResponse&gt; SearchTimecards(SearchTimecardsOperationRequest request, RequestOptions? requestOptions = null, CancellationToken cancellationToken = default);</code></summary>
+
+<dl>
+<dd>
+
+### Description
+
+<dl>
+<dd>
+
+Returns a paginated list of `Timecard` records for a business.
+The list to be returned can be filtered by:
+- Location IDs
+- Team member IDs
+- Timecard status (`OPEN` or `CLOSED`)
+- Timecard start
+- Timecard end
+- Workday details
+
+The list can be sorted by:
+- `START_AT`
+- `END_AT`
+- `CREATED_AT`
+- `UPDATED_AT`
+
+</dd>
+</dl>
+
+### Usage
+
+<dl>
+<dd>
+
+```csharp
+try
+{
+    var response = await client.Labor.SearchTimecards(new SearchTimecardsOperationRequest
+    {
+        Body = new SearchTimecardsRequest(),
+    });
+    // TODO: Handle 'response' of type SearchTimecardsResponse
+}
+catch (ApiException<RawError> ex)
+{
+    // TODO: Handle 'ex.Error' of type RawError
+}
+```
+
+</dd>
+</dl>
+
+### Request
+
+<dl>
+<dd>
+
+<code>[SearchTimecardsOperationRequest](src/Square/Requests/Labor/SearchTimecardsOperationRequest.cs)</code>
+
+</dd>
+</dl>
+
+### Response
+
+<dl>
+<dd>
+
+**OnSuccess**: <code>[SearchTimecardsResponse](src/Square/Models/SearchTimecardsResponse.cs)</code>
+
+**OnError**: <code>[ApiException](src/Square/Core/Exceptions/ApiException.cs)&lt;[RawError](src/Square/Core/ErrorResponse/RawError.cs)&gt;</code>
+
+</dd>
+</dl>
+
+</dd>
+</dl>
+
+</details>
+
+<details>
 <summary><code>Task&lt;UpdateBreakTypeResponse&gt; UpdateBreakType(UpdateBreakTypeOperationRequest request, RequestOptions? requestOptions = null, CancellationToken cancellationToken = default);</code></summary>
 
 <dl>
@@ -10801,6 +11604,82 @@ catch (ApiException<RawError> ex)
 </details>
 
 <details>
+<summary><code>Task&lt;UpdateScheduledShiftResponse&gt; UpdateScheduledShift(UpdateScheduledShiftOperationRequest request, RequestOptions? requestOptions = null, CancellationToken cancellationToken = default);</code></summary>
+
+<dl>
+<dd>
+
+### Description
+
+<dl>
+<dd>
+
+Updates the draft shift details for a scheduled shift. This endpoint supports
+sparse updates, so only new, changed, or removed fields are required in the request.
+You must publish the shift to make updates public.
+
+You can make the following updates to `draft_shift_details`:
+- Change the `location_id`, `job_id`, `start_at`, and `end_at` fields.
+- Add, change, or clear the `team_member_id` and `notes` fields. To clear these fields,
+set the value to null.
+- Change the `is_deleted` field. To delete a scheduled shift, set `is_deleted` to true
+and then publish the shift.
+
+</dd>
+</dl>
+
+### Usage
+
+<dl>
+<dd>
+
+```csharp
+try
+{
+    var response = await client.Labor.UpdateScheduledShift(new UpdateScheduledShiftOperationRequest
+    {
+        Id = "some example string",
+        Body = new UpdateScheduledShiftRequest { ScheduledShift = new ScheduledShift() },
+    });
+    // TODO: Handle 'response' of type UpdateScheduledShiftResponse
+}
+catch (ApiException<RawError> ex)
+{
+    // TODO: Handle 'ex.Error' of type RawError
+}
+```
+
+</dd>
+</dl>
+
+### Request
+
+<dl>
+<dd>
+
+<code>[UpdateScheduledShiftOperationRequest](src/Square/Requests/Labor/UpdateScheduledShiftOperationRequest.cs)</code>
+
+</dd>
+</dl>
+
+### Response
+
+<dl>
+<dd>
+
+**OnSuccess**: <code>[UpdateScheduledShiftResponse](src/Square/Models/UpdateScheduledShiftResponse.cs)</code>
+
+**OnError**: <code>[ApiException](src/Square/Core/Exceptions/ApiException.cs)&lt;[RawError](src/Square/Core/ErrorResponse/RawError.cs)&gt;</code>
+
+</dd>
+</dl>
+
+</dd>
+</dl>
+
+</details>
+
+<details>
 <summary><code>Task&lt;UpdateShiftResponse&gt; UpdateShift(UpdateShiftOperationRequest request, RequestOptions? requestOptions = null, CancellationToken cancellationToken = default);</code></summary>
 
 <dl>
@@ -10865,6 +11744,87 @@ catch (ApiException<RawError> ex)
 <dd>
 
 **OnSuccess**: <code>[UpdateShiftResponse](src/Square/Models/UpdateShiftResponse.cs)</code>
+
+**OnError**: <code>[ApiException](src/Square/Core/Exceptions/ApiException.cs)&lt;[RawError](src/Square/Core/ErrorResponse/RawError.cs)&gt;</code>
+
+</dd>
+</dl>
+
+</dd>
+</dl>
+
+</details>
+
+<details>
+<summary><code>Task&lt;UpdateTimecardResponse&gt; UpdateTimecard(UpdateTimecardOperationRequest request, RequestOptions? requestOptions = null, CancellationToken cancellationToken = default);</code></summary>
+
+<dl>
+<dd>
+
+### Description
+
+<dl>
+<dd>
+
+Updates an existing `Timecard`.
+
+When adding a `Break` to a `Timecard`, any earlier `Break` instances in the `Timecard` have
+the `end_at` property set to a valid RFC-3339 datetime string.
+
+When closing a `Timecard`, all `Break` instances in the `Timecard` must be complete with `end_at`
+set on each `Break`.
+
+</dd>
+</dl>
+
+### Usage
+
+<dl>
+<dd>
+
+```csharp
+try
+{
+    var response = await client.Labor.UpdateTimecard(new UpdateTimecardOperationRequest
+    {
+        Id = "some example string",
+        Body = new UpdateTimecardRequest
+        {
+            Timecard = new Timecard
+            {
+                LocationId = "some example string",
+                StartAt = "some example string",
+                TeamMemberId = "some example string",
+            },
+        },
+    });
+    // TODO: Handle 'response' of type UpdateTimecardResponse
+}
+catch (ApiException<RawError> ex)
+{
+    // TODO: Handle 'ex.Error' of type RawError
+}
+```
+
+</dd>
+</dl>
+
+### Request
+
+<dl>
+<dd>
+
+<code>[UpdateTimecardOperationRequest](src/Square/Requests/Labor/UpdateTimecardOperationRequest.cs)</code>
+
+</dd>
+</dl>
+
+### Response
+
+<dl>
+<dd>
+
+**OnSuccess**: <code>[UpdateTimecardResponse](src/Square/Models/UpdateTimecardResponse.cs)</code>
 
 **OnError**: <code>[ApiException](src/Square/Core/Exceptions/ApiException.cs)&lt;[RawError](src/Square/Core/ErrorResponse/RawError.cs)&gt;</code>
 
@@ -11325,7 +12285,7 @@ catch (ApiException<RawError> ex)
 </details>
 
 <details>
-<summary><code>Task&lt;ListLocationCustomAttributeDefinitionsResponse&gt; ListLocationCustomAttributeDefinitions(ListLocationCustomAttributeDefinitionsOperationRequest request, RequestOptions? requestOptions = null, CancellationToken cancellationToken = default);</code></summary>
+<summary><code>Task&lt;ListLocationCustomAttributeDefinitionsResponse&gt; ListLocationCustomAttributeDefinitions(ListLocationCustomAttributeDefinitionsRequest request, RequestOptions? requestOptions = null, CancellationToken cancellationToken = default);</code></summary>
 
 <dl>
 <dd>
@@ -11352,7 +12312,7 @@ applications and set to `VISIBILITY_READ_ONLY` or `VISIBILITY_READ_WRITE_VALUES`
 try
 {
     var response = await client.LocationCustomAttributes.ListLocationCustomAttributeDefinitions(
-        new ListLocationCustomAttributeDefinitionsOperationRequest());
+        new ListLocationCustomAttributeDefinitionsRequest());
     // TODO: Handle 'response' of type ListLocationCustomAttributeDefinitionsResponse
 }
 catch (ApiException<RawError> ex)
@@ -11369,7 +12329,7 @@ catch (ApiException<RawError> ex)
 <dl>
 <dd>
 
-<code>[ListLocationCustomAttributeDefinitionsOperationRequest](src/Square/Requests/LocationCustomAttributes/ListLocationCustomAttributeDefinitionsOperationRequest.cs)</code>
+<code>[ListLocationCustomAttributeDefinitionsRequest](src/Square/Requests/LocationCustomAttributes/ListLocationCustomAttributeDefinitionsRequest.cs)</code>
 
 </dd>
 </dl>
@@ -11392,7 +12352,7 @@ catch (ApiException<RawError> ex)
 </details>
 
 <details>
-<summary><code>Task&lt;ListLocationCustomAttributesResponse&gt; ListLocationCustomAttributes(ListLocationCustomAttributesOperationRequest request, RequestOptions? requestOptions = null, CancellationToken cancellationToken = default);</code></summary>
+<summary><code>Task&lt;ListLocationCustomAttributesResponse&gt; ListLocationCustomAttributes(ListLocationCustomAttributesRequest request, RequestOptions? requestOptions = null, CancellationToken cancellationToken = default);</code></summary>
 
 <dl>
 <dd>
@@ -11421,7 +12381,7 @@ and set to `VISIBILITY_READ_ONLY` or `VISIBILITY_READ_WRITE_VALUES`.
 try
 {
     var response = await client.LocationCustomAttributes.ListLocationCustomAttributes(
-        new ListLocationCustomAttributesOperationRequest { LocationId = "some example string" });
+        new ListLocationCustomAttributesRequest { LocationId = "some example string" });
     // TODO: Handle 'response' of type ListLocationCustomAttributesResponse
 }
 catch (ApiException<RawError> ex)
@@ -11438,7 +12398,7 @@ catch (ApiException<RawError> ex)
 <dl>
 <dd>
 
-<code>[ListLocationCustomAttributesOperationRequest](src/Square/Requests/LocationCustomAttributes/ListLocationCustomAttributesOperationRequest.cs)</code>
+<code>[ListLocationCustomAttributesRequest](src/Square/Requests/LocationCustomAttributes/ListLocationCustomAttributesRequest.cs)</code>
 
 </dd>
 </dl>
@@ -11461,7 +12421,7 @@ catch (ApiException<RawError> ex)
 </details>
 
 <details>
-<summary><code>Task&lt;RetrieveLocationCustomAttributeResponse&gt; RetrieveLocationCustomAttribute(RetrieveLocationCustomAttributeOperationRequest request, RequestOptions? requestOptions = null, CancellationToken cancellationToken = default);</code></summary>
+<summary><code>Task&lt;RetrieveLocationCustomAttributeResponse&gt; RetrieveLocationCustomAttribute(RetrieveLocationCustomAttributeRequest request, RequestOptions? requestOptions = null, CancellationToken cancellationToken = default);</code></summary>
 
 <dl>
 <dd>
@@ -11489,11 +12449,7 @@ To retrieve a custom attribute owned by another application, the `visibility` se
 try
 {
     var response = await client.LocationCustomAttributes.RetrieveLocationCustomAttribute(
-        new RetrieveLocationCustomAttributeOperationRequest
-        {
-            LocationId = "some example string",
-            Key = "some example string",
-        });
+        new RetrieveLocationCustomAttributeRequest { LocationId = "some example string", Key = "some example string" });
     // TODO: Handle 'response' of type RetrieveLocationCustomAttributeResponse
 }
 catch (ApiException<RawError> ex)
@@ -11510,7 +12466,7 @@ catch (ApiException<RawError> ex)
 <dl>
 <dd>
 
-<code>[RetrieveLocationCustomAttributeOperationRequest](src/Square/Requests/LocationCustomAttributes/RetrieveLocationCustomAttributeOperationRequest.cs)</code>
+<code>[RetrieveLocationCustomAttributeRequest](src/Square/Requests/LocationCustomAttributes/RetrieveLocationCustomAttributeRequest.cs)</code>
 
 </dd>
 </dl>
@@ -11533,7 +12489,7 @@ catch (ApiException<RawError> ex)
 </details>
 
 <details>
-<summary><code>Task&lt;RetrieveLocationCustomAttributeDefinitionResponse&gt; RetrieveLocationCustomAttributeDefinition(RetrieveLocationCustomAttributeDefinitionOperationRequest request, RequestOptions? requestOptions = null, CancellationToken cancellationToken = default);</code></summary>
+<summary><code>Task&lt;RetrieveLocationCustomAttributeDefinitionResponse&gt; RetrieveLocationCustomAttributeDefinition(RetrieveLocationCustomAttributeDefinitionRequest request, RequestOptions? requestOptions = null, CancellationToken cancellationToken = default);</code></summary>
 
 <dl>
 <dd>
@@ -11559,7 +12515,7 @@ setting must be `VISIBILITY_READ_ONLY` or `VISIBILITY_READ_WRITE_VALUES`.
 try
 {
     var response = await client.LocationCustomAttributes.RetrieveLocationCustomAttributeDefinition(
-        new RetrieveLocationCustomAttributeDefinitionOperationRequest { Key = "some example string" });
+        new RetrieveLocationCustomAttributeDefinitionRequest { Key = "some example string" });
     // TODO: Handle 'response' of type RetrieveLocationCustomAttributeDefinitionResponse
 }
 catch (ApiException<RawError> ex)
@@ -11576,7 +12532,7 @@ catch (ApiException<RawError> ex)
 <dl>
 <dd>
 
-<code>[RetrieveLocationCustomAttributeDefinitionOperationRequest](src/Square/Requests/LocationCustomAttributes/RetrieveLocationCustomAttributeDefinitionOperationRequest.cs)</code>
+<code>[RetrieveLocationCustomAttributeDefinitionRequest](src/Square/Requests/LocationCustomAttributes/RetrieveLocationCustomAttributeDefinitionRequest.cs)</code>
 
 </dd>
 </dl>
@@ -12691,7 +13647,7 @@ catch (ApiException<RawError> ex)
 </details>
 
 <details>
-<summary><code>Task&lt;ListLoyaltyPromotionsResponse&gt; ListLoyaltyPromotions(ListLoyaltyPromotionsOperationRequest request, RequestOptions? requestOptions = null, CancellationToken cancellationToken = default);</code></summary>
+<summary><code>Task&lt;ListLoyaltyPromotionsResponse&gt; ListLoyaltyPromotions(ListLoyaltyPromotionsRequest request, RequestOptions? requestOptions = null, CancellationToken cancellationToken = default);</code></summary>
 
 <dl>
 <dd>
@@ -12715,7 +13671,7 @@ Results are sorted by the `created_at` date in descending order (newest to oldes
 ```csharp
 try
 {
-    var response = await client.Loyalty.ListLoyaltyPromotions(new ListLoyaltyPromotionsOperationRequest
+    var response = await client.Loyalty.ListLoyaltyPromotions(new ListLoyaltyPromotionsRequest
     {
         ProgramId = "some example string",
     });
@@ -12735,7 +13691,7 @@ catch (ApiException<RawError> ex)
 <dl>
 <dd>
 
-<code>[ListLoyaltyPromotionsOperationRequest](src/Square/Requests/Loyalty/ListLoyaltyPromotionsOperationRequest.cs)</code>
+<code>[ListLoyaltyPromotionsRequest](src/Square/Requests/Loyalty/ListLoyaltyPromotionsRequest.cs)</code>
 
 </dd>
 </dl>
@@ -13695,7 +14651,7 @@ catch (ApiException<RawError> ex)
 </details>
 
 <details>
-<summary><code>Task&lt;ListMerchantCustomAttributeDefinitionsResponse&gt; ListMerchantCustomAttributeDefinitions(ListMerchantCustomAttributeDefinitionsOperationRequest request, RequestOptions? requestOptions = null, CancellationToken cancellationToken = default);</code></summary>
+<summary><code>Task&lt;ListMerchantCustomAttributeDefinitionsResponse&gt; ListMerchantCustomAttributeDefinitions(ListMerchantCustomAttributeDefinitionsRequest request, RequestOptions? requestOptions = null, CancellationToken cancellationToken = default);</code></summary>
 
 <dl>
 <dd>
@@ -13722,7 +14678,7 @@ applications and set to `VISIBILITY_READ_ONLY` or `VISIBILITY_READ_WRITE_VALUES`
 try
 {
     var response = await client.MerchantCustomAttributes.ListMerchantCustomAttributeDefinitions(
-        new ListMerchantCustomAttributeDefinitionsOperationRequest());
+        new ListMerchantCustomAttributeDefinitionsRequest());
     // TODO: Handle 'response' of type ListMerchantCustomAttributeDefinitionsResponse
 }
 catch (ApiException<RawError> ex)
@@ -13739,7 +14695,7 @@ catch (ApiException<RawError> ex)
 <dl>
 <dd>
 
-<code>[ListMerchantCustomAttributeDefinitionsOperationRequest](src/Square/Requests/MerchantCustomAttributes/ListMerchantCustomAttributeDefinitionsOperationRequest.cs)</code>
+<code>[ListMerchantCustomAttributeDefinitionsRequest](src/Square/Requests/MerchantCustomAttributes/ListMerchantCustomAttributeDefinitionsRequest.cs)</code>
 
 </dd>
 </dl>
@@ -13762,7 +14718,7 @@ catch (ApiException<RawError> ex)
 </details>
 
 <details>
-<summary><code>Task&lt;ListMerchantCustomAttributesResponse&gt; ListMerchantCustomAttributes(ListMerchantCustomAttributesOperationRequest request, RequestOptions? requestOptions = null, CancellationToken cancellationToken = default);</code></summary>
+<summary><code>Task&lt;ListMerchantCustomAttributesResponse&gt; ListMerchantCustomAttributes(ListMerchantCustomAttributesRequest request, RequestOptions? requestOptions = null, CancellationToken cancellationToken = default);</code></summary>
 
 <dl>
 <dd>
@@ -13791,7 +14747,7 @@ and set to `VISIBILITY_READ_ONLY` or `VISIBILITY_READ_WRITE_VALUES`.
 try
 {
     var response = await client.MerchantCustomAttributes.ListMerchantCustomAttributes(
-        new ListMerchantCustomAttributesOperationRequest { MerchantId = "some example string" });
+        new ListMerchantCustomAttributesRequest { MerchantId = "some example string" });
     // TODO: Handle 'response' of type ListMerchantCustomAttributesResponse
 }
 catch (ApiException<RawError> ex)
@@ -13808,7 +14764,7 @@ catch (ApiException<RawError> ex)
 <dl>
 <dd>
 
-<code>[ListMerchantCustomAttributesOperationRequest](src/Square/Requests/MerchantCustomAttributes/ListMerchantCustomAttributesOperationRequest.cs)</code>
+<code>[ListMerchantCustomAttributesRequest](src/Square/Requests/MerchantCustomAttributes/ListMerchantCustomAttributesRequest.cs)</code>
 
 </dd>
 </dl>
@@ -13831,7 +14787,7 @@ catch (ApiException<RawError> ex)
 </details>
 
 <details>
-<summary><code>Task&lt;RetrieveMerchantCustomAttributeResponse&gt; RetrieveMerchantCustomAttribute(RetrieveMerchantCustomAttributeOperationRequest request, RequestOptions? requestOptions = null, CancellationToken cancellationToken = default);</code></summary>
+<summary><code>Task&lt;RetrieveMerchantCustomAttributeResponse&gt; RetrieveMerchantCustomAttribute(RetrieveMerchantCustomAttributeRequest request, RequestOptions? requestOptions = null, CancellationToken cancellationToken = default);</code></summary>
 
 <dl>
 <dd>
@@ -13859,11 +14815,7 @@ To retrieve a custom attribute owned by another application, the `visibility` se
 try
 {
     var response = await client.MerchantCustomAttributes.RetrieveMerchantCustomAttribute(
-        new RetrieveMerchantCustomAttributeOperationRequest
-        {
-            MerchantId = "some example string",
-            Key = "some example string",
-        });
+        new RetrieveMerchantCustomAttributeRequest { MerchantId = "some example string", Key = "some example string" });
     // TODO: Handle 'response' of type RetrieveMerchantCustomAttributeResponse
 }
 catch (ApiException<RawError> ex)
@@ -13880,7 +14832,7 @@ catch (ApiException<RawError> ex)
 <dl>
 <dd>
 
-<code>[RetrieveMerchantCustomAttributeOperationRequest](src/Square/Requests/MerchantCustomAttributes/RetrieveMerchantCustomAttributeOperationRequest.cs)</code>
+<code>[RetrieveMerchantCustomAttributeRequest](src/Square/Requests/MerchantCustomAttributes/RetrieveMerchantCustomAttributeRequest.cs)</code>
 
 </dd>
 </dl>
@@ -13903,7 +14855,7 @@ catch (ApiException<RawError> ex)
 </details>
 
 <details>
-<summary><code>Task&lt;RetrieveMerchantCustomAttributeDefinitionResponse&gt; RetrieveMerchantCustomAttributeDefinition(RetrieveMerchantCustomAttributeDefinitionOperationRequest request, RequestOptions? requestOptions = null, CancellationToken cancellationToken = default);</code></summary>
+<summary><code>Task&lt;RetrieveMerchantCustomAttributeDefinitionResponse&gt; RetrieveMerchantCustomAttributeDefinition(RetrieveMerchantCustomAttributeDefinitionRequest request, RequestOptions? requestOptions = null, CancellationToken cancellationToken = default);</code></summary>
 
 <dl>
 <dd>
@@ -13929,7 +14881,7 @@ setting must be `VISIBILITY_READ_ONLY` or `VISIBILITY_READ_WRITE_VALUES`.
 try
 {
     var response = await client.MerchantCustomAttributes.RetrieveMerchantCustomAttributeDefinition(
-        new RetrieveMerchantCustomAttributeDefinitionOperationRequest { Key = "some example string" });
+        new RetrieveMerchantCustomAttributeDefinitionRequest { Key = "some example string" });
     // TODO: Handle 'response' of type RetrieveMerchantCustomAttributeDefinitionResponse
 }
 catch (ApiException<RawError> ex)
@@ -13946,7 +14898,7 @@ catch (ApiException<RawError> ex)
 <dl>
 <dd>
 
-<code>[RetrieveMerchantCustomAttributeDefinitionOperationRequest](src/Square/Requests/MerchantCustomAttributes/RetrieveMerchantCustomAttributeDefinitionOperationRequest.cs)</code>
+<code>[RetrieveMerchantCustomAttributeDefinitionRequest](src/Square/Requests/MerchantCustomAttributes/RetrieveMerchantCustomAttributeDefinitionRequest.cs)</code>
 
 </dd>
 </dl>
@@ -14121,7 +15073,7 @@ catch (ApiException<RawError> ex)
 > Source: [Merchants](src/Square/Api/Merchants.cs)
 
 <details>
-<summary><code>Task&lt;ListMerchantsResponse&gt; ListMerchants(ListMerchantsOperationRequest request, RequestOptions? requestOptions = null, CancellationToken cancellationToken = default);</code></summary>
+<summary><code>Task&lt;ListMerchantsResponse&gt; ListMerchants(ListMerchantsRequest request, RequestOptions? requestOptions = null, CancellationToken cancellationToken = default);</code></summary>
 
 <dl>
 <dd>
@@ -14153,7 +15105,7 @@ endpoint to retrieve the merchant information.
 ```csharp
 try
 {
-    var response = await client.Merchants.ListMerchants(new ListMerchantsOperationRequest());
+    var response = await client.Merchants.ListMerchants(new ListMerchantsRequest());
     // TODO: Handle 'response' of type ListMerchantsResponse
 }
 catch (ApiException<RawError> ex)
@@ -14170,7 +15122,7 @@ catch (ApiException<RawError> ex)
 <dl>
 <dd>
 
-<code>[ListMerchantsOperationRequest](src/Square/Requests/Merchants/ListMerchantsOperationRequest.cs)</code>
+<code>[ListMerchantsRequest](src/Square/Requests/Merchants/ListMerchantsRequest.cs)</code>
 
 </dd>
 </dl>
@@ -14273,11 +15225,14 @@ catch (ApiException<RawError> ex)
 <dl>
 <dd>
 
+__Note:__ This endpoint is used by the deprecated Reader SDK. 
+Developers should update their integration to use the [Mobile Payments SDK](https://developer.squareup.com/docs/mobile-payments-sdk), which includes its own authorization methods. 
+
 Generates code to authorize a mobile application to connect to a Square card reader.
 
 Authorization codes are one-time-use codes and expire 60 minutes after being issued.
 
-__Important:__ The `Authorization` header you provide to this endpoint must have the following format:
+The `Authorization` header you provide to this endpoint must have the following format:
 
 ```
 Authorization: Bearer ACCESS_TOKEN
@@ -14352,22 +15307,26 @@ catch (ApiException<RawError> ex)
 <dl>
 <dd>
 
-Returns an OAuth access token and a refresh token unless the 
-`short_lived` parameter is set to `true`, in which case the endpoint 
-returns only an access token.
+Returns an OAuth access token and refresh token using the `authorization_code`
+or `refresh_token` grant type.
 
-The `grant_type` parameter specifies the type of OAuth request. If 
-`grant_type` is `authorization_code`, you must include the authorization 
-code you received when a seller granted you authorization. If `grant_type` 
-is `refresh_token`, you must provide a valid refresh token. If you're using 
-an old version of the Square APIs (prior to March 13, 2019), `grant_type` 
-can be `migration_token` and you must provide a valid migration token.
+When `grant_type` is `authorization_code`:
+- With the [code flow](https://developer.squareup.com/docs/oauth-api/overview#code-flow),
+provide `code`, `client_id`, and `client_secret`.
+- With the [PKCE flow](https://developer.squareup.com/docs/oauth-api/overview#pkce-flow),
+provide `code`, `client_id`, and `code_verifier`. 
 
-You can use the `scopes` parameter to limit the set of permissions granted 
-to the access token and refresh token. You can use the `short_lived` parameter 
-to create an access token that expires in 24 hours.
+When `grant_type` is `refresh_token`:
+- With the code flow, provide `refresh_token`, `client_id`, and `client_secret`.
+The response returns the same refresh token provided in the request.
+- With the PKCE flow, provide `refresh_token` and `client_id`. The response returns
+a new refresh token.
 
-__Note:__ OAuth tokens should be encrypted and stored on a secure server. 
+You can use the `scopes` parameter to limit the set of permissions authorized by the
+access token. You can use the `short_lived` parameter to create an access token that
+expires in 24 hours.
+
+__Important:__ OAuth tokens should be encrypted and stored on a secure server.
 Application clients should never interact directly with OAuth tokens.
 
 </dd>
@@ -14960,7 +15919,7 @@ catch (ApiException<RawError> ex)
 </details>
 
 <details>
-<summary><code>Task&lt;ListOrderCustomAttributeDefinitionsResponse&gt; ListOrderCustomAttributeDefinitions(ListOrderCustomAttributeDefinitionsOperationRequest request, RequestOptions? requestOptions = null, CancellationToken cancellationToken = default);</code></summary>
+<summary><code>Task&lt;ListOrderCustomAttributeDefinitionsResponse&gt; ListOrderCustomAttributeDefinitions(ListOrderCustomAttributeDefinitionsRequest request, RequestOptions? requestOptions = null, CancellationToken cancellationToken = default);</code></summary>
 
 <dl>
 <dd>
@@ -14989,7 +15948,7 @@ seller-defined custom attributes (also known as custom fields) are always set to
 try
 {
     var response = await client.OrderCustomAttributes.ListOrderCustomAttributeDefinitions(
-        new ListOrderCustomAttributeDefinitionsOperationRequest());
+        new ListOrderCustomAttributeDefinitionsRequest());
     // TODO: Handle 'response' of type ListOrderCustomAttributeDefinitionsResponse
 }
 catch (ApiException<RawError> ex)
@@ -15006,7 +15965,7 @@ catch (ApiException<RawError> ex)
 <dl>
 <dd>
 
-<code>[ListOrderCustomAttributeDefinitionsOperationRequest](src/Square/Requests/OrderCustomAttributes/ListOrderCustomAttributeDefinitionsOperationRequest.cs)</code>
+<code>[ListOrderCustomAttributeDefinitionsRequest](src/Square/Requests/OrderCustomAttributes/ListOrderCustomAttributeDefinitionsRequest.cs)</code>
 
 </dd>
 </dl>
@@ -15029,7 +15988,7 @@ catch (ApiException<RawError> ex)
 </details>
 
 <details>
-<summary><code>Task&lt;ListOrderCustomAttributesResponse&gt; ListOrderCustomAttributes(ListOrderCustomAttributesOperationRequest request, RequestOptions? requestOptions = null, CancellationToken cancellationToken = default);</code></summary>
+<summary><code>Task&lt;ListOrderCustomAttributesResponse&gt; ListOrderCustomAttributes(ListOrderCustomAttributesRequest request, RequestOptions? requestOptions = null, CancellationToken cancellationToken = default);</code></summary>
 
 <dl>
 <dd>
@@ -15059,8 +16018,10 @@ and set to `VISIBILITY_READ_ONLY` or `VISIBILITY_READ_WRITE_VALUES`.
 ```csharp
 try
 {
-    var response = await client.OrderCustomAttributes.ListOrderCustomAttributes(
-        new ListOrderCustomAttributesOperationRequest { OrderId = "some example string" });
+    var response = await client.OrderCustomAttributes.ListOrderCustomAttributes(new ListOrderCustomAttributesRequest
+    {
+        OrderId = "some example string",
+    });
     // TODO: Handle 'response' of type ListOrderCustomAttributesResponse
 }
 catch (ApiException<RawError> ex)
@@ -15077,7 +16038,7 @@ catch (ApiException<RawError> ex)
 <dl>
 <dd>
 
-<code>[ListOrderCustomAttributesOperationRequest](src/Square/Requests/OrderCustomAttributes/ListOrderCustomAttributesOperationRequest.cs)</code>
+<code>[ListOrderCustomAttributesRequest](src/Square/Requests/OrderCustomAttributes/ListOrderCustomAttributesRequest.cs)</code>
 
 </dd>
 </dl>
@@ -15100,7 +16061,7 @@ catch (ApiException<RawError> ex)
 </details>
 
 <details>
-<summary><code>Task&lt;RetrieveOrderCustomAttributeResponse&gt; RetrieveOrderCustomAttribute(RetrieveOrderCustomAttributeOperationRequest request, RequestOptions? requestOptions = null, CancellationToken cancellationToken = default);</code></summary>
+<summary><code>Task&lt;RetrieveOrderCustomAttributeResponse&gt; RetrieveOrderCustomAttribute(RetrieveOrderCustomAttributeRequest request, RequestOptions? requestOptions = null, CancellationToken cancellationToken = default);</code></summary>
 
 <dl>
 <dd>
@@ -15131,7 +16092,7 @@ also known as custom fields) are always set to `VISIBILITY_READ_WRITE_VALUES`.
 try
 {
     var response = await client.OrderCustomAttributes.RetrieveOrderCustomAttribute(
-        new RetrieveOrderCustomAttributeOperationRequest
+        new RetrieveOrderCustomAttributeRequest
         {
             OrderId = "some example string",
             CustomAttributeKey = "some example string",
@@ -15152,7 +16113,7 @@ catch (ApiException<RawError> ex)
 <dl>
 <dd>
 
-<code>[RetrieveOrderCustomAttributeOperationRequest](src/Square/Requests/OrderCustomAttributes/RetrieveOrderCustomAttributeOperationRequest.cs)</code>
+<code>[RetrieveOrderCustomAttributeRequest](src/Square/Requests/OrderCustomAttributes/RetrieveOrderCustomAttributeRequest.cs)</code>
 
 </dd>
 </dl>
@@ -15175,7 +16136,7 @@ catch (ApiException<RawError> ex)
 </details>
 
 <details>
-<summary><code>Task&lt;RetrieveOrderCustomAttributeDefinitionResponse&gt; RetrieveOrderCustomAttributeDefinition(RetrieveOrderCustomAttributeDefinitionOperationRequest request, RequestOptions? requestOptions = null, CancellationToken cancellationToken = default);</code></summary>
+<summary><code>Task&lt;RetrieveOrderCustomAttributeDefinitionResponse&gt; RetrieveOrderCustomAttributeDefinition(RetrieveOrderCustomAttributeDefinitionRequest request, RequestOptions? requestOptions = null, CancellationToken cancellationToken = default);</code></summary>
 
 <dl>
 <dd>
@@ -15203,7 +16164,7 @@ setting must be `VISIBILITY_READ_ONLY` or `VISIBILITY_READ_WRITE_VALUES`. Note t
 try
 {
     var response = await client.OrderCustomAttributes.RetrieveOrderCustomAttributeDefinition(
-        new RetrieveOrderCustomAttributeDefinitionOperationRequest { Key = "some example string" });
+        new RetrieveOrderCustomAttributeDefinitionRequest { Key = "some example string" });
     // TODO: Handle 'response' of type RetrieveOrderCustomAttributeDefinitionResponse
 }
 catch (ApiException<RawError> ex)
@@ -15220,7 +16181,7 @@ catch (ApiException<RawError> ex)
 <dl>
 <dd>
 
-<code>[RetrieveOrderCustomAttributeDefinitionOperationRequest](src/Square/Requests/OrderCustomAttributes/RetrieveOrderCustomAttributeDefinitionOperationRequest.cs)</code>
+<code>[RetrieveOrderCustomAttributeDefinitionRequest](src/Square/Requests/OrderCustomAttributes/RetrieveOrderCustomAttributeDefinitionRequest.cs)</code>
 
 </dd>
 </dl>
@@ -16323,7 +17284,7 @@ catch (ApiException<RawError> ex)
 </details>
 
 <details>
-<summary><code>Task&lt;ListPaymentsResponse&gt; ListPayments(ListPaymentsOperationRequest request, RequestOptions? requestOptions = null, CancellationToken cancellationToken = default);</code></summary>
+<summary><code>Task&lt;ListPaymentsResponse&gt; ListPayments(ListPaymentsRequest request, RequestOptions? requestOptions = null, CancellationToken cancellationToken = default);</code></summary>
 
 <dl>
 <dd>
@@ -16351,7 +17312,7 @@ The maximum results per page is 100.
 ```csharp
 try
 {
-    var response = await client.Payments.ListPayments(new ListPaymentsOperationRequest());
+    var response = await client.Payments.ListPayments(new ListPaymentsRequest());
     // TODO: Handle 'response' of type ListPaymentsResponse
 }
 catch (ApiException<RawError> ex)
@@ -16368,7 +17329,7 @@ catch (ApiException<RawError> ex)
 <dl>
 <dd>
 
-<code>[ListPaymentsOperationRequest](src/Square/Requests/Payments/ListPaymentsOperationRequest.cs)</code>
+<code>[ListPaymentsRequest](src/Square/Requests/Payments/ListPaymentsRequest.cs)</code>
 
 </dd>
 </dl>
@@ -16527,7 +17488,7 @@ catch (ApiException<RawError> ex)
 </details>
 
 <details>
-<summary><code>Task&lt;ListPayoutEntriesResponse&gt; ListPayoutEntries(ListPayoutEntriesOperationRequest request, RequestOptions? requestOptions = null, CancellationToken cancellationToken = default);</code></summary>
+<summary><code>Task&lt;ListPayoutEntriesResponse&gt; ListPayoutEntries(ListPayoutEntriesRequest request, RequestOptions? requestOptions = null, CancellationToken cancellationToken = default);</code></summary>
 
 <dl>
 <dd>
@@ -16551,7 +17512,7 @@ To call this endpoint, set `PAYOUTS_READ` for the OAuth scope.
 ```csharp
 try
 {
-    var response = await client.Payouts.ListPayoutEntries(new ListPayoutEntriesOperationRequest
+    var response = await client.Payouts.ListPayoutEntries(new ListPayoutEntriesRequest
     {
         PayoutId = "some example string",
     });
@@ -16571,7 +17532,7 @@ catch (ApiException<RawError> ex)
 <dl>
 <dd>
 
-<code>[ListPayoutEntriesOperationRequest](src/Square/Requests/Payouts/ListPayoutEntriesOperationRequest.cs)</code>
+<code>[ListPayoutEntriesRequest](src/Square/Requests/Payouts/ListPayoutEntriesRequest.cs)</code>
 
 </dd>
 </dl>
@@ -16594,7 +17555,7 @@ catch (ApiException<RawError> ex)
 </details>
 
 <details>
-<summary><code>Task&lt;ListPayoutsResponse&gt; ListPayouts(ListPayoutsOperationRequest request, RequestOptions? requestOptions = null, CancellationToken cancellationToken = default);</code></summary>
+<summary><code>Task&lt;ListPayoutsResponse&gt; ListPayouts(ListPayoutsRequest request, RequestOptions? requestOptions = null, CancellationToken cancellationToken = default);</code></summary>
 
 <dl>
 <dd>
@@ -16619,7 +17580,7 @@ To call this endpoint, set `PAYOUTS_READ` for the OAuth scope.
 ```csharp
 try
 {
-    var response = await client.Payouts.ListPayouts(new ListPayoutsOperationRequest());
+    var response = await client.Payouts.ListPayouts(new ListPayoutsRequest());
     // TODO: Handle 'response' of type ListPayoutsResponse
 }
 catch (ApiException<RawError> ex)
@@ -16636,7 +17597,7 @@ catch (ApiException<RawError> ex)
 <dl>
 <dd>
 
-<code>[ListPayoutsOperationRequest](src/Square/Requests/Payouts/ListPayoutsOperationRequest.cs)</code>
+<code>[ListPayoutsRequest](src/Square/Requests/Payouts/ListPayoutsRequest.cs)</code>
 
 </dd>
 </dl>
@@ -16729,7 +17690,7 @@ catch (ApiException<RawError> ex)
 </details>
 
 <details>
-<summary><code>Task&lt;ListPaymentRefundsResponse&gt; ListPaymentRefunds(ListPaymentRefundsOperationRequest request, RequestOptions? requestOptions = null, CancellationToken cancellationToken = default);</code></summary>
+<summary><code>Task&lt;ListPaymentRefundsResponse&gt; ListPaymentRefunds(ListPaymentRefundsRequest request, RequestOptions? requestOptions = null, CancellationToken cancellationToken = default);</code></summary>
 
 <dl>
 <dd>
@@ -16757,7 +17718,7 @@ The maximum results per page is 100.
 ```csharp
 try
 {
-    var response = await client.Refunds.ListPaymentRefunds(new ListPaymentRefundsOperationRequest());
+    var response = await client.Refunds.ListPaymentRefunds(new ListPaymentRefundsRequest());
     // TODO: Handle 'response' of type ListPaymentRefundsResponse
 }
 catch (ApiException<RawError> ex)
@@ -16774,7 +17735,7 @@ catch (ApiException<RawError> ex)
 <dl>
 <dd>
 
-<code>[ListPaymentRefundsOperationRequest](src/Square/Requests/Refunds/ListPaymentRefundsOperationRequest.cs)</code>
+<code>[ListPaymentRefundsRequest](src/Square/Requests/Refunds/ListPaymentRefundsRequest.cs)</code>
 
 </dd>
 </dl>
@@ -17491,7 +18452,7 @@ catch (ApiException<RawError> ex)
 </details>
 
 <details>
-<summary><code>Task&lt;ListSubscriptionEventsResponse&gt; ListSubscriptionEvents(ListSubscriptionEventsOperationRequest request, RequestOptions? requestOptions = null, CancellationToken cancellationToken = default);</code></summary>
+<summary><code>Task&lt;ListSubscriptionEventsResponse&gt; ListSubscriptionEvents(ListSubscriptionEventsRequest request, RequestOptions? requestOptions = null, CancellationToken cancellationToken = default);</code></summary>
 
 <dl>
 <dd>
@@ -17514,7 +18475,7 @@ Lists all [events](https://developer.squareup.com/docs/subscriptions-api/actions
 ```csharp
 try
 {
-    var response = await client.Subscriptions.ListSubscriptionEvents(new ListSubscriptionEventsOperationRequest
+    var response = await client.Subscriptions.ListSubscriptionEvents(new ListSubscriptionEventsRequest
     {
         SubscriptionId = "some example string",
     });
@@ -17534,7 +18495,7 @@ catch (ApiException<RawError> ex)
 <dl>
 <dd>
 
-<code>[ListSubscriptionEventsOperationRequest](src/Square/Requests/Subscriptions/ListSubscriptionEventsOperationRequest.cs)</code>
+<code>[ListSubscriptionEventsRequest](src/Square/Requests/Subscriptions/ListSubscriptionEventsRequest.cs)</code>
 
 </dd>
 </dl>
@@ -17691,7 +18652,7 @@ catch (ApiException<RawError> ex)
 </details>
 
 <details>
-<summary><code>Task&lt;RetrieveSubscriptionResponse&gt; RetrieveSubscription(RetrieveSubscriptionOperationRequest request, RequestOptions? requestOptions = null, CancellationToken cancellationToken = default);</code></summary>
+<summary><code>Task&lt;RetrieveSubscriptionResponse&gt; RetrieveSubscription(RetrieveSubscriptionRequest request, RequestOptions? requestOptions = null, CancellationToken cancellationToken = default);</code></summary>
 
 <dl>
 <dd>
@@ -17714,7 +18675,7 @@ Retrieves a specific subscription.
 ```csharp
 try
 {
-    var response = await client.Subscriptions.RetrieveSubscription(new RetrieveSubscriptionOperationRequest
+    var response = await client.Subscriptions.RetrieveSubscription(new RetrieveSubscriptionRequest
     {
         SubscriptionId = "some example string",
     });
@@ -17734,7 +18695,7 @@ catch (ApiException<RawError> ex)
 <dl>
 <dd>
 
-<code>[RetrieveSubscriptionOperationRequest](src/Square/Requests/Subscriptions/RetrieveSubscriptionOperationRequest.cs)</code>
+<code>[RetrieveSubscriptionRequest](src/Square/Requests/Subscriptions/RetrieveSubscriptionRequest.cs)</code>
 
 </dd>
 </dl>
@@ -18261,7 +19222,7 @@ catch (ApiException<RawError> ex)
 </details>
 
 <details>
-<summary><code>Task&lt;ListJobsResponse&gt; ListJobs(ListJobsOperationRequest request, RequestOptions? requestOptions = null, CancellationToken cancellationToken = default);</code></summary>
+<summary><code>Task&lt;ListJobsResponse&gt; ListJobs(ListJobsRequest request, RequestOptions? requestOptions = null, CancellationToken cancellationToken = default);</code></summary>
 
 <dl>
 <dd>
@@ -18284,7 +19245,7 @@ Lists jobs in a seller account. Results are sorted by title in ascending order.
 ```csharp
 try
 {
-    var response = await client.Team.ListJobs(new ListJobsOperationRequest());
+    var response = await client.Team.ListJobs(new ListJobsRequest());
     // TODO: Handle 'response' of type ListJobsResponse
 }
 catch (ApiException<RawError> ex)
@@ -18301,7 +19262,7 @@ catch (ApiException<RawError> ex)
 <dl>
 <dd>
 
-<code>[ListJobsOperationRequest](src/Square/Requests/Team/ListJobsOperationRequest.cs)</code>
+<code>[ListJobsRequest](src/Square/Requests/Team/ListJobsRequest.cs)</code>
 
 </dd>
 </dl>
@@ -19889,7 +20850,7 @@ catch (ApiException<RawError> ex)
 </details>
 
 <details>
-<summary><code>Task&lt;ListTransactionsResponse&gt; ListTransactions(ListTransactionsOperationRequest request, RequestOptions? requestOptions = null, CancellationToken cancellationToken = default);</code></summary>
+<summary><code>Task&lt;ListTransactionsResponse&gt; ListTransactions(ListTransactionsRequest request, RequestOptions? requestOptions = null, CancellationToken cancellationToken = default);</code></summary>
 
 <dl>
 <dd>
@@ -19917,7 +20878,7 @@ Max results per [page](https://developer.squareup.com/docs/working-with-apis/pag
 ```csharp
 try
 {
-    var response = await client.Transactions.ListTransactions(new ListTransactionsOperationRequest
+    var response = await client.Transactions.ListTransactions(new ListTransactionsRequest
     {
         LocationId = "some example string",
     });
@@ -19937,7 +20898,7 @@ catch (ApiException<RawError> ex)
 <dl>
 <dd>
 
-<code>[ListTransactionsOperationRequest](src/Square/Requests/Transactions/ListTransactionsOperationRequest.cs)</code>
+<code>[ListTransactionsRequest](src/Square/Requests/Transactions/ListTransactionsRequest.cs)</code>
 
 </dd>
 </dl>
@@ -20098,12 +21059,633 @@ catch (ApiException<RawError> ex)
 
 </details>
 
+## TransferOrderApi
+
+> Source: [TransferOrderApi](src/Square/Api/TransferOrderApi.cs)
+
+<details>
+<summary><code>Task&lt;CancelTransferOrderResponse&gt; CancelTransferOrder(CancelTransferOrderOperationRequest request, RequestOptions? requestOptions = null, CancellationToken cancellationToken = default);</code></summary>
+
+<dl>
+<dd>
+
+### Description
+
+<dl>
+<dd>
+
+Cancels a transfer order in [STARTED](entity:TransferOrderStatus) or 
+[PARTIALLY_RECEIVED](entity:TransferOrderStatus) status. Any unreceived quantities will no
+longer be receivable and will be immediately returned to the source [Location](entity:Location)'s inventory.
+
+Common reasons for cancellation:
+- Items no longer needed at destination
+- Source location needs the inventory
+- Order created in error
+
+Creates a [transfer_order.updated](webhook:transfer_order.updated) webhook event.
+
+</dd>
+</dl>
+
+### Usage
+
+<dl>
+<dd>
+
+```csharp
+try
+{
+    var response = await client.TransferOrderApi.CancelTransferOrder(new CancelTransferOrderOperationRequest
+    {
+        TransferOrderId = "some example string",
+        Body = new CancelTransferOrderRequest { IdempotencyKey = "some example string" },
+    });
+    // TODO: Handle 'response' of type CancelTransferOrderResponse
+}
+catch (ApiException<RawError> ex)
+{
+    // TODO: Handle 'ex.Error' of type RawError
+}
+```
+
+</dd>
+</dl>
+
+### Request
+
+<dl>
+<dd>
+
+<code>[CancelTransferOrderOperationRequest](src/Square/Requests/TransferOrderApi/CancelTransferOrderOperationRequest.cs)</code>
+
+</dd>
+</dl>
+
+### Response
+
+<dl>
+<dd>
+
+**OnSuccess**: <code>[CancelTransferOrderResponse](src/Square/Models/CancelTransferOrderResponse.cs)</code>
+
+**OnError**: <code>[ApiException](src/Square/Core/Exceptions/ApiException.cs)&lt;[RawError](src/Square/Core/ErrorResponse/RawError.cs)&gt;</code>
+
+</dd>
+</dl>
+
+</dd>
+</dl>
+
+</details>
+
+<details>
+<summary><code>Task&lt;CreateTransferOrderResponse&gt; CreateTransferOrder(CreateTransferOrderOperationRequest request, RequestOptions? requestOptions = null, CancellationToken cancellationToken = default);</code></summary>
+
+<dl>
+<dd>
+
+### Description
+
+<dl>
+<dd>
+
+Creates a new transfer order in [DRAFT](entity:TransferOrderStatus) status. A transfer order represents the intent 
+to move [CatalogItemVariation](entity:CatalogItemVariation)s from one [Location](entity:Location) to another. 
+The source and destination locations must be different and must belong to your Square account.
+
+In [DRAFT](entity:TransferOrderStatus) status, you can:
+- Add or remove items
+- Modify quantities
+- Update shipping information
+- Delete the entire order via [DeleteTransferOrder](api-endpoint:TransferOrders-DeleteTransferOrder)
+
+The request requires source_location_id and destination_location_id.
+Inventory levels are not affected until the order is started via 
+[StartTransferOrder](api-endpoint:TransferOrders-StartTransferOrder).
+
+Common integration points:
+- Sync with warehouse management systems
+- Automate regular stock transfers
+- Initialize transfers from inventory optimization systems
+
+Creates a [transfer_order.created](webhook:transfer_order.created) webhook event.
+
+</dd>
+</dl>
+
+### Usage
+
+<dl>
+<dd>
+
+```csharp
+try
+{
+    var response = await client.TransferOrderApi.CreateTransferOrder(new CreateTransferOrderOperationRequest
+    {
+        Body = new CreateTransferOrderRequest
+        {
+            IdempotencyKey = "some example string",
+            TransferOrder = new CreateTransferOrderData
+            {
+                SourceLocationId = "some example string",
+                DestinationLocationId = "some example string",
+            },
+        },
+    });
+    // TODO: Handle 'response' of type CreateTransferOrderResponse
+}
+catch (ApiException<RawError> ex)
+{
+    // TODO: Handle 'ex.Error' of type RawError
+}
+```
+
+</dd>
+</dl>
+
+### Request
+
+<dl>
+<dd>
+
+<code>[CreateTransferOrderOperationRequest](src/Square/Requests/TransferOrderApi/CreateTransferOrderOperationRequest.cs)</code>
+
+</dd>
+</dl>
+
+### Response
+
+<dl>
+<dd>
+
+**OnSuccess**: <code>[CreateTransferOrderResponse](src/Square/Models/CreateTransferOrderResponse.cs)</code>
+
+**OnError**: <code>[ApiException](src/Square/Core/Exceptions/ApiException.cs)&lt;[RawError](src/Square/Core/ErrorResponse/RawError.cs)&gt;</code>
+
+</dd>
+</dl>
+
+</dd>
+</dl>
+
+</details>
+
+<details>
+<summary><code>Task&lt;DeleteTransferOrderResponse&gt; DeleteTransferOrder(DeleteTransferOrderRequest request, RequestOptions? requestOptions = null, CancellationToken cancellationToken = default);</code></summary>
+
+<dl>
+<dd>
+
+### Description
+
+<dl>
+<dd>
+
+Deletes a transfer order in [DRAFT](entity:TransferOrderStatus) status.
+Only draft orders can be deleted. Once an order is started via 
+[StartTransferOrder](api-endpoint:TransferOrders-StartTransferOrder), it can no longer be deleted.
+
+Creates a [transfer_order.deleted](webhook:transfer_order.deleted) webhook event.
+
+</dd>
+</dl>
+
+### Usage
+
+<dl>
+<dd>
+
+```csharp
+try
+{
+    var response = await client.TransferOrderApi.DeleteTransferOrder(new DeleteTransferOrderRequest
+    {
+        TransferOrderId = "some example string",
+    });
+    // TODO: Handle 'response' of type DeleteTransferOrderResponse
+}
+catch (ApiException<RawError> ex)
+{
+    // TODO: Handle 'ex.Error' of type RawError
+}
+```
+
+</dd>
+</dl>
+
+### Request
+
+<dl>
+<dd>
+
+<code>[DeleteTransferOrderRequest](src/Square/Requests/TransferOrderApi/DeleteTransferOrderRequest.cs)</code>
+
+</dd>
+</dl>
+
+### Response
+
+<dl>
+<dd>
+
+**OnSuccess**: <code>[DeleteTransferOrderResponse](src/Square/Models/DeleteTransferOrderResponse.cs)</code>
+
+**OnError**: <code>[ApiException](src/Square/Core/Exceptions/ApiException.cs)&lt;[RawError](src/Square/Core/ErrorResponse/RawError.cs)&gt;</code>
+
+</dd>
+</dl>
+
+</dd>
+</dl>
+
+</details>
+
+<details>
+<summary><code>Task&lt;ReceiveTransferOrderResponse&gt; ReceiveTransferOrder(ReceiveTransferOrderOperationRequest request, RequestOptions? requestOptions = null, CancellationToken cancellationToken = default);</code></summary>
+
+<dl>
+<dd>
+
+### Description
+
+<dl>
+<dd>
+
+Records receipt of [CatalogItemVariation](entity:CatalogItemVariation)s for a transfer order.
+This endpoint supports partial receiving - you can receive items in multiple batches.
+
+For each line item, you can specify:
+- Quantity received in good condition (added to destination inventory with [InventoryState](entity:InventoryState) of IN_STOCK)
+- Quantity damaged during transit/handling (added to destination inventory with [InventoryState](entity:InventoryState) of WASTE)
+- Quantity canceled (returned to source location's inventory)
+
+The order must be in [STARTED](entity:TransferOrderStatus) or [PARTIALLY_RECEIVED](entity:TransferOrderStatus) status.
+Received quantities are added to the destination [Location](entity:Location)'s inventory according to their condition.
+Canceled quantities are immediately returned to the source [Location](entity:Location)'s inventory.
+
+When all items are either received, damaged, or canceled, the order moves to
+[COMPLETED](entity:TransferOrderStatus) status.
+
+Creates a [transfer_order.updated](webhook:transfer_order.updated) webhook event.
+
+</dd>
+</dl>
+
+### Usage
+
+<dl>
+<dd>
+
+```csharp
+try
+{
+    var response = await client.TransferOrderApi.ReceiveTransferOrder(new ReceiveTransferOrderOperationRequest
+    {
+        TransferOrderId = "some example string",
+        Body = new ReceiveTransferOrderRequest
+        {
+            IdempotencyKey = "some example string",
+            Receipt = new TransferOrderGoodsReceipt(),
+        },
+    });
+    // TODO: Handle 'response' of type ReceiveTransferOrderResponse
+}
+catch (ApiException<RawError> ex)
+{
+    // TODO: Handle 'ex.Error' of type RawError
+}
+```
+
+</dd>
+</dl>
+
+### Request
+
+<dl>
+<dd>
+
+<code>[ReceiveTransferOrderOperationRequest](src/Square/Requests/TransferOrderApi/ReceiveTransferOrderOperationRequest.cs)</code>
+
+</dd>
+</dl>
+
+### Response
+
+<dl>
+<dd>
+
+**OnSuccess**: <code>[ReceiveTransferOrderResponse](src/Square/Models/ReceiveTransferOrderResponse.cs)</code>
+
+**OnError**: <code>[ApiException](src/Square/Core/Exceptions/ApiException.cs)&lt;[RawError](src/Square/Core/ErrorResponse/RawError.cs)&gt;</code>
+
+</dd>
+</dl>
+
+</dd>
+</dl>
+
+</details>
+
+<details>
+<summary><code>Task&lt;RetrieveTransferOrderResponse&gt; RetrieveTransferOrder(RetrieveTransferOrderRequest request, RequestOptions? requestOptions = null, CancellationToken cancellationToken = default);</code></summary>
+
+<dl>
+<dd>
+
+### Description
+
+<dl>
+<dd>
+
+Retrieves a specific [TransferOrder](entity:TransferOrder) by ID. Returns the complete
+order details including:
+
+- Basic information (status, dates, notes)
+- Line items with ordered and received quantities
+- Source and destination [Location](entity:Location)s
+- Tracking information (if available)
+
+</dd>
+</dl>
+
+### Usage
+
+<dl>
+<dd>
+
+```csharp
+try
+{
+    var response = await client.TransferOrderApi.RetrieveTransferOrder(new RetrieveTransferOrderRequest
+    {
+        TransferOrderId = "some example string",
+    });
+    // TODO: Handle 'response' of type RetrieveTransferOrderResponse
+}
+catch (ApiException<RawError> ex)
+{
+    // TODO: Handle 'ex.Error' of type RawError
+}
+```
+
+</dd>
+</dl>
+
+### Request
+
+<dl>
+<dd>
+
+<code>[RetrieveTransferOrderRequest](src/Square/Requests/TransferOrderApi/RetrieveTransferOrderRequest.cs)</code>
+
+</dd>
+</dl>
+
+### Response
+
+<dl>
+<dd>
+
+**OnSuccess**: <code>[RetrieveTransferOrderResponse](src/Square/Models/RetrieveTransferOrderResponse.cs)</code>
+
+**OnError**: <code>[ApiException](src/Square/Core/Exceptions/ApiException.cs)&lt;[RawError](src/Square/Core/ErrorResponse/RawError.cs)&gt;</code>
+
+</dd>
+</dl>
+
+</dd>
+</dl>
+
+</details>
+
+<details>
+<summary><code>Task&lt;SearchTransferOrdersResponse&gt; SearchTransferOrders(SearchTransferOrdersOperationRequest request, RequestOptions? requestOptions = null, CancellationToken cancellationToken = default);</code></summary>
+
+<dl>
+<dd>
+
+### Description
+
+<dl>
+<dd>
+
+Searches for transfer orders using filters. Returns a paginated list of matching
+[TransferOrder](entity:TransferOrder)s sorted by creation date.
+
+Common search scenarios:
+- Find orders for a source [Location](entity:Location)
+- Find orders for a destination [Location](entity:Location)
+- Find orders in a particular [TransferOrderStatus](entity:TransferOrderStatus)
+
+</dd>
+</dl>
+
+### Usage
+
+<dl>
+<dd>
+
+```csharp
+try
+{
+    var response = await client.TransferOrderApi.SearchTransferOrders(new SearchTransferOrdersOperationRequest
+    {
+        Body = new SearchTransferOrdersRequest(),
+    });
+    // TODO: Handle 'response' of type SearchTransferOrdersResponse
+}
+catch (ApiException<RawError> ex)
+{
+    // TODO: Handle 'ex.Error' of type RawError
+}
+```
+
+</dd>
+</dl>
+
+### Request
+
+<dl>
+<dd>
+
+<code>[SearchTransferOrdersOperationRequest](src/Square/Requests/TransferOrderApi/SearchTransferOrdersOperationRequest.cs)</code>
+
+</dd>
+</dl>
+
+### Response
+
+<dl>
+<dd>
+
+**OnSuccess**: <code>[SearchTransferOrdersResponse](src/Square/Models/SearchTransferOrdersResponse.cs)</code>
+
+**OnError**: <code>[ApiException](src/Square/Core/Exceptions/ApiException.cs)&lt;[RawError](src/Square/Core/ErrorResponse/RawError.cs)&gt;</code>
+
+</dd>
+</dl>
+
+</dd>
+</dl>
+
+</details>
+
+<details>
+<summary><code>Task&lt;StartTransferOrderResponse&gt; StartTransferOrder(StartTransferOrderOperationRequest request, RequestOptions? requestOptions = null, CancellationToken cancellationToken = default);</code></summary>
+
+<dl>
+<dd>
+
+### Description
+
+<dl>
+<dd>
+
+Changes a [DRAFT](entity:TransferOrderStatus) transfer order to [STARTED](entity:TransferOrderStatus) status.
+This decrements inventory at the source [Location](entity:Location) and marks it as in-transit.
+
+The order must be in [DRAFT](entity:TransferOrderStatus) status and have all required fields populated.
+Once started, the order can no longer be deleted, but it can be canceled via 
+[CancelTransferOrder](api-endpoint:TransferOrders-CancelTransferOrder).
+
+Creates a [transfer_order.updated](webhook:transfer_order.updated) webhook event.
+
+</dd>
+</dl>
+
+### Usage
+
+<dl>
+<dd>
+
+```csharp
+try
+{
+    var response = await client.TransferOrderApi.StartTransferOrder(new StartTransferOrderOperationRequest
+    {
+        TransferOrderId = "some example string",
+        Body = new StartTransferOrderRequest { IdempotencyKey = "some example string" },
+    });
+    // TODO: Handle 'response' of type StartTransferOrderResponse
+}
+catch (ApiException<RawError> ex)
+{
+    // TODO: Handle 'ex.Error' of type RawError
+}
+```
+
+</dd>
+</dl>
+
+### Request
+
+<dl>
+<dd>
+
+<code>[StartTransferOrderOperationRequest](src/Square/Requests/TransferOrderApi/StartTransferOrderOperationRequest.cs)</code>
+
+</dd>
+</dl>
+
+### Response
+
+<dl>
+<dd>
+
+**OnSuccess**: <code>[StartTransferOrderResponse](src/Square/Models/StartTransferOrderResponse.cs)</code>
+
+**OnError**: <code>[ApiException](src/Square/Core/Exceptions/ApiException.cs)&lt;[RawError](src/Square/Core/ErrorResponse/RawError.cs)&gt;</code>
+
+</dd>
+</dl>
+
+</dd>
+</dl>
+
+</details>
+
+<details>
+<summary><code>Task&lt;UpdateTransferOrderResponse&gt; UpdateTransferOrder(UpdateTransferOrderOperationRequest request, RequestOptions? requestOptions = null, CancellationToken cancellationToken = default);</code></summary>
+
+<dl>
+<dd>
+
+### Description
+
+<dl>
+<dd>
+
+Updates an existing transfer order. This endpoint supports sparse updates,
+allowing you to modify specific fields without affecting others.
+
+Creates a [transfer_order.updated](webhook:transfer_order.updated) webhook event.
+
+</dd>
+</dl>
+
+### Usage
+
+<dl>
+<dd>
+
+```csharp
+try
+{
+    var response = await client.TransferOrderApi.UpdateTransferOrder(new UpdateTransferOrderOperationRequest
+    {
+        TransferOrderId = "some example string",
+        Body = new UpdateTransferOrderRequest
+        {
+            IdempotencyKey = "some example string",
+            TransferOrder = new UpdateTransferOrderData(),
+        },
+    });
+    // TODO: Handle 'response' of type UpdateTransferOrderResponse
+}
+catch (ApiException<RawError> ex)
+{
+    // TODO: Handle 'ex.Error' of type RawError
+}
+```
+
+</dd>
+</dl>
+
+### Request
+
+<dl>
+<dd>
+
+<code>[UpdateTransferOrderOperationRequest](src/Square/Requests/TransferOrderApi/UpdateTransferOrderOperationRequest.cs)</code>
+
+</dd>
+</dl>
+
+### Response
+
+<dl>
+<dd>
+
+**OnSuccess**: <code>[UpdateTransferOrderResponse](src/Square/Models/UpdateTransferOrderResponse.cs)</code>
+
+**OnError**: <code>[ApiException](src/Square/Core/Exceptions/ApiException.cs)&lt;[RawError](src/Square/Core/ErrorResponse/RawError.cs)&gt;</code>
+
+</dd>
+</dl>
+
+</dd>
+</dl>
+
+</details>
+
 ## V1Transactions
 
 > Source: [V1Transactions](src/Square/Api/V1Transactions.cs)
 
 <details>
-<summary><code>Task&lt;IReadOnlyList&lt;V1Order&gt;&gt; V1ListOrders(V1ListOrdersOperationRequest request, RequestOptions? requestOptions = null, CancellationToken cancellationToken = default);</code></summary>
+<summary><code>Task&lt;IReadOnlyList&lt;V1Order&gt;&gt; V1ListOrders(V1ListOrdersRequest request, RequestOptions? requestOptions = null, CancellationToken cancellationToken = default);</code></summary>
 
 <dl>
 <dd>
@@ -20126,7 +21708,7 @@ Provides summary information for a merchant's online store orders.
 ```csharp
 try
 {
-    var response = await client.V1Transactions.V1ListOrders(new V1ListOrdersOperationRequest
+    var response = await client.V1Transactions.V1ListOrders(new V1ListOrdersRequest
     {
         LocationId = "some example string",
     });
@@ -20146,7 +21728,7 @@ catch (ApiException<RawError> ex)
 <dl>
 <dd>
 
-<code>[V1ListOrdersOperationRequest](src/Square/Requests/V1Transactions/V1ListOrdersOperationRequest.cs)</code>
+<code>[V1ListOrdersRequest](src/Square/Requests/V1Transactions/V1ListOrdersRequest.cs)</code>
 
 </dd>
 </dl>
@@ -20911,7 +22493,7 @@ catch (ApiException<RawError> ex)
 </details>
 
 <details>
-<summary><code>Task&lt;ListWebhookEventTypesResponse&gt; ListWebhookEventTypes(ListWebhookEventTypesOperationRequest request, RequestOptions? requestOptions = null, CancellationToken cancellationToken = default);</code></summary>
+<summary><code>Task&lt;ListWebhookEventTypesResponse&gt; ListWebhookEventTypes(ListWebhookEventTypesRequest request, RequestOptions? requestOptions = null, CancellationToken cancellationToken = default);</code></summary>
 
 <dl>
 <dd>
@@ -20934,7 +22516,7 @@ Lists all webhook event types that can be subscribed to.
 ```csharp
 try
 {
-    var response = await client.WebhookSubscriptions.ListWebhookEventTypes(new ListWebhookEventTypesOperationRequest());
+    var response = await client.WebhookSubscriptions.ListWebhookEventTypes(new ListWebhookEventTypesRequest());
     // TODO: Handle 'response' of type ListWebhookEventTypesResponse
 }
 catch (ApiException<RawError> ex)
@@ -20951,7 +22533,7 @@ catch (ApiException<RawError> ex)
 <dl>
 <dd>
 
-<code>[ListWebhookEventTypesOperationRequest](src/Square/Requests/WebhookSubscriptions/ListWebhookEventTypesOperationRequest.cs)</code>
+<code>[ListWebhookEventTypesRequest](src/Square/Requests/WebhookSubscriptions/ListWebhookEventTypesRequest.cs)</code>
 
 </dd>
 </dl>
@@ -20974,7 +22556,7 @@ catch (ApiException<RawError> ex)
 </details>
 
 <details>
-<summary><code>Task&lt;ListWebhookSubscriptionsResponse&gt; ListWebhookSubscriptions(ListWebhookSubscriptionsOperationRequest request, RequestOptions? requestOptions = null, CancellationToken cancellationToken = default);</code></summary>
+<summary><code>Task&lt;ListWebhookSubscriptionsResponse&gt; ListWebhookSubscriptions(ListWebhookSubscriptionsRequest request, RequestOptions? requestOptions = null, CancellationToken cancellationToken = default);</code></summary>
 
 <dl>
 <dd>
@@ -20997,8 +22579,7 @@ Lists all webhook subscriptions owned by your application.
 ```csharp
 try
 {
-    var response = await client.WebhookSubscriptions.ListWebhookSubscriptions(
-        new ListWebhookSubscriptionsOperationRequest());
+    var response = await client.WebhookSubscriptions.ListWebhookSubscriptions(new ListWebhookSubscriptionsRequest());
     // TODO: Handle 'response' of type ListWebhookSubscriptionsResponse
 }
 catch (ApiException<RawError> ex)
@@ -21015,7 +22596,7 @@ catch (ApiException<RawError> ex)
 <dl>
 <dd>
 
-<code>[ListWebhookSubscriptionsOperationRequest](src/Square/Requests/WebhookSubscriptions/ListWebhookSubscriptionsOperationRequest.cs)</code>
+<code>[ListWebhookSubscriptionsRequest](src/Square/Requests/WebhookSubscriptions/ListWebhookSubscriptionsRequest.cs)</code>
 
 </dd>
 </dl>

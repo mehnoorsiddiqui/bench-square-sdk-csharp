@@ -226,7 +226,7 @@ public sealed class OrderCustomAttributes
     /// seller-defined custom attributes (also known as custom fields) are always set to <c>VISIBILITY_READ_WRITE_VALUES</c>.
     /// </para>
     /// </remarks>
-    public Task<ListOrderCustomAttributeDefinitionsResponse> ListOrderCustomAttributeDefinitions(ListOrderCustomAttributeDefinitionsOperationRequest request,
+    public Task<ListOrderCustomAttributeDefinitionsResponse> ListOrderCustomAttributeDefinitions(ListOrderCustomAttributeDefinitionsRequest request,
         RequestOptions? requestOptions = null,
         CancellationToken cancellationToken = default) =>
         _rawClient.Execute(
@@ -266,7 +266,7 @@ public sealed class OrderCustomAttributes
     /// and set to <c>VISIBILITY_READ_ONLY</c> or <c>VISIBILITY_READ_WRITE_VALUES</c>.
     /// </para>
     /// </remarks>
-    public Task<ListOrderCustomAttributesResponse> ListOrderCustomAttributes(ListOrderCustomAttributesOperationRequest request,
+    public Task<ListOrderCustomAttributesResponse> ListOrderCustomAttributes(ListOrderCustomAttributesRequest request,
         RequestOptions? requestOptions = null,
         CancellationToken cancellationToken = default) =>
         _rawClient.Execute(
@@ -307,7 +307,7 @@ public sealed class OrderCustomAttributes
     /// also known as custom fields) are always set to <c>VISIBILITY_READ_WRITE_VALUES</c>.
     /// </para>
     /// </remarks>
-    public Task<RetrieveOrderCustomAttributeResponse> RetrieveOrderCustomAttribute(RetrieveOrderCustomAttributeOperationRequest request,
+    public Task<RetrieveOrderCustomAttributeResponse> RetrieveOrderCustomAttribute(RetrieveOrderCustomAttributeRequest request,
         RequestOptions? requestOptions = null,
         CancellationToken cancellationToken = default) =>
         _rawClient.Execute(
@@ -342,7 +342,7 @@ public sealed class OrderCustomAttributes
     /// (also known as custom fields) are always set to <c>VISIBILITY_READ_WRITE_VALUES</c>.
     /// </para>
     /// </remarks>
-    public Task<RetrieveOrderCustomAttributeDefinitionResponse> RetrieveOrderCustomAttributeDefinition(RetrieveOrderCustomAttributeDefinitionOperationRequest request,
+    public Task<RetrieveOrderCustomAttributeDefinitionResponse> RetrieveOrderCustomAttributeDefinition(RetrieveOrderCustomAttributeDefinitionRequest request,
         RequestOptions? requestOptions = null,
         CancellationToken cancellationToken = default) =>
         _rawClient.Execute(

@@ -33,15 +33,6 @@ public record LoyaltyProgramRewardTier
     public string? Name { get; init; }
 
     /// <summary>
-    /// Provides details about the reward tier discount. DEPRECATED at version 2020-12-16. Discount details
-    /// are now defined using a catalog pricing rule and other catalog objects. For more information, see
-    /// <see href="https://developer.squareup.com/docs/loyalty-api/loyalty-rewards#get-discount-details">Getting discount details for a reward tier</see>.
-    /// </summary>
-    [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
-    [JsonPropertyName("definition")]
-    public LoyaltyProgramRewardDefinition? Definition { get; init; }
-
-    /// <summary>
     /// The timestamp when the reward tier was created, in RFC 3339 format.
     /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]

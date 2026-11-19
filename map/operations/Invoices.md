@@ -51,7 +51,7 @@ Accessor: `client.Invoices` · Source: `src/Square/Api/Invoices.cs` · 10 operat
 ### DeleteInvoice
 
 - **Auth**: `options.BearerAuth`
-- **Signature**: `DeleteInvoice(DeleteInvoiceOperationRequest request, RequestOptions? requestOptions = null, CancellationToken cancellationToken = default)`
+- **Signature**: `DeleteInvoice(DeleteInvoiceRequest request, RequestOptions? requestOptions = null, CancellationToken cancellationToken = default)`
   - required: `InvoiceId`
 - **Query params (wire ← C#)**: `version` ← `Version`
 - **Returns**: `DeleteInvoiceResponse`
@@ -59,7 +59,7 @@ Accessor: `client.Invoices` · Source: `src/Square/Api/Invoices.cs` · 10 operat
 
 | Type | Source |
 | --- | --- |
-| `DeleteInvoiceOperationRequest` | `src/Square/Requests/Invoices/DeleteInvoiceOperationRequest.cs` |
+| `DeleteInvoiceRequest` | `src/Square/Requests/Invoices/DeleteInvoiceRequest.cs` |
 | `DeleteInvoiceResponse` | `src/Square/Models/DeleteInvoiceResponse.cs` |
 
 ### DeleteInvoiceAttachment
@@ -91,7 +91,7 @@ Accessor: `client.Invoices` · Source: `src/Square/Api/Invoices.cs` · 10 operat
 ### ListInvoices
 
 - **Auth**: `options.BearerAuth`
-- **Signature**: `ListInvoices(ListInvoicesOperationRequest request, RequestOptions? requestOptions = null, CancellationToken cancellationToken = default)`
+- **Signature**: `ListInvoices(ListInvoicesRequest request, RequestOptions? requestOptions = null, CancellationToken cancellationToken = default)`
   - required: `LocationId`
 - **Query params (wire ← C#)**: `location_id` ← `LocationId`, `cursor` ← `Cursor`, `limit` ← `Limit`
 - **Returns**: `ListInvoicesResponse`
@@ -99,7 +99,7 @@ Accessor: `client.Invoices` · Source: `src/Square/Api/Invoices.cs` · 10 operat
 
 | Type | Source |
 | --- | --- |
-| `ListInvoicesOperationRequest` | `src/Square/Requests/Invoices/ListInvoicesOperationRequest.cs` |
+| `ListInvoicesRequest` | `src/Square/Requests/Invoices/ListInvoicesRequest.cs` |
 | `ListInvoicesResponse` | `src/Square/Models/ListInvoicesResponse.cs` |
 
 ### PublishInvoice

@@ -68,7 +68,7 @@ public sealed class GiftCardActivities
     /// filter the list. For example, you can get a list of gift card activities for a gift card,
     /// for all gift cards in a specific region, or for activities within a time window.
     /// </remarks>
-    public Task<ListGiftCardActivitiesResponse> ListGiftCardActivities(ListGiftCardActivitiesOperationRequest request,
+    public Task<ListGiftCardActivitiesResponse> ListGiftCardActivities(ListGiftCardActivitiesRequest request,
         RequestOptions? requestOptions = null,
         CancellationToken cancellationToken = default) =>
         _rawClient.Execute(

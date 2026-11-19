@@ -258,7 +258,7 @@ public sealed class Catalog
     /// and set the <c>include_deleted_objects</c> attribute value to <c>true</c>.
     /// </para>
     /// </remarks>
-    public Task<ListCatalogResponse> ListCatalog(ListCatalogOperationRequest request,
+    public Task<ListCatalogResponse> ListCatalog(ListCatalogRequest request,
         RequestOptions? requestOptions = null,
         CancellationToken cancellationToken = default) =>
         _rawClient.Execute(
@@ -295,7 +295,7 @@ public sealed class Catalog
     /// <see href="entity:CatalogModifierList">CatalogModifierList</see> objects, and the ids of
     /// any <see href="entity:CatalogTax">CatalogTax</see> objects that apply to it.
     /// </remarks>
-    public Task<RetrieveCatalogObjectResponse> RetrieveCatalogObject(RetrieveCatalogObjectOperationRequest request,
+    public Task<RetrieveCatalogObjectResponse> RetrieveCatalogObject(RetrieveCatalogObjectRequest request,
         RequestOptions? requestOptions = null,
         CancellationToken cancellationToken = default) =>
         _rawClient.Execute(

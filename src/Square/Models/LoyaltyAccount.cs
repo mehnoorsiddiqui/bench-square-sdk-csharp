@@ -54,11 +54,12 @@ public record LoyaltyAccount
     /// The timestamp when the buyer joined the loyalty program, in RFC 3339 format. This field is used to display the <b>Enrolled On</b> or <b>Member Since</b> date in first-party Square products.
     /// <para>
     /// If this field is not set in a <c>CreateLoyaltyAccount</c> request, Square populates it after the buyer's first action on their account
-    /// (when <c>AccumulateLoyaltyPoints</c> or <c>CreateLoyaltyReward</c> is called). In first-party flows, Square populates the field when the buyer agrees to the terms of service in Square Point of Sale.
+    /// (when <c>AccumulateLoyaltyPoints</c> or <c>CreateLoyaltyReward</c> is called). In first-party flows, Square populates the field when the buyer agrees to the terms of service on Square Point of Sale.
     /// </para>
     /// <para>
-    /// This field is typically specified in a <c>CreateLoyaltyAccount</c> request when creating a loyalty account for a buyer who already interacted with their account.
-    /// For example, you would set this field when migrating accounts from an external system. The timestamp in the request can represent a current or previous date and time, but it cannot be set for the future.
+    /// If this field is set in a <c>CreateLoyaltyAccount</c> request, it is meant to be used when there is a loyalty migration from another system and into Square.
+    /// In that case, the timestamp can reflect when the buyer originally enrolled in the previous system. It may represent a current or past date, but cannot be set in the future.
+    /// Note: Setting this field in this scenario does not, by itself, impact the first-party enrollment flow on Square Point of Sale.
     /// </para>
     /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]

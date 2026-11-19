@@ -16,16 +16,22 @@ public sealed record DeviceAttributesDeviceType : OpenStringEnum<DeviceAttribute
 
     public static readonly DeviceAttributesDeviceType Terminal = new("TERMINAL");
 
-    public TResult Match<TResult>(Func<TResult> onTerminal, Func<string, TResult> otherwise) =>
+    public static readonly DeviceAttributesDeviceType Handheld = new("HANDHELD");
+
+    public TResult Match<TResult>(Func<TResult> onTerminal,
+        Func<TResult> onHandheld,
+        Func<string, TResult> otherwise) =>
         this switch
         {
             _ when this == Terminal => onTerminal(),
+            _ when this == Handheld => onHandheld(),
             _ => otherwise(Value)
         };
 
-    public void Match(Action onTerminal, Action<string> otherwise)
+    public void Match(Action onTerminal, Action onHandheld, Action<string> otherwise)
     {
         if (this == Terminal) onTerminal();
+        else if (this == Handheld) onHandheld();
         else otherwise(Value);
     }
 }

@@ -8,6 +8,9 @@ namespace Square.Models;
 /// </summary>
 public record DeviceComponentDetailsMeasurement
 {
+    /// <summary>
+    /// Value of measure.
+    /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("value")]
     public int? Value { get; init; }

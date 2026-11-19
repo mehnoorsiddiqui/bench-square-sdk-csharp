@@ -89,7 +89,7 @@ public sealed class Events
     /// <remarks>
     /// Lists all event types that you can subscribe to as webhooks or query using the Events API.
     /// </remarks>
-    public Task<ListEventTypesResponse> ListEventTypes(ListEventTypesOperationRequest request,
+    public Task<ListEventTypesResponse> ListEventTypes(ListEventTypesRequest request,
         RequestOptions? requestOptions = null,
         CancellationToken cancellationToken = default) =>
         _rawClient.Execute(

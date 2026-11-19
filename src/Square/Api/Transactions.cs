@@ -80,7 +80,7 @@ public sealed class Transactions
     /// Max results per <see href="https://developer.squareup.com/docs/working-with-apis/pagination">page</see>: 50
     /// </para>
     /// </remarks>
-    public Task<ListTransactionsResponse> ListTransactions(ListTransactionsOperationRequest request,
+    public Task<ListTransactionsResponse> ListTransactions(ListTransactionsRequest request,
         RequestOptions? requestOptions = null,
         CancellationToken cancellationToken = default) =>
         _rawClient.Execute(

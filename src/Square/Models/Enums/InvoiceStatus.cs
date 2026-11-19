@@ -5,7 +5,7 @@ using Square.Core.Enum;
 namespace Square.Models.Enums;
 
 /// <summary>
-/// Indicates the status of an invoice.
+/// Indicates the status of an <see href="entity:Invoice">invoice</see>.
 /// </summary>
 [JsonConverter(typeof(StringEnumConverter<InvoiceStatus>))]
 public sealed record InvoiceStatus : OpenStringEnum<InvoiceStatus>
@@ -56,8 +56,8 @@ public sealed record InvoiceStatus : OpenStringEnum<InvoiceStatus>
 
     /// <summary>
     /// The invoice is canceled. Square no longer requests payments from the customer.
-    /// The <c>public_url</c> page remains and is accessible, but it displays the invoice
-    /// as canceled and does not accept payment.
+    /// The Square-hosted payment page is still accessible using the temporary <c>public_url</c>
+    /// link, but the invoice is shown as canceled and does not accept payment.
     /// </summary>
     public static readonly InvoiceStatus Canceled = new("CANCELED");
 

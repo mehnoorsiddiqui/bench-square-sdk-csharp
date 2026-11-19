@@ -35,12 +35,16 @@ public sealed class MobileAuthorization
     /// <returns>A <see cref="Task{TResult}"/> of <see cref="CreateMobileAuthorizationCodeResponse"/> instance.</returns>
     /// <exception cref="ApiException{TError}"> of <see cref="RawError"/> when the server returns an error response.</exception>
     /// <remarks>
+    /// __Note:__ This endpoint is used by the deprecated Reader SDK.
+    /// Developers should update their integration to use the <see href="https://developer.squareup.com/docs/mobile-payments-sdk">Mobile Payments SDK</see>, which includes its own authorization methods.
+    /// <para>
     /// Generates code to authorize a mobile application to connect to a Square card reader.
+    /// </para>
     /// <para>
     /// Authorization codes are one-time-use codes and expire 60 minutes after being issued.
     /// </para>
     /// <para>
-    /// __Important:__ The <c>Authorization</c> header you provide to this endpoint must have the following format:
+    /// The <c>Authorization</c> header you provide to this endpoint must have the following format:
     /// </para>
     /// <code>
     /// Authorization: Bearer ACCESS_TOKEN

@@ -63,7 +63,7 @@ Accessor: `client.Disputes` · Source: `src/Square/Api/Disputes.cs` · 9 operati
 ### ListDisputeEvidence
 
 - **Auth**: `options.BearerAuth`
-- **Signature**: `ListDisputeEvidence(ListDisputeEvidenceOperationRequest request, RequestOptions? requestOptions = null, CancellationToken cancellationToken = default)`
+- **Signature**: `ListDisputeEvidence(ListDisputeEvidenceRequest request, RequestOptions? requestOptions = null, CancellationToken cancellationToken = default)`
   - required: `DisputeId`
 - **Query params (wire ← C#)**: `cursor` ← `Cursor`
 - **Returns**: `ListDisputeEvidenceResponse`
@@ -71,20 +71,20 @@ Accessor: `client.Disputes` · Source: `src/Square/Api/Disputes.cs` · 9 operati
 
 | Type | Source |
 | --- | --- |
-| `ListDisputeEvidenceOperationRequest` | `src/Square/Requests/Disputes/ListDisputeEvidenceOperationRequest.cs` |
+| `ListDisputeEvidenceRequest` | `src/Square/Requests/Disputes/ListDisputeEvidenceRequest.cs` |
 | `ListDisputeEvidenceResponse` | `src/Square/Models/ListDisputeEvidenceResponse.cs` |
 
 ### ListDisputes
 
 - **Auth**: `options.BearerAuth`
-- **Signature**: `ListDisputes(ListDisputesOperationRequest request, RequestOptions? requestOptions = null, CancellationToken cancellationToken = default)`
+- **Signature**: `ListDisputes(ListDisputesRequest request, RequestOptions? requestOptions = null, CancellationToken cancellationToken = default)`
 - **Query params (wire ← C#)**: `cursor` ← `Cursor`, `states` ← `States`, `location_id` ← `LocationId`
 - **Returns**: `ListDisputesResponse`
 - **Error**: `ApiException<RawError>` — **Case B**
 
 | Type | Source |
 | --- | --- |
-| `ListDisputesOperationRequest` | `src/Square/Requests/Disputes/ListDisputesOperationRequest.cs` |
+| `ListDisputesRequest` | `src/Square/Requests/Disputes/ListDisputesRequest.cs` |
 | `DisputeState` | `src/Square/Models/Enums/DisputeState.cs` |
 | `ListDisputesResponse` | `src/Square/Models/ListDisputesResponse.cs` |
 

@@ -177,7 +177,7 @@ public sealed class Bookings
     /// To call this endpoint with seller-level permissions, set <c>APPOINTMENTS_ALL_READ</c> and <c>APPOINTMENTS_READ</c> for the OAuth scope.
     /// </para>
     /// </remarks>
-    public Task<ListBookingsResponse> ListBookings(ListBookingsOperationRequest request,
+    public Task<ListBookingsResponse> ListBookings(ListBookingsRequest request,
         RequestOptions? requestOptions = null,
         CancellationToken cancellationToken = default) =>
         _rawClient.Execute(
@@ -212,7 +212,7 @@ public sealed class Bookings
     /// <remarks>
     /// Lists location booking profiles of a seller.
     /// </remarks>
-    public Task<ListLocationBookingProfilesResponse> ListLocationBookingProfiles(ListLocationBookingProfilesOperationRequest request,
+    public Task<ListLocationBookingProfilesResponse> ListLocationBookingProfiles(ListLocationBookingProfilesRequest request,
         RequestOptions? requestOptions = null,
         CancellationToken cancellationToken = default) =>
         _rawClient.Execute(
@@ -239,7 +239,7 @@ public sealed class Bookings
     /// <remarks>
     /// Lists booking profiles for team members.
     /// </remarks>
-    public Task<ListTeamMemberBookingProfilesResponse> ListTeamMemberBookingProfiles(ListTeamMemberBookingProfilesOperationRequest request,
+    public Task<ListTeamMemberBookingProfilesResponse> ListTeamMemberBookingProfiles(ListTeamMemberBookingProfilesRequest request,
         RequestOptions? requestOptions = null,
         CancellationToken cancellationToken = default) =>
         _rawClient.Execute(

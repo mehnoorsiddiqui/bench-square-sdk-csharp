@@ -50,14 +50,14 @@ Accessor: `client.CheckoutApi` · Source: `src/Square/Api/CheckoutApi.cs` · 10 
 ### ListPaymentLinks
 
 - **Auth**: `options.BearerAuth`
-- **Signature**: `ListPaymentLinks(ListPaymentLinksOperationRequest request, RequestOptions? requestOptions = null, CancellationToken cancellationToken = default)`
+- **Signature**: `ListPaymentLinks(ListPaymentLinksRequest request, RequestOptions? requestOptions = null, CancellationToken cancellationToken = default)`
 - **Query params (wire ← C#)**: `cursor` ← `Cursor`, `limit` ← `Limit`
 - **Returns**: `ListPaymentLinksResponse`
 - **Error**: `ApiException<RawError>` — **Case B**
 
 | Type | Source |
 | --- | --- |
-| `ListPaymentLinksOperationRequest` | `src/Square/Requests/CheckoutApi/ListPaymentLinksOperationRequest.cs` |
+| `ListPaymentLinksRequest` | `src/Square/Requests/CheckoutApi/ListPaymentLinksRequest.cs` |
 | `ListPaymentLinksResponse` | `src/Square/Models/ListPaymentLinksResponse.cs` |
 
 ### RetrieveLocationSettings

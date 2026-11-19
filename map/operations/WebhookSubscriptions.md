@@ -36,27 +36,27 @@ Accessor: `client.WebhookSubscriptions` · Source: `src/Square/Api/WebhookSubscr
 ### ListWebhookEventTypes
 
 - **Auth**: `options.BearerAuth`
-- **Signature**: `ListWebhookEventTypes(ListWebhookEventTypesOperationRequest request, RequestOptions? requestOptions = null, CancellationToken cancellationToken = default)`
+- **Signature**: `ListWebhookEventTypes(ListWebhookEventTypesRequest request, RequestOptions? requestOptions = null, CancellationToken cancellationToken = default)`
 - **Query params (wire ← C#)**: `api_version` ← `ApiVersion`
 - **Returns**: `ListWebhookEventTypesResponse`
 - **Error**: `ApiException<RawError>` — **Case B**
 
 | Type | Source |
 | --- | --- |
-| `ListWebhookEventTypesOperationRequest` | `src/Square/Requests/WebhookSubscriptions/ListWebhookEventTypesOperationRequest.cs` |
+| `ListWebhookEventTypesRequest` | `src/Square/Requests/WebhookSubscriptions/ListWebhookEventTypesRequest.cs` |
 | `ListWebhookEventTypesResponse` | `src/Square/Models/ListWebhookEventTypesResponse.cs` |
 
 ### ListWebhookSubscriptions
 
 - **Auth**: `options.BearerAuth`
-- **Signature**: `ListWebhookSubscriptions(ListWebhookSubscriptionsOperationRequest request, RequestOptions? requestOptions = null, CancellationToken cancellationToken = default)`
+- **Signature**: `ListWebhookSubscriptions(ListWebhookSubscriptionsRequest request, RequestOptions? requestOptions = null, CancellationToken cancellationToken = default)`
 - **Query params (wire ← C#)**: `cursor` ← `Cursor`, `include_disabled` ← `IncludeDisabled`, `sort_order` ← `SortOrder`, `limit` ← `Limit`
 - **Returns**: `ListWebhookSubscriptionsResponse`
 - **Error**: `ApiException<RawError>` — **Case B**
 
 | Type | Source |
 | --- | --- |
-| `ListWebhookSubscriptionsOperationRequest` | `src/Square/Requests/WebhookSubscriptions/ListWebhookSubscriptionsOperationRequest.cs` |
+| `ListWebhookSubscriptionsRequest` | `src/Square/Requests/WebhookSubscriptions/ListWebhookSubscriptionsRequest.cs` |
 | `SortOrder` | `src/Square/Models/Enums/SortOrder.cs` |
 | `ListWebhookSubscriptionsResponse` | `src/Square/Models/ListWebhookSubscriptionsResponse.cs` |
 

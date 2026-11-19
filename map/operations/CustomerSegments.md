@@ -9,14 +9,14 @@ Accessor: `client.CustomerSegments` · Source: `src/Square/Api/CustomerSegments.
 ### ListCustomerSegments
 
 - **Auth**: `options.BearerAuth`
-- **Signature**: `ListCustomerSegments(ListCustomerSegmentsOperationRequest request, RequestOptions? requestOptions = null, CancellationToken cancellationToken = default)`
+- **Signature**: `ListCustomerSegments(ListCustomerSegmentsRequest request, RequestOptions? requestOptions = null, CancellationToken cancellationToken = default)`
 - **Query params (wire ← C#)**: `cursor` ← `Cursor`, `limit` ← `Limit`
 - **Returns**: `ListCustomerSegmentsResponse`
 - **Error**: `ApiException<RawError>` — **Case B**
 
 | Type | Source |
 | --- | --- |
-| `ListCustomerSegmentsOperationRequest` | `src/Square/Requests/CustomerSegments/ListCustomerSegmentsOperationRequest.cs` |
+| `ListCustomerSegmentsRequest` | `src/Square/Requests/CustomerSegments/ListCustomerSegmentsRequest.cs` |
 | `ListCustomerSegmentsResponse` | `src/Square/Models/ListCustomerSegmentsResponse.cs` |
 
 ### RetrieveCustomerSegment

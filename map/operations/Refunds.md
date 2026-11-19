@@ -22,14 +22,15 @@ Accessor: `client.Refunds` · Source: `src/Square/Api/Refunds.cs` · 3 operation
 ### ListPaymentRefunds
 
 - **Auth**: `options.BearerAuth`
-- **Signature**: `ListPaymentRefunds(ListPaymentRefundsOperationRequest request, RequestOptions? requestOptions = null, CancellationToken cancellationToken = default)`
-- **Query params (wire ← C#)**: `begin_time` ← `BeginTime`, `end_time` ← `EndTime`, `sort_order` ← `SortOrder`, `cursor` ← `Cursor`, `location_id` ← `LocationId`, `status` ← `Status`, `source_type` ← `SourceType`, `limit` ← `Limit`
+- **Signature**: `ListPaymentRefunds(ListPaymentRefundsRequest request, RequestOptions? requestOptions = null, CancellationToken cancellationToken = default)`
+- **Query params (wire ← C#)**: `begin_time` ← `BeginTime`, `end_time` ← `EndTime`, `sort_order` ← `SortOrder`, `cursor` ← `Cursor`, `location_id` ← `LocationId`, `status` ← `Status`, `source_type` ← `SourceType`, `limit` ← `Limit`, `updated_at_begin_time` ← `UpdatedAtBeginTime`, `updated_at_end_time` ← `UpdatedAtEndTime`, `sort_field` ← `SortField`
 - **Returns**: `ListPaymentRefundsResponse`
 - **Error**: `ApiException<RawError>` — **Case B**
 
 | Type | Source |
 | --- | --- |
-| `ListPaymentRefundsOperationRequest` | `src/Square/Requests/Refunds/ListPaymentRefundsOperationRequest.cs` |
+| `ListPaymentRefundsRequest` | `src/Square/Requests/Refunds/ListPaymentRefundsRequest.cs` |
+| `ListPaymentRefundsRequestSortField` | `src/Square/Models/Enums/ListPaymentRefundsRequestSortField.cs` |
 | `ListPaymentRefundsResponse` | `src/Square/Models/ListPaymentRefundsResponse.cs` |
 
 ### RefundPayment

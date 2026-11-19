@@ -131,9 +131,13 @@ public record Invoice
     public string? ScheduledAt { get; init; }
 
     /// <summary>
-    /// The URL of the Square-hosted invoice page.
-    /// After you publish the invoice using the <c>PublishInvoice</c> endpoint, Square hosts the invoice
-    /// page and returns the page URL in the response.
+    /// A temporary link to the Square-hosted payment page where the customer can pay the
+    /// invoice. If the link expires, customers can provide the email address or phone number
+    /// associated with the invoice and request a new link directly from the expired payment page.
+    /// <para>
+    /// This field is added after the invoice is published and reaches the scheduled date
+    /// (if one is defined).
+    /// </para>
     /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("public_url")]
@@ -152,7 +156,7 @@ public record Invoice
     public Money? NextPaymentAmountMoney { get; init; }
 
     /// <summary>
-    /// Indicates the status of an invoice.
+    /// Indicates the status of an <see href="entity:Invoice">invoice</see>.
     /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("status")]
@@ -253,6 +257,14 @@ public record Invoice
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("attachments")]
     public IReadOnlyList<InvoiceAttachment>? Attachments { get; init; }
+
+    /// <summary>
+    /// The ID of the <see href="entity:TeamMember">team member</see> who created the invoice.
+    /// This field is present only on invoices created in the Square Dashboard or Square Invoices app by a logged-in team member.
+    /// </summary>
+    [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
+    [JsonPropertyName("creator_team_member_id")]
+    public string? CreatorTeamMemberId { get; init; }
 
     [JsonExtensionData]
     public AdditionalProperties AdditionalProperties { get; init; } = [];

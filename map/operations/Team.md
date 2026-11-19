@@ -65,14 +65,14 @@ Accessor: `client.Team` · Source: `src/Square/Api/Team.cs` · 12 operations
 ### ListJobs
 
 - **Auth**: `options.BearerAuth`
-- **Signature**: `ListJobs(ListJobsOperationRequest request, RequestOptions? requestOptions = null, CancellationToken cancellationToken = default)`
+- **Signature**: `ListJobs(ListJobsRequest request, RequestOptions? requestOptions = null, CancellationToken cancellationToken = default)`
 - **Query params (wire ← C#)**: `cursor` ← `Cursor`
 - **Returns**: `ListJobsResponse`
 - **Error**: `ApiException<RawError>` — **Case B**
 
 | Type | Source |
 | --- | --- |
-| `ListJobsOperationRequest` | `src/Square/Requests/Team/ListJobsOperationRequest.cs` |
+| `ListJobsRequest` | `src/Square/Requests/Team/ListJobsRequest.cs` |
 | `ListJobsResponse` | `src/Square/Models/ListJobsResponse.cs` |
 
 ### RetrieveJob

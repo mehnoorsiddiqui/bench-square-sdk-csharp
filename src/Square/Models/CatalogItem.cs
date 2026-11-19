@@ -231,6 +231,27 @@ public record CatalogItem
     [JsonPropertyName("is_taxable")]
     public bool? IsTaxable { get; init; }
 
+    /// <summary>
+    /// Deprecated. A URI pointing to a published e-commerce product page for the Item.
+    /// </summary>
+    [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
+    [JsonPropertyName("ecom_uri")]
+    public string? EcomUri { get; init; }
+
+    /// <summary>
+    /// Deprecated. A comma-separated list of encoded URIs pointing to a set of published e-commerce images for the Item.
+    /// </summary>
+    [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
+    [JsonPropertyName("ecom_image_uris")]
+    public IReadOnlyList<string>? EcomImageUris { get; init; }
+
+    /// <summary>
+    /// Indicates whether this item is alcoholic (<c>true</c>) or not (<c>false</c>).
+    /// </summary>
+    [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
+    [JsonPropertyName("is_alcoholic")]
+    public bool? IsAlcoholic { get; init; }
+
     [JsonExtensionData]
     public AdditionalProperties AdditionalProperties { get; init; } = [];
 }

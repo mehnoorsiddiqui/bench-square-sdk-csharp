@@ -94,7 +94,7 @@ public sealed class CustomerGroups
     /// <remarks>
     /// Retrieves the list of customer groups of a business.
     /// </remarks>
-    public Task<ListCustomerGroupsResponse> ListCustomerGroups(ListCustomerGroupsOperationRequest request,
+    public Task<ListCustomerGroupsResponse> ListCustomerGroups(ListCustomerGroupsRequest request,
         RequestOptions? requestOptions = null,
         CancellationToken cancellationToken = default) =>
         _rawClient.Execute(

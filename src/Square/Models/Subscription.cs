@@ -184,6 +184,13 @@ public record Subscription
     [JsonPropertyName("phases")]
     public IReadOnlyList<Phase>? Phases { get; init; }
 
+    /// <summary>
+    /// The <c>YYYY-MM-DD</c>-formatted date when the subscription enters a terminal state.
+    /// </summary>
+    [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
+    [JsonPropertyName("completed_date")]
+    public string? CompletedDate { get; init; }
+
     [JsonExtensionData]
     public AdditionalProperties AdditionalProperties { get; init; } = [];
 }

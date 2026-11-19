@@ -36,9 +36,10 @@ public record Refund
     /// <summary>
     /// The ID of the refunded tender.
     /// </summary>
+    [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("tender_id")]
     [MaxLength(192)]
-    public required string TenderId { get; init; }
+    public string? TenderId { get; init; }
 
     /// <summary>
     /// The timestamp for when the refund was created, in RFC 3339 format.

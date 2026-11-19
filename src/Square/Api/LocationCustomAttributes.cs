@@ -197,7 +197,7 @@ public sealed class LocationCustomAttributes
     /// that are visible to the requesting application, including those that are created by other
     /// applications and set to <c>VISIBILITY_READ_ONLY</c> or <c>VISIBILITY_READ_WRITE_VALUES</c>.
     /// </remarks>
-    public Task<ListLocationCustomAttributeDefinitionsResponse> ListLocationCustomAttributeDefinitions(ListLocationCustomAttributeDefinitionsOperationRequest request,
+    public Task<ListLocationCustomAttributeDefinitionsResponse> ListLocationCustomAttributeDefinitions(ListLocationCustomAttributeDefinitionsRequest request,
         RequestOptions? requestOptions = null,
         CancellationToken cancellationToken = default) =>
         _rawClient.Execute(
@@ -233,7 +233,7 @@ public sealed class LocationCustomAttributes
     /// visible to the requesting application, including those that are owned by other applications
     /// and set to <c>VISIBILITY_READ_ONLY</c> or <c>VISIBILITY_READ_WRITE_VALUES</c>.
     /// </remarks>
-    public Task<ListLocationCustomAttributesResponse> ListLocationCustomAttributes(ListLocationCustomAttributesOperationRequest request,
+    public Task<ListLocationCustomAttributesResponse> ListLocationCustomAttributes(ListLocationCustomAttributesRequest request,
         RequestOptions? requestOptions = null,
         CancellationToken cancellationToken = default) =>
         _rawClient.Execute(
@@ -269,7 +269,7 @@ public sealed class LocationCustomAttributes
     /// To retrieve a custom attribute owned by another application, the <c>visibility</c> setting must be
     /// <c>VISIBILITY_READ_ONLY</c> or <c>VISIBILITY_READ_WRITE_VALUES</c>.
     /// </remarks>
-    public Task<RetrieveLocationCustomAttributeResponse> RetrieveLocationCustomAttribute(RetrieveLocationCustomAttributeOperationRequest request,
+    public Task<RetrieveLocationCustomAttributeResponse> RetrieveLocationCustomAttribute(RetrieveLocationCustomAttributeRequest request,
         RequestOptions? requestOptions = null,
         CancellationToken cancellationToken = default) =>
         _rawClient.Execute(
@@ -298,7 +298,7 @@ public sealed class LocationCustomAttributes
     /// To retrieve a custom attribute definition created by another application, the <c>visibility</c>
     /// setting must be <c>VISIBILITY_READ_ONLY</c> or <c>VISIBILITY_READ_WRITE_VALUES</c>.
     /// </remarks>
-    public Task<RetrieveLocationCustomAttributeDefinitionResponse> RetrieveLocationCustomAttributeDefinition(RetrieveLocationCustomAttributeDefinitionOperationRequest request,
+    public Task<RetrieveLocationCustomAttributeDefinitionResponse> RetrieveLocationCustomAttributeDefinition(RetrieveLocationCustomAttributeDefinitionRequest request,
         RequestOptions? requestOptions = null,
         CancellationToken cancellationToken = default) =>
         _rawClient.Execute(

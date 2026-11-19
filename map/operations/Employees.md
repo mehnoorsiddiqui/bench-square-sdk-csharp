@@ -9,14 +9,14 @@ Accessor: `client.Employees` · Source: `src/Square/Api/Employees.cs` · 2 opera
 ### ListEmployees
 
 - **Auth**: `options.BearerAuth`
-- **Signature**: `ListEmployees(ListEmployeesOperationRequest request, RequestOptions? requestOptions = null, CancellationToken cancellationToken = default)`
+- **Signature**: `ListEmployees(ListEmployeesRequest request, RequestOptions? requestOptions = null, CancellationToken cancellationToken = default)`
 - **Query params (wire ← C#)**: `location_id` ← `LocationId`, `status` ← `Status`, `limit` ← `Limit`, `cursor` ← `Cursor`
 - **Returns**: `ListEmployeesResponse`
 - **Error**: `ApiException<RawError>` — **Case B**
 
 | Type | Source |
 | --- | --- |
-| `ListEmployeesOperationRequest` | `src/Square/Requests/Employees/ListEmployeesOperationRequest.cs` |
+| `ListEmployeesRequest` | `src/Square/Requests/Employees/ListEmployeesRequest.cs` |
 | `EmployeeStatus` | `src/Square/Models/Enums/EmployeeStatus.cs` |
 | `ListEmployeesResponse` | `src/Square/Models/ListEmployeesResponse.cs` |
 

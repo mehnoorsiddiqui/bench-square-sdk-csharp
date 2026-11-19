@@ -8,6 +8,9 @@ namespace Square.Models;
 /// <summary>
 /// Defines a filter used in a search for <c>Shift</c> records. <c>AND</c> logic is
 /// used by Square's servers to apply each filter property specified.
+/// <para>
+/// Deprecated at Square API version 2025-05-21. See the <see href="https://developer.squareup.com/docs/labor-api/what-it-does#migration-notes">migration notes</see>.
+/// </para>
 /// </summary>
 public record ShiftFilter
 {
@@ -27,6 +30,9 @@ public record ShiftFilter
 
     /// <summary>
     /// Specifies the <c>status</c> of <c>Shift</c> records to be returned.
+    /// <para>
+    /// Deprecated at Square API version 2025-05-21. See the <see href="https://developer.squareup.com/docs/labor-api/what-it-does#migration-notes">migration notes</see>.
+    /// </para>
     /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("status")]
@@ -57,6 +63,9 @@ public record ShiftFilter
     /// <summary>
     /// A <c>Shift</c> search query filter parameter that sets a range of days that
     /// a <c>Shift</c> must start or end in before passing the filter condition.
+    /// <para>
+    /// Deprecated at Square API version 2025-05-21. See the <see href="https://developer.squareup.com/docs/labor-api/what-it-does#migration-notes">migration notes</see>.
+    /// </para>
     /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("workday")]

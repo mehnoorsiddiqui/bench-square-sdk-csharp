@@ -93,7 +93,7 @@ public sealed class Cards
     /// Retrieves a list of cards owned by the account making the request.
     /// A max of 25 cards will be returned.
     /// </remarks>
-    public Task<ListCardsResponse> ListCards(ListCardsOperationRequest request,
+    public Task<ListCardsResponse> ListCards(ListCardsRequest request,
         RequestOptions? requestOptions = null,
         CancellationToken cancellationToken = default) =>
         _rawClient.Execute(

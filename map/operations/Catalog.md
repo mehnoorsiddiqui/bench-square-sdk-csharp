@@ -88,20 +88,20 @@ Accessor: `client.Catalog` · Source: `src/Square/Api/Catalog.cs` · 14 operatio
 ### ListCatalog
 
 - **Auth**: `options.BearerAuth`
-- **Signature**: `ListCatalog(ListCatalogOperationRequest request, RequestOptions? requestOptions = null, CancellationToken cancellationToken = default)`
+- **Signature**: `ListCatalog(ListCatalogRequest request, RequestOptions? requestOptions = null, CancellationToken cancellationToken = default)`
 - **Query params (wire ← C#)**: `cursor` ← `Cursor`, `types` ← `Types`, `catalog_version` ← `CatalogVersion`
 - **Returns**: `ListCatalogResponse`
 - **Error**: `ApiException<RawError>` — **Case B**
 
 | Type | Source |
 | --- | --- |
-| `ListCatalogOperationRequest` | `src/Square/Requests/Catalog/ListCatalogOperationRequest.cs` |
+| `ListCatalogRequest` | `src/Square/Requests/Catalog/ListCatalogRequest.cs` |
 | `ListCatalogResponse` | `src/Square/Models/ListCatalogResponse.cs` |
 
 ### RetrieveCatalogObject
 
 - **Auth**: `options.BearerAuth`
-- **Signature**: `RetrieveCatalogObject(RetrieveCatalogObjectOperationRequest request, RequestOptions? requestOptions = null, CancellationToken cancellationToken = default)`
+- **Signature**: `RetrieveCatalogObject(RetrieveCatalogObjectRequest request, RequestOptions? requestOptions = null, CancellationToken cancellationToken = default)`
   - required: `ObjectId`
 - **Query params (wire ← C#)**: `include_related_objects` ← `IncludeRelatedObjects`, `catalog_version` ← `CatalogVersion`, `include_category_path_to_root` ← `IncludeCategoryPathToRoot`
 - **Returns**: `RetrieveCatalogObjectResponse`
@@ -109,7 +109,7 @@ Accessor: `client.Catalog` · Source: `src/Square/Api/Catalog.cs` · 14 operatio
 
 | Type | Source |
 | --- | --- |
-| `RetrieveCatalogObjectOperationRequest` | `src/Square/Requests/Catalog/RetrieveCatalogObjectOperationRequest.cs` |
+| `RetrieveCatalogObjectRequest` | `src/Square/Requests/Catalog/RetrieveCatalogObjectRequest.cs` |
 | `RetrieveCatalogObjectResponse` | `src/Square/Models/RetrieveCatalogObjectResponse.cs` |
 
 ### SearchCatalogItems

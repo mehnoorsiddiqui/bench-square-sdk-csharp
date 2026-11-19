@@ -36,7 +36,7 @@ public sealed class CashDrawers
     /// <remarks>
     /// Provides a paginated list of events for a single cash drawer shift.
     /// </remarks>
-    public Task<ListCashDrawerShiftEventsResponse> ListCashDrawerShiftEvents(ListCashDrawerShiftEventsOperationRequest request,
+    public Task<ListCashDrawerShiftEventsResponse> ListCashDrawerShiftEvents(ListCashDrawerShiftEventsRequest request,
         RequestOptions? requestOptions = null,
         CancellationToken cancellationToken = default) =>
         _rawClient.Execute(
@@ -68,7 +68,7 @@ public sealed class CashDrawers
     /// Provides the details for all of the cash drawer shifts for a location
     /// in a date range.
     /// </remarks>
-    public Task<ListCashDrawerShiftsResponse> ListCashDrawerShifts(ListCashDrawerShiftsOperationRequest request,
+    public Task<ListCashDrawerShiftsResponse> ListCashDrawerShifts(ListCashDrawerShiftsRequest request,
         RequestOptions? requestOptions = null,
         CancellationToken cancellationToken = default) =>
         _rawClient.Execute(
@@ -103,7 +103,7 @@ public sealed class CashDrawers
     /// Provides the summary details for a single cash drawer shift. See
     /// <see href="api-endpoint:CashDrawers-ListCashDrawerShiftEvents">ListCashDrawerShiftEvents</see> for a list of cash drawer shift events.
     /// </remarks>
-    public Task<RetrieveCashDrawerShiftResponse> RetrieveCashDrawerShift(RetrieveCashDrawerShiftOperationRequest request,
+    public Task<RetrieveCashDrawerShiftResponse> RetrieveCashDrawerShift(RetrieveCashDrawerShiftRequest request,
         RequestOptions? requestOptions = null,
         CancellationToken cancellationToken = default) =>
         _rawClient.Execute(

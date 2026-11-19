@@ -167,7 +167,7 @@ The map and the [API Reference](https://github.com/mehnoorsiddiqui/bench-square-
 
 | Use | For |
 | --- | --- |
-| **[`sdk-map.md`](https://github.com/mehnoorsiddiqui/bench-square-sdk-csharp/blob/main/sdk-map.md) + [`map/`](https://github.com/mehnoorsiddiqui/bench-square-sdk-csharp/blob/main/map/)** | Traversing the SDK and working out its surface — locating the operation you need (this SDK exposes **305 operations**), its exact signature and request record, the shape and JSON wire names of the models it takes and returns, which error type it throws and how to read it, and the source file behind any of it. This is the index to consume the SDK from, and the one to reach for first. |
+| **[`sdk-map.md`](https://github.com/mehnoorsiddiqui/bench-square-sdk-csharp/blob/main/sdk-map.md) + [`map/`](https://github.com/mehnoorsiddiqui/bench-square-sdk-csharp/blob/main/map/)** | Traversing the SDK and working out its surface — locating the operation you need (this SDK exposes **327 operations**), its exact signature and request record, the shape and JSON wire names of the models it takes and returns, which error type it throws and how to read it, and the source file behind any of it. This is the index to consume the SDK from, and the one to reach for first. |
 | **[`api-reference.md`](https://github.com/mehnoorsiddiqui/bench-square-sdk-csharp/blob/main/api-reference.md)** | Usage guidance for a single operation once you know which one you want — a runnable code sample, a link to its request record, and the error responses it can return. |
 
 ## Error Handling

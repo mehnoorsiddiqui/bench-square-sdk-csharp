@@ -1,5 +1,6 @@
 using System.Text.Json.Serialization;
 using Square.Core.Models;
+using Square.Models.Enums;
 
 namespace Square.Models;
 
@@ -9,7 +10,7 @@ public record DeviceAttributes
     /// An enum identifier of the device type.
     /// </summary>
     [JsonPropertyName("type")]
-    public string Type { get; } = "TERMINAL";
+    public required DeviceAttributesDeviceType Type { get; init; }
 
     /// <summary>
     /// The maker of the device.

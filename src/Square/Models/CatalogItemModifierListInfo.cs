@@ -2,12 +2,13 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Text.Json.Serialization;
 using Square.Core.Models;
+using Square.Models.Enums;
 
 namespace Square.Models;
 
 /// <summary>
-/// References a text-based modifier or a list of non text-based modifiers applied to a <c>CatalogItem</c> instance
-/// and specifies supported behaviors of the application.
+/// Controls how a modifier list is applied to a specific item. This object allows for item-specific customization of modifier list behavior
+/// and provides the ability to override global modifier list settings.
 /// </summary>
 public record CatalogItemModifierListInfo
 {
@@ -19,24 +20,21 @@ public record CatalogItemModifierListInfo
     public required string ModifierListId { get; init; }
 
     /// <summary>
-    /// A set of <c>CatalogModifierOverride</c> objects that override whether a given <c>CatalogModifier</c> is enabled by default.
+    /// A set of <c>CatalogModifierOverride</c> objects that override default modifier settings for this item.
     /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("modifier_overrides")]
     public IReadOnlyList<CatalogModifierOverride>? ModifierOverrides { get; init; }
 
     /// <summary>
-    /// If 0 or larger, the smallest number of <c>CatalogModifier</c>s that must be selected from this <c>CatalogModifierList</c>.
-    /// The default value is <c>-1</c>.
+    /// The minimum number of modifiers that must be selected from this modifier list.
+    /// Values:
     /// <para>
-    /// When  <c>CatalogModifierList.selection_type</c> is <c>MULTIPLE</c>, <c>CatalogModifierListInfo.min_selected_modifiers=-1</c>
-    /// and <c>CatalogModifierListInfo.max_selected_modifier=-1</c> means that from zero to the maximum number of modifiers of
-    /// the <c>CatalogModifierList</c> can be selected from the <c>CatalogModifierList</c>.
-    /// </para>
-    /// <para>
-    /// When the <c>CatalogModifierList.selection_type</c> is <c>SINGLE</c>, <c>CatalogModifierListInfo.min_selected_modifiers=-1</c>
-    /// and <c>CatalogModifierListInfo.max_selected_modifier=-1</c> means that exactly one modifier must be present in
-    /// and can be selected from the <c>CatalogModifierList</c>
+    /// - 0: No selection is required.
+    /// - -1: Default value, the attribute was not set by the client. When <c>max_selected_modifiers</c> is
+    /// also -1, use the minimum and maximum selection values set on the <c>CatalogItemModifierList</c>.
+    /// - &amp;gt;0: The required minimum modifier selections. This can be larger than the total <c>CatalogModifiers</c> when <c>allow_quantities</c> is enabled.
+    /// - &amp;lt; -1: Invalid. Treated as no selection required.
     /// </para>
     /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
@@ -44,17 +42,14 @@ public record CatalogItemModifierListInfo
     public int? MinSelectedModifiers { get; init; }
 
     /// <summary>
-    /// If 0 or larger, the largest number of <c>CatalogModifier</c>s that can be selected from this <c>CatalogModifierList</c>.
-    /// The default value is <c>-1</c>.
+    /// The maximum number of modifiers that can be selected.
+    /// Values:
     /// <para>
-    /// When  <c>CatalogModifierList.selection_type</c> is <c>MULTIPLE</c>, <c>CatalogModifierListInfo.min_selected_modifiers=-1</c>
-    /// and <c>CatalogModifierListInfo.max_selected_modifier=-1</c> means that from zero to the maximum number of modifiers of
-    /// the <c>CatalogModifierList</c> can be selected from the <c>CatalogModifierList</c>.
-    /// </para>
-    /// <para>
-    /// When the <c>CatalogModifierList.selection_type</c> is <c>SINGLE</c>, <c>CatalogModifierListInfo.min_selected_modifiers=-1</c>
-    /// and <c>CatalogModifierListInfo.max_selected_modifier=-1</c> means that exactly one modifier must be present in
-    /// and can be selected from the <c>CatalogModifierList</c>
+    /// - 0: No maximum limit.
+    /// - -1: Default value, the attribute was not set by the client. When <c>min_selected_modifiers</c> is
+    /// also -1, use the minimum and maximum selection values set on the <c>CatalogItemModifierList</c>.
+    /// - &amp;gt;0: The maximum total modifier selections. This can be larger than the total <c>CatalogModifiers</c> when <c>allow_quantities</c> is enabled.
+    /// - &amp;lt; -1: Invalid. Treated as no maximum limit.
     /// </para>
     /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
@@ -75,6 +70,27 @@ public record CatalogItemModifierListInfo
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("ordinal")]
     public int? Ordinal { get; init; }
+
+    /// <summary>
+    /// Item level overrides for bool attributes
+    /// </summary>
+    [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
+    [JsonPropertyName("allow_quantities")]
+    public CatalogModifierToggleOverrideType? AllowQuantities { get; init; }
+
+    /// <summary>
+    /// Item level overrides for bool attributes
+    /// </summary>
+    [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
+    [JsonPropertyName("is_conversational")]
+    public CatalogModifierToggleOverrideType? IsConversational { get; init; }
+
+    /// <summary>
+    /// Item level overrides for bool attributes
+    /// </summary>
+    [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
+    [JsonPropertyName("hidden_from_customer_override")]
+    public CatalogModifierToggleOverrideType? HiddenFromCustomerOverride { get; init; }
 
     [JsonExtensionData]
     public AdditionalProperties AdditionalProperties { get; init; } = [];

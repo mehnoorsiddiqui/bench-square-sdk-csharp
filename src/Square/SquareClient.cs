@@ -24,9 +24,9 @@ public sealed class SquareClient
         var urlFactory = new UriFactory(queryParameterFactory, templateParamsFactory);
         var httpStatusPolicy = new HttpStatusPolicy([]);
         var headersFactory = new HeadersFactory([
-            new HeaderParam("User-Agent", "SquareClient/3.0.0 CSharp"),
+            new HeaderParam("User-Agent", "SquareClient/4.0.0 CSharp"),
             new HeaderParam("X-APIMatic-Lang", "CSharp"),
-            new HeaderParam("X-APIMatic-Package-Version", "3.0.0"),
+            new HeaderParam("X-APIMatic-Package-Version", "4.0.0"),
             new HeaderParam("X-APIMatic-Gen-Version", "4.0.0"),
             new HeaderParam("X-APIMatic-OS", RuntimeEnvironment.Os),
             new HeaderParam("X-APIMatic-Runtime", RuntimeEnvironment.Runtime),
@@ -64,6 +64,8 @@ public sealed class SquareClient
     public CashDrawers CashDrawers => field ??= new CashDrawers(_rawClient, _server, _auth);
 
     public Catalog Catalog => field ??= new Catalog(_rawClient, _server, _auth);
+
+    public Channels Channels => field ??= new Channels(_rawClient, _server, _auth);
 
     public CheckoutApi CheckoutApi => field ??= new CheckoutApi(_rawClient, _server, _auth);
 
@@ -132,6 +134,8 @@ public sealed class SquareClient
     public Terminal Terminal => field ??= new Terminal(_rawClient, _server, _auth);
 
     public Transactions Transactions => field ??= new Transactions(_rawClient, _server, _auth);
+
+    public TransferOrderApi TransferOrderApi => field ??= new TransferOrderApi(_rawClient, _server, _auth);
 
     public V1Transactions V1Transactions => field ??= new V1Transactions(_rawClient, _server, _auth);
 

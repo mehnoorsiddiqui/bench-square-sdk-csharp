@@ -12,8 +12,9 @@ namespace Square.Models;
 public record GetTeamMemberWageResponse
 {
     /// <summary>
-    /// The hourly wage rate that a team member earns on a <c>Shift</c> for doing the job
-    /// specified by the <c>title</c> property of this object.
+    /// Job and wage information for a <see href="entity:TeamMember">team member</see>.
+    /// This convenience object provides details needed to specify the <c>wage</c>
+    /// field for a <see href="entity:Timecard">timecard</see>.
     /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("team_member_wage")]

@@ -5,6 +5,9 @@ namespace Square.Models;
 
 /// <summary>
 /// The hourly wage rate used to compensate an employee for this shift.
+/// <para>
+/// Deprecated at Square API version 2025-05-21. See the <see href="https://developer.squareup.com/docs/labor-api/what-it-does#migration-notes">migration notes</see>.
+/// </para>
 /// </summary>
 public record ShiftWage
 {
@@ -29,7 +32,7 @@ public record ShiftWage
 
     /// <summary>
     /// The id of the job performed during this shift. Square
-    /// labor-reporting UIs might group shifts together by id. This cannot be used to retrieve the job.
+    /// labor-reporting UIs might group shifts together by id.
     /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("job_id")]

@@ -154,7 +154,7 @@ public sealed class Disputes
     /// <remarks>
     /// Returns a list of evidence associated with a dispute.
     /// </remarks>
-    public Task<ListDisputeEvidenceResponse> ListDisputeEvidence(ListDisputeEvidenceOperationRequest request,
+    public Task<ListDisputeEvidenceResponse> ListDisputeEvidence(ListDisputeEvidenceRequest request,
         RequestOptions? requestOptions = null,
         CancellationToken cancellationToken = default) =>
         _rawClient.Execute(
@@ -181,7 +181,7 @@ public sealed class Disputes
     /// <remarks>
     /// Returns a list of disputes associated with a particular account.
     /// </remarks>
-    public Task<ListDisputesResponse> ListDisputes(ListDisputesOperationRequest request,
+    public Task<ListDisputesResponse> ListDisputes(ListDisputesRequest request,
         RequestOptions? requestOptions = null,
         CancellationToken cancellationToken = default) =>
         _rawClient.Execute(

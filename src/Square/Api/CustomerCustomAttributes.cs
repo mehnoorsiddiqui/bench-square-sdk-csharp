@@ -191,7 +191,7 @@ public sealed class CustomerCustomAttributes
     /// seller-defined custom attributes (also known as custom fields) are always set to <c>VISIBILITY_READ_WRITE_VALUES</c>.
     /// </para>
     /// </remarks>
-    public Task<ListCustomerCustomAttributeDefinitionsResponse> ListCustomerCustomAttributeDefinitions(ListCustomerCustomAttributeDefinitionsOperationRequest request,
+    public Task<ListCustomerCustomAttributeDefinitionsResponse> ListCustomerCustomAttributeDefinitions(ListCustomerCustomAttributeDefinitionsRequest request,
         RequestOptions? requestOptions = null,
         CancellationToken cancellationToken = default) =>
         _rawClient.Execute(
@@ -227,7 +227,7 @@ public sealed class CustomerCustomAttributes
     /// and set to <c>VISIBILITY_READ_ONLY</c> or <c>VISIBILITY_READ_WRITE_VALUES</c>.
     /// </para>
     /// </remarks>
-    public Task<ListCustomerCustomAttributesResponse> ListCustomerCustomAttributes(ListCustomerCustomAttributesOperationRequest request,
+    public Task<ListCustomerCustomAttributesResponse> ListCustomerCustomAttributes(ListCustomerCustomAttributesRequest request,
         RequestOptions? requestOptions = null,
         CancellationToken cancellationToken = default) =>
         _rawClient.Execute(
@@ -267,7 +267,7 @@ public sealed class CustomerCustomAttributes
     /// (also known as custom fields) are always set to <c>VISIBILITY_READ_WRITE_VALUES</c>.
     /// </para>
     /// </remarks>
-    public Task<RetrieveCustomerCustomAttributeResponse> RetrieveCustomerCustomAttribute(RetrieveCustomerCustomAttributeOperationRequest request,
+    public Task<RetrieveCustomerCustomAttributeResponse> RetrieveCustomerCustomAttribute(RetrieveCustomerCustomAttributeRequest request,
         RequestOptions? requestOptions = null,
         CancellationToken cancellationToken = default) =>
         _rawClient.Execute(
@@ -299,7 +299,7 @@ public sealed class CustomerCustomAttributes
     /// (also known as custom fields) are always set to <c>VISIBILITY_READ_WRITE_VALUES</c>.
     /// </para>
     /// </remarks>
-    public Task<RetrieveCustomerCustomAttributeDefinitionResponse> RetrieveCustomerCustomAttributeDefinition(RetrieveCustomerCustomAttributeDefinitionOperationRequest request,
+    public Task<RetrieveCustomerCustomAttributeDefinitionResponse> RetrieveCustomerCustomAttributeDefinition(RetrieveCustomerCustomAttributeDefinitionRequest request,
         RequestOptions? requestOptions = null,
         CancellationToken cancellationToken = default) =>
         _rawClient.Execute(

@@ -35,13 +35,13 @@ Accessor: `client.BankAccounts` · Source: `src/Square/Api/BankAccounts.cs` · 3
 ### ListBankAccounts
 
 - **Auth**: `options.BearerAuth`
-- **Signature**: `ListBankAccounts(ListBankAccountsOperationRequest request, RequestOptions? requestOptions = null, CancellationToken cancellationToken = default)`
+- **Signature**: `ListBankAccounts(ListBankAccountsRequest request, RequestOptions? requestOptions = null, CancellationToken cancellationToken = default)`
 - **Query params (wire ← C#)**: `cursor` ← `Cursor`, `limit` ← `Limit`, `location_id` ← `LocationId`
 - **Returns**: `ListBankAccountsResponse`
 - **Error**: `ApiException<RawError>` — **Case B**
 
 | Type | Source |
 | --- | --- |
-| `ListBankAccountsOperationRequest` | `src/Square/Requests/BankAccounts/ListBankAccountsOperationRequest.cs` |
+| `ListBankAccountsRequest` | `src/Square/Requests/BankAccounts/ListBankAccountsRequest.cs` |
 | `ListBankAccountsResponse` | `src/Square/Models/ListBankAccountsResponse.cs` |
 

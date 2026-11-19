@@ -9,7 +9,7 @@ Accessor: `client.CashDrawers` · Source: `src/Square/Api/CashDrawers.cs` · 3 o
 ### ListCashDrawerShiftEvents
 
 - **Auth**: `options.BearerAuth`
-- **Signature**: `ListCashDrawerShiftEvents(ListCashDrawerShiftEventsOperationRequest request, RequestOptions? requestOptions = null, CancellationToken cancellationToken = default)`
+- **Signature**: `ListCashDrawerShiftEvents(ListCashDrawerShiftEventsRequest request, RequestOptions? requestOptions = null, CancellationToken cancellationToken = default)`
   - required: `ShiftId`, `LocationId`
 - **Query params (wire ← C#)**: `location_id` ← `LocationId`, `limit` ← `Limit`, `cursor` ← `Cursor`
 - **Returns**: `ListCashDrawerShiftEventsResponse`
@@ -17,13 +17,13 @@ Accessor: `client.CashDrawers` · Source: `src/Square/Api/CashDrawers.cs` · 3 o
 
 | Type | Source |
 | --- | --- |
-| `ListCashDrawerShiftEventsOperationRequest` | `src/Square/Requests/CashDrawers/ListCashDrawerShiftEventsOperationRequest.cs` |
+| `ListCashDrawerShiftEventsRequest` | `src/Square/Requests/CashDrawers/ListCashDrawerShiftEventsRequest.cs` |
 | `ListCashDrawerShiftEventsResponse` | `src/Square/Models/ListCashDrawerShiftEventsResponse.cs` |
 
 ### ListCashDrawerShifts
 
 - **Auth**: `options.BearerAuth`
-- **Signature**: `ListCashDrawerShifts(ListCashDrawerShiftsOperationRequest request, RequestOptions? requestOptions = null, CancellationToken cancellationToken = default)`
+- **Signature**: `ListCashDrawerShifts(ListCashDrawerShiftsRequest request, RequestOptions? requestOptions = null, CancellationToken cancellationToken = default)`
   - required: `LocationId`
 - **Query params (wire ← C#)**: `location_id` ← `LocationId`, `sort_order` ← `SortOrder`, `begin_time` ← `BeginTime`, `end_time` ← `EndTime`, `limit` ← `Limit`, `cursor` ← `Cursor`
 - **Returns**: `ListCashDrawerShiftsResponse`
@@ -31,14 +31,14 @@ Accessor: `client.CashDrawers` · Source: `src/Square/Api/CashDrawers.cs` · 3 o
 
 | Type | Source |
 | --- | --- |
-| `ListCashDrawerShiftsOperationRequest` | `src/Square/Requests/CashDrawers/ListCashDrawerShiftsOperationRequest.cs` |
+| `ListCashDrawerShiftsRequest` | `src/Square/Requests/CashDrawers/ListCashDrawerShiftsRequest.cs` |
 | `SortOrder` | `src/Square/Models/Enums/SortOrder.cs` |
 | `ListCashDrawerShiftsResponse` | `src/Square/Models/ListCashDrawerShiftsResponse.cs` |
 
 ### RetrieveCashDrawerShift
 
 - **Auth**: `options.BearerAuth`
-- **Signature**: `RetrieveCashDrawerShift(RetrieveCashDrawerShiftOperationRequest request, RequestOptions? requestOptions = null, CancellationToken cancellationToken = default)`
+- **Signature**: `RetrieveCashDrawerShift(RetrieveCashDrawerShiftRequest request, RequestOptions? requestOptions = null, CancellationToken cancellationToken = default)`
   - required: `ShiftId`, `LocationId`
 - **Query params (wire ← C#)**: `location_id` ← `LocationId`
 - **Returns**: `RetrieveCashDrawerShiftResponse`
@@ -46,6 +46,6 @@ Accessor: `client.CashDrawers` · Source: `src/Square/Api/CashDrawers.cs` · 3 o
 
 | Type | Source |
 | --- | --- |
-| `RetrieveCashDrawerShiftOperationRequest` | `src/Square/Requests/CashDrawers/RetrieveCashDrawerShiftOperationRequest.cs` |
+| `RetrieveCashDrawerShiftRequest` | `src/Square/Requests/CashDrawers/RetrieveCashDrawerShiftRequest.cs` |
 | `RetrieveCashDrawerShiftResponse` | `src/Square/Models/RetrieveCashDrawerShiftResponse.cs` |
 

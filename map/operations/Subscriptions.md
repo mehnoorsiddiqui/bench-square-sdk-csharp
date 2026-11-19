@@ -77,7 +77,7 @@ Accessor: `client.Subscriptions` · Source: `src/Square/Api/Subscriptions.cs` ·
 ### ListSubscriptionEvents
 
 - **Auth**: `options.BearerAuth`
-- **Signature**: `ListSubscriptionEvents(ListSubscriptionEventsOperationRequest request, RequestOptions? requestOptions = null, CancellationToken cancellationToken = default)`
+- **Signature**: `ListSubscriptionEvents(ListSubscriptionEventsRequest request, RequestOptions? requestOptions = null, CancellationToken cancellationToken = default)`
   - required: `SubscriptionId`
 - **Query params (wire ← C#)**: `cursor` ← `Cursor`, `limit` ← `Limit`
 - **Returns**: `ListSubscriptionEventsResponse`
@@ -85,7 +85,7 @@ Accessor: `client.Subscriptions` · Source: `src/Square/Api/Subscriptions.cs` ·
 
 | Type | Source |
 | --- | --- |
-| `ListSubscriptionEventsOperationRequest` | `src/Square/Requests/Subscriptions/ListSubscriptionEventsOperationRequest.cs` |
+| `ListSubscriptionEventsRequest` | `src/Square/Requests/Subscriptions/ListSubscriptionEventsRequest.cs` |
 | `ListSubscriptionEventsResponse` | `src/Square/Models/ListSubscriptionEventsResponse.cs` |
 
 ### PauseSubscription
@@ -119,7 +119,7 @@ Accessor: `client.Subscriptions` · Source: `src/Square/Api/Subscriptions.cs` ·
 ### RetrieveSubscription
 
 - **Auth**: `options.BearerAuth`
-- **Signature**: `RetrieveSubscription(RetrieveSubscriptionOperationRequest request, RequestOptions? requestOptions = null, CancellationToken cancellationToken = default)`
+- **Signature**: `RetrieveSubscription(RetrieveSubscriptionRequest request, RequestOptions? requestOptions = null, CancellationToken cancellationToken = default)`
   - required: `SubscriptionId`
 - **Query params (wire ← C#)**: `include` ← `Include`
 - **Returns**: `RetrieveSubscriptionResponse`
@@ -127,7 +127,7 @@ Accessor: `client.Subscriptions` · Source: `src/Square/Api/Subscriptions.cs` ·
 
 | Type | Source |
 | --- | --- |
-| `RetrieveSubscriptionOperationRequest` | `src/Square/Requests/Subscriptions/RetrieveSubscriptionOperationRequest.cs` |
+| `RetrieveSubscriptionRequest` | `src/Square/Requests/Subscriptions/RetrieveSubscriptionRequest.cs` |
 | `RetrieveSubscriptionResponse` | `src/Square/Models/RetrieveSubscriptionResponse.cs` |
 
 ### SearchSubscriptions

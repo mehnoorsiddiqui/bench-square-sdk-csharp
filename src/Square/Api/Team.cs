@@ -162,7 +162,7 @@ public sealed class Team
     /// <remarks>
     /// Lists jobs in a seller account. Results are sorted by title in ascending order.
     /// </remarks>
-    public Task<ListJobsResponse> ListJobs(ListJobsOperationRequest request,
+    public Task<ListJobsResponse> ListJobs(ListJobsRequest request,
         RequestOptions? requestOptions = null,
         CancellationToken cancellationToken = default) =>
         _rawClient.Execute(

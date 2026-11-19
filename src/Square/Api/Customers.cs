@@ -271,7 +271,7 @@ public sealed class Customers
     /// To delete a customer profile that was created by merging existing profiles, you must use the ID of the newly created profile.
     /// </para>
     /// </remarks>
-    public Task<DeleteCustomerResponse> DeleteCustomer(DeleteCustomerOperationRequest request,
+    public Task<DeleteCustomerResponse> DeleteCustomer(DeleteCustomerRequest request,
         RequestOptions? requestOptions = null,
         CancellationToken cancellationToken = default) =>
         _rawClient.Execute(
@@ -330,7 +330,7 @@ public sealed class Customers
     /// profiles can take closer to one minute or longer, especially during network incidents and outages.
     /// </para>
     /// </remarks>
-    public Task<ListCustomersResponse> ListCustomers(ListCustomersOperationRequest request,
+    public Task<ListCustomersResponse> ListCustomers(ListCustomersRequest request,
         RequestOptions? requestOptions = null,
         CancellationToken cancellationToken = default) =>
         _rawClient.Execute(

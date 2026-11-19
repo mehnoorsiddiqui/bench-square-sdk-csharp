@@ -7,6 +7,9 @@ namespace Square.Models;
 /// <summary>
 /// A <c>Shift</c> search query filter parameter that sets a range of days that
 /// a <c>Shift</c> must start or end in before passing the filter condition.
+/// <para>
+/// Deprecated at Square API version 2025-05-21. See the <see href="https://developer.squareup.com/docs/labor-api/what-it-does#migration-notes">migration notes</see>.
+/// </para>
 /// </summary>
 public record ShiftWorkday
 {

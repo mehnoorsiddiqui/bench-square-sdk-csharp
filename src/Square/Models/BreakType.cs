@@ -5,8 +5,8 @@ using Square.Core.Models;
 namespace Square.Models;
 
 /// <summary>
-/// A defined break template that sets an expectation for possible <c>Break</c>
-/// instances on a <c>Shift</c>.
+/// A template for a type of <see href="entity:Break">break</see> that can be added to a
+/// <see href="entity:Timecard">timecard</see>, including the expected duration and paid status.
 /// </summary>
 public record BreakType
 {
@@ -27,7 +27,7 @@ public record BreakType
 
     /// <summary>
     /// A human-readable name for this type of break. The name is displayed to
-    /// employees in Square products.
+    /// team members in Square products.
     /// </summary>
     [JsonPropertyName("break_name")]
     [MinLength(1)]
@@ -37,7 +37,7 @@ public record BreakType
     /// Format: RFC-3339 P[n]Y[n]M[n]DT[n]H[n]M[n]S. The expected length of
     /// this break. Precision less than minutes is truncated.
     /// <para>
-    /// Example for break expected duration of 15 minutes: T15M
+    /// Example for break expected duration of 15 minutes: PT15M
     /// </para>
     /// </summary>
     [JsonPropertyName("expected_duration")]

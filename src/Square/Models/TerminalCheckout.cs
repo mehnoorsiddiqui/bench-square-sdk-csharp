@@ -51,7 +51,7 @@ public record TerminalCheckout
     public string? Note { get; init; }
 
     /// <summary>
-    /// The reference to the Square order ID for the checkout request. Supported only in the US.
+    /// The reference to the Square order ID for the checkout request.
     /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("order_id")]
@@ -160,7 +160,7 @@ public record TerminalCheckout
     /// <summary>
     /// Optional additional payment information to include on the customer's card statement as
     /// part of the statement description. This can be, for example, an invoice number, ticket number,
-    /// or short description that uniquely identifies the purchase. Supported only in the US.
+    /// or short description that uniquely identifies the purchase.
     /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("statement_description_identifier")]

@@ -354,7 +354,7 @@ public sealed class Loyalty
     /// Lists the loyalty promotions associated with a <see href="entity:LoyaltyProgram">loyalty program</see>.
     /// Results are sorted by the <c>created_at</c> date in descending order (newest to oldest).
     /// </remarks>
-    public Task<ListLoyaltyPromotionsResponse> ListLoyaltyPromotions(ListLoyaltyPromotionsOperationRequest request,
+    public Task<ListLoyaltyPromotionsResponse> ListLoyaltyPromotions(ListLoyaltyPromotionsRequest request,
         RequestOptions? requestOptions = null,
         CancellationToken cancellationToken = default) =>
         _rawClient.Execute(

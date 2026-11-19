@@ -1,0 +1,17 @@
+using System.Text.Json.Serialization;
+using Square.Core.Models;
+
+namespace Square.Models;
+
+public record DisputeEvidenceDeletedEventObject
+{
+    /// <summary>
+    /// Represents a <see href="https://developer.squareup.com/docs/disputes-api/overview">dispute</see> a cardholder initiated with their bank.
+    /// </summary>
+    [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
+    [JsonPropertyName("object")]
+    public Dispute? Object { get; init; }
+
+    [JsonExtensionData]
+    public AdditionalProperties AdditionalProperties { get; init; } = [];
+}

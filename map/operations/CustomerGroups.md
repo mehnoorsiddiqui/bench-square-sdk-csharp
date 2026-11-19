@@ -36,14 +36,14 @@ Accessor: `client.CustomerGroups` · Source: `src/Square/Api/CustomerGroups.cs` 
 ### ListCustomerGroups
 
 - **Auth**: `options.BearerAuth`
-- **Signature**: `ListCustomerGroups(ListCustomerGroupsOperationRequest request, RequestOptions? requestOptions = null, CancellationToken cancellationToken = default)`
+- **Signature**: `ListCustomerGroups(ListCustomerGroupsRequest request, RequestOptions? requestOptions = null, CancellationToken cancellationToken = default)`
 - **Query params (wire ← C#)**: `cursor` ← `Cursor`, `limit` ← `Limit`
 - **Returns**: `ListCustomerGroupsResponse`
 - **Error**: `ApiException<RawError>` — **Case B**
 
 | Type | Source |
 | --- | --- |
-| `ListCustomerGroupsOperationRequest` | `src/Square/Requests/CustomerGroups/ListCustomerGroupsOperationRequest.cs` |
+| `ListCustomerGroupsRequest` | `src/Square/Requests/CustomerGroups/ListCustomerGroupsRequest.cs` |
 | `ListCustomerGroupsResponse` | `src/Square/Models/ListCustomerGroupsResponse.cs` |
 
 ### RetrieveCustomerGroup

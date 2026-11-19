@@ -327,7 +327,7 @@ public sealed class Inventory
     /// sophisticated queries, use a batch endpoint.
     /// </para>
     /// </remarks>
-    public Task<RetrieveInventoryChangesResponse> RetrieveInventoryChanges(RetrieveInventoryChangesOperationRequest request,
+    public Task<RetrieveInventoryChangesResponse> RetrieveInventoryChanges(RetrieveInventoryChangesRequest request,
         RequestOptions? requestOptions = null,
         CancellationToken cancellationToken = default) =>
         _rawClient.Execute(
@@ -357,7 +357,7 @@ public sealed class Inventory
     /// <see href="entity:Location">Location</see>s. Responses are paginated and unsorted.
     /// For more sophisticated queries, use a batch endpoint.
     /// </remarks>
-    public Task<RetrieveInventoryCountResponse> RetrieveInventoryCount(RetrieveInventoryCountOperationRequest request,
+    public Task<RetrieveInventoryCountResponse> RetrieveInventoryCount(RetrieveInventoryCountRequest request,
         RequestOptions? requestOptions = null,
         CancellationToken cancellationToken = default) =>
         _rawClient.Execute(

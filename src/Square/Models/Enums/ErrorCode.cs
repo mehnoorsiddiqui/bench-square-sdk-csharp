@@ -469,6 +469,11 @@ public sealed record ErrorCode : OpenStringEnum<ErrorCode>
     public static readonly ErrorCode CardNotSupported = new("CARD_NOT_SUPPORTED");
 
     /// <summary>
+    /// The Square Card Reader declined the payment for an unknown reason.
+    /// </summary>
+    public static readonly ErrorCode ReaderDeclined = new("READER_DECLINED");
+
+    /// <summary>
     /// The card issuer declined the request because the PIN is invalid.
     /// </summary>
     public static readonly ErrorCode InvalidPin = new("INVALID_PIN");
@@ -585,6 +590,11 @@ public sealed record ErrorCode : OpenStringEnum<ErrorCode>
     public static readonly ErrorCode PaymentNotRefundableDueToDispute = new("PAYMENT_NOT_REFUNDABLE_DUE_TO_DISPUTE");
 
     /// <summary>
+    /// The payment is not refundable because the payment is approved and needs to be completed first before the refund is issued.
+    /// </summary>
+    public static readonly ErrorCode RefundErrorPaymentNeedsCompletion = new("REFUND_ERROR_PAYMENT_NEEDS_COMPLETION");
+
+    /// <summary>
     /// Request failed - The card issuer declined the refund.
     /// </summary>
     public static readonly ErrorCode RefundDeclined = new("REFUND_DECLINED");
@@ -620,6 +630,11 @@ public sealed record ErrorCode : OpenStringEnum<ErrorCode>
     /// Generic error - the given location does not matching what is expected.
     /// </summary>
     public static readonly ErrorCode LocationMismatch = new("LOCATION_MISMATCH");
+
+    /// <summary>
+    /// The order attempting to be returned is not yet paid and cannot be returned.
+    /// </summary>
+    public static readonly ErrorCode OrderUnpaidNotReturnable = new("ORDER_UNPAID_NOT_RETURNABLE");
 
     /// <summary>
     /// The provided idempotency key has already been used.
@@ -915,6 +930,7 @@ public sealed record ErrorCode : OpenStringEnum<ErrorCode>
         Func<TResult> onPanFailure,
         Func<TResult> onExpirationFailure,
         Func<TResult> onCardNotSupported,
+        Func<TResult> onReaderDeclined,
         Func<TResult> onInvalidPin,
         Func<TResult> onMissingPin,
         Func<TResult> onMissingAccountType,
@@ -937,6 +953,7 @@ public sealed record ErrorCode : OpenStringEnum<ErrorCode>
         Func<TResult> onRefundAlreadyPending,
         Func<TResult> onPaymentNotRefundable,
         Func<TResult> onPaymentNotRefundableDueToDispute,
+        Func<TResult> onRefundErrorPaymentNeedsCompletion,
         Func<TResult> onRefundDeclined,
         Func<TResult> onInsufficientPermissionsForRefund,
         Func<TResult> onInvalidCardData,
@@ -944,6 +961,7 @@ public sealed record ErrorCode : OpenStringEnum<ErrorCode>
         Func<TResult> onSourceExpired,
         Func<TResult> onUnsupportedLoyaltyRewardTier,
         Func<TResult> onLocationMismatch,
+        Func<TResult> onOrderUnpaidNotReturnable,
         Func<TResult> onIdempotencyKeyReused,
         Func<TResult> onUnexpectedValue,
         Func<TResult> onSandboxNotSupported,
@@ -1068,6 +1086,7 @@ public sealed record ErrorCode : OpenStringEnum<ErrorCode>
             _ when this == PanFailure => onPanFailure(),
             _ when this == ExpirationFailure => onExpirationFailure(),
             _ when this == CardNotSupported => onCardNotSupported(),
+            _ when this == ReaderDeclined => onReaderDeclined(),
             _ when this == InvalidPin => onInvalidPin(),
             _ when this == MissingPin => onMissingPin(),
             _ when this == MissingAccountType => onMissingAccountType(),
@@ -1090,6 +1109,7 @@ public sealed record ErrorCode : OpenStringEnum<ErrorCode>
             _ when this == RefundAlreadyPending => onRefundAlreadyPending(),
             _ when this == PaymentNotRefundable => onPaymentNotRefundable(),
             _ when this == PaymentNotRefundableDueToDispute => onPaymentNotRefundableDueToDispute(),
+            _ when this == RefundErrorPaymentNeedsCompletion => onRefundErrorPaymentNeedsCompletion(),
             _ when this == RefundDeclined => onRefundDeclined(),
             _ when this == InsufficientPermissionsForRefund => onInsufficientPermissionsForRefund(),
             _ when this == InvalidCardData => onInvalidCardData(),
@@ -1097,6 +1117,7 @@ public sealed record ErrorCode : OpenStringEnum<ErrorCode>
             _ when this == SourceExpired => onSourceExpired(),
             _ when this == UnsupportedLoyaltyRewardTier => onUnsupportedLoyaltyRewardTier(),
             _ when this == LocationMismatch => onLocationMismatch(),
+            _ when this == OrderUnpaidNotReturnable => onOrderUnpaidNotReturnable(),
             _ when this == IdempotencyKeyReused => onIdempotencyKeyReused(),
             _ when this == UnexpectedValue => onUnexpectedValue(),
             _ when this == SandboxNotSupported => onSandboxNotSupported(),
@@ -1222,6 +1243,7 @@ public sealed record ErrorCode : OpenStringEnum<ErrorCode>
         Action onPanFailure,
         Action onExpirationFailure,
         Action onCardNotSupported,
+        Action onReaderDeclined,
         Action onInvalidPin,
         Action onMissingPin,
         Action onMissingAccountType,
@@ -1244,6 +1266,7 @@ public sealed record ErrorCode : OpenStringEnum<ErrorCode>
         Action onRefundAlreadyPending,
         Action onPaymentNotRefundable,
         Action onPaymentNotRefundableDueToDispute,
+        Action onRefundErrorPaymentNeedsCompletion,
         Action onRefundDeclined,
         Action onInsufficientPermissionsForRefund,
         Action onInvalidCardData,
@@ -1251,6 +1274,7 @@ public sealed record ErrorCode : OpenStringEnum<ErrorCode>
         Action onSourceExpired,
         Action onUnsupportedLoyaltyRewardTier,
         Action onLocationMismatch,
+        Action onOrderUnpaidNotReturnable,
         Action onIdempotencyKeyReused,
         Action onUnexpectedValue,
         Action onSandboxNotSupported,
@@ -1374,6 +1398,7 @@ public sealed record ErrorCode : OpenStringEnum<ErrorCode>
         else if (this == PanFailure) onPanFailure();
         else if (this == ExpirationFailure) onExpirationFailure();
         else if (this == CardNotSupported) onCardNotSupported();
+        else if (this == ReaderDeclined) onReaderDeclined();
         else if (this == InvalidPin) onInvalidPin();
         else if (this == MissingPin) onMissingPin();
         else if (this == MissingAccountType) onMissingAccountType();
@@ -1396,6 +1421,7 @@ public sealed record ErrorCode : OpenStringEnum<ErrorCode>
         else if (this == RefundAlreadyPending) onRefundAlreadyPending();
         else if (this == PaymentNotRefundable) onPaymentNotRefundable();
         else if (this == PaymentNotRefundableDueToDispute) onPaymentNotRefundableDueToDispute();
+        else if (this == RefundErrorPaymentNeedsCompletion) onRefundErrorPaymentNeedsCompletion();
         else if (this == RefundDeclined) onRefundDeclined();
         else if (this == InsufficientPermissionsForRefund) onInsufficientPermissionsForRefund();
         else if (this == InvalidCardData) onInvalidCardData();
@@ -1403,6 +1429,7 @@ public sealed record ErrorCode : OpenStringEnum<ErrorCode>
         else if (this == SourceExpired) onSourceExpired();
         else if (this == UnsupportedLoyaltyRewardTier) onUnsupportedLoyaltyRewardTier();
         else if (this == LocationMismatch) onLocationMismatch();
+        else if (this == OrderUnpaidNotReturnable) onOrderUnpaidNotReturnable();
         else if (this == IdempotencyKeyReused) onIdempotencyKeyReused();
         else if (this == UnexpectedValue) onUnexpectedValue();
         else if (this == SandboxNotSupported) onSandboxNotSupported();
