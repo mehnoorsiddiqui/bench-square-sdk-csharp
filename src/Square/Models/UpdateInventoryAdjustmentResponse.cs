@@ -4,11 +4,7 @@ using Square.Core.Models;
 
 namespace Square.Models;
 
-/// <summary>
-/// Defines the fields that are included in the response body of
-/// a request to the <see href="api-endpoint:Transactions-CaptureTransaction">CaptureTransaction</see> endpoint.
-/// </summary>
-public record CaptureTransactionResponse
+public record UpdateInventoryAdjustmentResponse
 {
     /// <summary>
     /// Any errors that occurred during the request.
@@ -16,6 +12,14 @@ public record CaptureTransactionResponse
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("errors")]
     public IReadOnlyList<Error>? Errors { get; init; }
+
+    /// <summary>
+    /// Represents a change in state or quantity of product inventory at a
+    /// particular time and location.
+    /// </summary>
+    [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
+    [JsonPropertyName("adjustment")]
+    public InventoryAdjustment? Adjustment { get; init; }
 
     [JsonExtensionData]
     public AdditionalProperties AdditionalProperties { get; init; } = [];

@@ -139,7 +139,8 @@ public record CatalogItem
     public string? SortName { get; init; }
 
     /// <summary>
-    /// The list of categories.
+    /// The list of categories to which this item belongs. Each entry includes the category ID and an ordinal
+    /// value that determines the item's relative position within that category.
     /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("categories")]
@@ -251,6 +252,24 @@ public record CatalogItem
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("is_alcoholic")]
     public bool? IsAlcoholic { get; init; }
+
+    /// <summary>
+    /// The override to a product name to display to users
+    /// </summary>
+    [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
+    [JsonPropertyName("buyer_facing_name")]
+    [MaxLength(512)]
+    public string? BuyerFacingName { get; init; }
+
+    /// <summary>
+    /// (Optional) Name that the restaurant wants to display to their kitchen workers
+    /// instead of the customer-facing name.
+    /// e.g., customer name might be "Big John's Mega Burger" and the
+    /// kitchen name is "12oz beef burger"
+    /// </summary>
+    [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
+    [JsonPropertyName("kitchen_name")]
+    public string? KitchenName { get; init; }
 
     [JsonExtensionData]
     public AdditionalProperties AdditionalProperties { get; init; } = [];

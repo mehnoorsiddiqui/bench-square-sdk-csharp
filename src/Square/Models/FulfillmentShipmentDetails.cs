@@ -38,7 +38,7 @@ public record FulfillmentShipmentDetails
     /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("shipping_type")]
-    [MaxLength(50)]
+    [MaxLength(255)]
     public string? ShippingType { get; init; }
 
     /// <summary>

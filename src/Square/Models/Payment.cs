@@ -435,6 +435,27 @@ public record Payment
     [JsonPropertyName("terminal_checkout_id")]
     public string? TerminalCheckoutId { get; init; }
 
+    /// <summary>
+    /// Details pertaining to recipients of the application fee.
+    /// </summary>
+    [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
+    [JsonPropertyName("app_fee_allocations")]
+    public IReadOnlyList<object>? AppFeeAllocations { get; init; }
+
+    /// <summary>
+    /// Details specific to electronic money payments.
+    /// </summary>
+    [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
+    [JsonPropertyName("electronic_money_details")]
+    public ElectronicMoneyDetails? ElectronicMoneyDetails { get; init; }
+
+    /// <summary>
+    /// CurrencyExchange is referenced but not defined in Square's published spec; added as an open object by the benchmark normalizer.
+    /// </summary>
+    [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
+    [JsonPropertyName("buyer_currency_exchange")]
+    public object? BuyerCurrencyExchange { get; init; }
+
     [JsonExtensionData]
     public AdditionalProperties AdditionalProperties { get; init; } = [];
 }

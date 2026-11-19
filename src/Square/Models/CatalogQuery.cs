@@ -109,6 +109,13 @@ public record CatalogQuery
     [JsonPropertyName("item_variations_for_item_option_values_query")]
     public CatalogQueryItemVariationsForItemOptionValues? ItemVariationsForItemOptionValuesQuery { get; init; }
 
+    /// <summary>
+    /// Query to find <c>CatalogModifier</c> objects that reference a given <c>CatalogModifierList</c> in their <c>child_modifier_list_ids</c> field.
+    /// </summary>
+    [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
+    [JsonPropertyName("modifiers_for_child_list_query")]
+    public CatalogQueryModifiersForChildList? ModifiersForChildListQuery { get; init; }
+
     [JsonExtensionData]
     public AdditionalProperties AdditionalProperties { get; init; } = [];
 }

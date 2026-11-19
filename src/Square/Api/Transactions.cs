@@ -1,4 +1,3 @@
-using System;
 using System.Net.Http;
 using System.Threading;
 using System.Threading.Tasks;
@@ -25,42 +24,6 @@ public sealed class Transactions
         _server = server;
         _auth = auth;
     }
-
-    /// <summary>
-    /// CaptureTransaction
-    /// </summary>
-    /// <param name="request">The operation's inputs</param>
-    /// <param name="requestOptions">Per-request options, such as an overriding log level for this call</param>
-    /// <param name="cancellationToken">Cancellation token</param>
-    /// <returns>A <see cref="Task{TResult}"/> of <see cref="CaptureTransactionResponse"/> instance.</returns>
-    /// <exception cref="ApiException{TError}"> of <see cref="RawError"/> when the server returns an error response.</exception>
-    /// <remarks>
-    /// Captures a transaction that was created with the <see href="api-endpoint:Transactions-Charge">Charge</see>
-    /// endpoint with a <c>delay_capture</c> value of <c>true</c>.
-    /// <para>
-    ///
-    /// See <see href="https://developer.squareup.com/docs/payments/transactions/overview#delayed-capture">Delayed capture transactions</see>
-    /// for more information.
-    /// </para>
-    /// </remarks>
-    public Task<CaptureTransactionResponse> CaptureTransaction(CaptureTransactionRequest request,
-        RequestOptions? requestOptions = null,
-        CancellationToken cancellationToken = default) =>
-        _rawClient.Execute(
-            _server.Default("/v2/locations/{location_id}/transactions/{transaction_id}/capture"),
-            [
-                new TemplateParam("location_id", request.LocationId),
-                new TemplateParam("transaction_id", request.TransactionId),
-            ],
-            [],
-            [new HeaderParam("Idempotency-Key", Guid.NewGuid())],
-            HttpMethod.Post,
-            EmptyBody.Instance,
-            JsonResponse.Create<CaptureTransactionResponse>(),
-            RawErrorResponse.Instance,
-            _auth.BearerAuth,
-            requestOptions,
-            cancellationToken);
 
     /// <summary>
     /// ListTransactions
@@ -126,42 +89,6 @@ public sealed class Transactions
             HttpMethod.Get,
             EmptyBody.Instance,
             JsonResponse.Create<RetrieveTransactionResponse>(),
-            RawErrorResponse.Instance,
-            _auth.BearerAuth,
-            requestOptions,
-            cancellationToken);
-
-    /// <summary>
-    /// VoidTransaction
-    /// </summary>
-    /// <param name="request">The operation's inputs</param>
-    /// <param name="requestOptions">Per-request options, such as an overriding log level for this call</param>
-    /// <param name="cancellationToken">Cancellation token</param>
-    /// <returns>A <see cref="Task{TResult}"/> of <see cref="VoidTransactionResponse"/> instance.</returns>
-    /// <exception cref="ApiException{TError}"> of <see cref="RawError"/> when the server returns an error response.</exception>
-    /// <remarks>
-    /// Cancels a transaction that was created with the <see href="api-endpoint:Transactions-Charge">Charge</see>
-    /// endpoint with a <c>delay_capture</c> value of <c>true</c>.
-    /// <para>
-    ///
-    /// See <see href="https://developer.squareup.com/docs/payments/transactions/overview#delayed-capture">Delayed capture transactions</see>
-    /// for more information.
-    /// </para>
-    /// </remarks>
-    public Task<VoidTransactionResponse> VoidTransaction(VoidTransactionRequest request,
-        RequestOptions? requestOptions = null,
-        CancellationToken cancellationToken = default) =>
-        _rawClient.Execute(
-            _server.Default("/v2/locations/{location_id}/transactions/{transaction_id}/void"),
-            [
-                new TemplateParam("location_id", request.LocationId),
-                new TemplateParam("transaction_id", request.TransactionId),
-            ],
-            [],
-            [new HeaderParam("Idempotency-Key", Guid.NewGuid())],
-            HttpMethod.Post,
-            EmptyBody.Instance,
-            JsonResponse.Create<VoidTransactionResponse>(),
             RawErrorResponse.Instance,
             _auth.BearerAuth,
             requestOptions,

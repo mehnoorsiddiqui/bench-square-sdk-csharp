@@ -37,6 +37,13 @@ public record SearchCatalogItemsResponse
     [JsonPropertyName("matched_variation_ids")]
     public IReadOnlyList<string>? MatchedVariationIds { get; init; }
 
+    /// <summary>
+    /// Related resources of the response <c>CatalogObject</c>s requested using <c>IncludeOptions</c>
+    /// </summary>
+    [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
+    [JsonPropertyName("included_resources")]
+    public IncludedResources? IncludedResources { get; init; }
+
     [JsonExtensionData]
     public AdditionalProperties AdditionalProperties { get; init; } = [];
 }

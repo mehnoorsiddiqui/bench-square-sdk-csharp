@@ -92,6 +92,142 @@ catch (ApiException<RawError> ex)
 > Source: [BankAccounts](src/Square/Api/BankAccounts.cs)
 
 <details>
+<summary><code>Task&lt;CreateBankAccountResponse&gt; CreateBankAccount(CreateBankAccountOperationRequest request, RequestOptions? requestOptions = null, CancellationToken cancellationToken = default);</code></summary>
+
+<dl>
+<dd>
+
+### Description
+
+<dl>
+<dd>
+
+Store a bank account on file for a square account
+
+</dd>
+</dl>
+
+### Usage
+
+<dl>
+<dd>
+
+```csharp
+try
+{
+    var response = await client.BankAccounts.CreateBankAccount(new CreateBankAccountOperationRequest
+    {
+        Body = new CreateBankAccountRequest
+        {
+            IdempotencyKey = "some example string",
+            SourceId = "some example string",
+        },
+    });
+    // TODO: Handle 'response' of type CreateBankAccountResponse
+}
+catch (ApiException<RawError> ex)
+{
+    // TODO: Handle 'ex.Error' of type RawError
+}
+```
+
+</dd>
+</dl>
+
+### Request
+
+<dl>
+<dd>
+
+<code>[CreateBankAccountOperationRequest](src/Square/Requests/BankAccounts/CreateBankAccountOperationRequest.cs)</code>
+
+</dd>
+</dl>
+
+### Response
+
+<dl>
+<dd>
+
+**OnSuccess**: <code>[CreateBankAccountResponse](src/Square/Models/CreateBankAccountResponse.cs)</code>
+
+**OnError**: <code>[ApiException](src/Square/Core/Exceptions/ApiException.cs)&lt;[RawError](src/Square/Core/ErrorResponse/RawError.cs)&gt;</code>
+
+</dd>
+</dl>
+
+</dd>
+</dl>
+
+</details>
+
+<details>
+<summary><code>Task&lt;DisableBankAccountResponse&gt; DisableBankAccount(DisableBankAccountRequest request, RequestOptions? requestOptions = null, CancellationToken cancellationToken = default);</code></summary>
+
+<dl>
+<dd>
+
+### Description
+
+<dl>
+<dd>
+
+Disable a bank account.
+
+</dd>
+</dl>
+
+### Usage
+
+<dl>
+<dd>
+
+```csharp
+try
+{
+    var response = await client.BankAccounts.DisableBankAccount(new DisableBankAccountRequest
+    {
+        BankAccountId = "some example string",
+    });
+    // TODO: Handle 'response' of type DisableBankAccountResponse
+}
+catch (ApiException<RawError> ex)
+{
+    // TODO: Handle 'ex.Error' of type RawError
+}
+```
+
+</dd>
+</dl>
+
+### Request
+
+<dl>
+<dd>
+
+<code>[DisableBankAccountRequest](src/Square/Requests/BankAccounts/DisableBankAccountRequest.cs)</code>
+
+</dd>
+</dl>
+
+### Response
+
+<dl>
+<dd>
+
+**OnSuccess**: <code>[DisableBankAccountResponse](src/Square/Models/DisableBankAccountResponse.cs)</code>
+
+**OnError**: <code>[ApiException](src/Square/Core/Exceptions/ApiException.cs)&lt;[RawError](src/Square/Core/ErrorResponse/RawError.cs)&gt;</code>
+
+</dd>
+</dl>
+
+</dd>
+</dl>
+
+</details>
+
+<details>
 <summary><code>Task&lt;GetBankAccountResponse&gt; GetBankAccount(GetBankAccountRequest request, RequestOptions? requestOptions = null, CancellationToken cancellationToken = default);</code></summary>
 
 <dl>
@@ -102,8 +238,7 @@ catch (ApiException<RawError> ex)
 <dl>
 <dd>
 
-Returns details of a [BankAccount](entity:BankAccount)
-linked to a Square account.
+Retrieve details of a [BankAccount](entity:BankAccount) bank account linked to a Square account.
 
 </dd>
 </dl>
@@ -2626,9 +2761,15 @@ batches will be processed in order as long as the total object count for the
 request (items, variations, modifier lists, discounts, and taxes) is no more
 than 10,000.
 
+This endpoint uses full-replacement semantics. The client must send the complete object, and any
+field absent from the request is interpreted as an intentional clear. This logic applies to
+nested objects as well. For example, omitting inlined children like variations will delete them.
+
 To ensure consistency, only one update request is processed at a time per seller account.
 While one (batch or non-batch) update request is being processed, other (batched and non-batched)
-update requests are rejected with the `429` error code.
+update requests are rejected with the `429` error code. Prefer batching related changes into a
+single call rather than issuing many small writes, since each write acquires the lock separately
+and parallel writes to the same seller will contend with each other, producing `429` errors.
 
 </dd>
 </dl>
@@ -2904,6 +3045,8 @@ Returns a list of all [CatalogObject](entity:CatalogObject)s of the specified ty
 
 The `types` parameter is specified as a comma-separated list of the [CatalogObjectType](entity:CatalogObjectType) values,
 for example, "`ITEM`, `ITEM_VARIATION`, `MODIFIER`, `MODIFIER_LIST`, `CATEGORY`, `DISCOUNT`, `TAX`, `IMAGE`".
+Always specify `types` explicitly. When upgrading to a newer API version, omitting `types` may
+cause new object types to appear in results that were not returned under the previous version.
 
 __Important:__ ListCatalog does not return deleted catalog items. To retrieve
 deleted catalog items, use [SearchCatalogObjects](api-endpoint:Catalog-SearchCatalogObjects)
@@ -3127,6 +3270,11 @@ endpoint in the following aspects:
 - `SearchCatalogItems` supports the custom attribute query filters to return items or item variations that contain custom attribute values, where `SearchCatalogObjects` does not.
 - `SearchCatalogItems` does not support the `include_deleted_objects` filter to search for deleted items or item variations, whereas `SearchCatalogObjects` does.
 - The both endpoints have different call conventions, including the query filter formats.
+
+The `object_types` parameter is specified as a list of [CatalogObjectType](entity:CatalogObjectType) values.
+Always specify `object_types` explicitly. When upgrading to a newer API version, omitting
+`object_types` may cause new object types to appear in results that were not returned under
+the previous version.
 
 </dd>
 </dl>
@@ -3398,6 +3546,10 @@ catch (ApiException<RawError> ex)
 <dd>
 
 Creates a new or updates the specified [CatalogObject](entity:CatalogObject).
+
+This endpoint uses full-replacement semantics. The client must send the complete object, and any
+field absent from the request is interpreted as an intentional clear. This logic applies to
+nested objects as well. For example, omitting inlined children like variations will delete them.
 
 To ensure consistency, only one update request is processed at a time per seller account.
 While one (batch or non-batch) update request is being processed, other (batched and non-batched)
@@ -8614,6 +8766,150 @@ catch (ApiException<RawError> ex)
 </details>
 
 <details>
+<summary><code>Task&lt;CreateInventoryAdjustmentReasonResponse&gt; CreateInventoryAdjustmentReason(CreateInventoryAdjustmentReasonOperationRequest request, RequestOptions? requestOptions = null, CancellationToken cancellationToken = default);</code></summary>
+
+<dl>
+<dd>
+
+### Description
+
+<dl>
+<dd>
+
+Creates a custom inventory adjustment reason.
+
+</dd>
+</dl>
+
+### Usage
+
+<dl>
+<dd>
+
+```csharp
+try
+{
+    var response = await client.Inventory.CreateInventoryAdjustmentReason(
+        new CreateInventoryAdjustmentReasonOperationRequest
+        {
+            Body = new CreateInventoryAdjustmentReasonRequest
+            {
+                IdempotencyKey = "some example string",
+                AdjustmentReason = new InventoryAdjustmentReason
+                {
+                    Id = new InventoryAdjustmentReasonId { Type = InventoryAdjustmentReasonIdType.Received },
+                },
+            },
+        });
+    // TODO: Handle 'response' of type CreateInventoryAdjustmentReasonResponse
+}
+catch (ApiException<RawError> ex)
+{
+    // TODO: Handle 'ex.Error' of type RawError
+}
+```
+
+</dd>
+</dl>
+
+### Request
+
+<dl>
+<dd>
+
+<code>[CreateInventoryAdjustmentReasonOperationRequest](src/Square/Requests/Inventory/CreateInventoryAdjustmentReasonOperationRequest.cs)</code>
+
+</dd>
+</dl>
+
+### Response
+
+<dl>
+<dd>
+
+**OnSuccess**: <code>[CreateInventoryAdjustmentReasonResponse](src/Square/Models/CreateInventoryAdjustmentReasonResponse.cs)</code>
+
+**OnError**: <code>[ApiException](src/Square/Core/Exceptions/ApiException.cs)&lt;[RawError](src/Square/Core/ErrorResponse/RawError.cs)&gt;</code>
+
+</dd>
+</dl>
+
+</dd>
+</dl>
+
+</details>
+
+<details>
+<summary><code>Task&lt;DeleteInventoryAdjustmentReasonResponse&gt; DeleteInventoryAdjustmentReason(DeleteInventoryAdjustmentReasonOperationRequest request, RequestOptions? requestOptions = null, CancellationToken cancellationToken = default);</code></summary>
+
+<dl>
+<dd>
+
+### Description
+
+<dl>
+<dd>
+
+Soft deletes a custom inventory adjustment reason.
+
+</dd>
+</dl>
+
+### Usage
+
+<dl>
+<dd>
+
+```csharp
+try
+{
+    var response = await client.Inventory.DeleteInventoryAdjustmentReason(
+        new DeleteInventoryAdjustmentReasonOperationRequest
+        {
+            Body = new DeleteInventoryAdjustmentReasonRequest
+            {
+                ReasonId = new InventoryAdjustmentReasonId { Type = InventoryAdjustmentReasonIdType.Received },
+            },
+        });
+    // TODO: Handle 'response' of type DeleteInventoryAdjustmentReasonResponse
+}
+catch (ApiException<RawError> ex)
+{
+    // TODO: Handle 'ex.Error' of type RawError
+}
+```
+
+</dd>
+</dl>
+
+### Request
+
+<dl>
+<dd>
+
+<code>[DeleteInventoryAdjustmentReasonOperationRequest](src/Square/Requests/Inventory/DeleteInventoryAdjustmentReasonOperationRequest.cs)</code>
+
+</dd>
+</dl>
+
+### Response
+
+<dl>
+<dd>
+
+**OnSuccess**: <code>[DeleteInventoryAdjustmentReasonResponse](src/Square/Models/DeleteInventoryAdjustmentReasonResponse.cs)</code>
+
+**OnError**: <code>[ApiException](src/Square/Core/Exceptions/ApiException.cs)&lt;[RawError](src/Square/Core/ErrorResponse/RawError.cs)&gt;</code>
+
+</dd>
+</dl>
+
+</dd>
+</dl>
+
+</details>
+
+<details>
 <summary><code>Task&lt;BatchChangeInventoryResponse&gt; DeprecatedBatchChangeInventory(DeprecatedBatchChangeInventoryRequest request, RequestOptions? requestOptions = null, CancellationToken cancellationToken = default);</code></summary>
 
 <dl>
@@ -8941,6 +9237,140 @@ catch (ApiException<RawError> ex)
 </details>
 
 <details>
+<summary><code>Task&lt;ListInventoryAdjustmentReasonsResponse&gt; ListInventoryAdjustmentReasons(ListInventoryAdjustmentReasonsRequest request, RequestOptions? requestOptions = null, CancellationToken cancellationToken = default);</code></summary>
+
+<dl>
+<dd>
+
+### Description
+
+<dl>
+<dd>
+
+Returns the standard and custom inventory adjustment reasons available
+to the seller.
+
+</dd>
+</dl>
+
+### Usage
+
+<dl>
+<dd>
+
+```csharp
+try
+{
+    var response = await client.Inventory.ListInventoryAdjustmentReasons(new ListInventoryAdjustmentReasonsRequest());
+    // TODO: Handle 'response' of type ListInventoryAdjustmentReasonsResponse
+}
+catch (ApiException<RawError> ex)
+{
+    // TODO: Handle 'ex.Error' of type RawError
+}
+```
+
+</dd>
+</dl>
+
+### Request
+
+<dl>
+<dd>
+
+<code>[ListInventoryAdjustmentReasonsRequest](src/Square/Requests/Inventory/ListInventoryAdjustmentReasonsRequest.cs)</code>
+
+</dd>
+</dl>
+
+### Response
+
+<dl>
+<dd>
+
+**OnSuccess**: <code>[ListInventoryAdjustmentReasonsResponse](src/Square/Models/ListInventoryAdjustmentReasonsResponse.cs)</code>
+
+**OnError**: <code>[ApiException](src/Square/Core/Exceptions/ApiException.cs)&lt;[RawError](src/Square/Core/ErrorResponse/RawError.cs)&gt;</code>
+
+</dd>
+</dl>
+
+</dd>
+</dl>
+
+</details>
+
+<details>
+<summary><code>Task&lt;RestoreInventoryAdjustmentReasonResponse&gt; RestoreInventoryAdjustmentReason(RestoreInventoryAdjustmentReasonOperationRequest request, RequestOptions? requestOptions = null, CancellationToken cancellationToken = default);</code></summary>
+
+<dl>
+<dd>
+
+### Description
+
+<dl>
+<dd>
+
+Restores a soft-deleted custom inventory adjustment reason.
+
+</dd>
+</dl>
+
+### Usage
+
+<dl>
+<dd>
+
+```csharp
+try
+{
+    var response = await client.Inventory.RestoreInventoryAdjustmentReason(
+        new RestoreInventoryAdjustmentReasonOperationRequest
+        {
+            Body = new RestoreInventoryAdjustmentReasonRequest
+            {
+                ReasonId = new InventoryAdjustmentReasonId { Type = InventoryAdjustmentReasonIdType.Received },
+            },
+        });
+    // TODO: Handle 'response' of type RestoreInventoryAdjustmentReasonResponse
+}
+catch (ApiException<RawError> ex)
+{
+    // TODO: Handle 'ex.Error' of type RawError
+}
+```
+
+</dd>
+</dl>
+
+### Request
+
+<dl>
+<dd>
+
+<code>[RestoreInventoryAdjustmentReasonOperationRequest](src/Square/Requests/Inventory/RestoreInventoryAdjustmentReasonOperationRequest.cs)</code>
+
+</dd>
+</dl>
+
+### Response
+
+<dl>
+<dd>
+
+**OnSuccess**: <code>[RestoreInventoryAdjustmentReasonResponse](src/Square/Models/RestoreInventoryAdjustmentReasonResponse.cs)</code>
+
+**OnError**: <code>[ApiException](src/Square/Core/Exceptions/ApiException.cs)&lt;[RawError](src/Square/Core/ErrorResponse/RawError.cs)&gt;</code>
+
+</dd>
+</dl>
+
+</dd>
+</dl>
+
+</details>
+
+<details>
 <summary><code>Task&lt;RetrieveInventoryAdjustmentResponse&gt; RetrieveInventoryAdjustment(RetrieveInventoryAdjustmentRequest request, RequestOptions? requestOptions = null, CancellationToken cancellationToken = default);</code></summary>
 
 <dl>
@@ -8996,6 +9426,77 @@ catch (ApiException<RawError> ex)
 <dd>
 
 **OnSuccess**: <code>[RetrieveInventoryAdjustmentResponse](src/Square/Models/RetrieveInventoryAdjustmentResponse.cs)</code>
+
+**OnError**: <code>[ApiException](src/Square/Core/Exceptions/ApiException.cs)&lt;[RawError](src/Square/Core/ErrorResponse/RawError.cs)&gt;</code>
+
+</dd>
+</dl>
+
+</dd>
+</dl>
+
+</details>
+
+<details>
+<summary><code>Task&lt;RetrieveInventoryAdjustmentReasonResponse&gt; RetrieveInventoryAdjustmentReason(RetrieveInventoryAdjustmentReasonOperationRequest request, RequestOptions? requestOptions = null, CancellationToken cancellationToken = default);</code></summary>
+
+<dl>
+<dd>
+
+### Description
+
+<dl>
+<dd>
+
+Returns the inventory adjustment reason identified by the provided
+`reason_id`. Deleted custom reasons can be retrieved by ID.
+
+</dd>
+</dl>
+
+### Usage
+
+<dl>
+<dd>
+
+```csharp
+try
+{
+    var response = await client.Inventory.RetrieveInventoryAdjustmentReason(
+        new RetrieveInventoryAdjustmentReasonOperationRequest
+        {
+            Body = new RetrieveInventoryAdjustmentReasonRequest
+            {
+                ReasonId = new InventoryAdjustmentReasonId { Type = InventoryAdjustmentReasonIdType.Received },
+            },
+        });
+    // TODO: Handle 'response' of type RetrieveInventoryAdjustmentReasonResponse
+}
+catch (ApiException<RawError> ex)
+{
+    // TODO: Handle 'ex.Error' of type RawError
+}
+```
+
+</dd>
+</dl>
+
+### Request
+
+<dl>
+<dd>
+
+<code>[RetrieveInventoryAdjustmentReasonOperationRequest](src/Square/Requests/Inventory/RetrieveInventoryAdjustmentReasonOperationRequest.cs)</code>
+
+</dd>
+</dl>
+
+### Response
+
+<dl>
+<dd>
+
+**OnSuccess**: <code>[RetrieveInventoryAdjustmentReasonResponse](src/Square/Models/RetrieveInventoryAdjustmentReasonResponse.cs)</code>
 
 **OnError**: <code>[ApiException](src/Square/Core/Exceptions/ApiException.cs)&lt;[RawError](src/Square/Core/ErrorResponse/RawError.cs)&gt;</code>
 
@@ -9222,7 +9723,7 @@ catch (ApiException<RawError> ex)
 </details>
 
 <details>
-<summary><code>Task&lt;RetrieveInventoryTransferResponse&gt; RetrieveInventoryTransfer(RetrieveInventoryTransferRequest request, RequestOptions? requestOptions = null, CancellationToken cancellationToken = default);</code></summary>
+<summary><code>Task&lt;UpdateInventoryAdjustmentResponse&gt; UpdateInventoryAdjustment(UpdateInventoryAdjustmentOperationRequest request, RequestOptions? requestOptions = null, CancellationToken cancellationToken = default);</code></summary>
 
 <dl>
 <dd>
@@ -9232,8 +9733,10 @@ catch (ApiException<RawError> ex)
 <dl>
 <dd>
 
-Returns the [InventoryTransfer](entity:InventoryTransfer) object
-with the provided `transfer_id`.
+Applies an update to the provided adjustment.
+
+On success: returns the newly updated adjustment.
+On failure: returns a list of related errors.
 
 </dd>
 </dl>
@@ -9246,11 +9749,15 @@ with the provided `transfer_id`.
 ```csharp
 try
 {
-    var response = await client.Inventory.RetrieveInventoryTransfer(new RetrieveInventoryTransferRequest
+    var response = await client.Inventory.UpdateInventoryAdjustment(new UpdateInventoryAdjustmentOperationRequest
     {
-        TransferId = "some example string",
+        Body = new UpdateInventoryAdjustmentRequest
+        {
+            IdempotencyKey = "some example string",
+            Adjustment = new InventoryAdjustment(),
+        },
     });
-    // TODO: Handle 'response' of type RetrieveInventoryTransferResponse
+    // TODO: Handle 'response' of type UpdateInventoryAdjustmentResponse
 }
 catch (ApiException<RawError> ex)
 {
@@ -9266,7 +9773,7 @@ catch (ApiException<RawError> ex)
 <dl>
 <dd>
 
-<code>[RetrieveInventoryTransferRequest](src/Square/Requests/Inventory/RetrieveInventoryTransferRequest.cs)</code>
+<code>[UpdateInventoryAdjustmentOperationRequest](src/Square/Requests/Inventory/UpdateInventoryAdjustmentOperationRequest.cs)</code>
 
 </dd>
 </dl>
@@ -9276,7 +9783,81 @@ catch (ApiException<RawError> ex)
 <dl>
 <dd>
 
-**OnSuccess**: <code>[RetrieveInventoryTransferResponse](src/Square/Models/RetrieveInventoryTransferResponse.cs)</code>
+**OnSuccess**: <code>[UpdateInventoryAdjustmentResponse](src/Square/Models/UpdateInventoryAdjustmentResponse.cs)</code>
+
+**OnError**: <code>[ApiException](src/Square/Core/Exceptions/ApiException.cs)&lt;[RawError](src/Square/Core/ErrorResponse/RawError.cs)&gt;</code>
+
+</dd>
+</dl>
+
+</dd>
+</dl>
+
+</details>
+
+<details>
+<summary><code>Task&lt;UpdateInventoryAdjustmentReasonResponse&gt; UpdateInventoryAdjustmentReason(UpdateInventoryAdjustmentReasonOperationRequest request, RequestOptions? requestOptions = null, CancellationToken cancellationToken = default);</code></summary>
+
+<dl>
+<dd>
+
+### Description
+
+<dl>
+<dd>
+
+Updates a custom inventory adjustment reason.
+
+</dd>
+</dl>
+
+### Usage
+
+<dl>
+<dd>
+
+```csharp
+try
+{
+    var response = await client.Inventory.UpdateInventoryAdjustmentReason(
+        new UpdateInventoryAdjustmentReasonOperationRequest
+        {
+            Body = new UpdateInventoryAdjustmentReasonRequest
+            {
+                ReasonId = new InventoryAdjustmentReasonId { Type = InventoryAdjustmentReasonIdType.Received },
+                AdjustmentReason = new InventoryAdjustmentReason
+                {
+                    Id = new InventoryAdjustmentReasonId { Type = InventoryAdjustmentReasonIdType.Received },
+                },
+            },
+        });
+    // TODO: Handle 'response' of type UpdateInventoryAdjustmentReasonResponse
+}
+catch (ApiException<RawError> ex)
+{
+    // TODO: Handle 'ex.Error' of type RawError
+}
+```
+
+</dd>
+</dl>
+
+### Request
+
+<dl>
+<dd>
+
+<code>[UpdateInventoryAdjustmentReasonOperationRequest](src/Square/Requests/Inventory/UpdateInventoryAdjustmentReasonOperationRequest.cs)</code>
+
+</dd>
+</dl>
+
+### Response
+
+<dl>
+<dd>
+
+**OnSuccess**: <code>[UpdateInventoryAdjustmentReasonResponse](src/Square/Models/UpdateInventoryAdjustmentReasonResponse.cs)</code>
 
 **OnError**: <code>[ApiException](src/Square/Core/Exceptions/ApiException.cs)&lt;[RawError](src/Square/Core/ErrorResponse/RawError.cs)&gt;</code>
 
@@ -15210,88 +15791,6 @@ catch (ApiException<RawError> ex)
 
 </details>
 
-## MobileAuthorization
-
-> Source: [MobileAuthorization](src/Square/Api/MobileAuthorization.cs)
-
-<details>
-<summary><code>Task&lt;CreateMobileAuthorizationCodeResponse&gt; CreateMobileAuthorizationCode(CreateMobileAuthorizationCodeOperationRequest request, RequestOptions? requestOptions = null, CancellationToken cancellationToken = default);</code></summary>
-
-<dl>
-<dd>
-
-### Description
-
-<dl>
-<dd>
-
-__Note:__ This endpoint is used by the deprecated Reader SDK. 
-Developers should update their integration to use the [Mobile Payments SDK](https://developer.squareup.com/docs/mobile-payments-sdk), which includes its own authorization methods. 
-
-Generates code to authorize a mobile application to connect to a Square card reader.
-
-Authorization codes are one-time-use codes and expire 60 minutes after being issued.
-
-The `Authorization` header you provide to this endpoint must have the following format:
-
-```
-Authorization: Bearer ACCESS_TOKEN
-```
-
-Replace `ACCESS_TOKEN` with a
-[valid production authorization credential](https://developer.squareup.com/docs/build-basics/access-tokens).
-
-</dd>
-</dl>
-
-### Usage
-
-<dl>
-<dd>
-
-```csharp
-try
-{
-    var response = await client.MobileAuthorization.CreateMobileAuthorizationCode(
-        new CreateMobileAuthorizationCodeOperationRequest { Body = new CreateMobileAuthorizationCodeRequest() });
-    // TODO: Handle 'response' of type CreateMobileAuthorizationCodeResponse
-}
-catch (ApiException<RawError> ex)
-{
-    // TODO: Handle 'ex.Error' of type RawError
-}
-```
-
-</dd>
-</dl>
-
-### Request
-
-<dl>
-<dd>
-
-<code>[CreateMobileAuthorizationCodeOperationRequest](src/Square/Requests/MobileAuthorization/CreateMobileAuthorizationCodeOperationRequest.cs)</code>
-
-</dd>
-</dl>
-
-### Response
-
-<dl>
-<dd>
-
-**OnSuccess**: <code>[CreateMobileAuthorizationCodeResponse](src/Square/Models/CreateMobileAuthorizationCodeResponse.cs)</code>
-
-**OnError**: <code>[ApiException](src/Square/Core/Exceptions/ApiException.cs)&lt;[RawError](src/Square/Core/ErrorResponse/RawError.cs)&gt;</code>
-
-</dd>
-</dl>
-
-</dd>
-</dl>
-
-</details>
-
 ## OAuth
 
 > Source: [OAuth](src/Square/Api/OAuth.cs)
@@ -16796,8 +17295,9 @@ how to sort or filter the results. Your `SearchOrdersQuery` can:
 
 Note that details for orders processed with Square Point of Sale while in
 offline mode might not be transmitted to Square for up to 72 hours. Offline
-orders have a `created_at` value that reflects the time the order was created,
-not the time it was subsequently transmitted to Square.
+orders have a `created_at` value that reflects the time the order was
+transmitted to Square and created server-side, not the time the order was
+created on the Point of Sale device.
 
 </dd>
 </dl>
@@ -20778,78 +21278,6 @@ catch (ApiException<RawError> ex)
 > Source: [Transactions](src/Square/Api/Transactions.cs)
 
 <details>
-<summary><code>Task&lt;CaptureTransactionResponse&gt; CaptureTransaction(CaptureTransactionRequest request, RequestOptions? requestOptions = null, CancellationToken cancellationToken = default);</code></summary>
-
-<dl>
-<dd>
-
-### Description
-
-<dl>
-<dd>
-
-Captures a transaction that was created with the [Charge](api-endpoint:Transactions-Charge)
-endpoint with a `delay_capture` value of `true`.
-
-
-See [Delayed capture transactions](https://developer.squareup.com/docs/payments/transactions/overview#delayed-capture)
-for more information.
-
-</dd>
-</dl>
-
-### Usage
-
-<dl>
-<dd>
-
-```csharp
-try
-{
-    var response = await client.Transactions.CaptureTransaction(new CaptureTransactionRequest
-    {
-        LocationId = "some example string",
-        TransactionId = "some example string",
-    });
-    // TODO: Handle 'response' of type CaptureTransactionResponse
-}
-catch (ApiException<RawError> ex)
-{
-    // TODO: Handle 'ex.Error' of type RawError
-}
-```
-
-</dd>
-</dl>
-
-### Request
-
-<dl>
-<dd>
-
-<code>[CaptureTransactionRequest](src/Square/Requests/Transactions/CaptureTransactionRequest.cs)</code>
-
-</dd>
-</dl>
-
-### Response
-
-<dl>
-<dd>
-
-**OnSuccess**: <code>[CaptureTransactionResponse](src/Square/Models/CaptureTransactionResponse.cs)</code>
-
-**OnError**: <code>[ApiException](src/Square/Core/Exceptions/ApiException.cs)&lt;[RawError](src/Square/Core/ErrorResponse/RawError.cs)&gt;</code>
-
-</dd>
-</dl>
-
-</dd>
-</dl>
-
-</details>
-
-<details>
 <summary><code>Task&lt;ListTransactionsResponse&gt; ListTransactions(ListTransactionsRequest request, RequestOptions? requestOptions = null, CancellationToken cancellationToken = default);</code></summary>
 
 <dl>
@@ -20976,78 +21404,6 @@ catch (ApiException<RawError> ex)
 <dd>
 
 **OnSuccess**: <code>[RetrieveTransactionResponse](src/Square/Models/RetrieveTransactionResponse.cs)</code>
-
-**OnError**: <code>[ApiException](src/Square/Core/Exceptions/ApiException.cs)&lt;[RawError](src/Square/Core/ErrorResponse/RawError.cs)&gt;</code>
-
-</dd>
-</dl>
-
-</dd>
-</dl>
-
-</details>
-
-<details>
-<summary><code>Task&lt;VoidTransactionResponse&gt; VoidTransaction(VoidTransactionRequest request, RequestOptions? requestOptions = null, CancellationToken cancellationToken = default);</code></summary>
-
-<dl>
-<dd>
-
-### Description
-
-<dl>
-<dd>
-
-Cancels a transaction that was created with the [Charge](api-endpoint:Transactions-Charge)
-endpoint with a `delay_capture` value of `true`.
-
-
-See [Delayed capture transactions](https://developer.squareup.com/docs/payments/transactions/overview#delayed-capture)
-for more information.
-
-</dd>
-</dl>
-
-### Usage
-
-<dl>
-<dd>
-
-```csharp
-try
-{
-    var response = await client.Transactions.VoidTransaction(new VoidTransactionRequest
-    {
-        LocationId = "some example string",
-        TransactionId = "some example string",
-    });
-    // TODO: Handle 'response' of type VoidTransactionResponse
-}
-catch (ApiException<RawError> ex)
-{
-    // TODO: Handle 'ex.Error' of type RawError
-}
-```
-
-</dd>
-</dl>
-
-### Request
-
-<dl>
-<dd>
-
-<code>[VoidTransactionRequest](src/Square/Requests/Transactions/VoidTransactionRequest.cs)</code>
-
-</dd>
-</dl>
-
-### Response
-
-<dl>
-<dd>
-
-**OnSuccess**: <code>[VoidTransactionResponse](src/Square/Models/VoidTransactionResponse.cs)</code>
 
 **OnError**: <code>[ApiException](src/Square/Core/Exceptions/ApiException.cs)&lt;[RawError](src/Square/Core/ErrorResponse/RawError.cs)&gt;</code>
 

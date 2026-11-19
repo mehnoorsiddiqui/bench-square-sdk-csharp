@@ -27,4 +27,10 @@ public sealed record ListBankAccountsRequest
     /// to retrieve only the linked bank accounts belonging to a specific location.
     /// </summary>
     public string? LocationId { get; init; }
+
+    /// <summary>
+    /// Customer ID. You can specify this optional filter
+    /// to retrieve only the linked bank accounts belonging to a specific customer.
+    /// </summary>
+    public string? CustomerId { get; init; }
 }

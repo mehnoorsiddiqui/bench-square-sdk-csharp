@@ -107,6 +107,14 @@ public record OrderLineItemModifier
     [JsonPropertyName("metadata")]
     public IReadOnlyDictionary<string, string>? Metadata { get; init; }
 
+    /// <summary>
+    /// The <c>uid</c> of the parent modifier, if this modifier is nested under another modifier.
+    /// </summary>
+    [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
+    [JsonPropertyName("parent_modifier_uid")]
+    [MaxLength(60)]
+    public string? ParentModifierUid { get; init; }
+
     [JsonExtensionData]
     public AdditionalProperties AdditionalProperties { get; init; } = [];
 }

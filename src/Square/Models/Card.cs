@@ -170,6 +170,20 @@ public record Card
     [JsonPropertyName("hsa_fsa")]
     public bool? HsaFsa { get; init; }
 
+    /// <summary>
+    /// Timestamp for when the card object was created on Square’s servers. In RFC 3339 format, e.g., "2016-09-04T23:59:33.123Z".
+    /// </summary>
+    [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
+    [JsonPropertyName("created_at")]
+    public string? CreatedAt { get; init; }
+
+    /// <summary>
+    /// Timestamp for when the card object was disabled on Square’s servers. In RFC 3339 format, e.g., "2016-09-04T23:59:33.123Z".
+    /// </summary>
+    [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
+    [JsonPropertyName("disabled_at")]
+    public string? DisabledAt { get; init; }
+
     [JsonExtensionData]
     public AdditionalProperties AdditionalProperties { get; init; } = [];
 }

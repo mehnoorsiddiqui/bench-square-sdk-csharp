@@ -119,9 +119,16 @@ public sealed class Catalog
     /// request (items, variations, modifier lists, discounts, and taxes) is no more
     /// than 10,000.
     /// <para>
+    /// This endpoint uses full-replacement semantics. The client must send the complete object, and any
+    /// field absent from the request is interpreted as an intentional clear. This logic applies to
+    /// nested objects as well. For example, omitting inlined children like variations will delete them.
+    /// </para>
+    /// <para>
     /// To ensure consistency, only one update request is processed at a time per seller account.
     /// While one (batch or non-batch) update request is being processed, other (batched and non-batched)
-    /// update requests are rejected with the <c>429</c> error code.
+    /// update requests are rejected with the <c>429</c> error code. Prefer batching related changes into a
+    /// single call rather than issuing many small writes, since each write acquires the lock separately
+    /// and parallel writes to the same seller will contend with each other, producing <c>429</c> errors.
     /// </para>
     /// </remarks>
     public Task<BatchUpsertCatalogObjectsResponse> BatchUpsertCatalogObjects(BatchUpsertCatalogObjectsOperationRequest request,
@@ -251,6 +258,8 @@ public sealed class Catalog
     /// <para>
     /// The <c>types</c> parameter is specified as a comma-separated list of the <see href="entity:CatalogObjectType">CatalogObjectType</see> values,
     /// for example, "<c>ITEM</c>, <c>ITEM_VARIATION</c>, <c>MODIFIER</c>, <c>MODIFIER_LIST</c>, <c>CATEGORY</c>, <c>DISCOUNT</c>, <c>TAX</c>, <c>IMAGE</c>".
+    /// Always specify <c>types</c> explicitly. When upgrading to a newer API version, omitting <c>types</c> may
+    /// cause new object types to appear in results that were not returned under the previous version.
     /// </para>
     /// <para>
     /// __Important:__ ListCatalog does not return deleted catalog items. To retrieve
@@ -374,6 +383,12 @@ public sealed class Catalog
     ///   <item><description><c>SearchCatalogItems</c> does not support the <c>include_deleted_objects</c> filter to search for deleted items or item variations, whereas <c>SearchCatalogObjects</c> does.</description></item>
     ///   <item><description>The both endpoints have different call conventions, including the query filter formats.</description></item>
     /// </list>
+    /// <para>
+    /// The <c>object_types</c> parameter is specified as a list of <see href="entity:CatalogObjectType">CatalogObjectType</see> values.
+    /// Always specify <c>object_types</c> explicitly. When upgrading to a newer API version, omitting
+    /// <c>object_types</c> may cause new object types to appear in results that were not returned under
+    /// the previous version.
+    /// </para>
     /// </remarks>
     public Task<SearchCatalogObjectsResponse> SearchCatalogObjects(SearchCatalogObjectsOperationRequest request,
         RequestOptions? requestOptions = null,
@@ -492,6 +507,11 @@ public sealed class Catalog
     /// <exception cref="ApiException{TError}"> of <see cref="RawError"/> when the server returns an error response.</exception>
     /// <remarks>
     /// Creates a new or updates the specified <see href="entity:CatalogObject">CatalogObject</see>.
+    /// <para>
+    /// This endpoint uses full-replacement semantics. The client must send the complete object, and any
+    /// field absent from the request is interpreted as an intentional clear. This logic applies to
+    /// nested objects as well. For example, omitting inlined children like variations will delete them.
+    /// </para>
     /// <para>
     /// To ensure consistency, only one update request is processed at a time per seller account.
     /// While one (batch or non-batch) update request is being processed, other (batched and non-batched)

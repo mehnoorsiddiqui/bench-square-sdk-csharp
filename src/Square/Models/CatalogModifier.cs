@@ -74,6 +74,31 @@ public record CatalogModifier
     [JsonPropertyName("hidden_online")]
     public bool? HiddenOnline { get; init; }
 
+    /// <summary>
+    /// (Optional) Name that the restaurant wants to display to their kitchen workers
+    /// instead of the customer-facing name.
+    /// e.g., customer name might be "Double Baconize" and the
+    /// kitchen name is "Add 2x bacon"
+    /// </summary>
+    [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
+    [JsonPropertyName("kitchen_name")]
+    public string? KitchenName { get; init; }
+
+    /// <summary>
+    /// Child <c>CatalogModifierList</c>s that this <c>CatalogModifier</c> nests for multi-step choices.
+    /// When a customer or staff member selects this modifier, the relevant follow-up modifier list appears.
+    /// For example, selecting "Hummus" reveals a secondary "Choose Hummus Flavor" set, and selecting a flavor
+    /// could reveal a third-level portion size set.
+    /// <para>
+    /// Each entry references a child modifier list. Each modifier can nest up to 5 child modifier list, and
+    /// supports up to 3 levels of nesting depth. The order in <c>child_modifier_list_ids</c> determines display order
+    /// during checkout.
+    /// </para>
+    /// </summary>
+    [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
+    [JsonPropertyName("child_modifier_list_ids")]
+    public IReadOnlyList<string>? ChildModifierListIds { get; init; }
+
     [JsonExtensionData]
     public AdditionalProperties AdditionalProperties { get; init; } = [];
 }

@@ -2,9 +2,36 @@
 
 # BankAccounts — operations
 
-Accessor: `client.BankAccounts` · Source: `src/Square/Api/BankAccounts.cs` · 3 operations
+Accessor: `client.BankAccounts` · Source: `src/Square/Api/BankAccounts.cs` · 5 operations
 
 **Type sources**: the file declaring each type an operation names (`RawError` excluded — see sdk-map.md).
+
+### CreateBankAccount
+
+- **Auth**: `options.BearerAuth`
+- **Signature**: `CreateBankAccount(CreateBankAccountOperationRequest request, RequestOptions? requestOptions = null, CancellationToken cancellationToken = default)`
+  - required: `Body`
+- **Returns**: `CreateBankAccountResponse`
+- **Error**: `ApiException<RawError>` — **Case B**
+
+| Type | Source |
+| --- | --- |
+| `CreateBankAccountOperationRequest` | `src/Square/Requests/BankAccounts/CreateBankAccountOperationRequest.cs` |
+| `CreateBankAccountRequest` | `src/Square/Models/CreateBankAccountRequest.cs` |
+| `CreateBankAccountResponse` | `src/Square/Models/CreateBankAccountResponse.cs` |
+
+### DisableBankAccount
+
+- **Auth**: `options.BearerAuth`
+- **Signature**: `DisableBankAccount(DisableBankAccountRequest request, RequestOptions? requestOptions = null, CancellationToken cancellationToken = default)`
+  - required: `BankAccountId`
+- **Returns**: `DisableBankAccountResponse`
+- **Error**: `ApiException<RawError>` — **Case B**
+
+| Type | Source |
+| --- | --- |
+| `DisableBankAccountRequest` | `src/Square/Requests/BankAccounts/DisableBankAccountRequest.cs` |
+| `DisableBankAccountResponse` | `src/Square/Models/DisableBankAccountResponse.cs` |
 
 ### GetBankAccount
 
@@ -36,7 +63,7 @@ Accessor: `client.BankAccounts` · Source: `src/Square/Api/BankAccounts.cs` · 3
 
 - **Auth**: `options.BearerAuth`
 - **Signature**: `ListBankAccounts(ListBankAccountsRequest request, RequestOptions? requestOptions = null, CancellationToken cancellationToken = default)`
-- **Query params (wire ← C#)**: `cursor` ← `Cursor`, `limit` ← `Limit`, `location_id` ← `LocationId`
+- **Query params (wire ← C#)**: `cursor` ← `Cursor`, `limit` ← `Limit`, `location_id` ← `LocationId`, `customer_id` ← `CustomerId`
 - **Returns**: `ListBankAccountsResponse`
 - **Error**: `ApiException<RawError>` — **Case B**
 

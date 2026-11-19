@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Text.Json.Serialization;
 using Square.Core.Models;
@@ -287,6 +288,16 @@ public record CreatePaymentRequest
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("buyer_phone_number")]
     public string? BuyerPhoneNumber { get; init; }
+
+    /// <summary>
+    /// Details pertaining to recipients of the application fee. The sum of the amounts in the
+    /// app_fee_allocations must equal the app_fee_money amount, if present. If populated, an
+    /// allocation must be present for every party that expects to receive a portion of the application
+    /// fee, including the application developer.
+    /// </summary>
+    [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
+    [JsonPropertyName("app_fee_allocations")]
+    public IReadOnlyList<object>? AppFeeAllocations { get; init; }
 
     [JsonExtensionData]
     public AdditionalProperties AdditionalProperties { get; init; } = [];

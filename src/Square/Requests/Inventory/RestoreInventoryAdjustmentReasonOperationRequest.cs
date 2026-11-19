@@ -1,11 +1,11 @@
 using Square.Models;
 
-namespace Square.Requests.MobileAuthorization;
+namespace Square.Requests.Inventory;
 
 /// <summary>
-/// The inputs of the CreateMobileAuthorizationCode operation.
+/// The inputs of the RestoreInventoryAdjustmentReason operation.
 /// </summary>
-public sealed record CreateMobileAuthorizationCodeOperationRequest
+public sealed record RestoreInventoryAdjustmentReasonOperationRequest
 {
     /// <summary>
     /// An object containing the fields to POST for the request.
@@ -13,5 +13,5 @@ public sealed record CreateMobileAuthorizationCodeOperationRequest
     /// See the corresponding object definition for field details.
     /// </para>
     /// </summary>
-    public required CreateMobileAuthorizationCodeRequest Body { get; init; }
+    public required RestoreInventoryAdjustmentReasonRequest Body { get; init; }
 }

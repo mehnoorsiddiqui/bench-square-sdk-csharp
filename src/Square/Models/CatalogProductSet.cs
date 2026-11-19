@@ -33,7 +33,7 @@ public record CatalogProductSet
     /// Only one of <c>product_ids_all</c>, <c>product_ids_any</c>, or <c>all_products</c> can be set.
     /// </para>
     /// <para>
-    /// Max: 500 catalog object IDs.
+    /// Max: 5000 catalog object IDs.
     /// </para>
     /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
@@ -47,7 +47,7 @@ public record CatalogProductSet
     /// Only one of <c>product_ids_all</c>, <c>product_ids_any</c>, or <c>all_products</c> can be set.
     /// </para>
     /// <para>
-    /// Max: 500 catalog object IDs.
+    /// Max: 5000 catalog object IDs.
     /// </para>
     /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]

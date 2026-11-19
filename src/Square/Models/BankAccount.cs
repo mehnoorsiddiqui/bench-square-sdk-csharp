@@ -138,6 +138,13 @@ public record BankAccount
     [MaxLength(100)]
     public string? BankName { get; init; }
 
+    /// <summary>
+    /// The ID of the customer who owns the bank account
+    /// </summary>
+    [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
+    [JsonPropertyName("customer_id")]
+    public string? CustomerId { get; init; }
+
     [JsonExtensionData]
     public AdditionalProperties AdditionalProperties { get; init; } = [];
 }

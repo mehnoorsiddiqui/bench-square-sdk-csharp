@@ -24,9 +24,9 @@ public sealed class SquareClient
         var urlFactory = new UriFactory(queryParameterFactory, templateParamsFactory);
         var httpStatusPolicy = new HttpStatusPolicy([]);
         var headersFactory = new HeadersFactory([
-            new HeaderParam("User-Agent", "SquareClient/4.0.0 CSharp"),
+            new HeaderParam("User-Agent", "SquareClient/5.0.0 CSharp"),
             new HeaderParam("X-APIMatic-Lang", "CSharp"),
-            new HeaderParam("X-APIMatic-Package-Version", "4.0.0"),
+            new HeaderParam("X-APIMatic-Package-Version", "5.0.0"),
             new HeaderParam("X-APIMatic-Gen-Version", "4.0.0"),
             new HeaderParam("X-APIMatic-OS", RuntimeEnvironment.Os),
             new HeaderParam("X-APIMatic-Runtime", RuntimeEnvironment.Runtime),
@@ -107,8 +107,6 @@ public sealed class SquareClient
         field ??= new MerchantCustomAttributes(_rawClient, _server, _auth);
 
     public Merchants Merchants => field ??= new Merchants(_rawClient, _server, _auth);
-
-    public MobileAuthorization MobileAuthorization => field ??= new MobileAuthorization(_rawClient, _server, _auth);
 
     public OAuth OAuth => field ??= new OAuth(_rawClient, _server, _auth);
 

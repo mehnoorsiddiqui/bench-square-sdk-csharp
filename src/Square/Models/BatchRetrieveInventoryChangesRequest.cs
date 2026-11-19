@@ -79,6 +79,19 @@ public record BatchRetrieveInventoryChangesRequest
     [Maximum(1000)]
     public int? Limit { get; init; }
 
+    [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
+    [JsonPropertyName("sort")]
+    public BatchRetrieveInventoryChangesSort? Sort { get; init; }
+
+    /// <summary>
+    /// The filter to return <c>ADJUSTMENT</c> query results by inventory
+    /// adjustment reason. This filter is only applied when set. The request cannot
+    /// include both <c>reason_ids</c> and <c>states</c>.
+    /// </summary>
+    [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
+    [JsonPropertyName("reason_ids")]
+    public IReadOnlyList<InventoryAdjustmentReasonId>? ReasonIds { get; init; }
+
     [JsonExtensionData]
     public AdditionalProperties AdditionalProperties { get; init; } = [];
 }

@@ -96,7 +96,9 @@ public record CatalogItemVariation
     public IReadOnlyList<ItemVariationLocationOverrides>? LocationOverrides { get; init; }
 
     /// <summary>
-    /// If <c>true</c>, inventory tracking is active for the variation.
+    /// If <c>true</c>, inventory tracking is active for the variation at all locations by default.
+    /// This value can be overridden for specific locations using <c>ItemVariationLocationOverrides.track_inventory</c>.
+    /// If unset at both levels, inventory tracking is disabled.
     /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("track_inventory")]
@@ -111,9 +113,9 @@ public record CatalogItemVariation
 
     /// <summary>
     /// If the inventory quantity for the variation is less than or equal to this value and <c>inventory_alert_type</c>
-    /// is <c>LOW_QUANTITY</c>, the variation displays an alert in the merchant dashboard.
+    /// is <c>LOW_QUANTITY</c>, the variation displays an alert in the merchant dashboard. This value is always an integer.
     /// <para>
-    /// This value is always an integer.
+    /// Deprecated because this field has never been global.
     /// </para>
     /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
@@ -205,6 +207,25 @@ public record CatalogItemVariation
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("stockable_conversion")]
     public CatalogStockConversion? StockableConversion { get; init; }
+
+    /// <summary>
+    /// (Optional) Name that the restaurant wants to display to their kitchen workers
+    /// instead of the customer-facing name.
+    /// e.g., customer name might be "Mega-Jumbo Triplesized" and the
+    /// kitchen name is "Large container"
+    /// </summary>
+    [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
+    [JsonPropertyName("kitchen_name")]
+    public string? KitchenName { get; init; }
+
+    /// <summary>
+    /// Details of the vendor this product is purchased from.
+    /// This field can be set only if the seller has an active subscription
+    /// to either Square for Retail Premium or Square for Restaurants Premium.
+    /// </summary>
+    [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
+    [JsonPropertyName("vendor_information")]
+    public IReadOnlyList<CatalogItemVariationVendorInformation>? VendorInformation { get; init; }
 
     [JsonExtensionData]
     public AdditionalProperties AdditionalProperties { get; init; } = [];

@@ -509,13 +509,14 @@ public sealed record ErrorCode : OpenStringEnum<ErrorCode>
     public static readonly ErrorCode PaymentLimitExceeded = new("PAYMENT_LIMIT_EXCEEDED");
 
     /// <summary>
-    /// When a Gift Card is a payment source, you can allow taking a partial payment
-    /// by adding the <c>accept_partial_authorization</c> parameter in the request.
-    /// However, taking such a partial payment does not work if your request also includes
-    /// <c>tip_money</c>, <c>app_fee_money</c>, or both. Square declines such payments and returns
-    /// the <c>GIFT_CARD_AVAILABLE_AMOUNT</c> error.
-    /// For more information, see
-    /// <see href="https://developer.squareup.com/docs/payments-api/error-codes#createpayment-errors-additional-information">CreatePayment errors (additional information)</see>.
+    /// Provides the available balance on a Square gift card when a gift card payment fails due to insufficient funds.
+    /// This error is returned with an <c>INSUFFICIENT_FUNDS</c> error and contains the balance in the smallest denomination
+    /// of the applicable currency. <see href="https://developer.squareup.com/docs/payments-api/error-codes#gift_card_available_amount">Learn more</see>
+    /// about this error code.
+    /// <para>
+    /// You can use the <c>accept_partial_authorization</c> field in a <c>CreatePayment</c> request to configure a payment flow that uses
+    /// the available balance and allows collecting additional payments.
+    /// </para>
     /// </summary>
     public static readonly ErrorCode GiftCardAvailableAmount = new("GIFT_CARD_AVAILABLE_AMOUNT");
 
@@ -563,6 +564,11 @@ public sealed record ErrorCode : OpenStringEnum<ErrorCode>
     /// The requested payment amount is too high for the provided payment source.
     /// </summary>
     public static readonly ErrorCode AmountTooHigh = new("AMOUNT_TOO_HIGH");
+
+    /// <summary>
+    /// The requested payment amount is too low for the provided payment source.
+    /// </summary>
+    public static readonly ErrorCode AmountTooLow = new("AMOUNT_TOO_LOW");
 
     /// <summary>
     /// The API request references an unsupported instrument type.
@@ -637,6 +643,12 @@ public sealed record ErrorCode : OpenStringEnum<ErrorCode>
     public static readonly ErrorCode OrderUnpaidNotReturnable = new("ORDER_UNPAID_NOT_RETURNABLE");
 
     /// <summary>
+    /// Delay capture of a partial payment is not supported.
+    /// </summary>
+    public static readonly ErrorCode PartialPaymentDelayCaptureNotSupported = new(
+        "PARTIAL_PAYMENT_DELAY_CAPTURE_NOT_SUPPORTED");
+
+    /// <summary>
     /// The provided idempotency key has already been used.
     /// </summary>
     public static readonly ErrorCode IdempotencyKeyReused = new("IDEMPOTENCY_KEY_REUSED");
@@ -702,7 +714,8 @@ public sealed record ErrorCode : OpenStringEnum<ErrorCode>
     public static readonly ErrorCode PlaidError = new("PLAID_ERROR");
 
     /// <summary>
-    /// Plaid error - ITEM_LOGIN_REQUIRED
+    /// Plaid error - ITEM_LOGIN_REQUIRED: Additional input from the user is required to continue getting data for
+    /// this Item.
     /// </summary>
     public static readonly ErrorCode PlaidErrorItemLoginRequired = new("PLAID_ERROR_ITEM_LOGIN_REQUIRED");
 
@@ -710,6 +723,52 @@ public sealed record ErrorCode : OpenStringEnum<ErrorCode>
     /// Plaid error - RATE_LIMIT
     /// </summary>
     public static readonly ErrorCode PlaidErrorRateLimit = new("PLAID_ERROR_RATE_LIMIT");
+
+    /// <summary>
+    /// Plaid error - INVALID_ACCESS_TOKEN: The supplied access token is invalid, expired, or has been revoked by
+    /// the user.
+    /// </summary>
+    public static readonly ErrorCode PlaidErrorInvalidAccessToken = new("PLAID_ERROR_INVALID_ACCESS_TOKEN");
+
+    /// <summary>
+    /// Plaid error - INVALID_ACCOUNT_ID: The supplied account_id is not valid, underlying account might have been
+    /// closed by the Bank or User might have revoked Oauth tokens.
+    /// </summary>
+    public static readonly ErrorCode PlaidErrorInvalidAccountId = new("PLAID_ERROR_INVALID_ACCOUNT_ID");
+
+    /// <summary>
+    /// Plaid error - NO_ACCOUNTS: No open accounts associated with the Item, user may have closed or revoked access
+    /// to their account.
+    /// </summary>
+    public static readonly ErrorCode PlaidErrorNoAccounts = new("PLAID_ERROR_NO_ACCOUNTS");
+
+    /// <summary>
+    /// Plaid error - ITEM_NOT_FOUND: Item requested cannot be found. User may have removed account, had access
+    /// removed, or Plaid deleted in response to a data deletion request from user.
+    /// </summary>
+    public static readonly ErrorCode PlaidErrorItemNotFound = new("PLAID_ERROR_ITEM_NOT_FOUND");
+
+    /// <summary>
+    /// Plaid error - INSUFFICIENT_CREDENTIALS: User abandoned the bank OAuth flow without completing it.
+    /// </summary>
+    public static readonly ErrorCode PlaidErrorInsufficientCredentials = new("PLAID_ERROR_INSUFFICIENT_CREDENTIALS");
+
+    /// <summary>
+    /// Plaid error - ITEM_NOT_SUPPORTED: Plaid is unable to support this user's accounts due to restrictions in place at
+    /// the financial institution.
+    /// </summary>
+    public static readonly ErrorCode PlaidErrorItemNotSupported = new("PLAID_ERROR_ITEM_NOT_SUPPORTED");
+
+    /// <summary>
+    /// Plaid error - PRODUCT_NOT_READY: Plaid hasn't finished obtaining the data needed to fulfill your request
+    /// </summary>
+    public static readonly ErrorCode PlaidErrorProductNotReady = new("PLAID_ERROR_PRODUCT_NOT_READY");
+
+    /// <summary>
+    /// The provided merchant or location is not enabled to accept
+    /// the requested payment source.
+    /// </summary>
+    public static readonly ErrorCode PaymentSourceNotEnabledForTarget = new("PAYMENT_SOURCE_NOT_ENABLED_FOR_TARGET");
 
     /// <summary>
     /// The card was declined.
@@ -766,6 +825,11 @@ public sealed record ErrorCode : OpenStringEnum<ErrorCode>
     /// The body parameter is not recognized by the requested endpoint.
     /// </summary>
     public static readonly ErrorCode UnknownBodyParameter = new("UNKNOWN_BODY_PARAMETER");
+
+    /// <summary>
+    /// The cart is not eligible for EBT payment.
+    /// </summary>
+    public static readonly ErrorCode CartIneligibleForEbt = new("CART_INELIGIBLE_FOR_EBT");
 
     /// <summary>
     /// Not Found - a general error occurred.
@@ -948,6 +1012,7 @@ public sealed record ErrorCode : OpenStringEnum<ErrorCode>
         Func<TResult> onCardTokenExpired,
         Func<TResult> onCardTokenUsed,
         Func<TResult> onAmountTooHigh,
+        Func<TResult> onAmountTooLow,
         Func<TResult> onUnsupportedInstrumentType,
         Func<TResult> onRefundAmountInvalid,
         Func<TResult> onRefundAlreadyPending,
@@ -962,6 +1027,7 @@ public sealed record ErrorCode : OpenStringEnum<ErrorCode>
         Func<TResult> onUnsupportedLoyaltyRewardTier,
         Func<TResult> onLocationMismatch,
         Func<TResult> onOrderUnpaidNotReturnable,
+        Func<TResult> onPartialPaymentDelayCaptureNotSupported,
         Func<TResult> onIdempotencyKeyReused,
         Func<TResult> onUnexpectedValue,
         Func<TResult> onSandboxNotSupported,
@@ -977,6 +1043,14 @@ public sealed record ErrorCode : OpenStringEnum<ErrorCode>
         Func<TResult> onPlaidError,
         Func<TResult> onPlaidErrorItemLoginRequired,
         Func<TResult> onPlaidErrorRateLimit,
+        Func<TResult> onPlaidErrorInvalidAccessToken,
+        Func<TResult> onPlaidErrorInvalidAccountId,
+        Func<TResult> onPlaidErrorNoAccounts,
+        Func<TResult> onPlaidErrorItemNotFound,
+        Func<TResult> onPlaidErrorInsufficientCredentials,
+        Func<TResult> onPlaidErrorItemNotSupported,
+        Func<TResult> onPlaidErrorProductNotReady,
+        Func<TResult> onPaymentSourceNotEnabledForTarget,
         Func<TResult> onCardDeclined,
         Func<TResult> onVerifyCvvFailure,
         Func<TResult> onVerifyAvsFailure,
@@ -987,6 +1061,7 @@ public sealed record ErrorCode : OpenStringEnum<ErrorCode>
         Func<TResult> onAllowablePinTriesExceeded,
         Func<TResult> onReservationDeclined,
         Func<TResult> onUnknownBodyParameter,
+        Func<TResult> onCartIneligibleForEbt,
         Func<TResult> onNotFound,
         Func<TResult> onApplePaymentProcessingCertificateHashNotFound,
         Func<TResult> onMethodNotAllowed,
@@ -1104,6 +1179,7 @@ public sealed record ErrorCode : OpenStringEnum<ErrorCode>
             _ when this == CardTokenExpired => onCardTokenExpired(),
             _ when this == CardTokenUsed => onCardTokenUsed(),
             _ when this == AmountTooHigh => onAmountTooHigh(),
+            _ when this == AmountTooLow => onAmountTooLow(),
             _ when this == UnsupportedInstrumentType => onUnsupportedInstrumentType(),
             _ when this == RefundAmountInvalid => onRefundAmountInvalid(),
             _ when this == RefundAlreadyPending => onRefundAlreadyPending(),
@@ -1118,6 +1194,7 @@ public sealed record ErrorCode : OpenStringEnum<ErrorCode>
             _ when this == UnsupportedLoyaltyRewardTier => onUnsupportedLoyaltyRewardTier(),
             _ when this == LocationMismatch => onLocationMismatch(),
             _ when this == OrderUnpaidNotReturnable => onOrderUnpaidNotReturnable(),
+            _ when this == PartialPaymentDelayCaptureNotSupported => onPartialPaymentDelayCaptureNotSupported(),
             _ when this == IdempotencyKeyReused => onIdempotencyKeyReused(),
             _ when this == UnexpectedValue => onUnexpectedValue(),
             _ when this == SandboxNotSupported => onSandboxNotSupported(),
@@ -1133,6 +1210,14 @@ public sealed record ErrorCode : OpenStringEnum<ErrorCode>
             _ when this == PlaidError => onPlaidError(),
             _ when this == PlaidErrorItemLoginRequired => onPlaidErrorItemLoginRequired(),
             _ when this == PlaidErrorRateLimit => onPlaidErrorRateLimit(),
+            _ when this == PlaidErrorInvalidAccessToken => onPlaidErrorInvalidAccessToken(),
+            _ when this == PlaidErrorInvalidAccountId => onPlaidErrorInvalidAccountId(),
+            _ when this == PlaidErrorNoAccounts => onPlaidErrorNoAccounts(),
+            _ when this == PlaidErrorItemNotFound => onPlaidErrorItemNotFound(),
+            _ when this == PlaidErrorInsufficientCredentials => onPlaidErrorInsufficientCredentials(),
+            _ when this == PlaidErrorItemNotSupported => onPlaidErrorItemNotSupported(),
+            _ when this == PlaidErrorProductNotReady => onPlaidErrorProductNotReady(),
+            _ when this == PaymentSourceNotEnabledForTarget => onPaymentSourceNotEnabledForTarget(),
             _ when this == CardDeclined => onCardDeclined(),
             _ when this == VerifyCvvFailure => onVerifyCvvFailure(),
             _ when this == VerifyAvsFailure => onVerifyAvsFailure(),
@@ -1143,6 +1228,7 @@ public sealed record ErrorCode : OpenStringEnum<ErrorCode>
             _ when this == AllowablePinTriesExceeded => onAllowablePinTriesExceeded(),
             _ when this == ReservationDeclined => onReservationDeclined(),
             _ when this == UnknownBodyParameter => onUnknownBodyParameter(),
+            _ when this == CartIneligibleForEbt => onCartIneligibleForEbt(),
             _ when this == NotFound => onNotFound(),
             _ when this ==
                 ApplePaymentProcessingCertificateHashNotFound => onApplePaymentProcessingCertificateHashNotFound(),
@@ -1261,6 +1347,7 @@ public sealed record ErrorCode : OpenStringEnum<ErrorCode>
         Action onCardTokenExpired,
         Action onCardTokenUsed,
         Action onAmountTooHigh,
+        Action onAmountTooLow,
         Action onUnsupportedInstrumentType,
         Action onRefundAmountInvalid,
         Action onRefundAlreadyPending,
@@ -1275,6 +1362,7 @@ public sealed record ErrorCode : OpenStringEnum<ErrorCode>
         Action onUnsupportedLoyaltyRewardTier,
         Action onLocationMismatch,
         Action onOrderUnpaidNotReturnable,
+        Action onPartialPaymentDelayCaptureNotSupported,
         Action onIdempotencyKeyReused,
         Action onUnexpectedValue,
         Action onSandboxNotSupported,
@@ -1290,6 +1378,14 @@ public sealed record ErrorCode : OpenStringEnum<ErrorCode>
         Action onPlaidError,
         Action onPlaidErrorItemLoginRequired,
         Action onPlaidErrorRateLimit,
+        Action onPlaidErrorInvalidAccessToken,
+        Action onPlaidErrorInvalidAccountId,
+        Action onPlaidErrorNoAccounts,
+        Action onPlaidErrorItemNotFound,
+        Action onPlaidErrorInsufficientCredentials,
+        Action onPlaidErrorItemNotSupported,
+        Action onPlaidErrorProductNotReady,
+        Action onPaymentSourceNotEnabledForTarget,
         Action onCardDeclined,
         Action onVerifyCvvFailure,
         Action onVerifyAvsFailure,
@@ -1300,6 +1396,7 @@ public sealed record ErrorCode : OpenStringEnum<ErrorCode>
         Action onAllowablePinTriesExceeded,
         Action onReservationDeclined,
         Action onUnknownBodyParameter,
+        Action onCartIneligibleForEbt,
         Action onNotFound,
         Action onApplePaymentProcessingCertificateHashNotFound,
         Action onMethodNotAllowed,
@@ -1416,6 +1513,7 @@ public sealed record ErrorCode : OpenStringEnum<ErrorCode>
         else if (this == CardTokenExpired) onCardTokenExpired();
         else if (this == CardTokenUsed) onCardTokenUsed();
         else if (this == AmountTooHigh) onAmountTooHigh();
+        else if (this == AmountTooLow) onAmountTooLow();
         else if (this == UnsupportedInstrumentType) onUnsupportedInstrumentType();
         else if (this == RefundAmountInvalid) onRefundAmountInvalid();
         else if (this == RefundAlreadyPending) onRefundAlreadyPending();
@@ -1430,6 +1528,7 @@ public sealed record ErrorCode : OpenStringEnum<ErrorCode>
         else if (this == UnsupportedLoyaltyRewardTier) onUnsupportedLoyaltyRewardTier();
         else if (this == LocationMismatch) onLocationMismatch();
         else if (this == OrderUnpaidNotReturnable) onOrderUnpaidNotReturnable();
+        else if (this == PartialPaymentDelayCaptureNotSupported) onPartialPaymentDelayCaptureNotSupported();
         else if (this == IdempotencyKeyReused) onIdempotencyKeyReused();
         else if (this == UnexpectedValue) onUnexpectedValue();
         else if (this == SandboxNotSupported) onSandboxNotSupported();
@@ -1445,6 +1544,14 @@ public sealed record ErrorCode : OpenStringEnum<ErrorCode>
         else if (this == PlaidError) onPlaidError();
         else if (this == PlaidErrorItemLoginRequired) onPlaidErrorItemLoginRequired();
         else if (this == PlaidErrorRateLimit) onPlaidErrorRateLimit();
+        else if (this == PlaidErrorInvalidAccessToken) onPlaidErrorInvalidAccessToken();
+        else if (this == PlaidErrorInvalidAccountId) onPlaidErrorInvalidAccountId();
+        else if (this == PlaidErrorNoAccounts) onPlaidErrorNoAccounts();
+        else if (this == PlaidErrorItemNotFound) onPlaidErrorItemNotFound();
+        else if (this == PlaidErrorInsufficientCredentials) onPlaidErrorInsufficientCredentials();
+        else if (this == PlaidErrorItemNotSupported) onPlaidErrorItemNotSupported();
+        else if (this == PlaidErrorProductNotReady) onPlaidErrorProductNotReady();
+        else if (this == PaymentSourceNotEnabledForTarget) onPaymentSourceNotEnabledForTarget();
         else if (this == CardDeclined) onCardDeclined();
         else if (this == VerifyCvvFailure) onVerifyCvvFailure();
         else if (this == VerifyAvsFailure) onVerifyAvsFailure();
@@ -1455,6 +1562,7 @@ public sealed record ErrorCode : OpenStringEnum<ErrorCode>
         else if (this == AllowablePinTriesExceeded) onAllowablePinTriesExceeded();
         else if (this == ReservationDeclined) onReservationDeclined();
         else if (this == UnknownBodyParameter) onUnknownBodyParameter();
+        else if (this == CartIneligibleForEbt) onCartIneligibleForEbt();
         else if (this == NotFound) onNotFound();
         else if (this ==
             ApplePaymentProcessingCertificateHashNotFound) onApplePaymentProcessingCertificateHashNotFound();

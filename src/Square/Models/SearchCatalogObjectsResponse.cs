@@ -43,6 +43,13 @@ public record SearchCatalogObjectsResponse
     [JsonPropertyName("latest_time")]
     public string? LatestTime { get; init; }
 
+    /// <summary>
+    /// Related resources of the response <c>CatalogObject</c>s requested using <c>IncludeOptions</c>
+    /// </summary>
+    [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
+    [JsonPropertyName("included_resources")]
+    public IncludedResources? IncludedResources { get; init; }
+
     [JsonExtensionData]
     public AdditionalProperties AdditionalProperties { get; init; } = [];
 }

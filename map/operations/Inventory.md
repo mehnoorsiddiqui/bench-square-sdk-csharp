@@ -2,7 +2,7 @@
 
 # Inventory — operations
 
-Accessor: `client.Inventory` · Source: `src/Square/Api/Inventory.cs` · 13 operations
+Accessor: `client.Inventory` · Source: `src/Square/Api/Inventory.cs` · 19 operations
 
 **Type sources**: the file declaring each type an operation names (`RawError` excluded — see sdk-map.md).
 
@@ -47,6 +47,34 @@ Accessor: `client.Inventory` · Source: `src/Square/Api/Inventory.cs` · 13 oper
 | `BatchRetrieveInventoryCountsOperationRequest` | `src/Square/Requests/Inventory/BatchRetrieveInventoryCountsOperationRequest.cs` |
 | `BatchRetrieveInventoryCountsRequest` | `src/Square/Models/BatchRetrieveInventoryCountsRequest.cs` |
 | `BatchRetrieveInventoryCountsResponse` | `src/Square/Models/BatchRetrieveInventoryCountsResponse.cs` |
+
+### CreateInventoryAdjustmentReason
+
+- **Auth**: `options.BearerAuth`
+- **Signature**: `CreateInventoryAdjustmentReason(CreateInventoryAdjustmentReasonOperationRequest request, RequestOptions? requestOptions = null, CancellationToken cancellationToken = default)`
+  - required: `Body`
+- **Returns**: `CreateInventoryAdjustmentReasonResponse`
+- **Error**: `ApiException<RawError>` — **Case B**
+
+| Type | Source |
+| --- | --- |
+| `CreateInventoryAdjustmentReasonOperationRequest` | `src/Square/Requests/Inventory/CreateInventoryAdjustmentReasonOperationRequest.cs` |
+| `CreateInventoryAdjustmentReasonRequest` | `src/Square/Models/CreateInventoryAdjustmentReasonRequest.cs` |
+| `CreateInventoryAdjustmentReasonResponse` | `src/Square/Models/CreateInventoryAdjustmentReasonResponse.cs` |
+
+### DeleteInventoryAdjustmentReason
+
+- **Auth**: `options.BearerAuth`
+- **Signature**: `DeleteInventoryAdjustmentReason(DeleteInventoryAdjustmentReasonOperationRequest request, RequestOptions? requestOptions = null, CancellationToken cancellationToken = default)`
+  - required: `Body`
+- **Returns**: `DeleteInventoryAdjustmentReasonResponse`
+- **Error**: `ApiException<RawError>` — **Case B**
+
+| Type | Source |
+| --- | --- |
+| `DeleteInventoryAdjustmentReasonOperationRequest` | `src/Square/Requests/Inventory/DeleteInventoryAdjustmentReasonOperationRequest.cs` |
+| `DeleteInventoryAdjustmentReasonRequest` | `src/Square/Models/DeleteInventoryAdjustmentReasonRequest.cs` |
+| `DeleteInventoryAdjustmentReasonResponse` | `src/Square/Models/DeleteInventoryAdjustmentReasonResponse.cs` |
 
 ### DeprecatedBatchChangeInventory
 
@@ -116,6 +144,33 @@ Accessor: `client.Inventory` · Source: `src/Square/Api/Inventory.cs` · 13 oper
 | `DeprecatedRetrieveInventoryPhysicalCountRequest` | `src/Square/Requests/Inventory/DeprecatedRetrieveInventoryPhysicalCountRequest.cs` |
 | `RetrieveInventoryPhysicalCountResponse` | `src/Square/Models/RetrieveInventoryPhysicalCountResponse.cs` |
 
+### ListInventoryAdjustmentReasons
+
+- **Auth**: `options.BearerAuth`
+- **Signature**: `ListInventoryAdjustmentReasons(ListInventoryAdjustmentReasonsRequest request, RequestOptions? requestOptions = null, CancellationToken cancellationToken = default)`
+- **Query params (wire ← C#)**: `include_deleted` ← `IncludeDeleted`, `include_system_codes` ← `IncludeSystemCodes`
+- **Returns**: `ListInventoryAdjustmentReasonsResponse`
+- **Error**: `ApiException<RawError>` — **Case B**
+
+| Type | Source |
+| --- | --- |
+| `ListInventoryAdjustmentReasonsRequest` | `src/Square/Requests/Inventory/ListInventoryAdjustmentReasonsRequest.cs` |
+| `ListInventoryAdjustmentReasonsResponse` | `src/Square/Models/ListInventoryAdjustmentReasonsResponse.cs` |
+
+### RestoreInventoryAdjustmentReason
+
+- **Auth**: `options.BearerAuth`
+- **Signature**: `RestoreInventoryAdjustmentReason(RestoreInventoryAdjustmentReasonOperationRequest request, RequestOptions? requestOptions = null, CancellationToken cancellationToken = default)`
+  - required: `Body`
+- **Returns**: `RestoreInventoryAdjustmentReasonResponse`
+- **Error**: `ApiException<RawError>` — **Case B**
+
+| Type | Source |
+| --- | --- |
+| `RestoreInventoryAdjustmentReasonOperationRequest` | `src/Square/Requests/Inventory/RestoreInventoryAdjustmentReasonOperationRequest.cs` |
+| `RestoreInventoryAdjustmentReasonRequest` | `src/Square/Models/RestoreInventoryAdjustmentReasonRequest.cs` |
+| `RestoreInventoryAdjustmentReasonResponse` | `src/Square/Models/RestoreInventoryAdjustmentReasonResponse.cs` |
+
 ### RetrieveInventoryAdjustment
 
 - **Auth**: `options.BearerAuth`
@@ -128,6 +183,20 @@ Accessor: `client.Inventory` · Source: `src/Square/Api/Inventory.cs` · 13 oper
 | --- | --- |
 | `RetrieveInventoryAdjustmentRequest` | `src/Square/Requests/Inventory/RetrieveInventoryAdjustmentRequest.cs` |
 | `RetrieveInventoryAdjustmentResponse` | `src/Square/Models/RetrieveInventoryAdjustmentResponse.cs` |
+
+### RetrieveInventoryAdjustmentReason
+
+- **Auth**: `options.BearerAuth`
+- **Signature**: `RetrieveInventoryAdjustmentReason(RetrieveInventoryAdjustmentReasonOperationRequest request, RequestOptions? requestOptions = null, CancellationToken cancellationToken = default)`
+  - required: `Body`
+- **Returns**: `RetrieveInventoryAdjustmentReasonResponse`
+- **Error**: `ApiException<RawError>` — **Case B**
+
+| Type | Source |
+| --- | --- |
+| `RetrieveInventoryAdjustmentReasonOperationRequest` | `src/Square/Requests/Inventory/RetrieveInventoryAdjustmentReasonOperationRequest.cs` |
+| `RetrieveInventoryAdjustmentReasonRequest` | `src/Square/Models/RetrieveInventoryAdjustmentReasonRequest.cs` |
+| `RetrieveInventoryAdjustmentReasonResponse` | `src/Square/Models/RetrieveInventoryAdjustmentReasonResponse.cs` |
 
 ### RetrieveInventoryChanges
 
@@ -170,16 +239,31 @@ Accessor: `client.Inventory` · Source: `src/Square/Api/Inventory.cs` · 13 oper
 | `RetrieveInventoryPhysicalCountRequest` | `src/Square/Requests/Inventory/RetrieveInventoryPhysicalCountRequest.cs` |
 | `RetrieveInventoryPhysicalCountResponse` | `src/Square/Models/RetrieveInventoryPhysicalCountResponse.cs` |
 
-### RetrieveInventoryTransfer
+### UpdateInventoryAdjustment
 
 - **Auth**: `options.BearerAuth`
-- **Signature**: `RetrieveInventoryTransfer(RetrieveInventoryTransferRequest request, RequestOptions? requestOptions = null, CancellationToken cancellationToken = default)`
-  - required: `TransferId`
-- **Returns**: `RetrieveInventoryTransferResponse`
+- **Signature**: `UpdateInventoryAdjustment(UpdateInventoryAdjustmentOperationRequest request, RequestOptions? requestOptions = null, CancellationToken cancellationToken = default)`
+  - required: `Body`
+- **Returns**: `UpdateInventoryAdjustmentResponse`
 - **Error**: `ApiException<RawError>` — **Case B**
 
 | Type | Source |
 | --- | --- |
-| `RetrieveInventoryTransferRequest` | `src/Square/Requests/Inventory/RetrieveInventoryTransferRequest.cs` |
-| `RetrieveInventoryTransferResponse` | `src/Square/Models/RetrieveInventoryTransferResponse.cs` |
+| `UpdateInventoryAdjustmentOperationRequest` | `src/Square/Requests/Inventory/UpdateInventoryAdjustmentOperationRequest.cs` |
+| `UpdateInventoryAdjustmentRequest` | `src/Square/Models/UpdateInventoryAdjustmentRequest.cs` |
+| `UpdateInventoryAdjustmentResponse` | `src/Square/Models/UpdateInventoryAdjustmentResponse.cs` |
+
+### UpdateInventoryAdjustmentReason
+
+- **Auth**: `options.BearerAuth`
+- **Signature**: `UpdateInventoryAdjustmentReason(UpdateInventoryAdjustmentReasonOperationRequest request, RequestOptions? requestOptions = null, CancellationToken cancellationToken = default)`
+  - required: `Body`
+- **Returns**: `UpdateInventoryAdjustmentReasonResponse`
+- **Error**: `ApiException<RawError>` — **Case B**
+
+| Type | Source |
+| --- | --- |
+| `UpdateInventoryAdjustmentReasonOperationRequest` | `src/Square/Requests/Inventory/UpdateInventoryAdjustmentReasonOperationRequest.cs` |
+| `UpdateInventoryAdjustmentReasonRequest` | `src/Square/Models/UpdateInventoryAdjustmentReasonRequest.cs` |
+| `UpdateInventoryAdjustmentReasonResponse` | `src/Square/Models/UpdateInventoryAdjustmentReasonResponse.cs` |
 

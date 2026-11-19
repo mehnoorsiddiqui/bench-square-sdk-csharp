@@ -35,20 +35,38 @@ public sealed record ExcludeStrategy : OpenStringEnum<ExcludeStrategy>
     /// </summary>
     public static readonly ExcludeStrategy MostExpensive = new("MOST_EXPENSIVE");
 
+    /// <summary>
+    /// Like MOST_EXPENSIVE, the most expensive matched product is excluded and
+    /// purchased at full price. However, instead of maximizing the discount value on
+    /// the remaining products (standard BOGO), the discount is applied to the CHEAPEST
+    /// remaining eligible product.
+    /// <para>
+    /// Used by the "lowest-value free item" coupon shape where the intent is to make
+    /// the least expensive item free, not the most valuable one.
+    /// </para>
+    /// </summary>
+    public static readonly ExcludeStrategy MostExpensiveLowestValue = new("MOST_EXPENSIVE_LOWEST_VALUE");
+
     public TResult Match<TResult>(Func<TResult> onLeastExpensive,
         Func<TResult> onMostExpensive,
+        Func<TResult> onMostExpensiveLowestValue,
         Func<string, TResult> otherwise) =>
         this switch
         {
             _ when this == LeastExpensive => onLeastExpensive(),
             _ when this == MostExpensive => onMostExpensive(),
+            _ when this == MostExpensiveLowestValue => onMostExpensiveLowestValue(),
             _ => otherwise(Value)
         };
 
-    public void Match(Action onLeastExpensive, Action onMostExpensive, Action<string> otherwise)
+    public void Match(Action onLeastExpensive,
+        Action onMostExpensive,
+        Action onMostExpensiveLowestValue,
+        Action<string> otherwise)
     {
         if (this == LeastExpensive) onLeastExpensive();
         else if (this == MostExpensive) onMostExpensive();
+        else if (this == MostExpensiveLowestValue) onMostExpensiveLowestValue();
         else otherwise(Value);
     }
 }

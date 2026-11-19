@@ -37,14 +37,6 @@ public record InventoryChange
     public InventoryAdjustment? Adjustment { get; init; }
 
     /// <summary>
-    /// Represents the transfer of a quantity of product inventory at a
-    /// particular time from one location to another.
-    /// </summary>
-    [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
-    [JsonPropertyName("transfer")]
-    public InventoryTransfer? Transfer { get; init; }
-
-    /// <summary>
     /// Represents the unit used to measure a <c>CatalogItemVariation</c> and
     /// specifies the precision for decimal quantities.
     /// </summary>

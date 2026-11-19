@@ -54,8 +54,19 @@ public record CatalogObject
     public string? UpdatedAt { get; init; }
 
     /// <summary>
-    /// The version of the object. When updating an object, the version supplied
-    /// must match the version in the database, otherwise the write will be rejected as conflicting.
+    /// The version of the object. When updating an object, the version supplied should match
+    /// the version in the database. If it does not, the server attempts a three-way merge. If the
+    /// client's changes and the concurrent changes don't overlap, the merge succeeds silently. A
+    /// <c>VERSION_MISMATCH</c> error is only returned when both sides changed the same field to different
+    /// values.
+    /// <para>
+    /// Use the same API version (<c>Square-Version</c> header) for both reading and writing catalog
+    /// objects. The server uses the API version on a write request to determine which missing fields
+    /// the client intentionally cleared versus which fields the client simply could not see at that
+    /// version. If a client reads an object at an older API version and writes it back at a newer
+    /// version, fields that were introduced between those two versions will be absent from the
+    /// request, and the server will interpret that absence as an intentional clear.
+    /// </para>
     /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("version")]
@@ -103,25 +114,50 @@ public record CatalogObject
     public IReadOnlyList<CatalogV1Id>? CatalogV1Ids { get; init; }
 
     /// <summary>
-    /// If <c>true</c>, this object is present at all locations (including future locations), except where specified in
-    /// the <c>absent_at_location_ids</c> field. If <c>false</c>, this object is not present at any locations (including future locations),
-    /// except where specified in the <c>present_at_location_ids</c> field. If not specified, defaults to <c>true</c>.
+    /// Controls whether this object is present at all locations, including future locations.
+    /// <para>
+    /// Most object types have independent location control, including <c>TAX</c>, <c>DISCOUNT</c>, and
+    /// <c>MODIFIER_LIST</c>.
+    /// </para>
+    /// <para>
+    /// <c>ITEM</c> and <c>ITEM_VARIATION</c> have separate settings, but a variation can only be enabled
+    /// at locations where its parent item is enabled. Disabling a variation everywhere is valid
+    /// even when the parent item is enabled at specific locations.
+    /// </para>
+    /// <para>
+    /// <c>MODIFIER</c> objects nested within a <c>MODIFIER_LIST</c> inherit location settings from their parent.
+    /// Some object types, including <c>CATEGORY</c>, <c>IMAGE</c>, and <c>CUSTOM_ATTRIBUTE_DEFINITION</c>, must
+    /// always be globally enabled and cannot use location-specific fields.
+    /// </para>
+    /// <para>
+    /// The field operates in two modes. When true (the default), the object is available at
+    /// all current and future locations except those in <c>absent_at_location_ids</c>. When false,
+    /// the object is available only at locations in <c>present_at_location_ids</c>. The unused
+    /// list in each mode is ignored.
+    /// </para>
     /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("present_at_all_locations")]
     public bool? PresentAtAllLocations { get; init; }
 
     /// <summary>
-    /// A list of locations where the object is present, even if <c>present_at_all_locations</c> is <c>false</c>.
-    /// This can include locations that are deactivated.
+    /// Locations where the object is present, used when <c>present_at_all_locations</c> is false.
+    /// <para>
+    /// When <c>present_at_all_locations</c> is true, this field is ignored since the object is
+    /// already present everywhere. Can include deactivated locations. Empty strings are rejected.
+    /// </para>
     /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("present_at_location_ids")]
     public IReadOnlyList<string>? PresentAtLocationIds { get; init; }
 
     /// <summary>
-    /// A list of locations where the object is not present, even if <c>present_at_all_locations</c> is <c>true</c>.
-    /// This can include locations that are deactivated.
+    /// Locations where the object is not present, used when <c>present_at_all_locations</c> is true.
+    /// <para>
+    /// When <c>present_at_all_locations</c> is false, this field is ignored since the object is
+    /// already absent everywhere except those in <c>present_at_location_ids</c>. Can include
+    /// deactivated locations. Empty strings are rejected.
+    /// </para>
     /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("absent_at_location_ids")]

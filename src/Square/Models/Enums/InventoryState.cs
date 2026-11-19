@@ -112,6 +112,11 @@ public sealed record InventoryState : OpenStringEnum<InventoryState>
     /// </summary>
     public static readonly InventoryState InTransit = new("IN_TRANSIT");
 
+    /// <summary>
+    /// The related quantity of items are untracked.
+    /// </summary>
+    public static readonly InventoryState Untracked = new("UNTRACKED");
+
     public TResult Match<TResult>(Func<TResult> onCustom,
         Func<TResult> onInStock,
         Func<TResult> onSold,
@@ -128,6 +133,7 @@ public sealed record InventoryState : OpenStringEnum<InventoryState>
         Func<TResult> onDecomposed,
         Func<TResult> onSupportedByNewerVersion,
         Func<TResult> onInTransit,
+        Func<TResult> onUntracked,
         Func<string, TResult> otherwise) =>
         this switch
         {
@@ -147,6 +153,7 @@ public sealed record InventoryState : OpenStringEnum<InventoryState>
             _ when this == Decomposed => onDecomposed(),
             _ when this == SupportedByNewerVersion => onSupportedByNewerVersion(),
             _ when this == InTransit => onInTransit(),
+            _ when this == Untracked => onUntracked(),
             _ => otherwise(Value)
         };
 
@@ -166,6 +173,7 @@ public sealed record InventoryState : OpenStringEnum<InventoryState>
         Action onDecomposed,
         Action onSupportedByNewerVersion,
         Action onInTransit,
+        Action onUntracked,
         Action<string> otherwise)
     {
         if (this == Custom) onCustom();
@@ -184,6 +192,7 @@ public sealed record InventoryState : OpenStringEnum<InventoryState>
         else if (this == Decomposed) onDecomposed();
         else if (this == SupportedByNewerVersion) onSupportedByNewerVersion();
         else if (this == InTransit) onInTransit();
+        else if (this == Untracked) onUntracked();
         else otherwise(Value);
     }
 }

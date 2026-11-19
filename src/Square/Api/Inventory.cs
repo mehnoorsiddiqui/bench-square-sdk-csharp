@@ -134,6 +134,60 @@ public sealed class Inventory
             cancellationToken);
 
     /// <summary>
+    /// CreateInventoryAdjustmentReason
+    /// </summary>
+    /// <param name="request">The operation's inputs</param>
+    /// <param name="requestOptions">Per-request options, such as an overriding log level for this call</param>
+    /// <param name="cancellationToken">Cancellation token</param>
+    /// <returns>A <see cref="Task{TResult}"/> of <see cref="CreateInventoryAdjustmentReasonResponse"/> instance.</returns>
+    /// <exception cref="ApiException{TError}"> of <see cref="RawError"/> when the server returns an error response.</exception>
+    /// <remarks>
+    /// Creates a custom inventory adjustment reason.
+    /// </remarks>
+    public Task<CreateInventoryAdjustmentReasonResponse> CreateInventoryAdjustmentReason(CreateInventoryAdjustmentReasonOperationRequest request,
+        RequestOptions? requestOptions = null,
+        CancellationToken cancellationToken = default) =>
+        _rawClient.Execute(
+            _server.Default("/v2/inventory/adjustment-reasons/create"),
+            [],
+            [],
+            [new HeaderParam("Idempotency-Key", Guid.NewGuid())],
+            HttpMethod.Post,
+            JsonRequest.Create(request.Body),
+            JsonResponse.Create<CreateInventoryAdjustmentReasonResponse>(),
+            RawErrorResponse.Instance,
+            _auth.BearerAuth,
+            requestOptions,
+            cancellationToken);
+
+    /// <summary>
+    /// DeleteInventoryAdjustmentReason
+    /// </summary>
+    /// <param name="request">The operation's inputs</param>
+    /// <param name="requestOptions">Per-request options, such as an overriding log level for this call</param>
+    /// <param name="cancellationToken">Cancellation token</param>
+    /// <returns>A <see cref="Task{TResult}"/> of <see cref="DeleteInventoryAdjustmentReasonResponse"/> instance.</returns>
+    /// <exception cref="ApiException{TError}"> of <see cref="RawError"/> when the server returns an error response.</exception>
+    /// <remarks>
+    /// Soft deletes a custom inventory adjustment reason.
+    /// </remarks>
+    public Task<DeleteInventoryAdjustmentReasonResponse> DeleteInventoryAdjustmentReason(DeleteInventoryAdjustmentReasonOperationRequest request,
+        RequestOptions? requestOptions = null,
+        CancellationToken cancellationToken = default) =>
+        _rawClient.Execute(
+            _server.Default("/v2/inventory/adjustment-reasons/delete"),
+            [],
+            [],
+            [new HeaderParam("Idempotency-Key", Guid.NewGuid())],
+            HttpMethod.Post,
+            JsonRequest.Create(request.Body),
+            JsonResponse.Create<DeleteInventoryAdjustmentReasonResponse>(),
+            RawErrorResponse.Instance,
+            _auth.BearerAuth,
+            requestOptions,
+            cancellationToken);
+
+    /// <summary>
     /// DeprecatedBatchChangeInventory
     /// </summary>
     /// <param name="request">The operation's inputs</param>
@@ -274,6 +328,64 @@ public sealed class Inventory
             cancellationToken);
 
     /// <summary>
+    /// ListInventoryAdjustmentReasons
+    /// </summary>
+    /// <param name="request">The operation's inputs</param>
+    /// <param name="requestOptions">Per-request options, such as an overriding log level for this call</param>
+    /// <param name="cancellationToken">Cancellation token</param>
+    /// <returns>A <see cref="Task{TResult}"/> of <see cref="ListInventoryAdjustmentReasonsResponse"/> instance.</returns>
+    /// <exception cref="ApiException{TError}"> of <see cref="RawError"/> when the server returns an error response.</exception>
+    /// <remarks>
+    /// Returns the standard and custom inventory adjustment reasons available
+    /// to the seller.
+    /// </remarks>
+    public Task<ListInventoryAdjustmentReasonsResponse> ListInventoryAdjustmentReasons(ListInventoryAdjustmentReasonsRequest request,
+        RequestOptions? requestOptions = null,
+        CancellationToken cancellationToken = default) =>
+        _rawClient.Execute(
+            _server.Default("/v2/inventory/adjustment-reasons"),
+            [],
+            [
+                new Param("include_deleted", request.IncludeDeleted),
+                new Param("include_system_codes", request.IncludeSystemCodes),
+            ],
+            [],
+            HttpMethod.Get,
+            EmptyBody.Instance,
+            JsonResponse.Create<ListInventoryAdjustmentReasonsResponse>(),
+            RawErrorResponse.Instance,
+            _auth.BearerAuth,
+            requestOptions,
+            cancellationToken);
+
+    /// <summary>
+    /// RestoreInventoryAdjustmentReason
+    /// </summary>
+    /// <param name="request">The operation's inputs</param>
+    /// <param name="requestOptions">Per-request options, such as an overriding log level for this call</param>
+    /// <param name="cancellationToken">Cancellation token</param>
+    /// <returns>A <see cref="Task{TResult}"/> of <see cref="RestoreInventoryAdjustmentReasonResponse"/> instance.</returns>
+    /// <exception cref="ApiException{TError}"> of <see cref="RawError"/> when the server returns an error response.</exception>
+    /// <remarks>
+    /// Restores a soft-deleted custom inventory adjustment reason.
+    /// </remarks>
+    public Task<RestoreInventoryAdjustmentReasonResponse> RestoreInventoryAdjustmentReason(RestoreInventoryAdjustmentReasonOperationRequest request,
+        RequestOptions? requestOptions = null,
+        CancellationToken cancellationToken = default) =>
+        _rawClient.Execute(
+            _server.Default("/v2/inventory/adjustment-reasons/restore"),
+            [],
+            [],
+            [new HeaderParam("Idempotency-Key", Guid.NewGuid())],
+            HttpMethod.Post,
+            JsonRequest.Create(request.Body),
+            JsonResponse.Create<RestoreInventoryAdjustmentReasonResponse>(),
+            RawErrorResponse.Instance,
+            _auth.BearerAuth,
+            requestOptions,
+            cancellationToken);
+
+    /// <summary>
     /// RetrieveInventoryAdjustment
     /// </summary>
     /// <param name="request">The operation's inputs</param>
@@ -296,6 +408,34 @@ public sealed class Inventory
             HttpMethod.Get,
             EmptyBody.Instance,
             JsonResponse.Create<RetrieveInventoryAdjustmentResponse>(),
+            RawErrorResponse.Instance,
+            _auth.BearerAuth,
+            requestOptions,
+            cancellationToken);
+
+    /// <summary>
+    /// RetrieveInventoryAdjustmentReason
+    /// </summary>
+    /// <param name="request">The operation's inputs</param>
+    /// <param name="requestOptions">Per-request options, such as an overriding log level for this call</param>
+    /// <param name="cancellationToken">Cancellation token</param>
+    /// <returns>A <see cref="Task{TResult}"/> of <see cref="RetrieveInventoryAdjustmentReasonResponse"/> instance.</returns>
+    /// <exception cref="ApiException{TError}"> of <see cref="RawError"/> when the server returns an error response.</exception>
+    /// <remarks>
+    /// Returns the inventory adjustment reason identified by the provided
+    /// <c>reason_id</c>. Deleted custom reasons can be retrieved by ID.
+    /// </remarks>
+    public Task<RetrieveInventoryAdjustmentReasonResponse> RetrieveInventoryAdjustmentReason(RetrieveInventoryAdjustmentReasonOperationRequest request,
+        RequestOptions? requestOptions = null,
+        CancellationToken cancellationToken = default) =>
+        _rawClient.Execute(
+            _server.Default("/v2/inventory/adjustment-reasons/retrieve"),
+            [],
+            [],
+            [new HeaderParam("Idempotency-Key", Guid.NewGuid())],
+            HttpMethod.Post,
+            JsonRequest.Create(request.Body),
+            JsonResponse.Create<RetrieveInventoryAdjustmentReasonResponse>(),
             RawErrorResponse.Instance,
             _auth.BearerAuth,
             requestOptions,
@@ -402,28 +542,58 @@ public sealed class Inventory
             cancellationToken);
 
     /// <summary>
-    /// RetrieveInventoryTransfer
+    /// UpdateInventoryAdjustment
     /// </summary>
     /// <param name="request">The operation's inputs</param>
     /// <param name="requestOptions">Per-request options, such as an overriding log level for this call</param>
     /// <param name="cancellationToken">Cancellation token</param>
-    /// <returns>A <see cref="Task{TResult}"/> of <see cref="RetrieveInventoryTransferResponse"/> instance.</returns>
+    /// <returns>A <see cref="Task{TResult}"/> of <see cref="UpdateInventoryAdjustmentResponse"/> instance.</returns>
     /// <exception cref="ApiException{TError}"> of <see cref="RawError"/> when the server returns an error response.</exception>
     /// <remarks>
-    /// Returns the <see href="entity:InventoryTransfer">InventoryTransfer</see> object
-    /// with the provided <c>transfer_id</c>.
+    /// Applies an update to the provided adjustment.
+    /// <para>
+    /// On success: returns the newly updated adjustment.
+    /// On failure: returns a list of related errors.
+    /// </para>
     /// </remarks>
-    public Task<RetrieveInventoryTransferResponse> RetrieveInventoryTransfer(RetrieveInventoryTransferRequest request,
+    public Task<UpdateInventoryAdjustmentResponse> UpdateInventoryAdjustment(UpdateInventoryAdjustmentOperationRequest request,
         RequestOptions? requestOptions = null,
         CancellationToken cancellationToken = default) =>
         _rawClient.Execute(
-            _server.Default("/v2/inventory/transfers/{transfer_id}"),
-            [new TemplateParam("transfer_id", request.TransferId)],
+            _server.Default("/v2/inventory/adjustments/update"),
             [],
             [],
-            HttpMethod.Get,
-            EmptyBody.Instance,
-            JsonResponse.Create<RetrieveInventoryTransferResponse>(),
+            [new HeaderParam("Idempotency-Key", Guid.NewGuid())],
+            HttpMethod.Put,
+            JsonRequest.Create(request.Body),
+            JsonResponse.Create<UpdateInventoryAdjustmentResponse>(),
+            RawErrorResponse.Instance,
+            _auth.BearerAuth,
+            requestOptions,
+            cancellationToken);
+
+    /// <summary>
+    /// UpdateInventoryAdjustmentReason
+    /// </summary>
+    /// <param name="request">The operation's inputs</param>
+    /// <param name="requestOptions">Per-request options, such as an overriding log level for this call</param>
+    /// <param name="cancellationToken">Cancellation token</param>
+    /// <returns>A <see cref="Task{TResult}"/> of <see cref="UpdateInventoryAdjustmentReasonResponse"/> instance.</returns>
+    /// <exception cref="ApiException{TError}"> of <see cref="RawError"/> when the server returns an error response.</exception>
+    /// <remarks>
+    /// Updates a custom inventory adjustment reason.
+    /// </remarks>
+    public Task<UpdateInventoryAdjustmentReasonResponse> UpdateInventoryAdjustmentReason(UpdateInventoryAdjustmentReasonOperationRequest request,
+        RequestOptions? requestOptions = null,
+        CancellationToken cancellationToken = default) =>
+        _rawClient.Execute(
+            _server.Default("/v2/inventory/adjustment-reasons/update"),
+            [],
+            [],
+            [new HeaderParam("Idempotency-Key", Guid.NewGuid())],
+            HttpMethod.Put,
+            JsonRequest.Create(request.Body),
+            JsonResponse.Create<UpdateInventoryAdjustmentReasonResponse>(),
             RawErrorResponse.Instance,
             _auth.BearerAuth,
             requestOptions,

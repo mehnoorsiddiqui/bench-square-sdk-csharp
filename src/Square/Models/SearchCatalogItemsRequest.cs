@@ -89,6 +89,14 @@ public record SearchCatalogItemsRequest
     [JsonPropertyName("archived_state")]
     public ArchivedState? ArchivedState { get; init; }
 
+    /// <summary>
+    /// Options to include related resources of the requested <c>CatalogObject</c>s. Related resources will be included in
+    /// <c>IncludedResources</c> in the response.
+    /// </summary>
+    [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
+    [JsonPropertyName("include_options")]
+    public IncludeOptions? IncludeOptions { get; init; }
+
     [JsonExtensionData]
     public AdditionalProperties AdditionalProperties { get; init; } = [];
 }

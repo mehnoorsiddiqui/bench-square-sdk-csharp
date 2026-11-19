@@ -146,6 +146,33 @@ public record CardPaymentDetails
     [JsonPropertyName("errors")]
     public IReadOnlyList<Error>? Errors { get; init; }
 
+    /// <summary>
+    /// Details related to an attempt to apply a card surcharge to this payment.  When surcharge
+    /// eligibility is not known in advance, such as when the card type (debit or credit) is required
+    /// to make the eligibility determination, proposed_card_surcharge_money and
+    /// proposed_additional_amount_money will match the values in the request, while card_surcharge_money
+    /// and additional_amount_money are present only when the payment has a surcharge applied.
+    /// </summary>
+    [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
+    [JsonPropertyName("applied_card_surcharge_details")]
+    public CardSurchargeDetails? AppliedCardSurchargeDetails { get; init; }
+
+    /// <summary>
+    /// The type of digital wallet used for this card payment, if applicable.
+    /// Currently only populated for in-person Apple Pay payments. Detection has no false
+    /// positives but may have false negatives (some Apple Pay payments may not be detected).
+    /// <para>
+    /// For payments with <c>source_type</c> of <c>WALLET</c>, see <c>DigitalWalletDetails</c> instead.
+    /// </para>
+    /// <para>
+    /// Values: <c>APPLE_PAY</c>
+    /// </para>
+    /// </summary>
+    [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
+    [JsonPropertyName("wallet_type")]
+    [MaxLength(50)]
+    public string? WalletType { get; init; }
+
     [JsonExtensionData]
     public AdditionalProperties AdditionalProperties { get; init; } = [];
 }

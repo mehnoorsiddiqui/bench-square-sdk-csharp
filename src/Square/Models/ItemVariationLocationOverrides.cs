@@ -36,7 +36,9 @@ public record ItemVariationLocationOverrides
     public CatalogPricingType? PricingType { get; init; }
 
     /// <summary>
-    /// If <c>true</c>, inventory tracking is active for the <c>CatalogItemVariation</c> at this <c>Location</c>.
+    /// Indicates whether inventory tracking is active for the <c>CatalogItemVariation</c> at this <c>Location</c>.
+    /// When set, this value explicitly overrides the global <c>track_inventory</c> setting. When unset, the location
+    /// should use the global value. If both global and location-level values are unset, inventory tracking is disabled.
     /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("track_inventory")]

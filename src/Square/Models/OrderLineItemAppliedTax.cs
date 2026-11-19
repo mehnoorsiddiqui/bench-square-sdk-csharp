@@ -47,6 +47,15 @@ public record OrderLineItemAppliedTax
     [JsonPropertyName("applied_money")]
     public Money? AppliedMoney { get; init; }
 
+    /// <summary>
+    /// Indicates whether the tax was automatically applied to the order based on
+    /// the catalog configuration. For an example, see
+    /// <see href="https://developer.squareup.com/docs/orders-api/apply-taxes-and-discounts/auto-apply-taxes">Automatically Apply Taxes to an Order</see>.
+    /// </summary>
+    [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
+    [JsonPropertyName("auto_applied")]
+    public bool? AutoApplied { get; init; }
+
     [JsonExtensionData]
     public AdditionalProperties AdditionalProperties { get; init; } = [];
 }

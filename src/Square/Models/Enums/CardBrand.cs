@@ -42,6 +42,14 @@ public sealed record CardBrand : OpenStringEnum<CardBrand>
 
     public static readonly CardBrand Ebt = new("EBT");
 
+    public static readonly CardBrand Quicpay = new("QUICPAY");
+
+    public static readonly CardBrand Id = new("ID");
+
+    public static readonly CardBrand TransportationIc = new("TRANSPORTATION_IC");
+
+    public static readonly CardBrand Carnet = new("CARNET");
+
     public TResult Match<TResult>(Func<TResult> onOtherBrand,
         Func<TResult> onVisa,
         Func<TResult> onMastercard,
@@ -56,6 +64,10 @@ public sealed record CardBrand : OpenStringEnum<CardBrand>
         Func<TResult> onEftpos,
         Func<TResult> onFelica,
         Func<TResult> onEbt,
+        Func<TResult> onQuicpay,
+        Func<TResult> onId,
+        Func<TResult> onTransportationIc,
+        Func<TResult> onCarnet,
         Func<string, TResult> otherwise) =>
         this switch
         {
@@ -73,6 +85,10 @@ public sealed record CardBrand : OpenStringEnum<CardBrand>
             _ when this == Eftpos => onEftpos(),
             _ when this == Felica => onFelica(),
             _ when this == Ebt => onEbt(),
+            _ when this == Quicpay => onQuicpay(),
+            _ when this == Id => onId(),
+            _ when this == TransportationIc => onTransportationIc(),
+            _ when this == Carnet => onCarnet(),
             _ => otherwise(Value)
         };
 
@@ -90,6 +106,10 @@ public sealed record CardBrand : OpenStringEnum<CardBrand>
         Action onEftpos,
         Action onFelica,
         Action onEbt,
+        Action onQuicpay,
+        Action onId,
+        Action onTransportationIc,
+        Action onCarnet,
         Action<string> otherwise)
     {
         if (this == OtherBrand) onOtherBrand();
@@ -106,6 +126,10 @@ public sealed record CardBrand : OpenStringEnum<CardBrand>
         else if (this == Eftpos) onEftpos();
         else if (this == Felica) onFelica();
         else if (this == Ebt) onEbt();
+        else if (this == Quicpay) onQuicpay();
+        else if (this == Id) onId();
+        else if (this == TransportationIc) onTransportationIc();
+        else if (this == Carnet) onCarnet();
         else otherwise(Value);
     }
 }

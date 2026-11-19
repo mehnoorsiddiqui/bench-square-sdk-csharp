@@ -112,6 +112,13 @@ public record Fulfillment
     [JsonPropertyName("delivery_details")]
     public FulfillmentDeliveryDetails? DeliveryDetails { get; init; }
 
+    /// <summary>
+    /// Contains the details necessary to fulfill an in-store order.
+    /// </summary>
+    [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
+    [JsonPropertyName("in_store_details")]
+    public FulfillmentInStoreDetails? InStoreDetails { get; init; }
+
     [JsonExtensionData]
     public AdditionalProperties AdditionalProperties { get; init; } = [];
 }

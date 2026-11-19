@@ -58,7 +58,7 @@ public record FulfillmentRecipient
     /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("phone_number")]
-    [MaxLength(17)]
+    [MaxLength(18)]
     public string? PhoneNumber { get; init; }
 
     /// <summary>

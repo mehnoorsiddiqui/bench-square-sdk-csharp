@@ -303,7 +303,7 @@ public record Order
     /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("ticket_name")]
-    [MaxLength(30)]
+    [MaxLength(255)]
     public string? TicketName { get; init; }
 
     /// <summary>

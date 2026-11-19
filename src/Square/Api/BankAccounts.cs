@@ -1,3 +1,4 @@
+using System;
 using System.Net.Http;
 using System.Threading;
 using System.Threading.Tasks;
@@ -26,6 +27,60 @@ public sealed class BankAccounts
     }
 
     /// <summary>
+    /// CreateBankAccount
+    /// </summary>
+    /// <param name="request">The operation's inputs</param>
+    /// <param name="requestOptions">Per-request options, such as an overriding log level for this call</param>
+    /// <param name="cancellationToken">Cancellation token</param>
+    /// <returns>A <see cref="Task{TResult}"/> of <see cref="CreateBankAccountResponse"/> instance.</returns>
+    /// <exception cref="ApiException{TError}"> of <see cref="RawError"/> when the server returns an error response.</exception>
+    /// <remarks>
+    /// Store a bank account on file for a square account
+    /// </remarks>
+    public Task<CreateBankAccountResponse> CreateBankAccount(CreateBankAccountOperationRequest request,
+        RequestOptions? requestOptions = null,
+        CancellationToken cancellationToken = default) =>
+        _rawClient.Execute(
+            _server.Default("/v2/bank-accounts"),
+            [],
+            [],
+            [new HeaderParam("Idempotency-Key", Guid.NewGuid())],
+            HttpMethod.Post,
+            JsonRequest.Create(request.Body),
+            JsonResponse.Create<CreateBankAccountResponse>(),
+            RawErrorResponse.Instance,
+            _auth.BearerAuth,
+            requestOptions,
+            cancellationToken);
+
+    /// <summary>
+    /// DisableBankAccount
+    /// </summary>
+    /// <param name="request">The operation's inputs</param>
+    /// <param name="requestOptions">Per-request options, such as an overriding log level for this call</param>
+    /// <param name="cancellationToken">Cancellation token</param>
+    /// <returns>A <see cref="Task{TResult}"/> of <see cref="DisableBankAccountResponse"/> instance.</returns>
+    /// <exception cref="ApiException{TError}"> of <see cref="RawError"/> when the server returns an error response.</exception>
+    /// <remarks>
+    /// Disable a bank account.
+    /// </remarks>
+    public Task<DisableBankAccountResponse> DisableBankAccount(DisableBankAccountRequest request,
+        RequestOptions? requestOptions = null,
+        CancellationToken cancellationToken = default) =>
+        _rawClient.Execute(
+            _server.Default("/v2/bank-accounts/{bank_account_id}/disable"),
+            [new TemplateParam("bank_account_id", request.BankAccountId)],
+            [],
+            [new HeaderParam("Idempotency-Key", Guid.NewGuid())],
+            HttpMethod.Post,
+            EmptyBody.Instance,
+            JsonResponse.Create<DisableBankAccountResponse>(),
+            RawErrorResponse.Instance,
+            _auth.BearerAuth,
+            requestOptions,
+            cancellationToken);
+
+    /// <summary>
     /// GetBankAccount
     /// </summary>
     /// <param name="request">The operation's inputs</param>
@@ -34,8 +89,7 @@ public sealed class BankAccounts
     /// <returns>A <see cref="Task{TResult}"/> of <see cref="GetBankAccountResponse"/> instance.</returns>
     /// <exception cref="ApiException{TError}"> of <see cref="RawError"/> when the server returns an error response.</exception>
     /// <remarks>
-    /// Returns details of a <see href="entity:BankAccount">BankAccount</see>
-    /// linked to a Square account.
+    /// Retrieve details of a <see href="entity:BankAccount">BankAccount</see> bank account linked to a Square account.
     /// </remarks>
     public Task<GetBankAccountResponse> GetBankAccount(GetBankAccountRequest request,
         RequestOptions? requestOptions = null,
@@ -101,6 +155,7 @@ public sealed class BankAccounts
                 new Param("cursor", request.Cursor),
                 new Param("limit", request.Limit),
                 new Param("location_id", request.LocationId),
+                new Param("customer_id", request.CustomerId),
             ],
             [],
             HttpMethod.Get,

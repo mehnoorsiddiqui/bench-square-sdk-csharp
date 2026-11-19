@@ -159,6 +159,10 @@ public record OrderReturnServiceCharge
     [JsonPropertyName("scope")]
     public OrderServiceChargeScope? Scope { get; init; }
 
+    [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
+    [JsonPropertyName("type")]
+    public OrderServiceChargeType? Type { get; init; }
+
     [JsonExtensionData]
     public AdditionalProperties AdditionalProperties { get; init; } = [];
 }

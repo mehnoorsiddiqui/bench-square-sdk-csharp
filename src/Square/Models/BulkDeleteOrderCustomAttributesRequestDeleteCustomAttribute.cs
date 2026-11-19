@@ -16,7 +16,6 @@ public record BulkDeleteOrderCustomAttributesRequestDeleteCustomAttribute
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("key")]
     [MinLength(1)]
-    [RegularExpression("^([a-zA-Z0-9_-]+:)?[a-zA-Z0-9_-]{1,60}$")]
     public string? Key { get; init; }
 
     /// <summary>

@@ -25,28 +25,20 @@ public sealed record InventoryChangeType : OpenStringEnum<InventoryChangeType>
     /// </summary>
     public static readonly InventoryChangeType Adjustment = new("ADJUSTMENT");
 
-    /// <summary>
-    /// The change occurred as part of an inventory transfer.
-    /// </summary>
-    public static readonly InventoryChangeType Transfer = new("TRANSFER");
-
     public TResult Match<TResult>(Func<TResult> onPhysicalCount,
         Func<TResult> onAdjustment,
-        Func<TResult> onTransfer,
         Func<string, TResult> otherwise) =>
         this switch
         {
             _ when this == PhysicalCount => onPhysicalCount(),
             _ when this == Adjustment => onAdjustment(),
-            _ when this == Transfer => onTransfer(),
             _ => otherwise(Value)
         };
 
-    public void Match(Action onPhysicalCount, Action onAdjustment, Action onTransfer, Action<string> otherwise)
+    public void Match(Action onPhysicalCount, Action onAdjustment, Action<string> otherwise)
     {
         if (this == PhysicalCount) onPhysicalCount();
         else if (this == Adjustment) onAdjustment();
-        else if (this == Transfer) onTransfer();
         else otherwise(Value);
     }
 }

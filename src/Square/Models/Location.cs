@@ -234,6 +234,24 @@ public record Location
     [JsonPropertyName("tax_ids")]
     public TaxIds? TaxIds { get; init; }
 
+    /// <summary>
+    /// The custom text that appears on receipts issued for this location.
+    /// This text can also be configured in the Seller Dashboard (Receipts section).
+    /// </summary>
+    [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
+    [JsonPropertyName("custom_receipt_text")]
+    [MaxLength(1000)]
+    public string? CustomReceiptText { get; init; }
+
+    /// <summary>
+    /// The return policy that appears on receipts issued for this location.
+    /// This text can also be configured in the Seller Dashboard (Receipts section).
+    /// </summary>
+    [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
+    [JsonPropertyName("return_policy")]
+    [MaxLength(1000)]
+    public string? ReturnPolicy { get; init; }
+
     [JsonExtensionData]
     public AdditionalProperties AdditionalProperties { get; init; } = [];
 }

@@ -39,14 +39,16 @@ public record FulfillmentDeliveryDetails
     /// <summary>
     /// The <see href="https://developer.squareup.com/docs/build-basics/working-with-dates">timestamp</see>
     /// that represents the start of the delivery period.
-    /// When the fulfillment <c>schedule_type</c> is <c>ASAP</c>, the field is automatically
-    /// set to the current time plus the <c>prep_time_duration</c>.
-    /// Otherwise, the application can set this field while the fulfillment <c>state</c> is
+    /// The application can set this field while the fulfillment <c>state</c> is
     /// <c>PROPOSED</c>, <c>RESERVED</c>, or <c>PREPARED</c> (any time before the
     /// terminal state such as <c>COMPLETED</c>, <c>CANCELED</c>, and <c>FAILED</c>).
     /// <para>
     /// The timestamp must be in RFC 3339 format
     /// (for example, "2016-09-04T23:59:33.123Z").
+    /// </para>
+    /// <para>
+    /// For fulfillments with the schedule type <c>ASAP</c>, this is automatically set
+    /// to the current time plus <c>prep_time_duration</c>, if available.
     /// </para>
     /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
@@ -54,20 +56,24 @@ public record FulfillmentDeliveryDetails
     public string? DeliverAt { get; init; }
 
     /// <summary>
-    /// The duration of time it takes to prepare and deliver this fulfillment.
-    /// The duration must be in RFC 3339 format (for example, "P1W3D").
+    /// The <see href="https://developer.squareup.com/docs/build-basics/working-with-dates">duration</see>
+    /// needed to prepare and deliver this fulfillment.
+    /// The duration must be in RFC 3339 format (for example, "PT30M" for 30 minutes). Don't confuse
+    /// "M" for months with "M" for minutes. "P5M" means 5 months, while "PT5M" means 5 minutes.
     /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("prep_time_duration")]
     public string? PrepTimeDuration { get; init; }
 
     /// <summary>
-    /// The time period after <c>deliver_at</c> in which to deliver the order.
+    /// The <see href="https://developer.squareup.com/docs/build-basics/working-with-dates">duration</see>
+    /// after <c>deliver_at</c> in which to deliver the order.
     /// Applications can set this field when the fulfillment <c>state</c> is
     /// <c>PROPOSED</c>, <c>RESERVED</c>, or <c>PREPARED</c> (any time before the terminal state
     /// such as <c>COMPLETED</c>, <c>CANCELED</c>, and <c>FAILED</c>).
     /// <para>
-    /// The duration must be in RFC 3339 format (for example, "P1W3D").
+    /// The duration must be in RFC 3339 format (for example, "PT30M" for 30 minutes). Don't confuse
+    /// "M" for months with "M" for minutes. "P5M" means 5 months, while "PT5M" means 5 minutes.
     /// </para>
     /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
@@ -163,8 +169,10 @@ public record FulfillmentDeliveryDetails
     public string? CourierPickupAt { get; init; }
 
     /// <summary>
-    /// The time period after <c>courier_pickup_at</c> in which the courier should pick up the order.
-    /// The duration must be in RFC 3339 format (for example, "P1W3D").
+    /// The <see href="https://developer.squareup.com/docs/build-basics/working-with-dates">duration</see>
+    /// after <c>courier_pickup_at</c> in which the courier should pick up the order.
+    /// The duration must be in RFC 3339 format (for example, "PT30M" for 30 minutes). Don't confuse
+    /// "M" for months with "M" for minutes. "P5M" means 5 months, while "PT5M" means 5 minutes.
     /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("courier_pickup_window_duration")]

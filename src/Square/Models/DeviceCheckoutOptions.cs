@@ -39,6 +39,16 @@ public record DeviceCheckoutOptions
     [JsonPropertyName("show_itemized_cart")]
     public bool? ShowItemizedCart { get; init; }
 
+    /// <summary>
+    /// Controls whether the mobile client applies Auto Card Surcharge (ACS) during checkout.
+    /// If true, ACS is applied based on Dashboard configuration.
+    /// If false, ACS is not applied regardless of that configuration.
+    /// For more information, see <see href="https://developer.squareup.com/docs/terminal-api/additional-payment-checkout-features#add-a-card-surcharge">Add a Card Surcharge</see>.
+    /// </summary>
+    [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
+    [JsonPropertyName("allow_auto_card_surcharge")]
+    public bool? AllowAutoCardSurcharge { get; init; }
+
     [JsonExtensionData]
     public AdditionalProperties AdditionalProperties { get; init; } = [];
 }

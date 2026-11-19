@@ -2,22 +2,9 @@
 
 # Transactions — operations
 
-Accessor: `client.Transactions` · Source: `src/Square/Api/Transactions.cs` · 4 operations
+Accessor: `client.Transactions` · Source: `src/Square/Api/Transactions.cs` · 2 operations
 
 **Type sources**: the file declaring each type an operation names (`RawError` excluded — see sdk-map.md).
-
-### CaptureTransaction
-
-- **Auth**: `options.BearerAuth`
-- **Signature**: `CaptureTransaction(CaptureTransactionRequest request, RequestOptions? requestOptions = null, CancellationToken cancellationToken = default)`
-  - required: `LocationId`, `TransactionId`
-- **Returns**: `CaptureTransactionResponse`
-- **Error**: `ApiException<RawError>` — **Case B**
-
-| Type | Source |
-| --- | --- |
-| `CaptureTransactionRequest` | `src/Square/Requests/Transactions/CaptureTransactionRequest.cs` |
-| `CaptureTransactionResponse` | `src/Square/Models/CaptureTransactionResponse.cs` |
 
 ### ListTransactions
 
@@ -46,17 +33,4 @@ Accessor: `client.Transactions` · Source: `src/Square/Api/Transactions.cs` · 4
 | --- | --- |
 | `RetrieveTransactionRequest` | `src/Square/Requests/Transactions/RetrieveTransactionRequest.cs` |
 | `RetrieveTransactionResponse` | `src/Square/Models/RetrieveTransactionResponse.cs` |
-
-### VoidTransaction
-
-- **Auth**: `options.BearerAuth`
-- **Signature**: `VoidTransaction(VoidTransactionRequest request, RequestOptions? requestOptions = null, CancellationToken cancellationToken = default)`
-  - required: `LocationId`, `TransactionId`
-- **Returns**: `VoidTransactionResponse`
-- **Error**: `ApiException<RawError>` — **Case B**
-
-| Type | Source |
-| --- | --- |
-| `VoidTransactionRequest` | `src/Square/Requests/Transactions/VoidTransactionRequest.cs` |
-| `VoidTransactionResponse` | `src/Square/Models/VoidTransactionResponse.cs` |
 

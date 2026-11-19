@@ -20,7 +20,7 @@ public record OrderServiceCharge
     public string? Uid { get; init; }
 
     /// <summary>
-    /// The name of the service charge.
+    /// The name of the service charge. This is unused and null for AUTO_GRATUITY to match the behavior on Bills.
     /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("name")]

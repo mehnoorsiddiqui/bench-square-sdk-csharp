@@ -149,6 +149,13 @@ public record PaymentRefund
     [JsonPropertyName("terminal_refund_id")]
     public string? TerminalRefundId { get; init; }
 
+    /// <summary>
+    /// Details pertaining to contributors to the refund of the application fee.
+    /// </summary>
+    [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
+    [JsonPropertyName("app_fee_allocations")]
+    public IReadOnlyList<object>? AppFeeAllocations { get; init; }
+
     [JsonExtensionData]
     public AdditionalProperties AdditionalProperties { get; init; } = [];
 }

@@ -29,8 +29,9 @@ public record FulfillmentPickupDetails
     public string? ExpiresAt { get; init; }
 
     /// <summary>
-    /// The duration of time after which an in progress pickup fulfillment is automatically moved
-    /// to the <c>COMPLETED</c> state. The duration must be in RFC 3339 format (for example, "P1W3D").
+    /// The <see href="https://developer.squareup.com/docs/build-basics/working-with-dates">duration</see>
+    /// after which an in-progress pickup fulfillment is automatically moved
+    /// to the <c>COMPLETED</c> state. The duration must be in RFC 3339 format (for example, "PT4H" for 4 hours).
     /// <para>
     /// If not set, this pickup fulfillment remains in progress until it is canceled or completed.
     /// </para>
@@ -52,7 +53,7 @@ public record FulfillmentPickupDetails
     /// "2016-09-04T23:59:33.123Z".
     /// <para>
     /// For fulfillments with the schedule type <c>ASAP</c>, this is automatically set
-    /// to the current time plus the expected duration to prepare the fulfillment.
+    /// to the current time plus <c>prep_time_duration</c>, if available.
     /// </para>
     /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
@@ -60,17 +61,23 @@ public record FulfillmentPickupDetails
     public string? PickupAt { get; init; }
 
     /// <summary>
-    /// The window of time in which the order should be picked up after the <c>pickup_at</c> timestamp.
-    /// Must be in RFC 3339 duration format, e.g., "P1W3D". Can be used as an
-    /// informational guideline for merchants.
+    /// The <see href="https://developer.squareup.com/docs/build-basics/working-with-dates">duration</see>
+    /// in which the order should be picked up after the <c>pickup_at</c> timestamp.
+    /// The duration must be in RFC 3339 format (for example, "PT30M" for 30 minutes). Don't confuse
+    /// "M" for months with "M" for minutes. "P5M" means 5 months, while "PT5M" means 5 minutes.
+    /// <para>
+    /// Can be used as an informational guideline for merchants.
+    /// </para>
     /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("pickup_window_duration")]
     public string? PickupWindowDuration { get; init; }
 
     /// <summary>
-    /// The duration of time it takes to prepare this fulfillment.
-    /// The duration must be in RFC 3339 format (for example, "P1W3D").
+    /// The <see href="https://developer.squareup.com/docs/build-basics/working-with-dates">duration</see>
+    /// needed to prepare this fulfillment.
+    /// The duration must be in RFC 3339 format (for example, "PT30M" for 30 minutes). Don't confuse
+    /// "M" for months with "M" for minutes. "P5M" means 5 months, while "PT5M" means 5 minutes.
     /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("prep_time_duration")]
