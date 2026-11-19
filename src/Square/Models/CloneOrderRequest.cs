@@ -5,7 +5,7 @@ namespace Square.Models;
 
 /// <summary>
 /// Defines the fields that are included in requests to the
-/// <see href="$e/Orders/CloneOrder">CloneOrder</see> endpoint.
+/// <see href="api-endpoint:Orders-CloneOrder">CloneOrder</see> endpoint.
 /// </summary>
 public record CloneOrderRequest
 {

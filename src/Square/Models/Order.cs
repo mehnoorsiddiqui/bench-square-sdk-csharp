@@ -48,7 +48,7 @@ public record Order
     public OrderSource? Source { get; init; }
 
     /// <summary>
-    /// The ID of the <see href="$m/Customer">customer</see> associated with the order.
+    /// The ID of the <see href="entity:Customer">customer</see> associated with the order.
     /// <para>
     /// You should specify a <c>customer_id</c> on the order (or the payment) to ensure that transactions
     /// are reliably linked to customers. Omitting this field might result in the creation of new
@@ -309,7 +309,7 @@ public record Order
     /// <summary>
     /// Pricing options for an order. The options affect how the order's price is calculated.
     /// They can be used, for example, to apply automatic price adjustments that are based on preconfigured
-    /// <see href="$m/CatalogPricingRule">pricing rules</see>.
+    /// <see href="entity:CatalogPricingRule">pricing rules</see>.
     /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("pricing_options")]

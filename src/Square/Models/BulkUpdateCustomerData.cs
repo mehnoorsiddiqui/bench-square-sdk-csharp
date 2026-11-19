@@ -6,7 +6,7 @@ namespace Square.Models;
 
 /// <summary>
 /// Defines the customer data provided in individual update requests for a
-/// <see href="$e/Customers/BulkUpdateCustomers">BulkUpdateCustomers</see> operation.
+/// <see href="api-endpoint:Customers-BulkUpdateCustomers">BulkUpdateCustomers</see> operation.
 /// </summary>
 public record BulkUpdateCustomerData
 {
@@ -94,7 +94,7 @@ public record BulkUpdateCustomerData
     public string? Birthday { get; init; }
 
     /// <summary>
-    /// Represents the tax ID associated with a <see href="$m/Customer">customer profile</see>. The corresponding <c>tax_ids</c> field is available only for customers of sellers in EU countries or the United Kingdom.
+    /// Represents the tax ID associated with a <see href="entity:Customer">customer profile</see>. The corresponding <c>tax_ids</c> field is available only for customers of sellers in EU countries or the United Kingdom.
     /// For more information, see <see href="https://developer.squareup.com/docs/customers-api/what-it-does#customer-tax-ids">Customer tax IDs</see>.
     /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]

@@ -6,7 +6,7 @@ namespace Square.Models;
 
 /// <summary>
 /// Defines the fields that are included in the response body of a request
-/// to the <see href="$e/Locations/ListLocations">ListLocations</see> endpoint.
+/// to the <see href="api-endpoint:Locations-ListLocations">ListLocations</see> endpoint.
 /// <para>
 /// Either <c>errors</c> or <c>locations</c> is present in a given response (never both).
 /// </para>

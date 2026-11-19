@@ -86,8 +86,8 @@ public record Vendor
     public int? Version { get; init; }
 
     /// <summary>
-    /// The status of the <see href="$m/Vendor">Vendor</see>,
-    /// whether a <see href="$m/Vendor">Vendor</see> is active or inactive.
+    /// The status of the <see href="entity:Vendor">Vendor</see>,
+    /// whether a <see href="entity:Vendor">Vendor</see> is active or inactive.
     /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("status")]

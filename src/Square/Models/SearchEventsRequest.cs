@@ -6,7 +6,7 @@ using Square.Core.Validation.Attributes;
 namespace Square.Models;
 
 /// <summary>
-/// Searches <see href="$m/Event">Event</see>s for your application.
+/// Searches <see href="entity:Event">Event</see>s for your application.
 /// </summary>
 public record SearchEventsRequest
 {

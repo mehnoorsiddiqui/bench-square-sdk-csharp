@@ -5,7 +5,7 @@ using Square.Core.Models;
 namespace Square.Models;
 
 /// <summary>
-/// Defines the response returned by <see href="$e/Refunds/ListPaymentRefunds">ListPaymentRefunds</see>.
+/// Defines the response returned by <see href="api-endpoint:Refunds-ListPaymentRefunds">ListPaymentRefunds</see>.
 /// <para>
 /// Either <c>errors</c> or <c>refunds</c> is present in a given response (never both).
 /// </para>

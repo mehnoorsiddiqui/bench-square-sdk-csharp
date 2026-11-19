@@ -5,7 +5,7 @@ using Square.Core.Models;
 namespace Square.Models;
 
 /// <summary>
-/// Represents a <see href="$e/LocationCustomAttributes/BulkUpsertLocationCustomAttributes">BulkUpsertLocationCustomAttributes</see> request.
+/// Represents a <see href="api-endpoint:LocationCustomAttributes-BulkUpsertLocationCustomAttributes">BulkUpsertLocationCustomAttributes</see> request.
 /// </summary>
 public record BulkUpsertLocationCustomAttributesRequest
 {

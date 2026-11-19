@@ -5,7 +5,7 @@ using Square.Core.Models;
 namespace Square.Models;
 
 /// <summary>
-/// Represents a <see href="$e/CustomerCustomAttributes/ListCustomerCustomAttributeDefinitions">ListCustomerCustomAttributeDefinitions</see> response.
+/// Represents a <see href="api-endpoint:CustomerCustomAttributes-ListCustomerCustomAttributeDefinitions">ListCustomerCustomAttributeDefinitions</see> response.
 /// Either <c>custom_attribute_definitions</c>, an empty object, or <c>errors</c> is present in the response.
 /// If additional results are available, the <c>cursor</c> field is also present along with <c>custom_attribute_definitions</c>.
 /// </summary>

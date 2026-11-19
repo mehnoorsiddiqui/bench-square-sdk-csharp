@@ -6,7 +6,7 @@ namespace Square.Models;
 
 /// <summary>
 /// Defines the fields included in the response body from the
-/// <see href="$e/Customers/BulkCreateCustomers">BulkCreateCustomers</see> endpoint.
+/// <see href="api-endpoint:Customers-BulkCreateCustomers">BulkCreateCustomers</see> endpoint.
 /// </summary>
 public record BulkCreateCustomersResponse
 {

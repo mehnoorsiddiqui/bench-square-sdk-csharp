@@ -5,7 +5,7 @@ using Square.Core.Models;
 namespace Square.Models;
 
 /// <summary>
-/// Represents a response for an individual upsert request in a <see href="$e/CustomerCustomAttributes/BulkUpsertCustomerCustomAttributes">BulkUpsertCustomerCustomAttributes</see> operation.
+/// Represents a response for an individual upsert request in a <see href="api-endpoint:CustomerCustomAttributes-BulkUpsertCustomerCustomAttributes">BulkUpsertCustomerCustomAttributes</see> operation.
 /// </summary>
 public record BulkUpsertCustomerCustomAttributesResponseCustomerCustomAttributeUpsertResponse
 {

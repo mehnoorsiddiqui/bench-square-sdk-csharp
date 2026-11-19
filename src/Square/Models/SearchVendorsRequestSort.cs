@@ -5,12 +5,12 @@ using Square.Models.Enums;
 namespace Square.Models;
 
 /// <summary>
-/// Defines a sorter used to sort results from <see href="$e/Vendors/SearchVendors">SearchVendors</see>.
+/// Defines a sorter used to sort results from <see href="api-endpoint:Vendors-SearchVendors">SearchVendors</see>.
 /// </summary>
 public record SearchVendorsRequestSort
 {
     /// <summary>
-    /// The field to sort the returned <see href="$m/Vendor">Vendor</see> objects by.
+    /// The field to sort the returned <see href="entity:Vendor">Vendor</see> objects by.
     /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("field")]

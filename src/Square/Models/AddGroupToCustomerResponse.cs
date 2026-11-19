@@ -6,7 +6,7 @@ namespace Square.Models;
 
 /// <summary>
 /// Defines the fields that are included in the response body of
-/// a request to the <see href="$e/Customers/AddGroupToCustomer">AddGroupToCustomer</see> endpoint.
+/// a request to the <see href="api-endpoint:Customers-AddGroupToCustomer">AddGroupToCustomer</see> endpoint.
 /// </summary>
 public record AddGroupToCustomerResponse
 {

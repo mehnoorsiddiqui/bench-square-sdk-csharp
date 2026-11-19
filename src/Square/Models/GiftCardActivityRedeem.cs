@@ -5,7 +5,7 @@ using Square.Models.Enums;
 namespace Square.Models;
 
 /// <summary>
-/// Represents details about a <c>REDEEM</c> <see href="$m/GiftCardActivityType">gift card activity type</see>.
+/// Represents details about a <c>REDEEM</c> <see href="entity:GiftCardActivityType">gift card activity type</see>.
 /// </summary>
 public record GiftCardActivityRedeem
 {
@@ -40,7 +40,7 @@ public record GiftCardActivityRedeem
     public string? ReferenceId { get; init; }
 
     /// <summary>
-    /// Indicates the status of a <see href="$m/GiftCard">gift card</see> redemption. This status is relevant only for
+    /// Indicates the status of a <see href="entity:GiftCard">gift card</see> redemption. This status is relevant only for
     /// redemptions made from Square products (such as Square Point of Sale) because Square products use a
     /// two-state process. Gift cards redeemed using the Gift Card Activities API always have a <c>COMPLETED</c> status.
     /// </summary>

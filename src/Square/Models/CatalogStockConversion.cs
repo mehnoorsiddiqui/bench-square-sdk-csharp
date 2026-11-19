@@ -5,7 +5,7 @@ using Square.Core.Models;
 namespace Square.Models;
 
 /// <summary>
-/// Represents the rule of conversion between a stockable <see href="$m/CatalogItemVariation">CatalogItemVariation</see>
+/// Represents the rule of conversion between a stockable <see href="entity:CatalogItemVariation">CatalogItemVariation</see>
 /// and a non-stockable sell-by or receive-by <c>CatalogItemVariation</c> that
 /// share the same underlying stock.
 /// </summary>

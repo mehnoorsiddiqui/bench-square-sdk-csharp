@@ -4,7 +4,7 @@ using Square.Core.Models;
 namespace Square.Models;
 
 /// <summary>
-/// Tests a <see href="$m/WebhookSubscription">Subscription</see> by sending a test event to its notification URL.
+/// Tests a <see href="entity:WebhookSubscription">Subscription</see> by sending a test event to its notification URL.
 /// </summary>
 public record TestWebhookSubscriptionRequest
 {

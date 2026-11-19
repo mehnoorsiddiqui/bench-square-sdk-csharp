@@ -5,7 +5,7 @@ using Square.Core.Models;
 namespace Square.Models;
 
 /// <summary>
-/// Defines the response body returned from the <see href="$e/Catalog/SearchCatalogItems">SearchCatalogItems</see> endpoint.
+/// Defines the response body returned from the <see href="api-endpoint:Catalog-SearchCatalogItems">SearchCatalogItems</see> endpoint.
 /// </summary>
 public record SearchCatalogItemsResponse
 {

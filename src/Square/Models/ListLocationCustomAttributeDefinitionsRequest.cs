@@ -6,7 +6,7 @@ using Square.Models.Enums;
 namespace Square.Models;
 
 /// <summary>
-/// Represents a <see href="$e/LocationCustomAttributes/ListLocationCustomAttributeDefinitions">ListLocationCustomAttributeDefinitions</see> request.
+/// Represents a <see href="api-endpoint:LocationCustomAttributes-ListLocationCustomAttributeDefinitions">ListLocationCustomAttributeDefinitions</see> request.
 /// </summary>
 public record ListLocationCustomAttributeDefinitionsRequest
 {

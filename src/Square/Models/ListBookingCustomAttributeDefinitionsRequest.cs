@@ -5,7 +5,7 @@ using Square.Core.Validation.Attributes;
 namespace Square.Models;
 
 /// <summary>
-/// Represents a <see href="$e/BookingCustomAttributes/ListBookingCustomAttributeDefinitions">ListBookingCustomAttributeDefinitions</see> request.
+/// Represents a <see href="api-endpoint:BookingCustomAttributes-ListBookingCustomAttributeDefinitions">ListBookingCustomAttributeDefinitions</see> request.
 /// </summary>
 public record ListBookingCustomAttributeDefinitionsRequest
 {

@@ -6,7 +6,7 @@ namespace Square.Models;
 
 /// <summary>
 /// Defines the fields that are included in the response body of a request to the
-/// <see href="$e/Orders/PayOrder">PayOrder</see> endpoint.
+/// <see href="api-endpoint:Orders-PayOrder">PayOrder</see> endpoint.
 /// </summary>
 public record PayOrderResponse
 {

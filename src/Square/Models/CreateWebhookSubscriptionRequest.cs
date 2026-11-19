@@ -5,7 +5,7 @@ using Square.Core.Models;
 namespace Square.Models;
 
 /// <summary>
-/// Creates a <see href="$m/WebhookSubscription">Subscription</see>.
+/// Creates a <see href="entity:WebhookSubscription">Subscription</see>.
 /// </summary>
 public record CreateWebhookSubscriptionRequest
 {

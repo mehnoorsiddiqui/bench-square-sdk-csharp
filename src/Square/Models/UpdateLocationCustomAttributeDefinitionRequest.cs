@@ -5,7 +5,7 @@ using Square.Core.Models;
 namespace Square.Models;
 
 /// <summary>
-/// Represents an <see href="$e/LocationCustomAttributes/UpdateLocationCustomAttributeDefinition">UpdateLocationCustomAttributeDefinition</see> request.
+/// Represents an <see href="api-endpoint:LocationCustomAttributes-UpdateLocationCustomAttributeDefinition">UpdateLocationCustomAttributeDefinition</see> request.
 /// </summary>
 public record UpdateLocationCustomAttributeDefinitionRequest
 {

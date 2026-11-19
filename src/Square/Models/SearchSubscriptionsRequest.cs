@@ -7,7 +7,7 @@ namespace Square.Models;
 
 /// <summary>
 /// Defines input parameters in a request to the
-/// <see href="$e/Subscriptions/SearchSubscriptions">SearchSubscriptions</see> endpoint.
+/// <see href="api-endpoint:Subscriptions-SearchSubscriptions">SearchSubscriptions</see> endpoint.
 /// </summary>
 public record SearchSubscriptionsRequest
 {

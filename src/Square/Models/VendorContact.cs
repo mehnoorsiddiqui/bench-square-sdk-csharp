@@ -5,7 +5,7 @@ using Square.Core.Models;
 namespace Square.Models;
 
 /// <summary>
-/// Represents a contact of a <see href="$m/Vendor">Vendor</see>.
+/// Represents a contact of a <see href="entity:Vendor">Vendor</see>.
 /// </summary>
 public record VendorContact
 {

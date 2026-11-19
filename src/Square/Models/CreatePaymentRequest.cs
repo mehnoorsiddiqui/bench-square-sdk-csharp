@@ -6,7 +6,7 @@ namespace Square.Models;
 
 /// <summary>
 /// Describes a request to create a payment using
-/// <see href="$e/Payments/CreatePayment">CreatePayment</see>.
+/// <see href="api-endpoint:Payments-CreatePayment">CreatePayment</see>.
 /// </summary>
 public record CreatePaymentRequest
 {
@@ -275,6 +275,18 @@ public record CreatePaymentRequest
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("offline_payment_details")]
     public OfflinePaymentDetails? OfflinePaymentDetails { get; init; }
+
+    /// <summary>
+    /// The buyer's phone number.
+    /// Must follow the following format:
+    /// 1. A leading + symbol (followed by a country code)
+    /// 2. The phone number can contain spaces and the special characters <c>(</c> , <c>)</c> , <c>-</c> , and <c>.</c>.
+    /// Alphabetical characters aren't allowed.
+    /// 3. The phone number must contain between 9 and 16 digits.
+    /// </summary>
+    [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
+    [JsonPropertyName("buyer_phone_number")]
+    public string? BuyerPhoneNumber { get; init; }
 
     [JsonExtensionData]
     public AdditionalProperties AdditionalProperties { get; init; } = [];

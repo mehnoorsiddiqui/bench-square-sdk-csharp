@@ -5,7 +5,7 @@ using Square.Core.Models;
 namespace Square.Models;
 
 /// <summary>
-/// Represents a <see href="$e/MerchantCustomAttributes/BulkDeleteMerchantCustomAttributes">BulkDeleteMerchantCustomAttributes</see> request.
+/// Represents a <see href="api-endpoint:MerchantCustomAttributes-BulkDeleteMerchantCustomAttributes">BulkDeleteMerchantCustomAttributes</see> request.
 /// </summary>
 public record BulkDeleteMerchantCustomAttributesRequest
 {

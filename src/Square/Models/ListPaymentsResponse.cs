@@ -5,7 +5,7 @@ using Square.Core.Models;
 namespace Square.Models;
 
 /// <summary>
-/// Defines the response returned by <see href="$e/Payments/ListPayments">ListPayments</see>.
+/// Defines the response returned by <see href="api-endpoint:Payments-ListPayments">ListPayments</see>.
 /// </summary>
 public record ListPaymentsResponse
 {

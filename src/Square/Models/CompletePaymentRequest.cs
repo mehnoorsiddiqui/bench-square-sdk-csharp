@@ -5,7 +5,7 @@ namespace Square.Models;
 
 /// <summary>
 /// Describes a request to complete (capture) a payment using
-/// <see href="$e/Payments/CompletePayment">CompletePayment</see>.
+/// <see href="api-endpoint:Payments-CompletePayment">CompletePayment</see>.
 /// <para>
 /// By default, payments are set to <c>autocomplete</c> immediately after they are created.
 /// To complete payments manually, set <c>autocomplete</c> to <c>false</c>.

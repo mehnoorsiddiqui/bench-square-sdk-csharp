@@ -4,12 +4,12 @@ using Square.Core.Models;
 namespace Square.Models;
 
 /// <summary>
-/// Represents details about a <c>BLOCK</c> <see href="$m/GiftCardActivityType">gift card activity type</see>.
+/// Represents details about a <c>BLOCK</c> <see href="entity:GiftCardActivityType">gift card activity type</see>.
 /// </summary>
 public record GiftCardActivityBlock
 {
     /// <summary>
-    /// Indicates the reason for blocking a <see href="$m/GiftCard">gift card</see>.
+    /// Indicates the reason for blocking a <see href="entity:GiftCard">gift card</see>.
     /// </summary>
     [JsonPropertyName("reason")]
     public string Reason { get; } = "CHARGEBACK_BLOCK";

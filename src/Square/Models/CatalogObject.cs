@@ -128,7 +128,7 @@ public record CatalogObject
     public IReadOnlyList<string>? AbsentAtLocationIds { get; init; }
 
     /// <summary>
-    /// A <see href="$m/CatalogObject">CatalogObject</see> instance of the <c>ITEM</c> type, also referred to as an item, in the catalog.
+    /// A <see href="entity:CatalogObject">CatalogObject</see> instance of the <c>ITEM</c> type, also referred to as an item, in the catalog.
     /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("item_data")]
@@ -142,7 +142,7 @@ public record CatalogObject
     public CatalogCategory? CategoryData { get; init; }
 
     /// <summary>
-    /// An item variation, representing a product for sale, in the Catalog object model. Each <see href="$m/CatalogItem">item</see> must have at least one
+    /// An item variation, representing a product for sale, in the Catalog object model. Each <see href="entity:CatalogItem">item</see> must have at least one
     /// item variation and can have at most 250 item variations.
     /// <para>
     /// An item variation can be sellable, stockable, or both if it has a unit of measure for its count for the sold number of the variation, the stocked

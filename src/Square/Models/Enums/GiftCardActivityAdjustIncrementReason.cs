@@ -5,7 +5,7 @@ using Square.Core.Enum;
 namespace Square.Models.Enums;
 
 /// <summary>
-/// Indicates the reason for adding money to a <see href="$m/GiftCard">gift card</see>.
+/// Indicates the reason for adding money to a <see href="entity:GiftCard">gift card</see>.
 /// </summary>
 [JsonConverter(typeof(StringEnumConverter<GiftCardActivityAdjustIncrementReason>))]
 public sealed record GiftCardActivityAdjustIncrementReason : OpenStringEnum<GiftCardActivityAdjustIncrementReason>

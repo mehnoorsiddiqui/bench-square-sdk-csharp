@@ -5,12 +5,12 @@ using Square.Core.Models;
 namespace Square.Models;
 
 /// <summary>
-/// Represents a <see href="$e/Invoices/CreateInvoiceAttachment">CreateInvoiceAttachment</see> response.
+/// Represents a <see href="api-endpoint:Invoices-CreateInvoiceAttachment">CreateInvoiceAttachment</see> response.
 /// </summary>
 public record CreateInvoiceAttachmentResponse
 {
     /// <summary>
-    /// Represents a file attached to an <see href="$m/Invoice">invoice</see>.
+    /// Represents a file attached to an <see href="entity:Invoice">invoice</see>.
     /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("attachment")]

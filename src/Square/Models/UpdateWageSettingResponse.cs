@@ -11,7 +11,8 @@ namespace Square.Models;
 public record UpdateWageSettingResponse
 {
     /// <summary>
-    /// An object representing a team member's wage information.
+    /// Represents information about the overtime exemption status, job assignments, and compensation
+    /// for a <see href="entity:TeamMember">team member</see>.
     /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("wage_setting")]

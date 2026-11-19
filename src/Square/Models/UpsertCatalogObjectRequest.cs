@@ -21,7 +21,7 @@ public record UpsertCatalogObjectRequest
     /// </para>
     /// </summary>
     [JsonPropertyName("idempotency_key")]
-    [MinLength(1)]
+    [StringLength(128, MinimumLength = 1)]
     public required string IdempotencyKey { get; init; }
 
     /// <summary>

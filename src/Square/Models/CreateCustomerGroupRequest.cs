@@ -5,7 +5,7 @@ namespace Square.Models;
 
 /// <summary>
 /// Defines the body parameters that can be included in a request to the
-/// <see href="$e/CustomerGroups/CreateCustomerGroup">CreateCustomerGroup</see> endpoint.
+/// <see href="api-endpoint:CustomerGroups-CreateCustomerGroup">CreateCustomerGroup</see> endpoint.
 /// </summary>
 public record CreateCustomerGroupRequest
 {

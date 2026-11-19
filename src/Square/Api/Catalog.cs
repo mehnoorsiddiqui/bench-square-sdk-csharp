@@ -35,11 +35,11 @@ public sealed class Catalog
     /// <returns>A <see cref="Task{TResult}"/> of <see cref="BatchDeleteCatalogObjectsResponse"/> instance.</returns>
     /// <exception cref="ApiException{TError}"> of <see cref="RawError"/> when the server returns an error response.</exception>
     /// <remarks>
-    /// Deletes a set of <see href="$m/CatalogItem">CatalogItem</see>s based on the
+    /// Deletes a set of <see href="entity:CatalogItem">CatalogItem</see>s based on the
     /// provided list of target IDs and returns a set of successfully deleted IDs in
     /// the response. Deletion is a cascading event such that all children of the
     /// targeted object are also deleted. For example, deleting a CatalogItem will
-    /// also delete all of its <see href="$m/CatalogItemVariation">CatalogItemVariation</see>
+    /// also delete all of its <see href="entity:CatalogItemVariation">CatalogItemVariation</see>
     /// children.
     /// <para>
     /// <c>BatchDeleteCatalogObjects</c> succeeds even if only a portion of the targeted
@@ -78,11 +78,11 @@ public sealed class Catalog
     /// <exception cref="ApiException{TError}"> of <see cref="RawError"/> when the server returns an error response.</exception>
     /// <remarks>
     /// Returns a set of objects based on the provided ID.
-    /// Each <see href="$m/CatalogItem">CatalogItem</see> returned in the set includes all of its
+    /// Each <see href="entity:CatalogItem">CatalogItem</see> returned in the set includes all of its
     /// child information including: all of its
-    /// <see href="$m/CatalogItemVariation">CatalogItemVariation</see> objects, references to
-    /// its <see href="$m/CatalogModifierList">CatalogModifierList</see> objects, and the ids of
-    /// any <see href="$m/CatalogTax">CatalogTax</see> objects that apply to it.
+    /// <see href="entity:CatalogItemVariation">CatalogItemVariation</see> objects, references to
+    /// its <see href="entity:CatalogModifierList">CatalogModifierList</see> objects, and the ids of
+    /// any <see href="entity:CatalogTax">CatalogTax</see> objects that apply to it.
     /// </remarks>
     public Task<BatchRetrieveCatalogObjectsResponse> BatchRetrieveCatalogObjects(BatchRetrieveCatalogObjectsOperationRequest request,
         RequestOptions? requestOptions = null,
@@ -175,8 +175,8 @@ public sealed class Catalog
     /// <returns>A <see cref="Task{TResult}"/> of <see cref="CreateCatalogImageResponse"/> instance.</returns>
     /// <exception cref="ApiException{TError}"> of <see cref="RawError"/> when the server returns an error response.</exception>
     /// <remarks>
-    /// Uploads an image file to be represented by a <see href="$m/CatalogImage">CatalogImage</see> object that can be linked to an existing
-    /// <see href="$m/CatalogObject">CatalogObject</see> instance. The resulting <c>CatalogImage</c> is unattached to any <c>CatalogObject</c> if the <c>object_id</c>
+    /// Uploads an image file to be represented by a <see href="entity:CatalogImage">CatalogImage</see> object that can be linked to an existing
+    /// <see href="entity:CatalogObject">CatalogObject</see> instance. The resulting <c>CatalogImage</c> is unattached to any <c>CatalogObject</c> if the <c>object_id</c>
     /// is not specified.
     /// <para>
     /// This <c>CreateCatalogImage</c> endpoint accepts HTTP multipart/form-data requests with a JSON part and an image file part in
@@ -210,12 +210,12 @@ public sealed class Catalog
     /// <returns>A <see cref="Task{TResult}"/> of <see cref="DeleteCatalogObjectResponse"/> instance.</returns>
     /// <exception cref="ApiException{TError}"> of <see cref="RawError"/> when the server returns an error response.</exception>
     /// <remarks>
-    /// Deletes a single <see href="$m/CatalogObject">CatalogObject</see> based on the
+    /// Deletes a single <see href="entity:CatalogObject">CatalogObject</see> based on the
     /// provided ID and returns the set of successfully deleted IDs in the response.
     /// Deletion is a cascading event such that all children of the targeted object
-    /// are also deleted. For example, deleting a <see href="$m/CatalogItem">CatalogItem</see>
+    /// are also deleted. For example, deleting a <see href="entity:CatalogItem">CatalogItem</see>
     /// will also delete all of its
-    /// <see href="$m/CatalogItemVariation">CatalogItemVariation</see> children.
+    /// <see href="entity:CatalogItemVariation">CatalogItemVariation</see> children.
     /// <para>
     /// To ensure consistency, only one delete request is processed at a time per seller account.
     /// While one (batch or non-batch) delete request is being processed, other (batched and non-batched)
@@ -247,14 +247,14 @@ public sealed class Catalog
     /// <returns>A <see cref="Task{TResult}"/> of <see cref="ListCatalogResponse"/> instance.</returns>
     /// <exception cref="ApiException{TError}"> of <see cref="RawError"/> when the server returns an error response.</exception>
     /// <remarks>
-    /// Returns a list of all <see href="$m/CatalogObject">CatalogObject</see>s of the specified types in the catalog.
+    /// Returns a list of all <see href="entity:CatalogObject">CatalogObject</see>s of the specified types in the catalog.
     /// <para>
-    /// The <c>types</c> parameter is specified as a comma-separated list of the <see href="$m/CatalogObjectType">CatalogObjectType</see> values,
+    /// The <c>types</c> parameter is specified as a comma-separated list of the <see href="entity:CatalogObjectType">CatalogObjectType</see> values,
     /// for example, "<c>ITEM</c>, <c>ITEM_VARIATION</c>, <c>MODIFIER</c>, <c>MODIFIER_LIST</c>, <c>CATEGORY</c>, <c>DISCOUNT</c>, <c>TAX</c>, <c>IMAGE</c>".
     /// </para>
     /// <para>
     /// __Important:__ ListCatalog does not return deleted catalog items. To retrieve
-    /// deleted catalog items, use <see href="$e/Catalog/SearchCatalogObjects">SearchCatalogObjects</see>
+    /// deleted catalog items, use <see href="api-endpoint:Catalog-SearchCatalogObjects">SearchCatalogObjects</see>
     /// and set the <c>include_deleted_objects</c> attribute value to <c>true</c>.
     /// </para>
     /// </remarks>
@@ -287,13 +287,13 @@ public sealed class Catalog
     /// <returns>A <see cref="Task{TResult}"/> of <see cref="RetrieveCatalogObjectResponse"/> instance.</returns>
     /// <exception cref="ApiException{TError}"> of <see cref="RawError"/> when the server returns an error response.</exception>
     /// <remarks>
-    /// Returns a single <see href="$m/CatalogItem">CatalogItem</see> as a
-    /// <see href="$m/CatalogObject">CatalogObject</see> based on the provided ID. The returned
-    /// object includes all of the relevant <see href="$m/CatalogItem">CatalogItem</see>
-    /// information including: <see href="$m/CatalogItemVariation">CatalogItemVariation</see>
+    /// Returns a single <see href="entity:CatalogItem">CatalogItem</see> as a
+    /// <see href="entity:CatalogObject">CatalogObject</see> based on the provided ID. The returned
+    /// object includes all of the relevant <see href="entity:CatalogItem">CatalogItem</see>
+    /// information including: <see href="entity:CatalogItemVariation">CatalogItemVariation</see>
     /// children, references to its
-    /// <see href="$m/CatalogModifierList">CatalogModifierList</see> objects, and the ids of
-    /// any <see href="$m/CatalogTax">CatalogTax</see> objects that apply to it.
+    /// <see href="entity:CatalogModifierList">CatalogModifierList</see> objects, and the ids of
+    /// any <see href="entity:CatalogTax">CatalogTax</see> objects that apply to it.
     /// </remarks>
     public Task<RetrieveCatalogObjectResponse> RetrieveCatalogObject(RetrieveCatalogObjectOperationRequest request,
         RequestOptions? requestOptions = null,
@@ -327,7 +327,7 @@ public sealed class Catalog
     /// Searches for catalog items or item variations by matching supported search attribute values, including
     /// custom attribute values, against one or more of the specified query filters.
     /// <para>
-    /// This (<c>SearchCatalogItems</c>) endpoint differs from the <see href="$e/Catalog/SearchCatalogObjects">SearchCatalogObjects</see>
+    /// This (<c>SearchCatalogItems</c>) endpoint differs from the <see href="api-endpoint:Catalog-SearchCatalogObjects">SearchCatalogObjects</see>
     /// endpoint in the following aspects:
     /// </para>
     /// <list type="bullet">
@@ -362,10 +362,10 @@ public sealed class Catalog
     /// <returns>A <see cref="Task{TResult}"/> of <see cref="SearchCatalogObjectsResponse"/> instance.</returns>
     /// <exception cref="ApiException{TError}"> of <see cref="RawError"/> when the server returns an error response.</exception>
     /// <remarks>
-    /// Searches for <see href="$m/CatalogObject">CatalogObject</see> of any type by matching supported search attribute values,
+    /// Searches for <see href="entity:CatalogObject">CatalogObject</see> of any type by matching supported search attribute values,
     /// excluding custom attribute values on items or item variations, against one or more of the specified query filters.
     /// <para>
-    /// This (<c>SearchCatalogObjects</c>) endpoint differs from the <see href="$e/Catalog/SearchCatalogItems">SearchCatalogItems</see>
+    /// This (<c>SearchCatalogObjects</c>) endpoint differs from the <see href="api-endpoint:Catalog-SearchCatalogItems">SearchCatalogItems</see>
     /// endpoint in the following aspects:
     /// </para>
     /// <list type="bullet">
@@ -400,7 +400,7 @@ public sealed class Catalog
     /// <returns>A <see cref="Task{TResult}"/> of <see cref="UpdateCatalogImageResponse"/> instance.</returns>
     /// <exception cref="ApiException{TError}"> of <see cref="RawError"/> when the server returns an error response.</exception>
     /// <remarks>
-    /// Uploads a new image file to replace the existing one in the specified <see href="$m/CatalogImage">CatalogImage</see> object.
+    /// Uploads a new image file to replace the existing one in the specified <see href="entity:CatalogImage">CatalogImage</see> object.
     /// <para>
     /// This <c>UpdateCatalogImage</c> endpoint accepts HTTP multipart/form-data requests with a JSON part and an image file part in
     /// JPEG, PJPEG, PNG, or GIF format. The maximum file size is 15MB.
@@ -433,8 +433,8 @@ public sealed class Catalog
     /// <returns>A <see cref="Task{TResult}"/> of <see cref="UpdateItemModifierListsResponse"/> instance.</returns>
     /// <exception cref="ApiException{TError}"> of <see cref="RawError"/> when the server returns an error response.</exception>
     /// <remarks>
-    /// Updates the <see href="$m/CatalogModifierList">CatalogModifierList</see> objects
-    /// that apply to the targeted <see href="$m/CatalogItem">CatalogItem</see> without having
+    /// Updates the <see href="entity:CatalogModifierList">CatalogModifierList</see> objects
+    /// that apply to the targeted <see href="entity:CatalogItem">CatalogItem</see> without having
     /// to perform an upsert on the entire item.
     /// </remarks>
     public Task<UpdateItemModifierListsResponse> UpdateItemModifierLists(UpdateItemModifierListsOperationRequest request,
@@ -462,8 +462,8 @@ public sealed class Catalog
     /// <returns>A <see cref="Task{TResult}"/> of <see cref="UpdateItemTaxesResponse"/> instance.</returns>
     /// <exception cref="ApiException{TError}"> of <see cref="RawError"/> when the server returns an error response.</exception>
     /// <remarks>
-    /// Updates the <see href="$m/CatalogTax">CatalogTax</see> objects that apply to the
-    /// targeted <see href="$m/CatalogItem">CatalogItem</see> without having to perform an
+    /// Updates the <see href="entity:CatalogTax">CatalogTax</see> objects that apply to the
+    /// targeted <see href="entity:CatalogItem">CatalogItem</see> without having to perform an
     /// upsert on the entire item.
     /// </remarks>
     public Task<UpdateItemTaxesResponse> UpdateItemTaxes(UpdateItemTaxesOperationRequest request,
@@ -491,7 +491,7 @@ public sealed class Catalog
     /// <returns>A <see cref="Task{TResult}"/> of <see cref="UpsertCatalogObjectResponse"/> instance.</returns>
     /// <exception cref="ApiException{TError}"> of <see cref="RawError"/> when the server returns an error response.</exception>
     /// <remarks>
-    /// Creates a new or updates the specified <see href="$m/CatalogObject">CatalogObject</see>.
+    /// Creates a new or updates the specified <see href="entity:CatalogObject">CatalogObject</see>.
     /// <para>
     /// To ensure consistency, only one update request is processed at a time per seller account.
     /// While one (batch or non-batch) update request is being processed, other (batched and non-batched)

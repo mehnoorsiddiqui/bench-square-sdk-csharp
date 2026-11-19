@@ -104,8 +104,8 @@ public sealed class Inventory
     /// <exception cref="ApiException{TError}"> of <see cref="RawError"/> when the server returns an error response.</exception>
     /// <remarks>
     /// Returns current counts for the provided
-    /// <see href="$m/CatalogObject">CatalogObject</see>s at the requested
-    /// <see href="$m/Location">Location</see>s.
+    /// <see href="entity:CatalogObject">CatalogObject</see>s at the requested
+    /// <see href="entity:Location">Location</see>s.
     /// <para>
     /// Results are paginated and sorted in descending order according to their
     /// <c>calculated_at</c> timestamp (newest first).
@@ -282,7 +282,7 @@ public sealed class Inventory
     /// <returns>A <see cref="Task{TResult}"/> of <see cref="RetrieveInventoryAdjustmentResponse"/> instance.</returns>
     /// <exception cref="ApiException{TError}"> of <see cref="RawError"/> when the server returns an error response.</exception>
     /// <remarks>
-    /// Returns the <see href="$m/InventoryAdjustment">InventoryAdjustment</see> object
+    /// Returns the <see href="entity:InventoryAdjustment">InventoryAdjustment</see> object
     /// with the provided <c>adjustment_id</c>.
     /// </remarks>
     public Task<RetrieveInventoryAdjustmentResponse> RetrieveInventoryAdjustment(RetrieveInventoryAdjustmentRequest request,
@@ -353,8 +353,8 @@ public sealed class Inventory
     /// <exception cref="ApiException{TError}"> of <see cref="RawError"/> when the server returns an error response.</exception>
     /// <remarks>
     /// Retrieves the current calculated stock count for a given
-    /// <see href="$m/CatalogObject">CatalogObject</see> at a given set of
-    /// <see href="$m/Location">Location</see>s. Responses are paginated and unsorted.
+    /// <see href="entity:CatalogObject">CatalogObject</see> at a given set of
+    /// <see href="entity:Location">Location</see>s. Responses are paginated and unsorted.
     /// For more sophisticated queries, use a batch endpoint.
     /// </remarks>
     public Task<RetrieveInventoryCountResponse> RetrieveInventoryCount(RetrieveInventoryCountOperationRequest request,
@@ -382,7 +382,7 @@ public sealed class Inventory
     /// <returns>A <see cref="Task{TResult}"/> of <see cref="RetrieveInventoryPhysicalCountResponse"/> instance.</returns>
     /// <exception cref="ApiException{TError}"> of <see cref="RawError"/> when the server returns an error response.</exception>
     /// <remarks>
-    /// Returns the <see href="$m/InventoryPhysicalCount">InventoryPhysicalCount</see>
+    /// Returns the <see href="entity:InventoryPhysicalCount">InventoryPhysicalCount</see>
     /// object with the provided <c>physical_count_id</c>.
     /// </remarks>
     public Task<RetrieveInventoryPhysicalCountResponse> RetrieveInventoryPhysicalCount(RetrieveInventoryPhysicalCountRequest request,
@@ -410,7 +410,7 @@ public sealed class Inventory
     /// <returns>A <see cref="Task{TResult}"/> of <see cref="RetrieveInventoryTransferResponse"/> instance.</returns>
     /// <exception cref="ApiException{TError}"> of <see cref="RawError"/> when the server returns an error response.</exception>
     /// <remarks>
-    /// Returns the <see href="$m/InventoryTransfer">InventoryTransfer</see> object
+    /// Returns the <see href="entity:InventoryTransfer">InventoryTransfer</see> object
     /// with the provided <c>transfer_id</c>.
     /// </remarks>
     public Task<RetrieveInventoryTransferResponse> RetrieveInventoryTransfer(RetrieveInventoryTransferRequest request,

@@ -4,8 +4,8 @@ using Square.Core.Models;
 namespace Square.Models;
 
 /// <summary>
-/// Represents the filtering criteria in a <see href="$m/CustomerQuery">search query</see> that defines how to filter
-/// customer profiles returned in <see href="$e/Customers/SearchCustomers">SearchCustomers</see> results.
+/// Represents the filtering criteria in a <see href="entity:CustomerQuery">search query</see> that defines how to filter
+/// customer profiles returned in <see href="api-endpoint:Customers-SearchCustomers">SearchCustomers</see> results.
 /// </summary>
 public record CustomerFilter
 {
@@ -82,8 +82,8 @@ public record CustomerFilter
     public FilterValue? GroupIds { get; init; }
 
     /// <summary>
-    /// The custom attribute filters in a set of <see href="$m/CustomerFilter">customer filters</see> used in a search query. Use this filter
-    /// to search based on <see href="$m/CustomAttribute">custom attributes</see> that are assigned to customer profiles. For more information, see
+    /// The custom attribute filters in a set of <see href="entity:CustomerFilter">customer filters</see> used in a search query. Use this filter
+    /// to search based on <see href="entity:CustomAttribute">custom attributes</see> that are assigned to customer profiles. For more information, see
     /// <see href="https://developer.squareup.com/docs/customers-api/use-the-api/search-customers#search-by-custom-attribute">Search by custom attribute</see>.
     /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]

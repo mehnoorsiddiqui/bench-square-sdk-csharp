@@ -7,7 +7,7 @@ using Square.Models.Enums;
 namespace Square.Models;
 
 /// <summary>
-/// Represents a promotion for a <see href="$m/LoyaltyProgram">loyalty program</see>. Loyalty promotions enable buyers
+/// Represents a promotion for a <see href="entity:LoyaltyProgram">loyalty program</see>. Loyalty promotions enable buyers
 /// to earn extra points on top of those earned from the base program.
 /// <para>
 /// A loyalty program can have a maximum of 10 loyalty promotions with an <c>ACTIVE</c> or <c>SCHEDULED</c> status.
@@ -31,7 +31,7 @@ public record LoyaltyPromotion
     public required string Name { get; init; }
 
     /// <summary>
-    /// Represents how points for a <see href="$m/LoyaltyPromotion">loyalty promotion</see> are calculated,
+    /// Represents how points for a <see href="entity:LoyaltyPromotion">loyalty promotion</see> are calculated,
     /// either by multiplying the points earned from the base program or by adding a specified number
     /// of points to the points earned from the base program.
     /// </summary>
@@ -40,13 +40,13 @@ public record LoyaltyPromotion
 
     /// <summary>
     /// Represents scheduling information that determines when purchases can qualify to earn points
-    /// from a <see href="$m/LoyaltyPromotion">loyalty promotion</see>.
+    /// from a <see href="entity:LoyaltyPromotion">loyalty promotion</see>.
     /// </summary>
     [JsonPropertyName("available_time")]
     public required LoyaltyPromotionAvailableTimeData AvailableTime { get; init; }
 
     /// <summary>
-    /// Represents the number of times a buyer can earn points during a <see href="$m/LoyaltyPromotion">loyalty promotion</see>.
+    /// Represents the number of times a buyer can earn points during a <see href="entity:LoyaltyPromotion">loyalty promotion</see>.
     /// If this field is not set, buyers can trigger the promotion an unlimited number of times to earn points during
     /// the time that the promotion is available.
     /// <para>
@@ -58,7 +58,7 @@ public record LoyaltyPromotion
     public LoyaltyPromotionTriggerLimit? TriggerLimit { get; init; }
 
     /// <summary>
-    /// Indicates the status of a <see href="$m/LoyaltyPromotion">loyalty promotion</see>.
+    /// Indicates the status of a <see href="entity:LoyaltyPromotion">loyalty promotion</see>.
     /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("status")]

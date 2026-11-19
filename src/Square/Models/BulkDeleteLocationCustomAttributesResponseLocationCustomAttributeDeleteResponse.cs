@@ -5,7 +5,7 @@ using Square.Core.Models;
 namespace Square.Models;
 
 /// <summary>
-/// Represents an individual delete response in a <see href="$e/LocationCustomAttributes/BulkDeleteLocationCustomAttributes">BulkDeleteLocationCustomAttributes</see>
+/// Represents an individual delete response in a <see href="api-endpoint:LocationCustomAttributes-BulkDeleteLocationCustomAttributes">BulkDeleteLocationCustomAttributes</see>
 /// request.
 /// </summary>
 public record BulkDeleteLocationCustomAttributesResponseLocationCustomAttributeDeleteResponse

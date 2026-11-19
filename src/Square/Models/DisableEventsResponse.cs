@@ -6,7 +6,7 @@ namespace Square.Models;
 
 /// <summary>
 /// Defines the fields that are included in the response body of
-/// a request to the <see href="$e/Events/DisableEvents">DisableEvents</see> endpoint.
+/// a request to the <see href="api-endpoint:Events-DisableEvents">DisableEvents</see> endpoint.
 /// <para>
 /// Note: if there are errors processing the request, the events field will not be
 /// present.

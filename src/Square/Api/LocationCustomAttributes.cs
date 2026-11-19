@@ -35,7 +35,7 @@ public sealed class LocationCustomAttributes
     /// <returns>A <see cref="Task{TResult}"/> of <see cref="BulkDeleteLocationCustomAttributesResponse"/> instance.</returns>
     /// <exception cref="ApiException{TError}"> of <see cref="RawError"/> when the server returns an error response.</exception>
     /// <remarks>
-    /// Deletes <see href="$m/CustomAttribute">custom attributes</see> for locations as a bulk operation.
+    /// Deletes <see href="entity:CustomAttribute">custom attributes</see> for locations as a bulk operation.
     /// To delete a custom attribute owned by another application, the <c>visibility</c> setting must be
     /// <c>VISIBILITY_READ_WRITE_VALUES</c>.
     /// </remarks>
@@ -64,10 +64,10 @@ public sealed class LocationCustomAttributes
     /// <returns>A <see cref="Task{TResult}"/> of <see cref="BulkUpsertLocationCustomAttributesResponse"/> instance.</returns>
     /// <exception cref="ApiException{TError}"> of <see cref="RawError"/> when the server returns an error response.</exception>
     /// <remarks>
-    /// Creates or updates <see href="$m/CustomAttribute">custom attributes</see> for locations as a bulk operation.
+    /// Creates or updates <see href="entity:CustomAttribute">custom attributes</see> for locations as a bulk operation.
     /// Use this endpoint to set the value of one or more custom attributes for one or more locations.
     /// A custom attribute is based on a custom attribute definition in a Square seller account, which is
-    /// created using the <see href="$e/LocationCustomAttributes/CreateLocationCustomAttributeDefinition">CreateLocationCustomAttributeDefinition</see> endpoint.
+    /// created using the <see href="api-endpoint:LocationCustomAttributes-CreateLocationCustomAttributeDefinition">CreateLocationCustomAttributeDefinition</see> endpoint.
     /// This <c>BulkUpsertLocationCustomAttributes</c> endpoint accepts a map of 1 to 25 individual upsert
     /// requests and returns a map of individual upsert responses. Each upsert request has a unique ID
     /// and provides a location ID and custom attribute. Each upsert response is returned with the ID
@@ -100,12 +100,12 @@ public sealed class LocationCustomAttributes
     /// <returns>A <see cref="Task{TResult}"/> of <see cref="CreateLocationCustomAttributeDefinitionResponse"/> instance.</returns>
     /// <exception cref="ApiException{TError}"> of <see cref="RawError"/> when the server returns an error response.</exception>
     /// <remarks>
-    /// Creates a location-related <see href="$m/CustomAttributeDefinition">custom attribute definition</see> for a Square seller account.
+    /// Creates a location-related <see href="entity:CustomAttributeDefinition">custom attribute definition</see> for a Square seller account.
     /// Use this endpoint to define a custom attribute that can be associated with locations.
     /// A custom attribute definition specifies the <c>key</c>, <c>visibility</c>, <c>schema</c>, and other properties
     /// for a custom attribute. After the definition is created, you can call
-    /// <see href="$e/LocationCustomAttributes/UpsertLocationCustomAttribute">UpsertLocationCustomAttribute</see> or
-    /// <see href="$e/LocationCustomAttributes/BulkUpsertLocationCustomAttributes">BulkUpsertLocationCustomAttributes</see>
+    /// <see href="api-endpoint:LocationCustomAttributes-UpsertLocationCustomAttribute">UpsertLocationCustomAttribute</see> or
+    /// <see href="api-endpoint:LocationCustomAttributes-BulkUpsertLocationCustomAttributes">BulkUpsertLocationCustomAttributes</see>
     /// to set the custom attribute for locations.
     /// </remarks>
     public Task<CreateLocationCustomAttributeDefinitionResponse> CreateLocationCustomAttributeDefinition(CreateLocationCustomAttributeDefinitionOperationRequest request,
@@ -133,7 +133,7 @@ public sealed class LocationCustomAttributes
     /// <returns>A <see cref="Task{TResult}"/> of <see cref="DeleteLocationCustomAttributeResponse"/> instance.</returns>
     /// <exception cref="ApiException{TError}"> of <see cref="RawError"/> when the server returns an error response.</exception>
     /// <remarks>
-    /// Deletes a <see href="$m/CustomAttribute">custom attribute</see> associated with a location.
+    /// Deletes a <see href="entity:CustomAttribute">custom attribute</see> associated with a location.
     /// To delete a custom attribute owned by another application, the <c>visibility</c> setting must be
     /// <c>VISIBILITY_READ_WRITE_VALUES</c>.
     /// </remarks>
@@ -162,7 +162,7 @@ public sealed class LocationCustomAttributes
     /// <returns>A <see cref="Task{TResult}"/> of <see cref="DeleteLocationCustomAttributeDefinitionResponse"/> instance.</returns>
     /// <exception cref="ApiException{TError}"> of <see cref="RawError"/> when the server returns an error response.</exception>
     /// <remarks>
-    /// Deletes a location-related <see href="$m/CustomAttributeDefinition">custom attribute definition</see> from a Square seller account.
+    /// Deletes a location-related <see href="entity:CustomAttributeDefinition">custom attribute definition</see> from a Square seller account.
     /// Deleting a custom attribute definition also deletes the corresponding custom attribute from
     /// all locations.
     /// Only the definition owner can delete a custom attribute definition.
@@ -192,7 +192,7 @@ public sealed class LocationCustomAttributes
     /// <returns>A <see cref="Task{TResult}"/> of <see cref="ListLocationCustomAttributeDefinitionsResponse"/> instance.</returns>
     /// <exception cref="ApiException{TError}"> of <see cref="RawError"/> when the server returns an error response.</exception>
     /// <remarks>
-    /// Lists the location-related <see href="$m/CustomAttributeDefinition">custom attribute definitions</see> that belong to a Square seller account.
+    /// Lists the location-related <see href="entity:CustomAttributeDefinition">custom attribute definitions</see> that belong to a Square seller account.
     /// When all response pages are retrieved, the results include all custom attribute definitions
     /// that are visible to the requesting application, including those that are created by other
     /// applications and set to <c>VISIBILITY_READ_ONLY</c> or <c>VISIBILITY_READ_WRITE_VALUES</c>.
@@ -226,7 +226,7 @@ public sealed class LocationCustomAttributes
     /// <returns>A <see cref="Task{TResult}"/> of <see cref="ListLocationCustomAttributesResponse"/> instance.</returns>
     /// <exception cref="ApiException{TError}"> of <see cref="RawError"/> when the server returns an error response.</exception>
     /// <remarks>
-    /// Lists the <see href="$m/CustomAttribute">custom attributes</see> associated with a location.
+    /// Lists the <see href="entity:CustomAttribute">custom attributes</see> associated with a location.
     /// You can use the <c>with_definitions</c> query parameter to also retrieve custom attribute definitions
     /// in the same call.
     /// When all response pages are retrieved, the results include all custom attributes that are
@@ -263,7 +263,7 @@ public sealed class LocationCustomAttributes
     /// <returns>A <see cref="Task{TResult}"/> of <see cref="RetrieveLocationCustomAttributeResponse"/> instance.</returns>
     /// <exception cref="ApiException{TError}"> of <see cref="RawError"/> when the server returns an error response.</exception>
     /// <remarks>
-    /// Retrieves a <see href="$m/CustomAttribute">custom attribute</see> associated with a location.
+    /// Retrieves a <see href="entity:CustomAttribute">custom attribute</see> associated with a location.
     /// You can use the <c>with_definition</c> query parameter to also retrieve the custom attribute definition
     /// in the same call.
     /// To retrieve a custom attribute owned by another application, the <c>visibility</c> setting must be
@@ -294,7 +294,7 @@ public sealed class LocationCustomAttributes
     /// <returns>A <see cref="Task{TResult}"/> of <see cref="RetrieveLocationCustomAttributeDefinitionResponse"/> instance.</returns>
     /// <exception cref="ApiException{TError}"> of <see cref="RawError"/> when the server returns an error response.</exception>
     /// <remarks>
-    /// Retrieves a location-related <see href="$m/CustomAttributeDefinition">custom attribute definition</see> from a Square seller account.
+    /// Retrieves a location-related <see href="entity:CustomAttributeDefinition">custom attribute definition</see> from a Square seller account.
     /// To retrieve a custom attribute definition created by another application, the <c>visibility</c>
     /// setting must be <c>VISIBILITY_READ_ONLY</c> or <c>VISIBILITY_READ_WRITE_VALUES</c>.
     /// </remarks>
@@ -323,7 +323,7 @@ public sealed class LocationCustomAttributes
     /// <returns>A <see cref="Task{TResult}"/> of <see cref="UpdateLocationCustomAttributeDefinitionResponse"/> instance.</returns>
     /// <exception cref="ApiException{TError}"> of <see cref="RawError"/> when the server returns an error response.</exception>
     /// <remarks>
-    /// Updates a location-related <see href="$m/CustomAttributeDefinition">custom attribute definition</see> for a Square seller account.
+    /// Updates a location-related <see href="entity:CustomAttributeDefinition">custom attribute definition</see> for a Square seller account.
     /// Use this endpoint to update the following fields: <c>name</c>, <c>description</c>, <c>visibility</c>, or the
     /// <c>schema</c> for a <c>Selection</c> data type.
     /// Only the definition owner can update a custom attribute definition.
@@ -353,10 +353,10 @@ public sealed class LocationCustomAttributes
     /// <returns>A <see cref="Task{TResult}"/> of <see cref="UpsertLocationCustomAttributeResponse"/> instance.</returns>
     /// <exception cref="ApiException{TError}"> of <see cref="RawError"/> when the server returns an error response.</exception>
     /// <remarks>
-    /// Creates or updates a <see href="$m/CustomAttribute">custom attribute</see> for a location.
+    /// Creates or updates a <see href="entity:CustomAttribute">custom attribute</see> for a location.
     /// Use this endpoint to set the value of a custom attribute for a specified location.
     /// A custom attribute is based on a custom attribute definition in a Square seller account, which
-    /// is created using the <see href="$e/LocationCustomAttributes/CreateLocationCustomAttributeDefinition">CreateLocationCustomAttributeDefinition</see> endpoint.
+    /// is created using the <see href="api-endpoint:LocationCustomAttributes-CreateLocationCustomAttributeDefinition">CreateLocationCustomAttributeDefinition</see> endpoint.
     /// To create or update a custom attribute owned by another application, the <c>visibility</c> setting
     /// must be <c>VISIBILITY_READ_WRITE_VALUES</c>.
     /// </remarks>

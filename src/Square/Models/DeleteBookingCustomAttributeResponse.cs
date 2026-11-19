@@ -5,7 +5,7 @@ using Square.Core.Models;
 namespace Square.Models;
 
 /// <summary>
-/// Represents a <see href="$e/BookingCustomAttributes/DeleteBookingCustomAttribute">DeleteBookingCustomAttribute</see> response.
+/// Represents a <see href="api-endpoint:BookingCustomAttributes-DeleteBookingCustomAttribute">DeleteBookingCustomAttribute</see> response.
 /// Either an empty object <c>{}</c> (for a successful deletion) or <c>errors</c> is present in the response.
 /// </summary>
 public record DeleteBookingCustomAttributeResponse

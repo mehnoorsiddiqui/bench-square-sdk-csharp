@@ -7,7 +7,7 @@ namespace Square.Models;
 /// <summary>
 /// Represents a single physical count, inventory, adjustment, or transfer
 /// that is part of the history of inventory changes for a particular
-/// <see href="$m/CatalogObject">CatalogObject</see> instance.
+/// <see href="entity:CatalogObject">CatalogObject</see> instance.
 /// </summary>
 public record InventoryChange
 {

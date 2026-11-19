@@ -32,7 +32,7 @@ public sealed record GiftCardStatus : OpenStringEnum<GiftCardStatus>
     /// <summary>
     /// The gift card is pending activation.
     /// This is the initial state when a gift card is created. Typically, you'll call
-    /// <see href="$e/GiftCardActivities/CreateGiftCardActivity">CreateGiftCardActivity</see> to create an
+    /// <see href="api-endpoint:GiftCardActivities-CreateGiftCardActivity">CreateGiftCardActivity</see> to create an
     /// <c>ACTIVATE</c> activity that activates the gift card with an initial balance before first use.
     /// </summary>
     public static readonly GiftCardStatus Pending = new("PENDING");

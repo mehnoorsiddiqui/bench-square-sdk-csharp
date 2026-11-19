@@ -36,18 +36,6 @@ public record Customer
     public string? UpdatedAt { get; init; }
 
     /// <summary>
-    /// Payment details of the credit, debit, and gift cards stored on file for the customer profile.
-    /// <para>
-    /// DEPRECATED at version 2021-06-16 and will be RETIRED at version 2024-12-18. Replaced by calling <see href="api-endpoint:Cards-ListCards">ListCards</see> (for credit and debit cards on file)
-    /// or <see href="api-endpoint:GiftCards-ListGiftCards">ListGiftCards</see> (for gift cards on file) and including the <c>customer_id</c> query parameter.
-    /// For more information, see <see href="https://developer.squareup.com/docs/customers-api/what-it-does#migrate-customer-cards">Migration notes</see>.
-    /// </para>
-    /// </summary>
-    [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
-    [JsonPropertyName("cards")]
-    public IReadOnlyList<Card>? Cards { get; init; }
-
-    /// <summary>
     /// The given name (that is, the first name) associated with the customer profile.
     /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
@@ -149,14 +137,14 @@ public record Customer
     public IReadOnlyList<string>? SegmentIds { get; init; }
 
     /// <summary>
-    /// The Square-assigned version number of the customer profile. The version number is incremented each time an update is committed to the customer profile, except for changes to customer segment membership and cards on file.
+    /// The Square-assigned version number of the customer profile. The version number is incremented each time an update is committed to the customer profile, except for changes to customer segment membership.
     /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("version")]
     public long? Version { get; init; }
 
     /// <summary>
-    /// Represents the tax ID associated with a <see href="$m/Customer">customer profile</see>. The corresponding <c>tax_ids</c> field is available only for customers of sellers in EU countries or the United Kingdom.
+    /// Represents the tax ID associated with a <see href="entity:Customer">customer profile</see>. The corresponding <c>tax_ids</c> field is available only for customers of sellers in EU countries or the United Kingdom.
     /// For more information, see <see href="https://developer.squareup.com/docs/customers-api/what-it-does#customer-tax-ids">Customer tax IDs</see>.
     /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]

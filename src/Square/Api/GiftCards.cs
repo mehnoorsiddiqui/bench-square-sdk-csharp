@@ -37,8 +37,8 @@ public sealed class GiftCards
     /// <remarks>
     /// Creates a digital gift card or registers a physical (plastic) gift card. The resulting gift card
     /// has a <c>PENDING</c> state. To activate a gift card so that it can be redeemed for purchases, call
-    /// <see href="$e/GiftCardActivities/CreateGiftCardActivity">CreateGiftCardActivity</see> and create an <c>ACTIVATE</c>
-    /// activity with the initial balance. Alternatively, you can use <see href="$e/Refunds/RefundPayment">RefundPayment</see>
+    /// <see href="api-endpoint:GiftCardActivities-CreateGiftCardActivity">CreateGiftCardActivity</see> and create an <c>ACTIVATE</c>
+    /// activity with the initial balance. Alternatively, you can use <see href="api-endpoint:Refunds-RefundPayment">RefundPayment</see>
     /// to refund a payment to the new gift card.
     /// </remarks>
     public Task<CreateGiftCardResponse> CreateGiftCard(CreateGiftCardOperationRequest request,

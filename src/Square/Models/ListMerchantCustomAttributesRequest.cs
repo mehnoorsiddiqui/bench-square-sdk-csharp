@@ -6,7 +6,7 @@ using Square.Models.Enums;
 namespace Square.Models;
 
 /// <summary>
-/// Represents a <see href="$e/MerchantCustomAttributes/ListMerchantCustomAttributes">ListMerchantCustomAttributes</see> request.
+/// Represents a <see href="api-endpoint:MerchantCustomAttributes-ListMerchantCustomAttributes">ListMerchantCustomAttributes</see> request.
 /// </summary>
 public record ListMerchantCustomAttributesRequest
 {

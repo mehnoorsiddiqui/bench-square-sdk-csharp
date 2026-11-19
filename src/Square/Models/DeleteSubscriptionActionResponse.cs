@@ -5,7 +5,7 @@ using Square.Core.Models;
 namespace Square.Models;
 
 /// <summary>
-/// Defines output parameters in a response of the <see href="$e/Subscriptions/DeleteSubscriptionAction">DeleteSubscriptionAction</see>
+/// Defines output parameters in a response of the <see href="api-endpoint:Subscriptions-DeleteSubscriptionAction">DeleteSubscriptionAction</see>
 /// endpoint.
 /// </summary>
 public record DeleteSubscriptionActionResponse

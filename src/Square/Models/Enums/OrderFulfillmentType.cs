@@ -15,7 +15,7 @@ public sealed record OrderFulfillmentType : OpenStringEnum<OrderFulfillmentType>
     }
 
     /// <summary>
-    /// A recipient to pick up the fulfillment from a physical <see href="$m/Location">location</see>.
+    /// A recipient to pick up the fulfillment from a physical <see href="entity:Location">location</see>.
     /// </summary>
     public static readonly OrderFulfillmentType Pickup = new("PICKUP");
 

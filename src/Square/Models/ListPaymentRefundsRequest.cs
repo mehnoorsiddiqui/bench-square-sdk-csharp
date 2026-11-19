@@ -5,7 +5,7 @@ namespace Square.Models;
 
 /// <summary>
 /// Describes a request to list refunds using
-/// <see href="$e/Refunds/ListPaymentRefunds">ListPaymentRefunds</see>.
+/// <see href="api-endpoint:Refunds-ListPaymentRefunds">ListPaymentRefunds</see>.
 /// <para>
 /// The maximum results per page is 100.
 /// </para>

@@ -5,7 +5,7 @@ using Square.Core.Models;
 namespace Square.Models;
 
 /// <summary>
-/// Represents an output from a call to <see href="$e/Vendors/CreateVendor">CreateVendor</see>.
+/// Represents an output from a call to <see href="api-endpoint:Vendors-CreateVendor">CreateVendor</see>.
 /// </summary>
 public record CreateVendorResponse
 {

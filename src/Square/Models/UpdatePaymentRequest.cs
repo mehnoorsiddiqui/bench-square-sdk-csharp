@@ -6,7 +6,7 @@ namespace Square.Models;
 
 /// <summary>
 /// Describes a request to update a payment using
-/// <see href="$e/Payments/UpdatePayment">UpdatePayment</see>.
+/// <see href="api-endpoint:Payments-UpdatePayment">UpdatePayment</see>.
 /// </summary>
 public record UpdatePaymentRequest
 {

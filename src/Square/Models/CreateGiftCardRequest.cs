@@ -5,7 +5,7 @@ using Square.Core.Models;
 namespace Square.Models;
 
 /// <summary>
-/// Represents a <see href="$e/GiftCards/CreateGiftCard">CreateGiftCard</see> request.
+/// Represents a <see href="api-endpoint:GiftCards-CreateGiftCard">CreateGiftCard</see> request.
 /// </summary>
 public record CreateGiftCardRequest
 {

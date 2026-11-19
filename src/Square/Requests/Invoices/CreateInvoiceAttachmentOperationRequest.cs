@@ -14,7 +14,7 @@ public sealed record CreateInvoiceAttachmentOperationRequest
     public required string InvoiceId { get; init; }
 
     /// <summary>
-    /// Represents a <see href="$e/Invoices/CreateInvoiceAttachment">CreateInvoiceAttachment</see> request.
+    /// Represents a <see href="api-endpoint:Invoices-CreateInvoiceAttachment">CreateInvoiceAttachment</see> request.
     /// </summary>
     public CreateInvoiceAttachmentRequest? Request { get; init; }
 

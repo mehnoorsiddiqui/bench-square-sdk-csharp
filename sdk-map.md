@@ -9,7 +9,7 @@
 | SDK display name | Square |
 | Root namespace | `Square` |
 | Target framework | `netstandard2.0` (C# `LangVersion 14`, `Nullable enable`) |
-| API spec version | `2.0.0` |
+| API spec version | `3.0.0` |
 | Generator | APIMatic |
 
 Staleness check: the API spec version above changes when the SDK is regenerated from a new spec. If a lookup here fails to compile, trust the compiler and re-read the source file named in the row.
@@ -117,11 +117,11 @@ catch (ApiException<RawError> ex)
 }
 ```
 
-**No-throw (`…Result`) variants: absent across this SDK** — every operation is throw-only. Of **301 operations**, **0 are Case A (typed)** and **301 are Case B (raw)**.
+**No-throw (`…Result`) variants: absent across this SDK** — every operation is throw-only. Of **305 operations**, **0 are Case A (typed)** and **305 are Case B (raw)**.
 
 ---
 
-## Operations — by controller (42 groups, 301 operations)
+## Operations — by controller (42 groups, 305 operations)
 
 Each links to a sub-page with one row per operation: signature, the request record's required members, query-param wire names (with the serialization style where the spec declares one), return type, error Case A/B, and Case A's typed accessors with their statuses. Each operation also carries a **Type sources** table — every type it names, with the file that declares it — so resolving a body, return, or error payload to its source is a lookup, never a search. `RawError` is excluded there (its members and path are above); an operation with no table names nothing but primitives and `RawError`.
 
@@ -177,7 +177,7 @@ Each links to a sub-page with one row per operation: signature, the request reco
 | `Sites` | 1 | [map/operations/Sites.md](map/operations/Sites.md) |
 | `Snippets` | 3 | [map/operations/Snippets.md](map/operations/Snippets.md) |
 | `Subscriptions` | 12 | [map/operations/Subscriptions.md](map/operations/Subscriptions.md) |
-| `Team` | 8 | [map/operations/Team.md](map/operations/Team.md) |
+| `Team` | 12 | [map/operations/Team.md](map/operations/Team.md) |
 | `Terminal` | 15 | [map/operations/Terminal.md](map/operations/Terminal.md) |
 | `Transactions` | 4 | [map/operations/Transactions.md](map/operations/Transactions.md) |
 | `V1Transactions` | 3 | [map/operations/V1Transactions.md](map/operations/V1Transactions.md) |
@@ -192,9 +192,9 @@ Each links to a sub-page with one row per operation: signature, the request reco
 
 | Group | Count | Directory (file = `<TypeName>.cs`) |
 | --- | --- | --- |
-| Records (plain `record` data models) | 939 | `src/Square/Models/` |
-| Enums (`OpenStringEnum<T>` / `OpenIntEnum<T>`) — C# member names + wire values | 178 | `src/Square/Models/Enums/` |
-| Request records (one per operation that takes input; never serialized) | 292 | `src/Square/Requests/` — a controller's records sit in a folder named after it (an operation with several tags is filed under the first tag it declares) |
+| Records (plain `record` data models) | 947 | `src/Square/Models/` |
+| Enums (`OpenStringEnum<T>` / `OpenIntEnum<T>`) — C# member names + wire values | 179 | `src/Square/Models/Enums/` |
+| Request records (one per operation that takes input; never serialized) | 296 | `src/Square/Requests/` — a controller's records sit in a folder named after it (an operation with several tags is filed under the first tag it declares) |
 
 Conventions: records are immutable, `init`-only; `required` properties must be set in the object initializer; `T?` is optional. A field's wire name is its `[JsonPropertyName]` and often differs from the C# name (`AmountInCents` ↔ `amount_in_cents`) — read it off the property, don't derive it. `OneOf`/`AnyOf` unions wrap `Optional<T>` variants — build via static factory or implicit conversion, read one variant via `TryGet…(out …)` or branch over all of them with the generated `Match`, which takes one `on{Variant}` handler per variant in declaration order and then `otherwise`, which receives the raw `JsonElement` of a value the SDK could not place: unions are open on read, so an unrecognised discriminator value or a body no variant accepts lands in `TryGetUnknown(out JsonElement)` and re-serializes verbatim; pass handlers by name, and treat an added or moved variant as a breaking change; `AllOf` compositions are not unions — every constituent is a `required` property, so set them all, and those constituent properties carry no `[JsonPropertyName]` and have no wire name of their own, because the generated converter flattens each constituent's own fields directly into the one parent JSON object. Enums are **not** C# enums — use the static members, whose names are PascalCase even when the wire value isn't (`CollectionMethod.Invoice`, not `.invoice`); there is no public factory, so resolve a raw value with `TryGetKnownValue` and branch with the generated `Match`, whose `otherwise` arm receives any value the SDK does not declare.
 

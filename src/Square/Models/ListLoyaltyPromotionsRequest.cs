@@ -6,12 +6,12 @@ using Square.Models.Enums;
 namespace Square.Models;
 
 /// <summary>
-/// Represents a <see href="$e/Loyalty/ListLoyaltyPromotions">ListLoyaltyPromotions</see> request.
+/// Represents a <see href="api-endpoint:Loyalty-ListLoyaltyPromotions">ListLoyaltyPromotions</see> request.
 /// </summary>
 public record ListLoyaltyPromotionsRequest
 {
     /// <summary>
-    /// Indicates the status of a <see href="$m/LoyaltyPromotion">loyalty promotion</see>.
+    /// Indicates the status of a <see href="entity:LoyaltyPromotion">loyalty promotion</see>.
     /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("status")]

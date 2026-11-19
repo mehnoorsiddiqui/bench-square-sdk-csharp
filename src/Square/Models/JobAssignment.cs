@@ -1,4 +1,3 @@
-using System.ComponentModel.DataAnnotations;
 using System.Text.Json.Serialization;
 using Square.Core.Models;
 using Square.Models.Enums;
@@ -6,16 +5,17 @@ using Square.Models.Enums;
 namespace Square.Models;
 
 /// <summary>
-/// An object describing a job that a team member is assigned to.
+/// Represents a job assigned to a <see href="entity:TeamMember">team member</see>, including the compensation the team
+/// member earns for the job. Job assignments are listed in the team member's <see href="entity:WageSetting">wage setting</see>.
 /// </summary>
 public record JobAssignment
 {
     /// <summary>
     /// The title of the job.
     /// </summary>
+    [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("job_title")]
-    [MinLength(1)]
-    public required string JobTitle { get; init; }
+    public string? JobTitle { get; init; }
 
     /// <summary>
     /// Enumerates the possible pay types that a job can be assigned.
@@ -53,6 +53,13 @@ public record JobAssignment
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("weekly_hours")]
     public int? WeeklyHours { get; init; }
+
+    /// <summary>
+    /// The ID of the <see href="entity:Job">job</see>.
+    /// </summary>
+    [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
+    [JsonPropertyName("job_id")]
+    public string? JobId { get; init; }
 
     [JsonExtensionData]
     public AdditionalProperties AdditionalProperties { get; init; } = [];

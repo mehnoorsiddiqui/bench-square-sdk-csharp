@@ -7,7 +7,7 @@ using Square.Models.Enums;
 namespace Square.Models;
 
 /// <summary>
-/// Represents a payment request for an <see href="$m/Invoice">invoice</see>. Invoices can specify a maximum
+/// Represents a payment request for an <see href="entity:Invoice">invoice</see>. Invoices can specify a maximum
 /// of 13 payment requests, with up to 12 <c>INSTALLMENT</c> request types. For more information,
 /// see <see href="https://developer.squareup.com/docs/invoices-api/create-publish-invoices#payment-requests">Configuring payment requests</see>.
 /// <para>
@@ -99,7 +99,7 @@ public record InvoicePaymentRequest
     public bool? TippingEnabled { get; init; }
 
     /// <summary>
-    /// Indicates the automatic payment method for an <see href="$m/InvoicePaymentRequest">invoice payment request</see>.
+    /// Indicates the automatic payment method for an <see href="entity:InvoicePaymentRequest">invoice payment request</see>.
     /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("automatic_payment_source")]

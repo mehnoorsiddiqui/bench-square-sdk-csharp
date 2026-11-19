@@ -2,7 +2,7 @@
 
 # Team — operations
 
-Accessor: `client.Team` · Source: `src/Square/Api/Team.cs` · 8 operations
+Accessor: `client.Team` · Source: `src/Square/Api/Team.cs` · 12 operations
 
 **Type sources**: the file declaring each type an operation names (`RawError` excluded — see sdk-map.md).
 
@@ -34,6 +34,20 @@ Accessor: `client.Team` · Source: `src/Square/Api/Team.cs` · 8 operations
 | `BulkUpdateTeamMembersRequest` | `src/Square/Models/BulkUpdateTeamMembersRequest.cs` |
 | `BulkUpdateTeamMembersResponse` | `src/Square/Models/BulkUpdateTeamMembersResponse.cs` |
 
+### CreateJob
+
+- **Auth**: `options.BearerAuth`
+- **Signature**: `CreateJob(CreateJobOperationRequest request, RequestOptions? requestOptions = null, CancellationToken cancellationToken = default)`
+  - required: `Body`
+- **Returns**: `CreateJobResponse`
+- **Error**: `ApiException<RawError>` — **Case B**
+
+| Type | Source |
+| --- | --- |
+| `CreateJobOperationRequest` | `src/Square/Requests/Team/CreateJobOperationRequest.cs` |
+| `CreateJobRequest` | `src/Square/Models/CreateJobRequest.cs` |
+| `CreateJobResponse` | `src/Square/Models/CreateJobResponse.cs` |
+
 ### CreateTeamMember
 
 - **Auth**: `options.BearerAuth`
@@ -47,6 +61,32 @@ Accessor: `client.Team` · Source: `src/Square/Api/Team.cs` · 8 operations
 | `CreateTeamMemberOperationRequest` | `src/Square/Requests/Team/CreateTeamMemberOperationRequest.cs` |
 | `CreateTeamMemberRequest` | `src/Square/Models/CreateTeamMemberRequest.cs` |
 | `CreateTeamMemberResponse` | `src/Square/Models/CreateTeamMemberResponse.cs` |
+
+### ListJobs
+
+- **Auth**: `options.BearerAuth`
+- **Signature**: `ListJobs(ListJobsOperationRequest request, RequestOptions? requestOptions = null, CancellationToken cancellationToken = default)`
+- **Query params (wire ← C#)**: `cursor` ← `Cursor`
+- **Returns**: `ListJobsResponse`
+- **Error**: `ApiException<RawError>` — **Case B**
+
+| Type | Source |
+| --- | --- |
+| `ListJobsOperationRequest` | `src/Square/Requests/Team/ListJobsOperationRequest.cs` |
+| `ListJobsResponse` | `src/Square/Models/ListJobsResponse.cs` |
+
+### RetrieveJob
+
+- **Auth**: `options.BearerAuth`
+- **Signature**: `RetrieveJob(RetrieveJobRequest request, RequestOptions? requestOptions = null, CancellationToken cancellationToken = default)`
+  - required: `JobId`
+- **Returns**: `RetrieveJobResponse`
+- **Error**: `ApiException<RawError>` — **Case B**
+
+| Type | Source |
+| --- | --- |
+| `RetrieveJobRequest` | `src/Square/Requests/Team/RetrieveJobRequest.cs` |
+| `RetrieveJobResponse` | `src/Square/Models/RetrieveJobResponse.cs` |
 
 ### RetrieveTeamMember
 
@@ -87,6 +127,20 @@ Accessor: `client.Team` · Source: `src/Square/Api/Team.cs` · 8 operations
 | `SearchTeamMembersOperationRequest` | `src/Square/Requests/Team/SearchTeamMembersOperationRequest.cs` |
 | `SearchTeamMembersRequest` | `src/Square/Models/SearchTeamMembersRequest.cs` |
 | `SearchTeamMembersResponse` | `src/Square/Models/SearchTeamMembersResponse.cs` |
+
+### UpdateJob
+
+- **Auth**: `options.BearerAuth`
+- **Signature**: `UpdateJob(UpdateJobOperationRequest request, RequestOptions? requestOptions = null, CancellationToken cancellationToken = default)`
+  - required: `JobId`, `Body`
+- **Returns**: `UpdateJobResponse`
+- **Error**: `ApiException<RawError>` — **Case B**
+
+| Type | Source |
+| --- | --- |
+| `UpdateJobOperationRequest` | `src/Square/Requests/Team/UpdateJobOperationRequest.cs` |
+| `UpdateJobRequest` | `src/Square/Models/UpdateJobRequest.cs` |
+| `UpdateJobResponse` | `src/Square/Models/UpdateJobResponse.cs` |
 
 ### UpdateTeamMember
 

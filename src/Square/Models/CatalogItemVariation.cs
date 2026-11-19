@@ -7,7 +7,7 @@ using Square.Models.Enums;
 namespace Square.Models;
 
 /// <summary>
-/// An item variation, representing a product for sale, in the Catalog object model. Each <see href="$m/CatalogItem">item</see> must have at least one
+/// An item variation, representing a product for sale, in the Catalog object model. Each <see href="entity:CatalogItem">item</see> must have at least one
 /// item variation and can have at most 250 item variations.
 /// <para>
 /// An item variation can be sellable, stockable, or both if it has a unit of measure for its count for the sold number of the variation, the stocked
@@ -198,7 +198,7 @@ public record CatalogItemVariation
     public IReadOnlyList<string>? TeamMemberIds { get; init; }
 
     /// <summary>
-    /// Represents the rule of conversion between a stockable <see href="$m/CatalogItemVariation">CatalogItemVariation</see>
+    /// Represents the rule of conversion between a stockable <see href="entity:CatalogItemVariation">CatalogItemVariation</see>
     /// and a non-stockable sell-by or receive-by <c>CatalogItemVariation</c> that
     /// share the same underlying stock.
     /// </summary>

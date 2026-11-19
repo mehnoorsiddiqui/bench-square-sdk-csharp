@@ -5,8 +5,8 @@ using Square.Core.Enum;
 namespace Square.Models.Enums;
 
 /// <summary>
-/// Indicates the time period that the <see href="$m/LoyaltyPromotionTriggerLimit">trigger limit</see> applies to,
-/// which is used to determine the number of times a buyer can earn points for a <see href="$m/LoyaltyPromotion">loyalty promotion</see>.
+/// Indicates the time period that the <see href="entity:LoyaltyPromotionTriggerLimit">trigger limit</see> applies to,
+/// which is used to determine the number of times a buyer can earn points for a <see href="entity:LoyaltyPromotion">loyalty promotion</see>.
 /// </summary>
 [JsonConverter(typeof(StringEnumConverter<LoyaltyPromotionTriggerLimitInterval>))]
 public sealed record LoyaltyPromotionTriggerLimitInterval : OpenStringEnum<LoyaltyPromotionTriggerLimitInterval>

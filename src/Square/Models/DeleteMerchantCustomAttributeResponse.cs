@@ -5,7 +5,7 @@ using Square.Core.Models;
 namespace Square.Models;
 
 /// <summary>
-/// Represents a <see href="$e/MerchantCustomAttributes/DeleteMerchantCustomAttribute">DeleteMerchantCustomAttribute</see> response.
+/// Represents a <see href="api-endpoint:MerchantCustomAttributes-DeleteMerchantCustomAttribute">DeleteMerchantCustomAttribute</see> response.
 /// Either an empty object <c>{}</c> (for a successful deletion) or <c>errors</c> is present in the response.
 /// </summary>
 public record DeleteMerchantCustomAttributeResponse

@@ -27,7 +27,7 @@ public record SearchOrdersFilter
     /// </para>
     /// <para>
     /// __Important:__ If you use the <c>DateTimeFilter</c> in a <c>SearchOrders</c> query,
-    /// you must set the <c>sort_field</c> in <see href="$m/SearchOrdersSort">OrdersSort</see>
+    /// you must set the <c>sort_field</c> in <see href="entity:SearchOrdersSort">OrdersSort</see>
     /// to the same field you filter for. For example, if you set the <c>CLOSED_AT</c> field
     /// in <c>DateTimeFilter</c>, you must set the <c>sort_field</c> in <c>SearchOrdersSort</c> to
     /// <c>CLOSED_AT</c>. Otherwise, <c>SearchOrders</c> throws an error.
@@ -39,7 +39,7 @@ public record SearchOrdersFilter
     public SearchOrdersDateTimeFilter? DateTimeFilter { get; init; }
 
     /// <summary>
-    /// Filter based on <see href="$m/Fulfillment">order fulfillment</see> information.
+    /// Filter based on <see href="entity:Fulfillment">order fulfillment</see> information.
     /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("fulfillment_filter")]
@@ -55,7 +55,7 @@ public record SearchOrdersFilter
     /// <summary>
     /// A filter based on the order <c>customer_id</c> and any tender <c>customer_id</c>
     /// associated with the order. It does not filter based on the
-    /// <see href="$m/FulfillmentRecipient">FulfillmentRecipient</see> <c>customer_id</c>.
+    /// <see href="entity:FulfillmentRecipient">FulfillmentRecipient</see> <c>customer_id</c>.
     /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("customer_filter")]

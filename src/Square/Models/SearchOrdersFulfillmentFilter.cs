@@ -6,7 +6,7 @@ using Square.Models.Enums;
 namespace Square.Models;
 
 /// <summary>
-/// Filter based on <see href="$m/Fulfillment">order fulfillment</see> information.
+/// Filter based on <see href="entity:Fulfillment">order fulfillment</see> information.
 /// </summary>
 public record SearchOrdersFulfillmentFilter
 {

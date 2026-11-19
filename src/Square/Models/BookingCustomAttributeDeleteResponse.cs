@@ -5,7 +5,7 @@ using Square.Core.Models;
 namespace Square.Models;
 
 /// <summary>
-/// Represents a response for an individual upsert request in a <see href="$e/BookingCustomAttributes/BulkDeleteBookingCustomAttributes">BulkDeleteBookingCustomAttributes</see> operation.
+/// Represents a response for an individual upsert request in a <see href="api-endpoint:BookingCustomAttributes-BulkDeleteBookingCustomAttributes">BulkDeleteBookingCustomAttributes</see> operation.
 /// </summary>
 public record BookingCustomAttributeDeleteResponse
 {

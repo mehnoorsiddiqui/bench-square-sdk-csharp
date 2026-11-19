@@ -4,7 +4,7 @@ using Square.Core.Models;
 namespace Square.Models;
 
 /// <summary>
-/// Request object for the <see href="$e/Merchants/ListMerchants">ListMerchant</see> endpoint.
+/// Request object for the <see href="api-endpoint:Merchants-ListMerchants">ListMerchant</see> endpoint.
 /// </summary>
 public record ListMerchantsRequest
 {

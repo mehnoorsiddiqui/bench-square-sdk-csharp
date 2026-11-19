@@ -85,7 +85,7 @@ public record Invoice
     public IReadOnlyList<InvoicePaymentRequest>? PaymentRequests { get; init; }
 
     /// <summary>
-    /// Indicates how Square delivers the <see href="$m/Invoice">invoice</see> to the customer.
+    /// Indicates how Square delivers the <see href="entity:Invoice">invoice</see> to the customer.
     /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("delivery_method")]
@@ -187,7 +187,7 @@ public record Invoice
     public string? UpdatedAt { get; init; }
 
     /// <summary>
-    /// The payment methods that customers can use to pay an <see href="$m/Invoice">invoice</see> on the Square-hosted invoice payment page.
+    /// The payment methods that customers can use to pay an <see href="entity:Invoice">invoice</see> on the Square-hosted invoice payment page.
     /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("accepted_payment_methods")]

@@ -5,7 +5,7 @@ using Square.Core.Models;
 namespace Square.Models;
 
 /// <summary>
-/// Updates a <see href="$m/WebhookSubscription">Subscription</see> by replacing the existing signature key with a new one.
+/// Updates a <see href="entity:WebhookSubscription">Subscription</see> by replacing the existing signature key with a new one.
 /// </summary>
 public record UpdateWebhookSubscriptionSignatureKeyRequest
 {

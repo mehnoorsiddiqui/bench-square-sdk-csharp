@@ -17,7 +17,7 @@ public record CreateLoyaltyRewardResponse
     public IReadOnlyList<Error>? Errors { get; init; }
 
     /// <summary>
-    /// Represents a contract to redeem loyalty points for a <see href="$m/LoyaltyProgramRewardTier">reward tier</see> discount. Loyalty rewards can be in an ISSUED, REDEEMED, or DELETED state.
+    /// Represents a contract to redeem loyalty points for a <see href="entity:LoyaltyProgramRewardTier">reward tier</see> discount. Loyalty rewards can be in an ISSUED, REDEEMED, or DELETED state.
     /// For more information, see <see href="https://developer.squareup.com/docs/loyalty-api/loyalty-rewards">Manage loyalty rewards</see>.
     /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]

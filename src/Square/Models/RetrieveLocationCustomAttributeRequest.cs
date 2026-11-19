@@ -4,7 +4,7 @@ using Square.Core.Models;
 namespace Square.Models;
 
 /// <summary>
-/// Represents a <see href="$e/LocationCustomAttributes/RetrieveLocationCustomAttribute">RetrieveLocationCustomAttribute</see> request.
+/// Represents a <see href="api-endpoint:LocationCustomAttributes-RetrieveLocationCustomAttribute">RetrieveLocationCustomAttribute</see> request.
 /// </summary>
 public record RetrieveLocationCustomAttributeRequest
 {

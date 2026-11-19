@@ -43,9 +43,16 @@ public sealed record CheckoutOptionsPaymentType : OpenStringEnum<CheckoutOptions
     public static readonly CheckoutOptionsPaymentType FelicaAll = new("FELICA_ALL");
 
     /// <summary>
-    /// Launches the PayPay checkout screen for the buyer to complete.
+    /// Replaced by <c>QR_CODE</c>.
     /// </summary>
     public static readonly CheckoutOptionsPaymentType Paypay = new("PAYPAY");
+
+    /// <summary>
+    /// Launches Square's QR Code checkout screen for the buyer to complete.
+    /// Displays a single code that supports all digital wallets connected to the target
+    /// Seller location (e.g. PayPay)
+    /// </summary>
+    public static readonly CheckoutOptionsPaymentType QrCode = new("QR_CODE");
 
     public TResult Match<TResult>(Func<TResult> onCardPresent,
         Func<TResult> onManualCardEntry,
@@ -54,6 +61,7 @@ public sealed record CheckoutOptionsPaymentType : OpenStringEnum<CheckoutOptions
         Func<TResult> onFelicaTransportationGroup,
         Func<TResult> onFelicaAll,
         Func<TResult> onPaypay,
+        Func<TResult> onQrCode,
         Func<string, TResult> otherwise) =>
         this switch
         {
@@ -64,6 +72,7 @@ public sealed record CheckoutOptionsPaymentType : OpenStringEnum<CheckoutOptions
             _ when this == FelicaTransportationGroup => onFelicaTransportationGroup(),
             _ when this == FelicaAll => onFelicaAll(),
             _ when this == Paypay => onPaypay(),
+            _ when this == QrCode => onQrCode(),
             _ => otherwise(Value)
         };
 
@@ -74,6 +83,7 @@ public sealed record CheckoutOptionsPaymentType : OpenStringEnum<CheckoutOptions
         Action onFelicaTransportationGroup,
         Action onFelicaAll,
         Action onPaypay,
+        Action onQrCode,
         Action<string> otherwise)
     {
         if (this == CardPresent) onCardPresent();
@@ -83,6 +93,7 @@ public sealed record CheckoutOptionsPaymentType : OpenStringEnum<CheckoutOptions
         else if (this == FelicaTransportationGroup) onFelicaTransportationGroup();
         else if (this == FelicaAll) onFelicaAll();
         else if (this == Paypay) onPaypay();
+        else if (this == QrCode) onQrCode();
         else otherwise(Value);
     }
 }

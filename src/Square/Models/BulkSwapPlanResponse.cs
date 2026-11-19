@@ -6,7 +6,7 @@ namespace Square.Models;
 
 /// <summary>
 /// Defines output parameters in a response of the
-/// <see href="$e/Subscriptions/BulkSwapPlan">BulkSwapPlan</see> endpoint.
+/// <see href="api-endpoint:Subscriptions-BulkSwapPlan">BulkSwapPlan</see> endpoint.
 /// </summary>
 public record BulkSwapPlanResponse
 {

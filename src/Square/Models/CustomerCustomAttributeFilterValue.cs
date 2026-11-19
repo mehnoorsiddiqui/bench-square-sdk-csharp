@@ -4,8 +4,8 @@ using Square.Core.Models;
 namespace Square.Models;
 
 /// <summary>
-/// A type-specific filter used in a <see href="$m/CustomerCustomAttributeFilter">custom attribute filter</see> to search based on the value
-/// of a customer-related <see href="$m/CustomAttribute">custom attribute</see>.
+/// A type-specific filter used in a <see href="entity:CustomerCustomAttributeFilter">custom attribute filter</see> to search based on the value
+/// of a customer-related <see href="entity:CustomAttribute">custom attribute</see>.
 /// </summary>
 public record CustomerCustomAttributeFilterValue
 {
@@ -74,7 +74,7 @@ public record CustomerCustomAttributeFilterValue
     public bool? Boolean { get; init; }
 
     /// <summary>
-    /// The customer address filter. This filter is used in a <see href="$m/CustomerCustomAttributeFilterValue">CustomerCustomAttributeFilterValue</see> filter when
+    /// The customer address filter. This filter is used in a <see href="entity:CustomerCustomAttributeFilterValue">CustomerCustomAttributeFilterValue</see> filter when
     /// searching by an <c>Address</c>-type custom attribute.
     /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]

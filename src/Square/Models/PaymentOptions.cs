@@ -9,25 +9,29 @@ public record PaymentOptions
     /// <summary>
     /// Indicates whether the <c>Payment</c> objects created from this <c>TerminalCheckout</c> are automatically
     /// <c>COMPLETED</c> or left in an <c>APPROVED</c> state for later modification.
+    /// <para>
+    /// Default: true
+    /// </para>
     /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("autocomplete")]
     public bool? Autocomplete { get; init; }
 
     /// <summary>
-    /// The duration of time after the payment's creation when Square automatically cancels the
-    /// payment. This automatic cancellation applies only to payments that do not reach a terminal state
-    /// (COMPLETED or CANCELED) before the <c>delay_duration</c> time period.
+    /// The duration of time after the payment's creation when Square automatically resolves the
+    /// payment. This automatic resolution applies only to payments that do not reach a terminal state
+    /// (<c>COMPLETED</c> or <c>CANCELED</c>) before the <c>delay_duration</c> time period.
     /// <para>
     /// This parameter should be specified as a time duration, in RFC 3339 format, with a minimum value
-    /// of 1 minute.
+    /// of 1 minute and a maximum value of 36 hours. This feature is only supported for card payments,
+    /// and all payments will be considered card-present.
     /// </para>
     /// <para>
-    /// Note: This feature is only supported for card payments. This parameter can only be set for a delayed
-    /// capture payment (<c>autocomplete=false</c>).
-    /// Default:
-    /// - Card-present payments: "PT36H" (36 hours) from the creation time.
-    /// - Card-not-present payments: "P7D" (7 days) from the creation time.
+    /// This parameter can only be set for a delayed capture payment (<c>autocomplete=false</c>). For more
+    /// information, see <see href="https://developer.squareup.com/docs/payments-api/take-payments/card-payments/delayed-capture#time-threshold">Delayed Capture</see>.
+    /// </para>
+    /// <para>
+    /// Default: "PT36H" (36 hours) from the creation time
     /// </para>
     /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
@@ -41,12 +45,10 @@ public record PaymentOptions
     /// to prompt the buyer for an additional payment to cover the remainder or cancel the Gift Card
     /// payment.
     /// <para>
-    /// This field cannot be <c>true</c> when <c>autocomplete = true</c>.
-    /// This field cannot be <c>true</c> when an <c>order_id</c> isn't specified.
+    /// This parameter can only be set for a delayed capture payment (<c>autocomplete=false</c>).
     /// </para>
     /// <para>
-    /// For more information, see
-    /// <see href="https://developer.squareup.com/docs/payments-api/take-payments/card-payments/partial-payments-with-gift-cards">Take Partial Payments</see>.
+    /// For more information, see <see href="https://developer.squareup.com/docs/payments-api/take-payments/card-payments/partial-payments-with-gift-cards">Take Partial Payments</see>.
     /// </para>
     /// <para>
     /// Default: false

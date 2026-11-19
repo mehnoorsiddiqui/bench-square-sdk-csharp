@@ -91,6 +91,34 @@ public sealed class Team
             cancellationToken);
 
     /// <summary>
+    /// CreateJob
+    /// </summary>
+    /// <param name="request">The operation's inputs</param>
+    /// <param name="requestOptions">Per-request options, such as an overriding log level for this call</param>
+    /// <param name="cancellationToken">Cancellation token</param>
+    /// <returns>A <see cref="Task{TResult}"/> of <see cref="CreateJobResponse"/> instance.</returns>
+    /// <exception cref="ApiException{TError}"> of <see cref="RawError"/> when the server returns an error response.</exception>
+    /// <remarks>
+    /// Creates a job in a seller account. A job defines a title and tip eligibility. Note that
+    /// compensation is defined in a <see href="entity:JobAssignment">job assignment</see> in a team member's wage setting.
+    /// </remarks>
+    public Task<CreateJobResponse> CreateJob(CreateJobOperationRequest request,
+        RequestOptions? requestOptions = null,
+        CancellationToken cancellationToken = default) =>
+        _rawClient.Execute(
+            _server.Default("/v2/team-members/jobs"),
+            [],
+            [],
+            [new HeaderParam("Idempotency-Key", Guid.NewGuid())],
+            HttpMethod.Post,
+            JsonRequest.Create(request.Body),
+            JsonResponse.Create<CreateJobResponse>(),
+            RawErrorResponse.Instance,
+            _auth.BearerAuth,
+            requestOptions,
+            cancellationToken);
+
+    /// <summary>
     /// CreateTeamMember
     /// </summary>
     /// <param name="request">The operation's inputs</param>
@@ -118,6 +146,60 @@ public sealed class Team
             HttpMethod.Post,
             JsonRequest.Create(request.Body),
             JsonResponse.Create<CreateTeamMemberResponse>(),
+            RawErrorResponse.Instance,
+            _auth.BearerAuth,
+            requestOptions,
+            cancellationToken);
+
+    /// <summary>
+    /// ListJobs
+    /// </summary>
+    /// <param name="request">The operation's inputs</param>
+    /// <param name="requestOptions">Per-request options, such as an overriding log level for this call</param>
+    /// <param name="cancellationToken">Cancellation token</param>
+    /// <returns>A <see cref="Task{TResult}"/> of <see cref="ListJobsResponse"/> instance.</returns>
+    /// <exception cref="ApiException{TError}"> of <see cref="RawError"/> when the server returns an error response.</exception>
+    /// <remarks>
+    /// Lists jobs in a seller account. Results are sorted by title in ascending order.
+    /// </remarks>
+    public Task<ListJobsResponse> ListJobs(ListJobsOperationRequest request,
+        RequestOptions? requestOptions = null,
+        CancellationToken cancellationToken = default) =>
+        _rawClient.Execute(
+            _server.Default("/v2/team-members/jobs"),
+            [],
+            [new Param("cursor", request.Cursor)],
+            [],
+            HttpMethod.Get,
+            EmptyBody.Instance,
+            JsonResponse.Create<ListJobsResponse>(),
+            RawErrorResponse.Instance,
+            _auth.BearerAuth,
+            requestOptions,
+            cancellationToken);
+
+    /// <summary>
+    /// RetrieveJob
+    /// </summary>
+    /// <param name="request">The operation's inputs</param>
+    /// <param name="requestOptions">Per-request options, such as an overriding log level for this call</param>
+    /// <param name="cancellationToken">Cancellation token</param>
+    /// <returns>A <see cref="Task{TResult}"/> of <see cref="RetrieveJobResponse"/> instance.</returns>
+    /// <exception cref="ApiException{TError}"> of <see cref="RawError"/> when the server returns an error response.</exception>
+    /// <remarks>
+    /// Retrieves a specified job.
+    /// </remarks>
+    public Task<RetrieveJobResponse> RetrieveJob(RetrieveJobRequest request,
+        RequestOptions? requestOptions = null,
+        CancellationToken cancellationToken = default) =>
+        _rawClient.Execute(
+            _server.Default("/v2/team-members/jobs/{job_id}"),
+            [new TemplateParam("job_id", request.JobId)],
+            [],
+            [],
+            HttpMethod.Get,
+            EmptyBody.Instance,
+            JsonResponse.Create<RetrieveJobResponse>(),
             RawErrorResponse.Instance,
             _auth.BearerAuth,
             requestOptions,
@@ -161,8 +243,12 @@ public sealed class Team
     /// <exception cref="ApiException{TError}"> of <see cref="RawError"/> when the server returns an error response.</exception>
     /// <remarks>
     /// Retrieves a <c>WageSetting</c> object for a team member specified
-    /// by <c>TeamMember.id</c>.
-    /// Learn about <see href="https://developer.squareup.com/docs/team/troubleshooting#retrievewagesetting">Troubleshooting the Team API</see>.
+    /// by <c>TeamMember.id</c>. For more information, see
+    /// <see href="https://developer.squareup.com/docs/team/troubleshooting#retrievewagesetting">Troubleshooting the Team API</see>.
+    /// <para>
+    /// Square recommends using <see href="api-endpoint:Team-RetrieveTeamMember">RetrieveTeamMember</see> or <see href="api-endpoint:Team-SearchTeamMembers">SearchTeamMembers</see>
+    /// to get this information directly from the <c>TeamMember.wage_setting</c> field.
+    /// </para>
     /// </remarks>
     public Task<RetrieveWageSettingResponse> RetrieveWageSetting(RetrieveWageSettingRequest request,
         RequestOptions? requestOptions = null,
@@ -190,9 +276,8 @@ public sealed class Team
     /// <exception cref="ApiException{TError}"> of <see cref="RawError"/> when the server returns an error response.</exception>
     /// <remarks>
     /// Returns a paginated list of <c>TeamMember</c> objects for a business.
-    /// The list can be filtered by the following:
-    /// - location IDs
-    /// - <c>status</c>
+    /// The list can be filtered by location IDs, <c>ACTIVE</c> or <c>INACTIVE</c> status, or whether
+    /// the team member is the Square account owner.
     /// </remarks>
     public Task<SearchTeamMembersResponse> SearchTeamMembers(SearchTeamMembersOperationRequest request,
         RequestOptions? requestOptions = null,
@@ -205,6 +290,35 @@ public sealed class Team
             HttpMethod.Post,
             JsonRequest.Create(request.Body),
             JsonResponse.Create<SearchTeamMembersResponse>(),
+            RawErrorResponse.Instance,
+            _auth.BearerAuth,
+            requestOptions,
+            cancellationToken);
+
+    /// <summary>
+    /// UpdateJob
+    /// </summary>
+    /// <param name="request">The operation's inputs</param>
+    /// <param name="requestOptions">Per-request options, such as an overriding log level for this call</param>
+    /// <param name="cancellationToken">Cancellation token</param>
+    /// <returns>A <see cref="Task{TResult}"/> of <see cref="UpdateJobResponse"/> instance.</returns>
+    /// <exception cref="ApiException{TError}"> of <see cref="RawError"/> when the server returns an error response.</exception>
+    /// <remarks>
+    /// Updates the title or tip eligibility of a job. Changes to the title propagate to all
+    /// <c>JobAssignment</c>, <c>Shift</c>, and <c>TeamMemberWage</c> objects that reference the job ID. Changes to
+    /// tip eligibility propagate to all <c>TeamMemberWage</c> objects that reference the job ID.
+    /// </remarks>
+    public Task<UpdateJobResponse> UpdateJob(UpdateJobOperationRequest request,
+        RequestOptions? requestOptions = null,
+        CancellationToken cancellationToken = default) =>
+        _rawClient.Execute(
+            _server.Default("/v2/team-members/jobs/{job_id}"),
+            [new TemplateParam("job_id", request.JobId)],
+            [],
+            [new HeaderParam("Idempotency-Key", Guid.NewGuid())],
+            HttpMethod.Put,
+            JsonRequest.Create(request.Body),
+            JsonResponse.Create<UpdateJobResponse>(),
             RawErrorResponse.Instance,
             _auth.BearerAuth,
             requestOptions,
@@ -248,10 +362,14 @@ public sealed class Team
     /// <exception cref="ApiException{TError}"> of <see cref="RawError"/> when the server returns an error response.</exception>
     /// <remarks>
     /// Creates or updates a <c>WageSetting</c> object. The object is created if a
-    /// <c>WageSetting</c> with the specified <c>team_member_id</c> does not exist. Otherwise,
+    /// <c>WageSetting</c> with the specified <c>team_member_id</c> doesn't exist. Otherwise,
     /// it fully replaces the <c>WageSetting</c> object for the team member.
-    /// The <c>WageSetting</c> is returned on a successful update.
-    /// Learn about <see href="https://developer.squareup.com/docs/team/troubleshooting#create-or-update-a-wage-setting">Troubleshooting the Team API</see>.
+    /// The <c>WageSetting</c> is returned on a successful update. For more information, see
+    /// <see href="https://developer.squareup.com/docs/team/troubleshooting#create-or-update-a-wage-setting">Troubleshooting the Team API</see>.
+    /// <para>
+    /// Square recommends using <see href="api-endpoint:Team-CreateTeamMember">CreateTeamMember</see> or <see href="api-endpoint:Team-UpdateTeamMember">UpdateTeamMember</see>
+    /// to manage the <c>TeamMember.wage_setting</c> field directly.
+    /// </para>
     /// </remarks>
     public Task<UpdateWageSettingResponse> UpdateWageSetting(UpdateWageSettingOperationRequest request,
         RequestOptions? requestOptions = null,

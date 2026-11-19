@@ -5,7 +5,7 @@ using Square.Core.Models;
 namespace Square.Models;
 
 /// <summary>
-/// Represents an individual upsert request in a <see href="$e/CustomerCustomAttributes/BulkUpsertCustomerCustomAttributes">BulkUpsertCustomerCustomAttributes</see>
+/// Represents an individual upsert request in a <see href="api-endpoint:CustomerCustomAttributes-BulkUpsertCustomerCustomAttributes">BulkUpsertCustomerCustomAttributes</see>
 /// request. An individual request contains a customer ID, the custom attribute to create or update,
 /// and an optional idempotency key.
 /// </summary>

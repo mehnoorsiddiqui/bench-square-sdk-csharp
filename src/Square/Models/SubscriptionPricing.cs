@@ -11,7 +11,7 @@ namespace Square.Models;
 public record SubscriptionPricing
 {
     /// <summary>
-    /// Determines the pricing of a <see href="$m/Subscription">Subscription</see>
+    /// Determines the pricing of a <see href="entity:Subscription">Subscription</see>
     /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("type")]

@@ -6,7 +6,7 @@ namespace Square.Models;
 
 /// <summary>
 /// Defines output parameters in a response from the
-/// <see href="$e/Subscriptions/CreateSubscription">CreateSubscription</see> endpoint.
+/// <see href="api-endpoint:Subscriptions-CreateSubscription">CreateSubscription</see> endpoint.
 /// </summary>
 public record CreateSubscriptionResponse
 {

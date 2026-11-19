@@ -6,7 +6,7 @@ namespace Square.Models;
 
 /// <summary>
 /// Defines input parameters in a call to the
-/// <see href="$e/Subscriptions/SwapPlan">SwapPlan</see> endpoint.
+/// <see href="api-endpoint:Subscriptions-SwapPlan">SwapPlan</see> endpoint.
 /// </summary>
 public record SwapPlanRequest
 {

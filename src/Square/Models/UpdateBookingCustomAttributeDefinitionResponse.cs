@@ -5,7 +5,7 @@ using Square.Core.Models;
 namespace Square.Models;
 
 /// <summary>
-/// Represents an <see href="$e/BookingCustomAttributes/UpdateBookingCustomAttributeDefinition">UpdateBookingCustomAttributeDefinition</see> response.
+/// Represents an <see href="api-endpoint:BookingCustomAttributes-UpdateBookingCustomAttributeDefinition">UpdateBookingCustomAttributeDefinition</see> response.
 /// Either <c>custom_attribute_definition</c> or <c>errors</c> is present in the response.
 /// </summary>
 public record UpdateBookingCustomAttributeDefinitionResponse

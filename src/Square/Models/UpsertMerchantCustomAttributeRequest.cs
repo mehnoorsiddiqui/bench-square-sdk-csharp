@@ -5,7 +5,7 @@ using Square.Core.Models;
 namespace Square.Models;
 
 /// <summary>
-/// Represents an <see href="$e/MerchantCustomAttributes/UpsertMerchantCustomAttribute">UpsertMerchantCustomAttribute</see> request.
+/// Represents an <see href="api-endpoint:MerchantCustomAttributes-UpsertMerchantCustomAttribute">UpsertMerchantCustomAttribute</see> request.
 /// </summary>
 public record UpsertMerchantCustomAttributeRequest
 {

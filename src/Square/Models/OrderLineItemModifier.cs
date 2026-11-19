@@ -6,7 +6,7 @@ using Square.Core.Models;
 namespace Square.Models;
 
 /// <summary>
-/// A <see href="$m/CatalogModifier">CatalogModifier</see>.
+/// A <see href="entity:CatalogModifier">CatalogModifier</see>.
 /// </summary>
 public record OrderLineItemModifier
 {

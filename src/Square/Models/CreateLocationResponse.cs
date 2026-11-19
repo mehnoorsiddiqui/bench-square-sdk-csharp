@@ -5,7 +5,7 @@ using Square.Core.Models;
 namespace Square.Models;
 
 /// <summary>
-/// The response object returned by the <see href="$e/Locations/CreateLocation">CreateLocation</see> endpoint.
+/// The response object returned by the <see href="api-endpoint:Locations-CreateLocation">CreateLocation</see> endpoint.
 /// </summary>
 public record CreateLocationResponse
 {

@@ -6,7 +6,7 @@ namespace Square.Models;
 
 /// <summary>
 /// Defines the response returned by
-/// <see href="$e/Refunds/RefundPayment">RefundPayment</see>.
+/// <see href="api-endpoint:Refunds-RefundPayment">RefundPayment</see>.
 /// <para>
 /// If there are errors processing the request, the <c>refund</c> field might not be
 /// present, or it might be present with a status of <c>FAILED</c>.

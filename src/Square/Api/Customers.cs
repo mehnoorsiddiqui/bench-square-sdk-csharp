@@ -66,7 +66,7 @@ public sealed class Customers
     /// <returns>A <see cref="Task{TResult}"/> of <see cref="BulkCreateCustomersResponse"/> instance.</returns>
     /// <exception cref="ApiException{TError}"> of <see cref="RawError"/> when the server returns an error response.</exception>
     /// <remarks>
-    /// Creates multiple <see href="$m/Customer">customer profiles</see> for a business.
+    /// Creates multiple <see href="entity:Customer">customer profiles</see> for a business.
     /// <para>
     /// This endpoint takes a map of individual create requests and returns a map of responses.
     /// </para>
@@ -170,9 +170,6 @@ public sealed class Customers
     /// <para>
     /// This endpoint takes a map of individual update requests and returns a map of responses.
     /// </para>
-    /// <para>
-    /// You cannot use this endpoint to change cards on file. To make changes, use the <see href="$e/Cards">Cards API</see> or <see href="$e/GiftCards">Gift Cards API</see>.
-    /// </para>
     /// </remarks>
     public Task<BulkUpdateCustomersResponse> BulkUpdateCustomers(BulkUpdateCustomersOperationRequest request,
         RequestOptions? requestOptions = null,
@@ -269,7 +266,7 @@ public sealed class Customers
     /// <returns>A <see cref="Task{TResult}"/> of <see cref="DeleteCustomerResponse"/> instance.</returns>
     /// <exception cref="ApiException{TError}"> of <see cref="RawError"/> when the server returns an error response.</exception>
     /// <remarks>
-    /// Deletes a customer profile from a business. This operation also unlinks any associated cards on file.
+    /// Deletes a customer profile from a business.
     /// <para>
     /// To delete a customer profile that was created by merging existing profiles, you must use the ID of the newly created profile.
     /// </para>
@@ -463,9 +460,6 @@ public sealed class Customers
     /// To add or update a field, specify the new value. To remove a field, specify <c>null</c>.
     /// <para>
     /// To update a customer profile that was created by merging existing profiles, you must use the ID of the newly created profile.
-    /// </para>
-    /// <para>
-    /// You cannot use this endpoint to change cards on file. To make changes, use the <see href="$e/Cards">Cards API</see> or <see href="$e/GiftCards">Gift Cards API</see>.
     /// </para>
     /// </remarks>
     public Task<UpdateCustomerResponse> UpdateCustomer(UpdateCustomerOperationRequest request,

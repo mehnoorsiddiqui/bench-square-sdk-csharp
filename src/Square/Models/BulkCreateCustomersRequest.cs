@@ -6,7 +6,7 @@ namespace Square.Models;
 
 /// <summary>
 /// Defines the body parameters that can be included in requests to the
-/// <see href="$e/Customers/BulkCreateCustomers">BulkCreateCustomers</see> endpoint.
+/// <see href="api-endpoint:Customers-BulkCreateCustomers">BulkCreateCustomers</see> endpoint.
 /// </summary>
 public record BulkCreateCustomersRequest
 {

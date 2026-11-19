@@ -5,7 +5,7 @@ using Square.Core.Models;
 namespace Square.Models;
 
 /// <summary>
-/// Represents a <see href="$e/Loyalty/RetrieveLoyaltyPromotion">RetrieveLoyaltyPromotionPromotions</see> response.
+/// Represents a <see href="api-endpoint:Loyalty-RetrieveLoyaltyPromotion">RetrieveLoyaltyPromotionPromotions</see> response.
 /// </summary>
 public record RetrieveLoyaltyPromotionResponse
 {
@@ -17,7 +17,7 @@ public record RetrieveLoyaltyPromotionResponse
     public IReadOnlyList<Error>? Errors { get; init; }
 
     /// <summary>
-    /// Represents a promotion for a <see href="$m/LoyaltyProgram">loyalty program</see>. Loyalty promotions enable buyers
+    /// Represents a promotion for a <see href="entity:LoyaltyProgram">loyalty program</see>. Loyalty promotions enable buyers
     /// to earn extra points on top of those earned from the base program.
     /// <para>
     /// A loyalty program can have a maximum of 10 loyalty promotions with an <c>ACTIVE</c> or <c>SCHEDULED</c> status.

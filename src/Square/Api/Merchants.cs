@@ -43,7 +43,7 @@ public sealed class Merchants
     /// information for the merchant that granted your application access.
     /// </para>
     /// <para>
-    /// If you know the merchant ID, you can also use the <see href="$e/Merchants/RetrieveMerchant">RetrieveMerchant</see>
+    /// If you know the merchant ID, you can also use the <see href="api-endpoint:Merchants-RetrieveMerchant">RetrieveMerchant</see>
     /// endpoint to retrieve the merchant information.
     /// </para>
     /// </remarks>

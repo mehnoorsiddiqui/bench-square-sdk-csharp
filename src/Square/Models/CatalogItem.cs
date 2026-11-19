@@ -7,7 +7,7 @@ using Square.Models.Enums;
 namespace Square.Models;
 
 /// <summary>
-/// A <see href="$m/CatalogObject">CatalogObject</see> instance of the <c>ITEM</c> type, also referred to as an item, in the catalog.
+/// A <see href="entity:CatalogObject">CatalogObject</see> instance of the <c>ITEM</c> type, also referred to as an item, in the catalog.
 /// </summary>
 public record CatalogItem
 {
@@ -49,27 +49,6 @@ public record CatalogItem
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("label_color")]
     public string? LabelColor { get; init; }
-
-    /// <summary>
-    /// If <c>true</c>, the item can be added to shipping orders from the merchant's online store.
-    /// </summary>
-    [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
-    [JsonPropertyName("available_online")]
-    public bool? AvailableOnline { get; init; }
-
-    /// <summary>
-    /// If <c>true</c>, the item can be added to pickup orders from the merchant's online store.
-    /// </summary>
-    [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
-    [JsonPropertyName("available_for_pickup")]
-    public bool? AvailableForPickup { get; init; }
-
-    /// <summary>
-    /// If <c>true</c>, the item can be added to electronically fulfilled orders from the merchant's online store.
-    /// </summary>
-    [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
-    [JsonPropertyName("available_electronically")]
-    public bool? AvailableElectronically { get; init; }
 
     /// <summary>
     /// The ID of the item's category, if any. Deprecated since 2023-12-13. Use <c>CatalogItem.categories</c>, instead.
@@ -209,6 +188,7 @@ public record CatalogItem
 
     /// <summary>
     /// A list of IDs representing channels, such as a Square Online site, where the item can be made visible or available.
+    /// This field is read only and cannot be edited.
     /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("channels")]

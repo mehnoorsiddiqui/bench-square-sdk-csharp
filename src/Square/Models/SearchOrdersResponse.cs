@@ -6,7 +6,7 @@ namespace Square.Models;
 
 /// <summary>
 /// Either the <c>order_entries</c> or <c>orders</c> field is set, depending on whether
-/// <c>return_entries</c> is set on the <see href="$e/Orders/SearchOrders">SearchOrdersRequest</see>.
+/// <c>return_entries</c> is set on the <see href="api-endpoint:Orders-SearchOrders">SearchOrdersRequest</see>.
 /// </summary>
 public record SearchOrdersResponse
 {

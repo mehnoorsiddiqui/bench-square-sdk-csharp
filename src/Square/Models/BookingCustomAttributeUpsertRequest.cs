@@ -5,7 +5,7 @@ using Square.Core.Models;
 namespace Square.Models;
 
 /// <summary>
-/// Represents an individual upsert request in a <see href="$e/BookingCustomAttributes/BulkUpsertBookingCustomAttributes">BulkUpsertBookingCustomAttributes</see>
+/// Represents an individual upsert request in a <see href="api-endpoint:BookingCustomAttributes-BulkUpsertBookingCustomAttributes">BulkUpsertBookingCustomAttributes</see>
 /// request. An individual request contains a booking ID, the custom attribute to create or update,
 /// and an optional idempotency key.
 /// </summary>

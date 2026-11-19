@@ -6,7 +6,7 @@ using Square.Models.Enums;
 namespace Square.Models;
 
 /// <summary>
-/// Represents an accrual rule, which defines how buyers can earn points from the base <see href="$m/LoyaltyProgram">loyalty program</see>.
+/// Represents an accrual rule, which defines how buyers can earn points from the base <see href="entity:LoyaltyProgram">loyalty program</see>.
 /// </summary>
 public record LoyaltyProgramAccrualRule
 {

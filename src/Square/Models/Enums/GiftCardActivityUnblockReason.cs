@@ -5,7 +5,7 @@ using Square.Core.Enum;
 namespace Square.Models.Enums;
 
 /// <summary>
-/// Indicates the reason for unblocking a <see href="$m/GiftCard">gift card</see>.
+/// Indicates the reason for unblocking a <see href="entity:GiftCard">gift card</see>.
 /// </summary>
 [JsonConverter(typeof(StringEnumConverter<GiftCardActivityUnblockReason>))]
 public sealed record GiftCardActivityUnblockReason : OpenStringEnum<GiftCardActivityUnblockReason>

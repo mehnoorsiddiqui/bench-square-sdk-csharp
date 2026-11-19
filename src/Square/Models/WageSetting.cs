@@ -5,23 +5,21 @@ using Square.Core.Models;
 namespace Square.Models;
 
 /// <summary>
-/// An object representing a team member's wage information.
+/// Represents information about the overtime exemption status, job assignments, and compensation
+/// for a <see href="entity:TeamMember">team member</see>.
 /// </summary>
 public record WageSetting
 {
     /// <summary>
-    /// The unique ID of the <c>TeamMember</c> whom this wage setting describes.
+    /// The ID of the team member associated with the wage setting.
     /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("team_member_id")]
     public string? TeamMemberId { get; init; }
 
     /// <summary>
-    /// Required. The ordered list of jobs that the team member is assigned to.
+    /// <b>Required</b> The ordered list of jobs that the team member is assigned to.
     /// The first job assignment is considered the team member's primary job.
-    /// <para>
-    /// The minimum length is 1 and the maximum length is 12.
-    /// </para>
     /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("job_assignments")]
@@ -35,7 +33,7 @@ public record WageSetting
     public bool? IsOvertimeExempt { get; init; }
 
     /// <summary>
-    /// Used for resolving concurrency issues. The request fails if the version
+    /// <b>Read only</b> Used for resolving concurrency issues. The request fails if the version
     /// provided does not match the server version at the time of the request. If not provided,
     /// Square executes a blind write, potentially overwriting data from another write. For more information,
     /// see <see href="https://developer.squareup.com/docs/working-with-apis/optimistic-concurrency">optimistic concurrency</see>.
@@ -45,16 +43,14 @@ public record WageSetting
     public int? Version { get; init; }
 
     /// <summary>
-    /// The timestamp, in RFC 3339 format, describing when the wage setting object was created.
-    /// For example, "2018-10-04T04:00:00-07:00" or "2019-02-05T12:00:00Z".
+    /// The timestamp when the wage setting was created, in RFC 3339 format.
     /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("created_at")]
     public string? CreatedAt { get; init; }
 
     /// <summary>
-    /// The timestamp, in RFC 3339 format, describing when the wage setting object was last updated.
-    /// For example, "2018-10-04T04:00:00-07:00" or "2019-02-05T12:00:00Z".
+    /// The timestamp when the wage setting was last updated, in RFC 3339 format.
     /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("updated_at")]

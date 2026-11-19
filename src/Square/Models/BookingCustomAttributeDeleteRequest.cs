@@ -5,7 +5,7 @@ using Square.Core.Models;
 namespace Square.Models;
 
 /// <summary>
-/// Represents an individual delete request in a <see href="$e/BookingCustomAttributes/BulkDeleteBookingCustomAttributes">BulkDeleteBookingCustomAttributes</see>
+/// Represents an individual delete request in a <see href="api-endpoint:BookingCustomAttributes-BulkDeleteBookingCustomAttributes">BulkDeleteBookingCustomAttributes</see>
 /// request. An individual request contains a booking ID, the custom attribute to delete, and an optional idempotency key.
 /// </summary>
 public record BookingCustomAttributeDeleteRequest

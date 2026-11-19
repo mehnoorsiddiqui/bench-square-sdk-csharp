@@ -6,7 +6,7 @@ namespace Square.Models;
 
 /// <summary>
 /// Defines output parameters in a request to the
-/// <see href="$e/Subscriptions/ChangeBillingAnchorDate">ChangeBillingAnchorDate</see> endpoint.
+/// <see href="api-endpoint:Subscriptions-ChangeBillingAnchorDate">ChangeBillingAnchorDate</see> endpoint.
 /// </summary>
 public record ChangeBillingAnchorDateResponse
 {

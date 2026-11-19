@@ -4,7 +4,7 @@ using Square.Core.Models;
 namespace Square.Models;
 
 /// <summary>
-/// Represents a <see href="$e/BookingCustomAttributes/RetrieveBookingCustomAttribute">RetrieveBookingCustomAttribute</see> request.
+/// Represents a <see href="api-endpoint:BookingCustomAttributes-RetrieveBookingCustomAttribute">RetrieveBookingCustomAttribute</see> request.
 /// </summary>
 public record RetrieveBookingCustomAttributeRequest
 {

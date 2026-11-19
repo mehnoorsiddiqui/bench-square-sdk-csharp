@@ -6,7 +6,7 @@ namespace Square.Models;
 
 /// <summary>
 /// Describes a request to cancel a payment using
-/// <see href="$e/Payments/CancelPaymentByIdempotencyKey">CancelPaymentByIdempotencyKey</see>.
+/// <see href="api-endpoint:Payments-CancelPaymentByIdempotencyKey">CancelPaymentByIdempotencyKey</see>.
 /// </summary>
 public record CancelPaymentByIdempotencyKeyRequest
 {

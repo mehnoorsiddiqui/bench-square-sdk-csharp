@@ -5,7 +5,7 @@ using Square.Models.Enums;
 namespace Square.Models;
 
 /// <summary>
-/// The customer address filter. This filter is used in a <see href="$m/CustomerCustomAttributeFilterValue">CustomerCustomAttributeFilterValue</see> filter when
+/// The customer address filter. This filter is used in a <see href="entity:CustomerCustomAttributeFilterValue">CustomerCustomAttributeFilterValue</see> filter when
 /// searching by an <c>Address</c>-type custom attribute.
 /// </summary>
 public record CustomerAddressFilter

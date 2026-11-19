@@ -4,8 +4,8 @@ using Square.Core.Models;
 namespace Square.Models;
 
 /// <summary>
-/// The custom attribute filter. Use this filter in a set of <see href="$m/CustomerCustomAttributeFilters">custom attribute filters</see> to search
-/// based on the value or last updated date of a customer-related <see href="$m/CustomAttribute">custom attribute</see>.
+/// The custom attribute filter. Use this filter in a set of <see href="entity:CustomerCustomAttributeFilters">custom attribute filters</see> to search
+/// based on the value or last updated date of a customer-related <see href="entity:CustomAttribute">custom attribute</see>.
 /// </summary>
 public record CustomerCustomAttributeFilter
 {
@@ -17,8 +17,8 @@ public record CustomerCustomAttributeFilter
     public required string Key { get; init; }
 
     /// <summary>
-    /// A type-specific filter used in a <see href="$m/CustomerCustomAttributeFilter">custom attribute filter</see> to search based on the value
-    /// of a customer-related <see href="$m/CustomAttribute">custom attribute</see>.
+    /// A type-specific filter used in a <see href="entity:CustomerCustomAttributeFilter">custom attribute filter</see> to search based on the value
+    /// of a customer-related <see href="entity:CustomAttribute">custom attribute</see>.
     /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("filter")]

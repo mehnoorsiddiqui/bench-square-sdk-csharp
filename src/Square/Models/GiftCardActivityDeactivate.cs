@@ -5,12 +5,12 @@ using Square.Models.Enums;
 namespace Square.Models;
 
 /// <summary>
-/// Represents details about a <c>DEACTIVATE</c> <see href="$m/GiftCardActivityType">gift card activity type</see>.
+/// Represents details about a <c>DEACTIVATE</c> <see href="entity:GiftCardActivityType">gift card activity type</see>.
 /// </summary>
 public record GiftCardActivityDeactivate
 {
     /// <summary>
-    /// Indicates the reason for deactivating a <see href="$m/GiftCard">gift card</see>.
+    /// Indicates the reason for deactivating a <see href="entity:GiftCard">gift card</see>.
     /// </summary>
     [JsonPropertyName("reason")]
     public required GiftCardActivityDeactivateReason Reason { get; init; }

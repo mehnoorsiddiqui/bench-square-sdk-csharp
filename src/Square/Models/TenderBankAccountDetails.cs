@@ -7,7 +7,7 @@ namespace Square.Models;
 /// <summary>
 /// Represents the details of a tender with <c>type</c> <c>BANK_ACCOUNT</c>.
 /// <para>
-/// See <see href="$m/BankAccountPaymentDetails">BankAccountPaymentDetails</see>
+/// See <see href="entity:BankAccountPaymentDetails">BankAccountPaymentDetails</see>
 /// for more exposed details of a bank account payment.
 /// </para>
 /// </summary>

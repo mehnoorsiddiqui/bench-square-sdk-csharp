@@ -6,9 +6,9 @@ namespace Square.Models;
 
 /// <summary>
 /// Defines the fields that are included in the response body of
-/// a request to the <see href="$e/WebhookSubscriptions/RetrieveWebhookSubscription">RetrieveWebhookSubscription</see> endpoint.
+/// a request to the <see href="api-endpoint:WebhookSubscriptions-RetrieveWebhookSubscription">RetrieveWebhookSubscription</see> endpoint.
 /// <para>
-/// Note: if there are errors processing the request, the <see href="$m/WebhookSubscription">Subscription</see> will not be
+/// Note: if there are errors processing the request, the <see href="entity:WebhookSubscription">Subscription</see> will not be
 /// present.
 /// </para>
 /// </summary>

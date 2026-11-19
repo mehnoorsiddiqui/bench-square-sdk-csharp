@@ -5,7 +5,7 @@ using Square.Core.Models;
 namespace Square.Models;
 
 /// <summary>
-/// Response payload for the <see href="$e/Bookings/BulkRetrieveTeamMemberBookingProfiles">BulkRetrieveTeamMemberBookingProfiles</see> endpoint.
+/// Response payload for the <see href="api-endpoint:Bookings-BulkRetrieveTeamMemberBookingProfiles">BulkRetrieveTeamMemberBookingProfiles</see> endpoint.
 /// </summary>
 public record BulkRetrieveTeamMemberBookingProfilesResponse
 {

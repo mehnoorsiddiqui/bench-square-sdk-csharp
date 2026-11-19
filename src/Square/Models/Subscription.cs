@@ -161,9 +161,9 @@ public record Subscription
 
     /// <summary>
     /// The list of scheduled actions on this subscription. It is set only in the response from
-    /// <see href="$e/Subscriptions/RetrieveSubscription">RetrieveSubscription</see> with the query parameter
+    /// <see href="api-endpoint:Subscriptions-RetrieveSubscription">RetrieveSubscription</see> with the query parameter
     /// of <c>include=actions</c> or from
-    /// <see href="$e/Subscriptions/SearchSubscriptions">SearchSubscriptions</see> with the input parameter
+    /// <see href="api-endpoint:Subscriptions-SearchSubscriptions">SearchSubscriptions</see> with the input parameter
     /// of <c>include:["actions"]</c>.
     /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]

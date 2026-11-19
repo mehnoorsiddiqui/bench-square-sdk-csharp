@@ -1,3 +1,5 @@
+using Square.Models.Enums;
+
 namespace Square.Requests.Payments;
 
 /// <summary>
@@ -22,7 +24,7 @@ public sealed record ListPaymentsOperationRequest
     public string? EndTime { get; init; }
 
     /// <summary>
-    /// The order in which results are listed by <c>Payment.created_at</c>:
+    /// The order in which results are listed by <c>ListPaymentsRequest.sort_field</c>:
     /// - <c>ASC</c> - Oldest to newest.
     /// - <c>DESC</c> - Newest to oldest (default).
     /// </summary>
@@ -97,4 +99,21 @@ public sealed record ListPaymentsOperationRequest
     /// </para>
     /// </summary>
     public string? OfflineEndTime { get; init; }
+
+    /// <summary>
+    /// Indicates the start of the time range to retrieve payments for, in RFC 3339 format.  The
+    /// range is determined using the <c>updated_at</c> field for each Payment.
+    /// </summary>
+    public string? UpdatedAtBeginTime { get; init; }
+
+    /// <summary>
+    /// Indicates the end of the time range to retrieve payments for, in RFC 3339 format.  The
+    /// range is determined using the <c>updated_at</c> field for each Payment.
+    /// </summary>
+    public string? UpdatedAtEndTime { get; init; }
+
+    /// <summary>
+    /// The field used to sort results by. The default is <c>CREATED_AT</c>.
+    /// </summary>
+    public PaymentSortField? SortField { get; init; }
 }

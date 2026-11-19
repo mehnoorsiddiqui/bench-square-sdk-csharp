@@ -7,7 +7,7 @@ using Square.Models.Enums;
 namespace Square.Models;
 
 /// <summary>
-/// Defines the request body for the <see href="$e/Catalog/SearchCatalogItems">SearchCatalogItems</see> endpoint.
+/// Defines the request body for the <see href="api-endpoint:Catalog-SearchCatalogItems">SearchCatalogItems</see> endpoint.
 /// </summary>
 public record SearchCatalogItemsRequest
 {
@@ -82,7 +82,7 @@ public record SearchCatalogItemsRequest
 
     /// <summary>
     /// Defines the values for the <c>archived_state</c> query expression
-    /// used in <see href="$e/Catalog/SearchCatalogItems">SearchCatalogItems</see>
+    /// used in <see href="api-endpoint:Catalog-SearchCatalogItems">SearchCatalogItems</see>
     /// to return the archived, not archived or either type of catalog items.
     /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]

@@ -4,7 +4,7 @@ using Square.Core.Models;
 namespace Square.Models;
 
 /// <summary>
-/// The payment methods that customers can use to pay an <see href="$m/Invoice">invoice</see> on the Square-hosted invoice payment page.
+/// The payment methods that customers can use to pay an <see href="entity:Invoice">invoice</see> on the Square-hosted invoice payment page.
 /// </summary>
 public record InvoiceAcceptedPaymentMethods
 {

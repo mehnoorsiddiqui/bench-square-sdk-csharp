@@ -5,7 +5,7 @@ using Square.Core.Models;
 namespace Square.Models;
 
 /// <summary>
-/// Describes a request to refund a payment using <see href="$e/Refunds/RefundPayment">RefundPayment</see>.
+/// Describes a request to refund a payment using <see href="api-endpoint:Refunds-RefundPayment">RefundPayment</see>.
 /// </summary>
 public record RefundPaymentRequest
 {

@@ -69,10 +69,10 @@ public record InventoryCount
 
     /// <summary>
     /// Whether the inventory count is for composed variation (TRUE) or not (FALSE). If true, the inventory count will not be present in the response of
-    /// any of these endpoints: <see href="$e/Inventory/BatchChangeInventory">BatchChangeInventory</see>,
-    /// <see href="$e/Inventory/BatchRetrieveInventoryChanges">BatchRetrieveInventoryChanges</see>,
-    /// <see href="$e/Inventory/BatchRetrieveInventoryCounts">BatchRetrieveInventoryCounts</see>, and
-    /// <see href="$e/Inventory/RetrieveInventoryChanges">RetrieveInventoryChanges</see>.
+    /// any of these endpoints: <see href="api-endpoint:Inventory-BatchChangeInventory">BatchChangeInventory</see>,
+    /// <see href="api-endpoint:Inventory-BatchRetrieveInventoryChanges">BatchRetrieveInventoryChanges</see>,
+    /// <see href="api-endpoint:Inventory-BatchRetrieveInventoryCounts">BatchRetrieveInventoryCounts</see>, and
+    /// <see href="api-endpoint:Inventory-RetrieveInventoryChanges">RetrieveInventoryChanges</see>.
     /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("is_estimated")]

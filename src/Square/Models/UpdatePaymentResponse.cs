@@ -6,7 +6,7 @@ namespace Square.Models;
 
 /// <summary>
 /// Defines the response returned by
-/// <see href="$e/Payments/UpdatePayment">UpdatePayment</see>.
+/// <see href="api-endpoint:Payments-UpdatePayment">UpdatePayment</see>.
 /// </summary>
 public record UpdatePaymentResponse
 {

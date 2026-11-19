@@ -6,9 +6,9 @@ namespace Square.Models;
 /// <summary>
 /// A mapping between a temporary client-supplied ID and a permanent server-generated ID.
 /// <para>
-/// When calling <see href="$e/Catalog/UpsertCatalogObject">UpsertCatalogObject</see> or
-/// <see href="$e/Catalog/BatchUpsertCatalogObjects">BatchUpsertCatalogObjects</see> to
-/// create a <see href="$m/CatalogObject">CatalogObject</see> instance, you can supply
+/// When calling <see href="api-endpoint:Catalog-UpsertCatalogObject">UpsertCatalogObject</see> or
+/// <see href="api-endpoint:Catalog-BatchUpsertCatalogObjects">BatchUpsertCatalogObjects</see> to
+/// create a <see href="entity:CatalogObject">CatalogObject</see> instance, you can supply
 /// a temporary ID for the to-be-created object, especially when the object is to be referenced
 /// elsewhere in the same request body. This temporary ID can be any string unique within
 /// the call, but must be prefixed by "#".

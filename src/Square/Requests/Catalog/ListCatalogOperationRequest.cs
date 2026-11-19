@@ -36,7 +36,7 @@ public sealed record ListCatalogOperationRequest
     /// <summary>
     /// The specific version of the catalog objects to be included in the response.
     /// This allows you to retrieve historical versions of objects. The specified version value is matched against
-    /// the <see href="$m/CatalogObject">CatalogObject</see>s' <c>version</c> attribute.  If not included, results will be from the
+    /// the <see href="entity:CatalogObject">CatalogObject</see>s' <c>version</c> attribute.  If not included, results will be from the
     /// current version of the catalog.
     /// </summary>
     public long? CatalogVersion { get; init; }

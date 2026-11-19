@@ -4,7 +4,7 @@ using Square.Core.Models;
 namespace Square.Models;
 
 /// <summary>
-/// Represents details about a <c>REFUND</c> <see href="$m/GiftCardActivityType">gift card activity type</see>.
+/// Represents details about a <c>REFUND</c> <see href="entity:GiftCardActivityType">gift card activity type</see>.
 /// </summary>
 public record GiftCardActivityRefund
 {

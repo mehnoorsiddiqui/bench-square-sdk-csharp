@@ -4,7 +4,7 @@ using Square.Core.Models;
 namespace Square.Models;
 
 /// <summary>
-/// The request object for the <see href="$e/Locations/UpdateLocation">UpdateLocation</see> endpoint.
+/// The request object for the <see href="api-endpoint:Locations-UpdateLocation">UpdateLocation</see> endpoint.
 /// </summary>
 public record UpdateLocationRequest
 {

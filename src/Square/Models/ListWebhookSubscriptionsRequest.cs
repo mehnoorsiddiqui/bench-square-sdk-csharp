@@ -7,7 +7,7 @@ using Square.Models.Enums;
 namespace Square.Models;
 
 /// <summary>
-/// Lists all <see href="$m/WebhookSubscription">Subscription</see>s owned by your application.
+/// Lists all <see href="entity:WebhookSubscription">Subscription</see>s owned by your application.
 /// </summary>
 public record ListWebhookSubscriptionsRequest
 {

@@ -17,7 +17,7 @@ public record CreateGiftCardActivityRequest
     public required string IdempotencyKey { get; init; }
 
     /// <summary>
-    /// Represents an action performed on a <see href="$m/GiftCard">gift card</see> that affects its state or balance.
+    /// Represents an action performed on a <see href="entity:GiftCard">gift card</see> that affects its state or balance.
     /// A gift card activity contains information about a specific activity type. For example, a <c>REDEEM</c> activity
     /// includes a <c>redeem_activity_details</c> field that contains information about the redemption.
     /// </summary>

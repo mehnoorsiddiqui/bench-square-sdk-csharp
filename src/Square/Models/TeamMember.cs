@@ -52,7 +52,8 @@ public record TeamMember
     public string? FamilyName { get; init; }
 
     /// <summary>
-    /// The email address associated with the team member.
+    /// The email address associated with the team member. After accepting the invitation
+    /// from Square, only the team member can change this value.
     /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("email_address")]
@@ -68,16 +69,14 @@ public record TeamMember
     public string? PhoneNumber { get; init; }
 
     /// <summary>
-    /// The timestamp, in RFC 3339 format, describing when the team member was created.
-    /// For example, "2018-10-04T04:00:00-07:00" or "2019-02-05T12:00:00Z".
+    /// The timestamp when the team member was created, in RFC 3339 format.
     /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("created_at")]
     public string? CreatedAt { get; init; }
 
     /// <summary>
-    /// The timestamp, in RFC 3339 format, describing when the team member was last updated.
-    /// For example, "2018-10-04T04:00:00-07:00" or "2019-02-05T12:00:00Z".
+    /// The timestamp when the team member was last updated, in RFC 3339 format.
     /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("updated_at")]
@@ -89,6 +88,14 @@ public record TeamMember
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("assigned_locations")]
     public TeamMemberAssignedLocations? AssignedLocations { get; init; }
+
+    /// <summary>
+    /// Represents information about the overtime exemption status, job assignments, and compensation
+    /// for a <see href="entity:TeamMember">team member</see>.
+    /// </summary>
+    [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
+    [JsonPropertyName("wage_setting")]
+    public WageSetting? WageSetting { get; init; }
 
     [JsonExtensionData]
     public AdditionalProperties AdditionalProperties { get; init; } = [];

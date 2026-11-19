@@ -7,7 +7,7 @@ namespace Square.Models;
 
 /// <summary>
 /// Defines the fields that are included in requests to the
-/// <see href="$e/Orders/UpdateOrder">UpdateOrder</see> endpoint.
+/// <see href="api-endpoint:Orders-UpdateOrder">UpdateOrder</see> endpoint.
 /// </summary>
 public record UpdateOrderRequest
 {

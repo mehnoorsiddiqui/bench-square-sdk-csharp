@@ -101,7 +101,7 @@ public sealed class CashDrawers
     /// <exception cref="ApiException{TError}"> of <see cref="RawError"/> when the server returns an error response.</exception>
     /// <remarks>
     /// Provides the summary details for a single cash drawer shift. See
-    /// <see href="$e/CashDrawers/ListCashDrawerShiftEvents">ListCashDrawerShiftEvents</see> for a list of cash drawer shift events.
+    /// <see href="api-endpoint:CashDrawers-ListCashDrawerShiftEvents">ListCashDrawerShiftEvents</see> for a list of cash drawer shift events.
     /// </remarks>
     public Task<RetrieveCashDrawerShiftResponse> RetrieveCashDrawerShift(RetrieveCashDrawerShiftOperationRequest request,
         RequestOptions? requestOptions = null,

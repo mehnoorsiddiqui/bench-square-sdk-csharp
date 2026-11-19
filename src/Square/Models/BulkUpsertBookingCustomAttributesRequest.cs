@@ -5,7 +5,7 @@ using Square.Core.Models;
 namespace Square.Models;
 
 /// <summary>
-/// Represents a <see href="$e/BookingCustomAttributes/BulkUpsertBookingCustomAttributes">BulkUpsertBookingCustomAttributes</see> request.
+/// Represents a <see href="api-endpoint:BookingCustomAttributes-BulkUpsertBookingCustomAttributes">BulkUpsertBookingCustomAttributes</see> request.
 /// </summary>
 public record BulkUpsertBookingCustomAttributesRequest
 {

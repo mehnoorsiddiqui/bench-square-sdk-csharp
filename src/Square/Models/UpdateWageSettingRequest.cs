@@ -9,7 +9,8 @@ namespace Square.Models;
 public record UpdateWageSettingRequest
 {
     /// <summary>
-    /// An object representing a team member's wage information.
+    /// Represents information about the overtime exemption status, job assignments, and compensation
+    /// for a <see href="entity:TeamMember">team member</see>.
     /// </summary>
     [JsonPropertyName("wage_setting")]
     public required WageSetting WageSetting { get; init; }

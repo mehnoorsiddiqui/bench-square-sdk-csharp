@@ -17,7 +17,7 @@ public record SubscriptionPhase
     public string? Uid { get; init; }
 
     /// <summary>
-    /// Determines the billing cadence of a <see href="$m/Subscription">Subscription</see>
+    /// Determines the billing cadence of a <see href="entity:Subscription">Subscription</see>
     /// </summary>
     [JsonPropertyName("cadence")]
     public required SubscriptionCadence Cadence { get; init; }

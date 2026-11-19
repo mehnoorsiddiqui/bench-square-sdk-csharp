@@ -7,7 +7,7 @@ namespace Square.Models;
 /// <summary>
 /// A filter based on the order <c>customer_id</c> and any tender <c>customer_id</c>
 /// associated with the order. It does not filter based on the
-/// <see href="$m/FulfillmentRecipient">FulfillmentRecipient</see> <c>customer_id</c>.
+/// <see href="entity:FulfillmentRecipient">FulfillmentRecipient</see> <c>customer_id</c>.
 /// </summary>
 public record SearchOrdersCustomerFilter
 {

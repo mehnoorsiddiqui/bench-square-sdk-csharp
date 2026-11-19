@@ -1,11 +1,12 @@
 using System.Text.Json.Serialization;
 using Square.Core.Models;
+using Square.Models.Enums;
 
 namespace Square.Models;
 
 /// <summary>
 /// Describes a request to list payments using
-/// <see href="$e/Payments/ListPayments">ListPayments</see>.
+/// <see href="api-endpoint:Payments-ListPayments">ListPayments</see>.
 /// <para>
 /// The maximum results per page is 100.
 /// </para>
@@ -33,7 +34,7 @@ public record ListPaymentsRequest
     public string? EndTime { get; init; }
 
     /// <summary>
-    /// The order in which results are listed by <c>Payment.created_at</c>:
+    /// The order in which results are listed by <c>ListPaymentsRequest.sort_field</c>:
     /// - <c>ASC</c> - Oldest to newest.
     /// - <c>DESC</c> - Newest to oldest (default).
     /// </summary>
@@ -128,6 +129,26 @@ public record ListPaymentsRequest
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("offline_end_time")]
     public string? OfflineEndTime { get; init; }
+
+    /// <summary>
+    /// Indicates the start of the time range to retrieve payments for, in RFC 3339 format.  The
+    /// range is determined using the <c>updated_at</c> field for each Payment.
+    /// </summary>
+    [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
+    [JsonPropertyName("updated_at_begin_time")]
+    public string? UpdatedAtBeginTime { get; init; }
+
+    /// <summary>
+    /// Indicates the end of the time range to retrieve payments for, in RFC 3339 format.  The
+    /// range is determined using the <c>updated_at</c> field for each Payment.
+    /// </summary>
+    [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
+    [JsonPropertyName("updated_at_end_time")]
+    public string? UpdatedAtEndTime { get; init; }
+
+    [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
+    [JsonPropertyName("sort_field")]
+    public PaymentSortField? SortField { get; init; }
 
     [JsonExtensionData]
     public AdditionalProperties AdditionalProperties { get; init; } = [];
